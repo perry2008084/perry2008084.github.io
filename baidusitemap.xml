@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/09/02/deepwork-reading-note/</loc>
+    <lastmod>2017-09-02T03:01:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>《深度工作》读书笔记</title>
+        <pubTime>2017-09-02T02:58:59.000Z</pubTime>
+        
+        <tag>阅读</tag>
+         
+        <tag>读书笔记</tag>
+         
+        <tag>读书</tag>
+         
+         
+           
+             
+              <breadCrumb title="读书" url="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/09/01/javascript-create-object/</loc>
+    <lastmod>2017-09-01T01:33:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript中对象的几种创建方式</title>
+        <pubTime>2017-09-01T01:26:21.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>对象</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/08/02/nginx-page-forbidden/</loc>
+    <lastmod>2017-08-02T01:38:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>nginx访问页面报403的解决方法</title>
+        <pubTime>2017-08-02T01:30:42.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/07/29/ssh-key-configuration/</loc>
+    <lastmod>2017-07-28T06:37:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>ssh密钥登录配置</title>
+        <pubTime>2017-07-29T06:19:42.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>ssh</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/01/20/i18next-tutorial/</loc>
+    <lastmod>2017-05-14T03:05:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript国际化方案i18next的入门使用</title>
+        <pubTime>2017-01-20T07:57:21.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>i18next</tag>
+         
+        <tag>国际化</tag>
+         
+        <tag>多语言</tag>
+         
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/04/28/linux-cli-search-commands/</loc>
+    <lastmod>2017-04-28T08:30:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux下搜索查找命令</title>
+        <pubTime>2017-04-28T08:27:45.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>cli</tag>
+         
+        <tag>search</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/04/17/git-checkout-a-specific-tag/</loc>
+    <lastmod>2017-04-17T15:21:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git checkout指定tag的代码</title>
+        <pubTime>2017-04-17T15:14:24.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>git</tag>
+         
+        <tag>tag</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/04/09/css-background-guide/</loc>
+    <lastmod>2017-04-09T15:03:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>css中background属性的使用指南</title>
+        <pubTime>2017-04-09T14:37:40.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>background</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/04/09/buy-electromobile-guide/</loc>
+    <lastmod>2017-04-09T04:11:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>电动自行车购买不完全指南</title>
+        <pubTime>2017-04-09T03:18:17.000Z</pubTime>
+        
+        <tag>电动车</tag>
+         
+        <tag>指南</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="http://www.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/04/03/css-anchor-position/</loc>
+    <lastmod>2017-04-03T08:04:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>通过css实现锚点跳转后的位置调整</title>
+        <pubTime>2017-04-03T07:50:09.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>css</tag>
+         
+        <tag>锚</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/03/18/linux-learning-base-knowledge/</loc>
+    <lastmod>2017-04-03T07:52:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux学习-基础知识部分</title>
+        <pubTime>2017-03-18T06:09:20.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/03/23/css-flexbox-intro-1/</loc>
+    <lastmod>2017-03-23T01:48:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>css弹性盒简介之一</title>
+        <pubTime>2017-03-23T01:45:18.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>css</tag>
+         
+        <tag>flexbox</tag>
+         
+        <tag>弹性盒</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/03/22/jquery-i18next-plugin-usage/</loc>
+    <lastmod>2017-03-22T03:35:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>i18next的jquery插件jquery-i18next的使用方法</title>
+        <pubTime>2017-03-22T03:34:21.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>i18next</tag>
+         
+        <tag>国际化</tag>
+         
+        <tag>jquery</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/03/16/every-day-diet-guide/</loc>
+    <lastmod>2017-03-16T15:06:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>程序员养生和每日饮食习惯</title>
+        <pubTime>2017-03-16T14:46:43.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+        <tag>饮食</tag>
+         
+        <tag>养生</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="http://www.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/03/08/disabled-hyperlink-style/</loc>
+    <lastmod>2017-03-11T07:04:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>disable超链接的css样式</title>
+        <pubTime>2017-03-08T02:41:38.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>css</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/03/11/baidumap-get-view-area-and-event-callback-introduction/</loc>
+    <lastmod>2017-03-11T07:02:11.000Z</lastmod>
+    <data>
+        <display>
+        <title>百度地图获取可视区域及回调事件的用法简介</title>
+        <pubTime>2017-03-11T07:00:39.000Z</pubTime>
+        
+        <tag>前端开发，百度地图</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/02/08/opensource-license-series-gpl/</loc>
+    <lastmod>2017-02-23T06:23:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>开源协议系列之GPL</title>
+        <pubTime>2017-02-08T09:43:31.000Z</pubTime>
+        
+        <tag>开源协议</tag>
+         
+        <tag>license</tag>
+         
+        <tag>GPL</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/02/07/opensource-license-series-mozila/</loc>
+    <lastmod>2017-02-23T06:19:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>开源协议系列之Mozila</title>
+        <pubTime>2017-02-07T09:01:52.000Z</pubTime>
+        
+        <tag>开源协议</tag>
+         
+        <tag>license</tag>
+         
+        <tag>Mozila</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/02/06/opensource-license-series-apache/</loc>
+    <lastmod>2017-02-23T06:13:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>开源协议系列之Apache</title>
+        <pubTime>2017-02-06T08:22:14.000Z</pubTime>
+        
+        <tag>开源协议</tag>
+         
+        <tag>license</tag>
+         
+        <tag>Apache</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/01/23/opensource-license-series-bsd/</loc>
+    <lastmod>2017-02-23T06:09:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>开源协议系列之BSD</title>
+        <pubTime>2017-01-23T06:23:31.000Z</pubTime>
+        
+        <tag>开源协议</tag>
+         
+        <tag>license</tag>
+         
+        <tag>BSD</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/02/20/css-custom-li-style/</loc>
+    <lastmod>2017-02-20T09:17:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>自定义li的css样式</title>
+        <pubTime>2017-02-20T09:16:27.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>css</tag>
+         
+        <tag>custom</tag>
+         
+        <tag>自定义</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/02/09/opensource-license-series-creativecommons/</loc>
+    <lastmod>2017-02-09T06:25:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>开源协议系列之Creative Commons</title>
+        <pubTime>2017-02-09T06:24:26.000Z</pubTime>
+        
+        <tag>开源协议</tag>
+         
+        <tag>license</tag>
+         
+        <tag>Creative Commons</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/01/23/opensource-license-series-mit/</loc>
+    <lastmod>2017-01-23T06:07:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>开源协议系列之MIT</title>
+        <pubTime>2017-01-23T06:02:11.000Z</pubTime>
+        
+        <tag>开源协议</tag>
+         
+        <tag>license</tag>
+         
+        <tag>MIT</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/04/angularjs-timeout-interval-service/</loc>
+    <lastmod>2017-01-20T07:59:11.000Z</lastmod>
+    <data>
+        <display>
+        <title>AngularJS的$timeout和$interval服务使用</title>
+        <pubTime>2016-12-04T07:20:22.000Z</pubTime>
+        
+        <tag>angularjs</tag>
+         
+        <tag>$timeout</tag>
+         
+        <tag>$interval</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/01/14/read-list-2017/</loc>
+    <lastmod>2017-01-16T01:24:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>2017年阅读清单</title>
+        <pubTime>2017-01-14T09:19:06.000Z</pubTime>
+        
+        <tag>阅读</tag>
+         
+        <tag>读书</tag>
+         
+        <tag>书单</tag>
+         
+        <tag>2017</tag>
+         
+         
+           
+             
+              <breadCrumb title="读书" url="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/01/14/bt-sites/</loc>
+    <lastmod>2017-01-14T09:17:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>收集一些好用的BT站点</title>
+        <pubTime>2017-01-14T09:08:16.000Z</pubTime>
+        
+        <tag>BT</tag>
+         
+        <tag>下载</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="http://www.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/01/07/wordpress-gravatar-link-modify/</loc>
+    <lastmod>2017-01-11T04:39:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>wordpress头像无法显示的问题解决</title>
+        <pubTime>2017-01-07T06:52:06.000Z</pubTime>
+        
+        <tag>wordpress</tag>
+         
+        <tag>头像</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/12/mac-use-sublime-text-3-cli/</loc>
+    <lastmod>2017-01-11T04:39:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>mac-use-sublime-text-3-cli</title>
+        <pubTime>2016-12-12T14:33:28.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>sublime</tag>
+         
+        <tag>editor</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/06/mac-use-pem-file-ssh-to-server/</loc>
+    <lastmod>2017-01-11T04:39:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>MAC下通过ssh使用PEM文件认证登录AWS的虚拟机</title>
+        <pubTime>2016-12-06T11:31:10.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>ssh</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/21/mac-remote-control/</loc>
+    <lastmod>2017-01-11T04:39:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac下远程控制方法</title>
+        <pubTime>2016-12-21T15:02:33.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+        <tag>remote</tag>
+         
+        <tag>share</tag>
+         
+        <tag>远程控制</tag>
+         
+        <tag>共享桌面</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/13/loader-css-use/</loc>
+    <lastmod>2017-01-11T04:39:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>loader.css的使用入门</title>
+        <pubTime>2016-12-13T15:05:01.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>css</tag>
+         
+        <tag>loader</tag>
+         
+        <tag>loading</tag>
+         
+        <tag>FE</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/13/image-place-website/</loc>
+    <lastmod>2017-01-11T04:38:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>占位图片生成网站推荐</title>
+        <pubTime>2016-12-13T13:40:39.000Z</pubTime>
+        
+        <tag>image</tag>
+         
+        <tag>placement</tag>
+         
+        <tag>recommend</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/11/hexo-theme-use-series-2/</loc>
+    <lastmod>2017-01-11T04:38:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>hexo-theme-use-series-2</title>
+        <pubTime>2016-12-11T09:27:28.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>hexo</tag>
+         
+        <tag>Next</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/03/hexo-theme-use-series-1/</loc>
+    <lastmod>2017-01-11T04:38:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用Hexo的主题Next第一步</title>
+        <pubTime>2016-12-03T13:47:08.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>theme</tag>
+         
+        <tag>Next</tag>
+         
+        <tag>简介</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/09/03/github-multi-account-confusion/</loc>
+    <lastmod>2017-01-11T04:38:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>github-multi-account-confusion</title>
+        <pubTime>2016-09-03T10:23:05.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+        <tag>multi accout</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/09/21/FE-DOM-Priciple-md/</loc>
+    <lastmod>2017-01-11T04:38:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>FE-DOM-Priciple.md</title>
+        <pubTime>2016-09-20T23:27:49.000Z</pubTime>
+        
+        <tag>web</tag>
+         
+        <tag>DOM</tag>
+         
+        <tag>priciple</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/18/data-visualization-js-library-compare/</loc>
+    <lastmod>2017-01-11T04:38:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>前端数据可视化库的选型</title>
+        <pubTime>2016-12-18T15:13:22.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>数据可视化</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>Data Visualization</tag>
+         
+        <tag>D3</tag>
+         
+        <tag>echarts</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/23/data-visualization-basic-concept/</loc>
+    <lastmod>2017-01-11T04:38:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>数据可视化中的几个基本概念</title>
+        <pubTime>2016-12-23T14:51:16.000Z</pubTime>
+        
+        <tag>数据</tag>
+         
+        <tag>数据可视化</tag>
+         
+        <tag>概念</tag>
+         
+        <tag>data</tag>
+         
+        <tag>visualization</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/01/07/chrome-clear-cache-within-develop/</loc>
+    <lastmod>2017-01-11T04:38:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>Chrome浏览器下清除缓存的方法总结</title>
+        <pubTime>2017-01-07T07:19:21.000Z</pubTime>
+        
+        <tag>chrome</tag>
+         
+        <tag>cache</tag>
+         
+        <tag>缓存</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/16/browsersync-hotload-html5mode-config/</loc>
+    <lastmod>2017-01-11T04:37:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用browserSync作为开发环境使用HTML5模式的配置方法</title>
+        <pubTime>2016-12-16T05:48:56.000Z</pubTime>
+        
+        <tag>angularjs</tag>
+         
+        <tag>BrowserSync</tag>
+         
+        <tag>html5</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/24/browser-quirks-and-standard-mode/</loc>
+    <lastmod>2017-01-11T04:37:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>浏览器中的怪异模式和标准模式</title>
+        <pubTime>2016-12-24T08:56:49.000Z</pubTime>
+        
+        <tag>怪异模式</tag>
+         
+        <tag>标准模式</tag>
+         
+        <tag>quirks</tag>
+         
+        <tag>standard</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/07/baidu-map-show-position-error-md/</loc>
+    <lastmod>2017-01-11T04:37:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>百度地图显示位置错误</title>
+        <pubTime>2016-12-07T15:27:23.000Z</pubTime>
+        
+        <tag>baidumap</tag>
+         
+        <tag>map</tag>
+         
+        <tag>前端</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/19/angularjs-production-config/</loc>
+    <lastmod>2017-01-11T04:37:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>AngularJS生产环境下的一些配置</title>
+        <pubTime>2016-12-19T04:18:19.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>AngularJS</tag>
+         
+        <tag>生产环境</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/26/angularjs-modal-window-data-return/</loc>
+    <lastmod>2017-01-11T04:37:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>angularjs中模态窗口$uibModal的数据回传问题</title>
+        <pubTime>2016-12-26T14:42:36.000Z</pubTime>
+        
+        <tag>angularjs</tag>
+         
+        <tag>前端开发</tag>
+         
+        <tag>$uibModal</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/11/19/Angular1-x-Essential-md/</loc>
+    <lastmod>2017-01-11T04:36:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>Angular 1.x 基础知识点(翻译)</title>
+        <pubTime>2016-11-19T04:13:38.000Z</pubTime>
+        
+        <tag>angularjs</tag>
+         
+        <tag>essential</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/12/14/angularjs-config-url-prefix/</loc>
+    <lastmod>2017-01-11T04:36:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>去掉AngularJS的URL中的#</title>
+        <pubTime>2016-12-14T09:45:42.000Z</pubTime>
+        
+        <tag>angularjs</tag>
+         
+        <tag>url</tag>
+         
+        <tag>前端开发</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/09/01/Android-APP-List/</loc>
+    <lastmod>2017-01-11T04:36:11.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android-APP-List</title>
+        <pubTime>2016-09-01T12:59:51.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>APP</tag>
+         
+        <tag>安卓</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://www.bookcell.org/2016/08/30/hello/</loc>
+    <lastmod>2016-09-03T10:35:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>Thanks,Hexo</title>
+        <pubTime>2016-08-30T13:35:04.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>

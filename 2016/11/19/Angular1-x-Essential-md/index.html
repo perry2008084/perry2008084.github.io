@@ -1,0 +1,1121 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="angularjs,essential," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="书格笔记" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="原文题目：Modern Angular 1.x essential interview questions出处：https://toddmotto.com/modern-angular-interview-questions?utm_source=javascriptweekly&amp;amp;utm_medium=email翻译时长：2 hours 30 mins审阅时长：10 min 翻译正文内容：">
+<meta name="keywords" content="angularjs,essential">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 1.x 基础知识点(翻译)">
+<meta property="og:url" content="http://www.bookcell.org/2016/11/19/Angular1-x-Essential-md/index.html">
+<meta property="og:site_name" content="书格笔记">
+<meta property="og:description" content="原文题目：Modern Angular 1.x essential interview questions出处：https://toddmotto.com/modern-angular-interview-questions?utm_source=javascriptweekly&amp;amp;utm_medium=email翻译时长：2 hours 30 mins审阅时长：10 min 翻译正文内容：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-01-11T04:36:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular 1.x 基础知识点(翻译)">
+<meta name="twitter:description" content="原文题目：Modern Angular 1.x essential interview questions出处：https://toddmotto.com/modern-angular-interview-questions?utm_source=javascriptweekly&amp;amp;utm_medium=email翻译时长：2 hours 30 mins审阅时长：10 min 翻译正文内容：">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'F5K4LBFFAQ',
+      apiKey: '7fae5b582054f18d3b464608d432831f',
+      indexName: 'title_Name',
+      hits: {"per_page":5},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.bookcell.org/2016/11/19/Angular1-x-Essential-md/"/>
+
+
+
+
+
+  <title> Angular 1.x 基础知识点(翻译) | 书格笔记 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a08469fe69bde20163091cead076f58a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">书格笔记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2016/11/19/Angular1-x-Essential-md/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Perry">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/totoro.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="书格笔记">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="书格笔记" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Angular 1.x 基础知识点(翻译)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-19T12:13:38+08:00">
+                2016-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/19/Angular1-x-Essential-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/19/Angular1-x-Essential-md/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/19/Angular1-x-Essential-md/" class="leancloud_visitors" data-flag-title="Angular 1.x 基础知识点(翻译)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文题目：Modern Angular 1.x essential interview questions<br>出处：<a href="https://toddmotto.com/modern-angular-interview-questions?utm_source=javascriptweekly&amp;utm_medium=email" target="_blank" rel="external">https://toddmotto.com/modern-angular-interview-questions?utm_source=javascriptweekly&amp;utm_medium=email</a><br>翻译时长：2 hours 30 mins<br>审阅时长：10 min</p>
+<p>翻译正文内容：<br>Angular 1.x 在 1.5 引入 .component()后改变了很多，并随之给面试带来了一片新的天地。在许多<br>之前职位中，我面试了关于Angular、通用JavaScript或者两种兼有的开发者。这是我关于当前Angular<br>1.x的面试题清单，主要关注组件架构和最佳实践。有些简单，有些困难，由你选择。</p>
+<p>有些问题的用意在于让面试者基于他们的经验或者观点来回答。比如，“你什么时候使用X而不是Y”是一个比<br>“为什么X比Y要好”好的问题。这让你可以挖掘得更深，并可以在面试过程中有更好的对话，也让你能快速判断<br>哪个开发者更适合你。</p>
+<blockquote>
+<p>答案并没包含，也不会包含。有部分问题是主题性，有部分鼓励你自学。如果你不知道答案，那么你可以去探索并学习。背诵将不会让你通过面试。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="组件-Components"><a href="#组件-Components" class="headerlink" title="组件(Components)"></a>组件(Components)</h4><ul>
+<li>什么是组件？</li>
+<li>什么时候使用组件而不是指令？</li>
+<li>什么是组件架构？</li>
+<li>有状态组件和无状态组件的区别是什么？</li>
+<li>什么是生命周期钩子，为什么他们很重要？</li>
+<li>什么时候会考虑使用单向数据流而不是双向数据流？</li>
+<li>为什么隔离scope是一个重要概念？</li>
+<li>你是怎么描述”MVC/MVVM”?</li>
+<li>MVC/MVVM和组件架构之间的区别是什么？</li>
+<li>一个组件可以接收到什么类型的绑定？</li>
+<li>你能描述不可变的数据结构吗？(immutable datastructures)</li>
+<li>给一个JavaScript中不可变的操作的例子？(an immutable operation)</li>
+</ul>
+<h4 id="状态管理和数据流-State-management-and-dataflow"><a href="#状态管理和数据流-State-management-and-dataflow" class="headerlink" title="状态管理和数据流(State management and dataflow)"></a>状态管理和数据流(State management and dataflow)</h4><ul>
+<li>你是怎么获取数据到组件中？</li>
+<li>你是怎么从组件中获取数据？</li>
+<li>单向数据流带来的好处是什么？</li>
+<li>双向数据流带来的共通问题是什么？</li>
+<li>你是否使用过$ngRedux或者相似的实现？</li>
+<li>Redux在Angular 1.x的实现带来了什么好处？</li>
+</ul>
+<h4 id="性能和调试-Performance-and-debugging"><a href="#性能和调试-Performance-and-debugging" class="headerlink" title="性能和调试(Performance and debugging)"></a>性能和调试(Performance and debugging)</h4><ul>
+<li>你能指出加快$digest周期的关键吗？</li>
+<li>使用一次绑定表达式的好处？</li>
+<li>在Angular 1.x中导致内存泄漏的原因？</li>
+<li>你是怎么加速一个ng-repeat指令？</li>
+<li>track是怎么工作的？</li>
+<li>$evalAsync和$applyAsync是什么？</li>
+<li>$watch和$watchCollection之间有什么区别？</li>
+<li>解释一下你是怎么尝试调试一个Angular 1.x 的性能问题？</li>
+<li>你熟悉哪些调试工具？</li>
+<li>什么是strict-di模式，它是怎么影响运行时性能的？</li>
+<li>你使用什么工具让Angular运行更快？</li>
+<li>什么是$templateCache?</li>
+</ul>
+<h4 id="模块和内部-Modules-and-internals"><a href="#模块和内部-Modules-and-internals" class="headerlink" title="模块和内部(Modules and internals)"></a>模块和内部(Modules and internals)</h4><ul>
+<li>一个Angular应用的关键组成部分有哪些？</li>
+<li>你是怎么描述一个模块的？</li>
+<li>子模块的应用场景有哪些？</li>
+<li>你从学习Angular源码中学到什么？</li>
+<li>你是怎么异步启动Angular?</li>
+<li>你是怎么一次启动多个应用？</li>
+<li>什么是依赖注入(DI)?</li>
+<li>为什么依赖注入在Angular很有用？</li>
+<li>$digest周期是怎么工作的？</li>
+<li>什么是$rootScope,它和$scope有什么不同？</li>
+<li>你什么使用$scope.$apply，为什么？</li>
+</ul>
+<h4 id="指令-Directives"><a href="#指令-Directives" class="headerlink" title="指令(Directives)"></a>指令(Directives)</h4><ul>
+<li>什么是指令？</li>
+<li>什么指令真正实现双向数据绑定？</li>
+<li>为什么使用ng-click而不是addEventListener?</li>
+<li>你什么问题使用addEventListener?</li>
+<li>什么是link函数，你什么使用应该使用它？</li>
+<li>你是怎么使用link函数来和控制器通信？</li>
+<li>什么样的逻辑应该在link函数中，什么逻辑应该在控制器中？</li>
+<li>什么是编译函数，它会返回什么？</li>
+<li>什么是pre和post链接周期函数？</li>
+<li>为什么compile函数比link函数更有效率？</li>
+<li>什么时候使用指令而不是组件？</li>
+<li>什么是事件指令，什么是结构指令？</li>
+<li>你在使用指令的过程中遇到过什么困难？</li>
+<li>在使用指令的时候，需要避免什么实践？</li>
+<li>指令可以收到什么类型的绑定？</li>
+<li>什么时候可以使用require，并且它能在link上带来什么效果？</li>
+<li>什么是transclusion?</li>
+<li>哪些指令特性你会建议避免？</li>
+<li>哪些指令你会趋向于避免使用，为什么？</li>
+<li>有哪些不同类型的scope？</li>
+<li>什么是JQLite，它有什么限制？</li>
+</ul>
+<h3 id="表单-Forms"><a href="#表单-Forms" class="headerlink" title="表单(Forms)"></a>表单(Forms)</h3><ul>
+<li>你是怎么使用表达控制器来实现表单验证的？</li>
+<li>dirty,pristine,touched和untouched的含义？</li>
+<li>Angular 1.x 的表达有哪些局限？</li>
+<li>內建的验证工具有哪些？</li>
+<li>$parsers和$formatters是什么，在什么时候该使用？</li>
+<li>什么是$validators管道，什么是该使用？</li>
+<li>什么是ngModelOptions,它是一个好的指令实现吗？</li>
+</ul>
+<h3 id="路由-Routing-ui-router-1-0-0"><a href="#路由-Routing-ui-router-1-0-0" class="headerlink" title="路由(Routing - ui-router 1.0.0)"></a>路由(Routing - ui-router 1.0.0)</h3><ul>
+<li>什么是路由？</li>
+<li>什么是组件路由？</li>
+<li>你一般在什么时候使用模板路由，如果有的话？</li>
+<li>什么是动态路由，你是怎么实现的？</li>
+<li>什么是“HTML5模式”？</li>
+<li>你是怎么实现只有在数据有效的情况才渲染一个视图？</li>
+<li>什么是过渡钩子(transition hooks)，它在路由中扮演什么角色？</li>
+<li>你是怎么创建兄弟视图？</li>
+</ul>
+<h3 id="控制器-Controllers"><a href="#控制器-Controllers" class="headerlink" title="控制器(Controllers)"></a>控制器(Controllers)</h3><ul>
+<li>控制器扮演的角色是什么？</li>
+<li>你是怎么将数据导入到控制器中的？</li>
+<li>什么时候使用$scope.$watch？应该吗？怎么unwatch?</li>
+<li>解释什么时候使用controllerAs，它带来的效果是什么？</li>
+<li>什么时候应该在控制器内使用$scope？</li>
+<li>什么时候应该考虑使用嵌套控制器？这是最佳实践吗？</li>
+</ul>
+<h3 id="过滤器-Filters"><a href="#过滤器-Filters" class="headerlink" title="过滤器(Filters)"></a>过滤器(Filters)</h3><ul>
+<li>什么是过滤器？</li>
+<li>过滤器是怎么工作的？</li>
+<li>什么方式是性能最好的过滤数据方式，为什么？</li>
+<li>你是怎么在模板中同时使用多个过滤器？</li>
+<li>你是怎么在控制器中同时使用多个过滤器？</li>
+<li>怎么传递参数给一个自定义的过滤器？</li>
+</ul>
+<h3 id="服务和HTTP-Services-and-HTTP"><a href="#服务和HTTP-Services-and-HTTP" class="headerlink" title="服务和HTTP(Services and HTTP)"></a>服务和HTTP(Services and HTTP)</h3><ul>
+<li>什么是service？</li>
+<li>什么是factory？</li>
+<li>什么是provider？</li>
+<li>services和factory都提倡什么设计模式？</li>
+<li>在Angular应用中，service的角色是什么？</li>
+<li>$http和$resource的区别？</li>
+<li>什么时候使用$resource比$http有意义？</li>
+<li>什么是Promise?指出几个Angular使用它们的例子？</li>
+<li>什么是$q,什么时候使用？</li>
+<li>什么是http拦截器，什么是好的使用案例？</li>
+<li>你实现过哪些不同类型的认证？</li>
+</ul>
+<h3 id="事件-Events"><a href="#事件-Events" class="headerlink" title="事件(Events)"></a>事件(Events)</h3><ul>
+<li>在Angular 1.x中什么时候该使用事件？</li>
+<li>$emit和$broadcast的区别？</li>
+<li>$scope.$emit和$rootScope.$emit的区别？</li>
+<li>在$scope和$rootScope中对事件解绑的区别？</li>
+</ul>
+<h3 id="测试和工具-Testing-and-tooling"><a href="#测试和工具-Testing-and-tooling" class="headerlink" title="测试和工具(Testing and tooling)"></a>测试和工具(Testing and tooling)</h3><ul>
+<li>单元测试和端到端测试的不同？</li>
+<li>单元测试的工具？</li>
+<li>端到端测试的工具？</li>
+<li>你熟悉的工具？</li>
+<li>描述一下懒加载的工作原理？</li>
+<li>什么编译流程对加快Angular应用有效？</li>
+<li>你在使用ES6编译器或者TypeScript吗？</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angularjs/" rel="tag"># angularjs</a>
+          
+            <a href="/tags/essential/" rel="tag"># essential</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/21/FE-DOM-Priciple-md/" rel="next" title="FE-DOM-Priciple.md">
+                <i class="fa fa-chevron-left"></i> FE-DOM-Priciple.md
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/03/hexo-theme-use-series-1/" rel="prev" title="使用Hexo的主题Next第一步">
+                使用Hexo的主题Next第一步 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/totoro.jpg"
+               alt="Perry" />
+          <p class="site-author-name" itemprop="name">Perry</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">100</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件-Components"><span class="nav-number">1.</span> <span class="nav-text">组件(Components)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#状态管理和数据流-State-management-and-dataflow"><span class="nav-number">2.</span> <span class="nav-text">状态管理和数据流(State management and dataflow)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能和调试-Performance-and-debugging"><span class="nav-number">3.</span> <span class="nav-text">性能和调试(Performance and debugging)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块和内部-Modules-and-internals"><span class="nav-number">4.</span> <span class="nav-text">模块和内部(Modules and internals)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令-Directives"><span class="nav-number">5.</span> <span class="nav-text">指令(Directives)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单-Forms"><span class="nav-number"></span> <span class="nav-text">表单(Forms)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由-Routing-ui-router-1-0-0"><span class="nav-number"></span> <span class="nav-text">路由(Routing - ui-router 1.0.0)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器-Controllers"><span class="nav-number"></span> <span class="nav-text">控制器(Controllers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器-Filters"><span class="nav-number"></span> <span class="nav-text">过滤器(Filters)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务和HTTP-Services-and-HTTP"><span class="nav-number"></span> <span class="nav-text">服务和HTTP(Services and HTTP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件-Events"><span class="nav-number"></span> <span class="nav-text">事件(Events)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试和工具-Testing-and-tooling"><span class="nav-number"></span> <span class="nav-text">测试和工具(Testing and tooling)</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'mdeditorwin';
+      var disqus_identifier = '2016/11/19/Angular1-x-Essential-md/';
+
+      var disqus_title = "Angular 1.x 基础知识点(翻译)";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("8lR2tFbd0yS6tMjtGQoKFGJu-gzGzoHsz", "A3GwNmyaYz484CFzLpAFxJ3O");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

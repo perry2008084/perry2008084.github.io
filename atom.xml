@@ -1,0 +1,1226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>书格笔记</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.bookcell.org/"/>
+  <updated>2017-09-02T03:01:09.000Z</updated>
+  <id>http://www.bookcell.org/</id>
+  
+  <author>
+    <name>Perry</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《深度工作》读书笔记</title>
+    <link href="http://www.bookcell.org/2017/09/02/deepwork-reading-note/"/>
+    <id>http://www.bookcell.org/2017/09/02/deepwork-reading-note/</id>
+    <published>2017-09-02T02:58:59.000Z</published>
+    <updated>2017-09-02T03:01:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>《深度工作》阅读时间:2017.7.15~ 2017.9.1<br>利用这段零碎的世界，读完了这本书，简单总结下学到的内容。</p>
+<h2 id="深度工作带来的效益"><a href="#深度工作带来的效益" class="headerlink" title="深度工作带来的效益"></a>深度工作带来的效益</h2><p>深度工作带来的经济效益，不管是工程型或者学术型的工作，深度的工作均可以带来更为丰厚的成果。</p>
+<p>深度工作带来的长期影响，除了短期的经济效益，养成深度工作的习惯，可以为长远的发展产生有益的影响。<br>养成深度工作的习惯，可以将平时浪费掉的时间，转化为学习的时间。</p>
+<h2 id="深度工作的方法"><a href="#深度工作的方法" class="headerlink" title="深度工作的方法"></a>深度工作的方法</h2><ul>
+<li>工作要深度，可以去书中寻找一种适合自己的方式进行深度工作模式</li>
+<li>拥抱无聊，坚持专注</li>
+<li>远离社交媒体，至少能够保持低频率的使用社交应用</li>
+<li>摒弃浮浅，减少浮浅的工作内容</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《深度工作》阅读时间:2017.7.15~ 2017.9.1&lt;br&gt;利用这段零碎的世界，读完了这本书，简单总结下学到的内容。&lt;/p&gt;
+&lt;h2 id=&quot;深度工作带来的效益&quot;&gt;&lt;a href=&quot;#深度工作带来的效益&quot; class=&quot;headerlink&quot; title=&quot;深度工作
+    
+    </summary>
+    
+      <category term="读书" scheme="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+      <category term="阅读" scheme="http://www.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+      <category term="读书笔记" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript中对象的几种创建方式</title>
+    <link href="http://www.bookcell.org/2017/09/01/javascript-create-object/"/>
+    <id>http://www.bookcell.org/2017/09/01/javascript-create-object/</id>
+    <published>2017-09-01T01:26:21.000Z</published>
+    <updated>2017-09-01T01:33:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录JavaScript中创建对象的几种方法。</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式是一种设计模式，抽象创建具体对象的过程，用函数来封装特定接口并创建对象的细节。</p>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/* 工厂模式 */</div><div class="line">function createPerson(name, age, job) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.job = job;</div><div class="line">    o.sayName = function() &#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = createPerson(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);</div><div class="line">var person2 = createPerson(&quot;Greg&quot;, 27, &quot;Doctor&quot;);</div><div class="line"></div><div class="line">console.log(person1);</div><div class="line">console.log(person2);</div></pre></td></tr></table></figure></p>
+<p>优点:<br>解决创建多个相似对象。</p>
+<p>缺点：<br>没有解决对象识别的问题。</p>
+<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><p>构造函数模式，通过创建自定义的构造函数，定义自定义对象类型的属性和方法。</p>
+<p>构造函数，函数名开头使用大写字母。0</p>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 构造函数</div><div class="line">function Person(name, age, job) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.sayName = function() &#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = new Person(&quot;Perry&quot;, 27, &quot;FE&quot;);</div><div class="line">var person2 = new Person(&quot;Kobe&quot;, 33, &quot;Player&quot;);</div><div class="line"></div><div class="line">console.log(person1);</div><div class="line">console.log(person2);</div></pre></td></tr></table></figure></p>
+<p>优点：<br>1、不需要显示的创建对象。<br>2、它的实例可以标识为一种特定的类型。</p>
+<p>缺点：<br>1、每个方法要在每个实例上重新创建一遍。</p>
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>通过函数的prototype属性进行所有实例共享来添加属性和方法。</p>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 原型模式</div><div class="line">function Person() &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.name = &quot;Nicholas&quot;;</div><div class="line">Person.prototype.age = 29;</div><div class="line">Person.prototype.job = &quot;Software Engineer&quot;;</div><div class="line">Person.prototype.sayName = function() &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = new Person();</div><div class="line">person1.sayName();</div><div class="line"></div><div class="line">var person2 = new Person();</div><div class="line">person2.sayName();</div><div class="line"></div><div class="line">console.log(person1.sayName == person2.sayName);</div></pre></td></tr></table></figure></p>
+<p>优点：<br>各实例之间可共享属性和方法。</p>
+<p>缺点：<br>引用类型的属性，实例无法拥有自己的数据。</p>
+<h2 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h2><p>组合使用，构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Person(name, age, job) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.friends = [&quot;Shelby&quot;, &quot;Court&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype = &#123;</div><div class="line">    constructor: Person,</div><div class="line">    sayName: function() &#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>优点：<br>方法可由所有实例共享，引用类型数据可保持独立。<br>使用广泛。</p>
+<p>缺点：<br>无</p>
+<h2 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h2><p>所有的信息都封装在构造函数中。</p>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 动态原型模式</div><div class="line">function Person(name, age, job) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line"></div><div class="line">    if (typeof this.sayName != &quot;function&quot;) &#123;</div><div class="line">        Person.prototype.sayName = function() &#123;</div><div class="line">            console.log(this.name);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var friend = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);</div><div class="line">friend.sayName();</div></pre></td></tr></table></figure></p>
+<p>优点：<br>封装性好。</p>
+<p>缺点：<br>不能使用对象字面量重新原型。</p>
+<h2 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h2><p>通过函数封装创建对象的代码，并返回新创建的对象。</p>
+<p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 寄生构造函数模式</div><div class="line">function SpecialArray() &#123;</div><div class="line">    var values = new Array();</div><div class="line"></div><div class="line">    values.push.apply(values, arguments);</div><div class="line"></div><div class="line">    values.toPipedString = function() &#123;</div><div class="line">        return this.join(&quot;|&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return values;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var colors = new SpecialArray(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;);</div><div class="line">console.log(colors.toPipedString());</div></pre></td></tr></table></figure>
+<p>优点：<br>其他模式不适用的情况下使用。</p>
+<p>缺点：<br>无法使用instanceof来确定对象的类型。<br>尽量不使用此模式。</p>
+<h2 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h2><p>新创建对象的实例方法不引用this;不使用new操作符调用构造函数。</p>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 稳妥构造函数模式</div><div class="line">function Person(name, age, job) &#123;</div><div class="line">    var o = new Object();</div><div class="line"></div><div class="line">    o.sayName = function() &#123;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var friend = Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);</div><div class="line">friend.sayName();</div></pre></td></tr></table></figure></p>
+<p>优点：<br>提供安全性，只用通过调用方法访问数据成员。</p>
+<p>缺点：<br>无法确定对象类型。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录JavaScript中创建对象的几种方法。&lt;/p&gt;
+&lt;h2 id=&quot;工厂模式&quot;&gt;&lt;a href=&quot;#工厂模式&quot; class=&quot;headerlink&quot; title=&quot;工厂模式&quot;&gt;&lt;/a&gt;工厂模式&lt;/h2&gt;&lt;p&gt;工厂模式是一种设计模式，抽象创建具体对象的过程，用函数来封装特
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="JavaScript" scheme="http://www.bookcell.org/tags/JavaScript/"/>
+    
+      <category term="对象" scheme="http://www.bookcell.org/tags/%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx访问页面报403的解决方法</title>
+    <link href="http://www.bookcell.org/2017/08/02/nginx-page-forbidden/"/>
+    <id>http://www.bookcell.org/2017/08/02/nginx-page-forbidden/</id>
+    <published>2017-08-02T01:30:42.000Z</published>
+    <updated>2017-08-02T01:38:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>近期搭建一个Wordpress站点，前期的准备工作完成，登录界面登录成功后，<br>显示的页面为403，禁止访问。</p>
+<p>在网上搜索后，发现问题在于权限的问题，主要是页面文件所在的文件夹的访问<br>权限。由于nginx默认使用的用户权限无法访问页面的文件，导致报的403。</p>
+<p>解决方法：</p>
+<p>1、打开nginx.conf文件修改启动用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /user/local/nginx/conf/nginx.conf</div></pre></td></tr></table></figure></p>
+<p>修改开头的用户，</p>
+<p>#user nobody</p>
+<p>改为<br>user nginx web;</p>
+<p>或者其他用户，格式为用户[空格]用户组</p>
+<p>2、重新启动nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /user/local/nginx/sbin/nginx -s reload</div></pre></td></tr></table></figure></p>
+<p>此时，重新测试，应该就可以访问成功了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近期搭建一个Wordpress站点，前期的准备工作完成，登录界面登录成功后，&lt;br&gt;显示的页面为403，禁止访问。&lt;/p&gt;
+&lt;p&gt;在网上搜索后，发现问题在于权限的问题，主要是页面文件所在的文件夹的访问&lt;br&gt;权限。由于nginx默认使用的用户权限无法访问页面的文件，导致报的
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="linux" scheme="http://www.bookcell.org/tags/linux/"/>
+    
+      <category term="nginx" scheme="http://www.bookcell.org/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ssh密钥登录配置</title>
+    <link href="http://www.bookcell.org/2017/07/29/ssh-key-configuration/"/>
+    <id>http://www.bookcell.org/2017/07/29/ssh-key-configuration/</id>
+    <published>2017-07-29T06:19:42.000Z</published>
+    <updated>2017-07-28T06:37:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>配置密钥可使用户免密ssh方式登录服务器。</p>
+<p>配置方法：</p>
+<h2 id="生成密钥对"><a href="#生成密钥对" class="headerlink" title="生成密钥对"></a>生成密钥对</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen</div></pre></td></tr></table></figure>
+<p>此处可选择生成密钥的文件路径，默认为~/.ssh/id_rsa<br>密码为可选。</p>
+<h2 id="拷贝公钥到服务器"><a href="#拷贝公钥到服务器" class="headerlink" title="拷贝公钥到服务器"></a>拷贝公钥到服务器</h2><h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-copy-id -i ~/.ssh/id_rsa.pub xxx@host</div></pre></td></tr></table></figure>
+<h3 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h3><p>手动拷贝id_rsa.pub到服务器上，并收到添加认证文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure></p>
+<h2 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h2><p>配置服务器上/etc/ssh/sshd_config文件，修改以下配置项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RSAAuthentication yes</div><div class="line">PubkeyAuthentication yes</div><div class="line">AuthorizedKeysFile  .ssh/authorized_keys</div></pre></td></tr></table></figure></p>
+<p>修改后，重启sshd服务，根据不同的系统使用相应命令</p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>直接登录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh user@host</div></pre></td></tr></table></figure>
+<p>如果配置成功，则不需要密码直接登录。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="配置成功后，仍提示密码输入"><a href="#配置成功后，仍提示密码输入" class="headerlink" title="配置成功后，仍提示密码输入"></a>配置成功后，仍提示密码输入</h3><p>主要原因在于服务器上认证文件及所在目录的权限问题</p>
+<p>详情排查步骤可查看文章<a href="http://zouqingyun.blog.51cto.com/782246/1874410" target="_blank" rel="external">配置ssh公钥登录提示还是输入密码</a></p>
+<p>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod 755 ~/home/xxxuser</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;配置密钥可使用户免密ssh方式登录服务器。&lt;/p&gt;
+&lt;p&gt;配置方法：&lt;/p&gt;
+&lt;h2 id=&quot;生成密钥对&quot;&gt;&lt;a href=&quot;#生成密钥对&quot; class=&quot;headerlink&quot; title=&quot;生成密钥对&quot;&gt;&lt;/a&gt;生成密钥对&lt;/h2&gt;&lt;figure class=&quot;high
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="linux" scheme="http://www.bookcell.org/tags/linux/"/>
+    
+      <category term="ssh" scheme="http://www.bookcell.org/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下搜索查找命令</title>
+    <link href="http://www.bookcell.org/2017/04/28/linux-cli-search-commands/"/>
+    <id>http://www.bookcell.org/2017/04/28/linux-cli-search-commands/</id>
+    <published>2017-04-28T08:27:45.000Z</published>
+    <updated>2017-04-28T08:30:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搜索查找命令"><a href="#搜索查找命令" class="headerlink" title="搜索查找命令"></a>搜索查找命令</h1><h2 id="which-显示命令的完整路径"><a href="#which-显示命令的完整路径" class="headerlink" title="which - 显示命令的完整路径"></a>which - 显示命令的完整路径</h2><p>说明：<br>查找命令的路径</p>
+<h2 id="locate-根据用户权限索引和搜索系统中的所有文件"><a href="#locate-根据用户权限索引和搜索系统中的所有文件" class="headerlink" title="locate - 根据用户权限索引和搜索系统中的所有文件"></a>locate - 根据用户权限索引和搜索系统中的所有文件</h2><p>说明：<br>updatedb用于更新索引数据库</p>
+<h2 id="find-查找一个目录下的文件"><a href="#find-查找一个目录下的文件" class="headerlink" title="find - 查找一个目录下的文件"></a>find - 查找一个目录下的文件</h2><p>说明：</p>
+<h3 id="通过名称搜索"><a href="#通过名称搜索" class="headerlink" title="通过名称搜索"></a>通过名称搜索</h3><p>find -name “query”</p>
+<h3 id="忽略大小写搜索"><a href="#忽略大小写搜索" class="headerlink" title="忽略大小写搜索"></a>忽略大小写搜索</h3><p>find -iname “query”</p>
+<h3 id="查找不包含的搜索"><a href="#查找不包含的搜索" class="headerlink" title="查找不包含的搜索"></a>查找不包含的搜索</h3><p>find -not -name “query”<br>find ! -name “query”</p>
+<h3 id="通过类型搜索"><a href="#通过类型搜索" class="headerlink" title="通过类型搜索"></a>通过类型搜索</h3><p>find -type type_descriptor query<br>f: regular file<br>d: directory<br>I: symbolic link<br>c: character devices<br>b: block devices</p>
+<p>find / -type c<br>find / -type f -name “*.conf”</p>
+<h3 id="通过时间和大小过滤"><a href="#通过时间和大小过滤" class="headerlink" title="通过时间和大小过滤"></a>通过时间和大小过滤</h3><p>c: bytes<br>k: Kilobytes<br>M: Megabytes<br>G: Gigabytes<br>b: 512-byte blocks</p>
+<p>find / -size 50c<br>find / -size -50c<br>find / -size +700M</p>
+<p>Access Time: 上一次读写时间<br>Modification Time: 上一次文件内容修改的时间<br>Change Time: 上一次节点元数据修改时间</p>
+<p>find / -mtime 1<br>find / -atime -1<br>find / -ctime +3</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-find-and-locate-to-search-for-files-on-a-linux-vps" target="_blank" rel="external">参考</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;搜索查找命令&quot;&gt;&lt;a href=&quot;#搜索查找命令&quot; class=&quot;headerlink&quot; title=&quot;搜索查找命令&quot;&gt;&lt;/a&gt;搜索查找命令&lt;/h1&gt;&lt;h2 id=&quot;which-显示命令的完整路径&quot;&gt;&lt;a href=&quot;#which-显示命令的完整路径&quot; class
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="linux" scheme="http://www.bookcell.org/tags/linux/"/>
+    
+      <category term="cli" scheme="http://www.bookcell.org/tags/cli/"/>
+    
+      <category term="search" scheme="http://www.bookcell.org/tags/search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git checkout指定tag的代码</title>
+    <link href="http://www.bookcell.org/2017/04/17/git-checkout-a-specific-tag/"/>
+    <id>http://www.bookcell.org/2017/04/17/git-checkout-a-specific-tag/</id>
+    <published>2017-04-17T15:14:24.000Z</published>
+    <updated>2017-04-17T15:21:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候，想要拉取特定标签的代码，比如说1.0.0标签名的代码？</p>
+<h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone</div></pre></td></tr></table></figure>
+<p>先使用git clone克隆这个代码仓库。</p>
+<h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git tag -l</div><div class="line">$ git checkout tags/&lt;tag_name&gt;</div></pre></td></tr></table></figure>
+<p>克隆完代码仓库后，通过检出特定标签的代码。</p>
+<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout tags/&lt;tag_name&gt; -b &lt;branch_name&gt;</div></pre></td></tr></table></figure>
+<p>更好的方法，检出代码后创建一个新的分支，否则你将会在一个用标签版本号命名的分支上。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://stackoverflow.com/questions/791959/download-a-specific-tag-with-git" target="_blank" rel="external">Download a specific tag with Git</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候，想要拉取特定标签的代码，比如说1.0.0标签名的代码？&lt;/p&gt;
+&lt;h2 id=&quot;clone&quot;&gt;&lt;a href=&quot;#clone&quot; class=&quot;headerlink&quot; title=&quot;clone&quot;&gt;&lt;/a&gt;clone&lt;/h2&gt;&lt;figure class=&quot;highlig
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="git" scheme="http://www.bookcell.org/tags/git/"/>
+    
+      <category term="tag" scheme="http://www.bookcell.org/tags/tag/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css中background属性的使用指南</title>
+    <link href="http://www.bookcell.org/2017/04/09/css-background-guide/"/>
+    <id>http://www.bookcell.org/2017/04/09/css-background-guide/</id>
+    <published>2017-04-09T14:37:40.000Z</published>
+    <updated>2017-04-09T15:03:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>css中关于background属性的用法，经常会使用到，并且老是记不清，这里做一下总结，方便后面开发查阅。</p>
+<h2 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a>background-image</h2><p>背景图像路径：<br>该属性允许在任何HTML元素中放置图像，默认情况下背景图像会自动重复并充满整个块。</p>
+<p>使用说明：<br>指向图像的路径跟在url字母之后，并位于圆括号和引号之后。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  background-image: url(&quot;images/pattern.gif&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="background-repeat"><a href="#background-repeat" class="headerlink" title="background-repeat"></a>background-repeat</h2><p>背景图像重复：<br>该属性设定图像是否重复及重复的方向。</p>
+<p>使用说明：</p>
+<ul>
+<li><p>repeat<br>该属性值，允许背景图像在水平方向和垂直方向上进行重复（默认值）。</p>
+</li>
+<li><p>repeat-x<br>背景图像只在水平方向上进行重复。</p>
+</li>
+<li><p>repeat-y<br>背景图像只在垂直方向上进行重复。</p>
+</li>
+<li><p>no-repeat<br>背景图像只显示一次。</p>
+</li>
+</ul>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  background-image: url(&quot;images/header.gif&quot;);</div><div class="line">  background-repeat: repeat-x;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="background-attachment"><a href="#background-attachment" class="headerlink" title="background-attachment"></a>background-attachment</h2><p>背景图像附着：<br>指定背景图像在用户滚动页面时的移动方式，是位置固定不变，还是随页面滚动。</p>
+<ul>
+<li><p>fixed<br>背景图像固定在页面中的一个位置。</p>
+</li>
+<li><p>scroll<br>背景图像随用户上下滚动页面而上线移动。</p>
+</li>
+</ul>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  background-image: url(&apos;images/tulip.gif&apos;);</div><div class="line">  background-repeat: no-repeat;</div><div class="line">  background-attachment: fixed;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="background-position"><a href="#background-position" class="headerlink" title="background-position"></a>background-position</h2><p>背景图像定位：<br>指定背景图像在浏览器窗口中的位置。</p>
+<p>使用说明：<br>该属性通常有一对值，第一个值表示水平位置，第二个值表示垂直位置；如果只指定一个值，则第二个值默认为center；支持预定值、像素值、百分比。</p>
+<p>预定值：</p>
+<ul>
+<li>left top</li>
+<li>left center</li>
+<li>left bottom</li>
+<li>center top</li>
+<li>center center</li>
+<li>center bottom</li>
+<li>right top</li>
+<li>right center</li>
+<li>right bottom</li>
+</ul>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  background-image: url(&quot;images/tulip.gif&quot;);</div><div class="line">  background-repeat: no-repeat;</div><div class="line">  background-position: center top;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>背景：<br>这个属性是上述几个属性的简写，属性的顺序有严格要求：</p>
+<ol>
+<li>background-color</li>
+<li>background-image</li>
+<li>background-repeat</li>
+<li>background-attachment</li>
+<li>background-position</li>
+</ol>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  background: #ffffff url(&quot;images/tulip.gif&quot;) no-repat top right;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="雪碧图-sprite"><a href="#雪碧图-sprite" class="headerlink" title="雪碧图(sprite)"></a>雪碧图(sprite)</h2><p>通过使用背景图片的不同位置属性，来使用一张图片上的不同小图片。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>《HTML&amp;CSS设计与构建网站》-Jon Duckett</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;css中关于background属性的用法，经常会使用到，并且老是记不清，这里做一下总结，方便后面开发查阅。&lt;/p&gt;
+&lt;h2 id=&quot;background-image&quot;&gt;&lt;a href=&quot;#background-image&quot; class=&quot;headerlink&quot; title
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
+    
+      <category term="background" scheme="http://www.bookcell.org/tags/background/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电动自行车购买不完全指南</title>
+    <link href="http://www.bookcell.org/2017/04/09/buy-electromobile-guide/"/>
+    <id>http://www.bookcell.org/2017/04/09/buy-electromobile-guide/</id>
+    <published>2017-04-09T03:18:17.000Z</published>
+    <updated>2017-04-09T04:11:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>年初的时候，也就是刚过完年，准备弄个电动自行车（后续简称为电动车），方便平时的生活，主要是周末进行买菜以及附近的办事。<br>购买之后，使用了将近2个多月的时间，心得体会是，生活的半径确实扩大了，有一些地铁和公交不方便达到的地方，有时候想去也会去看看了。虽然电动车的行程没有汽车的覆盖范围广，但是两者的功能职责是不同的，汽车的购买也在计划中了。</p>
+<p>这里就列举下购买电动车的一些心得：</p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>这里的定位，主要是你想购买的电动车的用途、重量、续航。</p>
+<p>所谓的用途，有点类似你的目标，你想要电动车做什么事。比如说上下班通勤、周末买菜、运送小件货物等等。</p>
+<p>重量和续航，会影响到后续的使用，锂电池和铅酸电池的电动车重量不一样，另外，不同的车架重量也不一样。</p>
+<p>续航，影响到日常的使用，通常充满电在50公里的行程比较多，也有60~80公里的行程，更多的是100公里。超长续航的比较少，代价是更重的电池和价格。</p>
+<p>购买之前，先想清楚，购买电动车的定位，方便下一步筛选。</p>
+<h2 id="预算"><a href="#预算" class="headerlink" title="预算"></a>预算</h2><p>根据第一步所想得定位，可初步筛选出相应功能的电动车品牌所对应的车型，这一步，就要确定一下购买的预算。</p>
+<p>车架不同，价格有大概1K左右的预算，简单车架的电动车一般在2k左右，完整车架的电动车一般在3~4k左右(简单车架和完整车架为我自己创的，方便描述)</p>
+<p>确定了预算之后，就可以进一步排除筛选的范围，直到确定想买的车型。</p>
+<h2 id="选车"><a href="#选车" class="headerlink" title="选车"></a>选车</h2><p>确定了定位和预算之后，这一步就要从众多的电动车品牌中选一出一款自己喜欢的车子。每个人的诉求不同，性价比、颜值、续航、重量、品牌粉、广告代言明星粉(胡歌^_^)等等</p>
+<p>这里罗列一下国内主要的电动车品牌，供参考：</p>
+<ul>
+<li>小牛</li>
+<li>雅迪</li>
+<li>绿源</li>
+<li>爱玛</li>
+<li>新日</li>
+<li>立马</li>
+<li>台铃</li>
+<li>绿佳</li>
+<li>比德文</li>
+<li>小刀</li>
+<li>小鸟</li>
+</ul>
+<p>讲一下我购买前关注的比较多的品牌情况，小牛、雅迪、绿源、爱玛。</p>
+<p>1、小牛<br>主要生产锂电池电动车，外形比较酷，续航很不错，稍微高端一点的车型还配有app监控服务，另外还提供保险。缺点是价格偏高，价位在4500以上依车型而定。<br>本来是很中意小牛的，最终没有买，一来是价格偏高，二来是担心被盗心疼。</p>
+<p>2、雅迪<br>算是国内电动车的第一品牌，有铅酸电池和锂电池的电动车可供选择，续航和售后还不错，价格属于中上，配套服务没有小牛的好，目前雅迪应该是走偏高端的路线。<br>我最终购买了雅迪的铅酸电池的一款车，买的是60V的电池，续航还不错，在60~80公里的样子，主要是我老婆看中了车子的颜值。</p>
+<p>3、绿源<br>车子的外观和雅迪相似，功能上也和雅迪相近，价格比雅迪偏低一点，也是一个不错的选择，性能上没有测试过。</p>
+<p>4、爱玛<br>爱玛是从自行车出身的，因此车架上会更偏向自行车一些，走得偏低端的路线。</p>
+<p>以上这些情况，供大家参考，实际购买的时候，需要找几家门店去看看实际的车子，包括看外观、试骑等等。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>说说购买电动车之后的使用情况，主要是平时周末的时候买菜和出去周边游玩。</p>
+<ul>
+<li><p>载人和物<br>可以带一个人，可以带超市购买的物品完全没有问题，只是不是大件。曾经带过最大的一件物品是，从宜家拖了一个花架，大概有1.7米的高度。</p>
+</li>
+<li><p>续航<br>平时走的公里，坡度普遍不高的情况，一般充满电，可使用70公里以上。就平时周末使用，一周充一次电的频率。</p>
+</li>
+<li><p>重量<br>这里不得不吐槽，购买的铅酸电池及完整车架的电动车，重量太重了，上下楼很费劲，平时推一下挪一下都要费力。如果是在意车子重量的，建议买锂电池的车。</p>
+</li>
+</ul>
+<p>以上所有内容为购买过程中的心得体会，有不足的地方，欢迎提问或者讨论</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;年初的时候，也就是刚过完年，准备弄个电动自行车（后续简称为电动车），方便平时的生活，主要是周末进行买菜以及附近的办事。&lt;br&gt;购买之后，使用了将近2个多月的时间，心得体会是，生活的半径确实扩大了，有一些地铁和公交不方便达到的地方，有时候想去也会去看看了。虽然电动车的行程没有
+    
+    </summary>
+    
+      <category term="生活" scheme="http://www.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="电动车" scheme="http://www.bookcell.org/tags/%E7%94%B5%E5%8A%A8%E8%BD%A6/"/>
+    
+      <category term="指南" scheme="http://www.bookcell.org/tags/%E6%8C%87%E5%8D%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过css实现锚点跳转后的位置调整</title>
+    <link href="http://www.bookcell.org/2017/04/03/css-anchor-position/"/>
+    <id>http://www.bookcell.org/2017/04/03/css-anchor-position/</id>
+    <published>2017-04-03T07:50:09.000Z</published>
+    <updated>2017-04-03T08:04:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>设计导航菜单的过程中，有时候会涉及到二级子菜单，外部的或者是内部页面页面的跳转，这个时候，锚点可能会派上场。</p>
+<p>其中使用锚点进行页面的各部分内容跳转，有时候页面的导航栏是使用固定定位(fixed)的布局，可能会导致标题遮挡部分跳转后的内容，因此，需要对锚点调整后的位置进行偏移。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>通过使用css实现锚点跳转后的位置调整：</p>
+<p>定义一个class:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.named-target &#123;</div><div class="line">  padding-top: 50px;</div><div class="line">  margin-top: -50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将这个class赋给锚点或者锚点后的元素即可。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>字面上的原理可以理解为元素外边距向上移动了50像素，使用上内边距给抵消了。<br>内在的原理，我还没理解，待理解了再更新。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;设计导航菜单的过程中，有时候会涉及到二级子菜单，外部的或者是内部页面页面的跳转，这个时候，锚点可能会派上场。&lt;/p&gt;
+&lt;p&gt;其中使用锚点进行页面的各部分内容跳转，有时候页面的导航栏是使用固定定位(fixed)的布局，可能会导致标题遮挡部分跳转后的内容，因此，需要对锚点调整后
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
+    
+      <category term="锚" scheme="http://www.bookcell.org/tags/%E9%94%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css弹性盒简介之一</title>
+    <link href="http://www.bookcell.org/2017/03/23/css-flexbox-intro-1/"/>
+    <id>http://www.bookcell.org/2017/03/23/css-flexbox-intro-1/</id>
+    <published>2017-03-23T01:45:18.000Z</published>
+    <updated>2017-03-23T01:48:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>css布局经历了使用table和float布局的过程，W3C推出了flexbox的布局方式。</p>
+<h2 id="Flexbox基础"><a href="#Flexbox基础" class="headerlink" title="Flexbox基础"></a>Flexbox基础</h2><h3 id="flex-container"><a href="#flex-container" class="headerlink" title="flex container"></a>flex container</h3><p>使用div或者其他标签作为容器，用于放置其他子元素。</p>
+<h3 id="flex-items"><a href="#flex-items" class="headerlink" title="flex items"></a>flex items</h3><p>嵌套在容器中的直接元素自动转为flex item，子元素的子元素便不是flex item。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;!-- html part --&gt;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">  &lt;div&gt;A flex item&lt;/div&gt;</div><div class="line">  &lt;div&gt;Another flex item&lt;/div&gt;</div><div class="line">  &lt;div&gt;A third flex item&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">/* css part */</div><div class="line">.container &#123;</div><div class="line">  display: -webkit-flex;</div><div class="line">  display: flex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.container div &#123;</div><div class="line">  -webkit-flex: 1;</div><div class="line">  flex: 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;css布局经历了使用table和float布局的过程，W3C推出了flexbox的布局方式。&lt;/p&gt;
+&lt;h2 id=&quot;Flexbox基础&quot;&gt;&lt;a href=&quot;#Flexbox基础&quot; class=&quot;headerlink&quot; title=&quot;Flexbox基础&quot;&gt;&lt;/a&gt;Flexb
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
+    
+      <category term="flexbox" scheme="http://www.bookcell.org/tags/flexbox/"/>
+    
+      <category term="弹性盒" scheme="http://www.bookcell.org/tags/%E5%BC%B9%E6%80%A7%E7%9B%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>i18next的jquery插件jquery-i18next的使用方法</title>
+    <link href="http://www.bookcell.org/2017/03/22/jquery-i18next-plugin-usage/"/>
+    <id>http://www.bookcell.org/2017/03/22/jquery-i18next-plugin-usage/</id>
+    <published>2017-03-22T03:34:21.000Z</published>
+    <updated>2017-03-22T03:35:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>使用jquery-i18next插件前，需要jquery和i18next的支持。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>jquery-i18next支持npm和bower安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># npm package</div><div class="line">$ npm install jquery-i18next</div><div class="line"></div><div class="line"># bower</div><div class="line">$ bower install jquery-i18next</div></pre></td></tr></table></figure>
+<h2 id="使用入门"><a href="#使用入门" class="headerlink" title="使用入门"></a>使用入门</h2><h3 id="在html代码中插入data-i18n的属性"><a href="#在html代码中插入data-i18n的属性" class="headerlink" title="在html代码中插入data-i18n的属性"></a>在html代码中插入data-i18n的属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;nav&quot;&gt;</div><div class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.home&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page1&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page2&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h3 id="定义翻译文件"><a href="#定义翻译文件" class="headerlink" title="定义翻译文件"></a>定义翻译文件</h3><p>可在源码路径下创建locales/en/translation.json文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;nav&quot;: &#123;</div><div class="line">    &quot;home&quot;: &quot;Home&quot;,</div><div class="line">    &quot;page1&quot;: &quot;Page One&quot;,</div><div class="line">    &quot;page2&quot;: &quot;Page Two&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="通过Javascript代码进行初始化和翻译"><a href="#通过Javascript代码进行初始化和翻译" class="headerlink" title="通过Javascript代码进行初始化和翻译"></a>通过Javascript代码进行初始化和翻译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 其中i18nextInstance是i18next的实例，最后一个参数是配置项</div><div class="line"></div><div class="line">jqueryI18next.init(i18nextInstance, $, &#123;</div><div class="line">  tName: &apos;t&apos;, // --&gt; appends $.t = i18next.t</div><div class="line">  i18nName: &apos;i18n&apos;, // --&gt; appends $.i18n = i18next</div><div class="line">  handleName: &apos;localize&apos;, // --&gt; appends $(selector).localize(opts);</div><div class="line">  selectorAttr: &apos;data-i18n&apos;, // selector for translating elements</div><div class="line">  targetAttr: &apos;i18n-target&apos;, // data-() attribute to grab target element to translate (if diffrent then itself)</div><div class="line">  optionsAttr: &apos;i18n-options&apos;, // data-() attribute that contains options, will load/set if useOptionsAttr = true</div><div class="line">  useOptionsAttr: false, // see optionsAttr</div><div class="line">  parseDefaultValueFromContent: true // parses default values from content ele.val or ele.text</div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(&quot;.nav&quot;).localize();</div></pre></td></tr></table></figure>
+<p>最终展现在网页中的结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// &lt;ul class=&quot;nav&quot;&gt;</div><div class="line">//  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.home&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</div><div class="line">//  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page1&quot;&gt;Page One&lt;/a&gt;&lt;/li&gt;</div><div class="line">//  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page2&quot;&gt;Page Two&lt;/a&gt;&lt;/li&gt;</div><div class="line">// &lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h2 id="使用进阶"><a href="#使用进阶" class="headerlink" title="使用进阶"></a>使用进阶</h2><p>通过jQuery的选择器来实现不同的翻译</p>
+<h3 id="翻译一个元素"><a href="#翻译一个元素" class="headerlink" title="翻译一个元素"></a>翻译一个元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;myKey&quot;&gt;&lt;/a&gt;</div><div class="line">$(&quot;#btn1&quot;).localize(options);</div></pre></td></tr></table></figure>
+<h3 id="翻译一个元素的子元素"><a href="#翻译一个元素的子元素" class="headerlink" title="翻译一个元素的子元素"></a>翻译一个元素的子元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;nav&quot;&gt;</div><div class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.home&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page1&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page2&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">$(&quot;.nav&quot;).localize();</div></pre></td></tr></table></figure>
+<h3 id="翻译一些内部元素"><a href="#翻译一些内部元素" class="headerlink" title="翻译一些内部元素"></a>翻译一些内部元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;outer&quot; data-i18n=&quot;ns:key&quot; data-i18n-target=&quot;.inner&quot;&gt;</div><div class="line">  &lt;input class=&quot;inner&quot; type=&quot;text&quot;&gt;&lt;/input&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">$(&quot;.outer&quot;).localize();</div></pre></td></tr></table></figure>
+<h3 id="设置不同属性的翻译"><a href="#设置不同属性的翻译" class="headerlink" title="设置不同属性的翻译"></a>设置不同属性的翻译</h3><p>比如，想要设置某个元素的title属性的多语言，可使用这种方式；或者其他提示信息等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[title]key.for.title&quot;&gt;&lt;/a&gt;</div><div class="line">$(&quot;#btn1&quot;).localize();</div></pre></td></tr></table></figure>
+<h3 id="设置多个属性"><a href="#设置多个属性" class="headerlink" title="设置多个属性"></a>设置多个属性</h3><p>和设置单个属性类似，不过通过分号进行分隔，添加多个属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[title]key.for.title;myNamespace:key.for.text&quot;&gt;&lt;/a&gt;</div><div class="line">$(&quot;#btn1&quot;).localize();</div></pre></td></tr></table></figure>
+<h3 id="设置内部html的属性"><a href="#设置内部html的属性" class="headerlink" title="设置内部html的属性"></a>设置内部html的属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[html]key.for.title&quot;&gt;&lt;/a&gt;</div><div class="line">$(&quot;#btn1&quot;).localize();</div></pre></td></tr></table></figure>
+<h3 id="添加前置内容"><a href="#添加前置内容" class="headerlink" title="添加前置内容"></a>添加前置内容</h3><p>给一个元素原有内容前插入一些翻译文字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[prepend]key.for.title&quot;&gt;insert before me, please!&lt;/a&gt;</div><div class="line">$(&quot;#btn1&quot;).localize();</div></pre></td></tr></table></figure>
+<h3 id="添加后置内容"><a href="#添加后置内容" class="headerlink" title="添加后置内容"></a>添加后置内容</h3><p>给一个元素原有内容后追加一些翻译文字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[append]key.for.title&quot;&gt;append after me, please!&lt;/a&gt;</div><div class="line">$(&quot;#btn1&quot;).localize();</div></pre></td></tr></table></figure>
+<h3 id="设置数据"><a href="#设置数据" class="headerlink" title="设置数据"></a>设置数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[data-someDataAttribute]key.for.content&quot;&gt;&lt;/a&gt;</div><div class="line">$(&quot;#btn1&quot;).localize();</div></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://github.com/i18next/jquery-i18next" target="_blank" rel="external">jquery-i18next</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前提条件&quot;&gt;&lt;a href=&quot;#前提条件&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h2&gt;&lt;p&gt;使用jquery-i18next插件前，需要jquery和i18next的支持。&lt;/p&gt;
+&lt;h2 id=&quot;安装&quot;&gt;&lt;a hr
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="i18next" scheme="http://www.bookcell.org/tags/i18next/"/>
+    
+      <category term="国际化" scheme="http://www.bookcell.org/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
+    
+      <category term="jquery" scheme="http://www.bookcell.org/tags/jquery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux学习-基础知识部分</title>
+    <link href="http://www.bookcell.org/2017/03/18/linux-learning-base-knowledge/"/>
+    <id>http://www.bookcell.org/2017/03/18/linux-learning-base-knowledge/</id>
+    <published>2017-03-18T06:09:20.000Z</published>
+    <updated>2017-04-03T07:52:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里罗列一些关于学习Linux的基础准备工作，来自《鸟哥的私房菜》，近期准备重新刷一遍，巩固一下Linux的知识和操作。</p>
+<h2 id="计算机概论与硬件相关知识"><a href="#计算机概论与硬件相关知识" class="headerlink" title="计算机概论与硬件相关知识"></a>计算机概论与硬件相关知识</h2><p>了解计算机的概论，包括一些基本理论知识；以及计算机相关的硬件知识，包括计算机的组成。</p>
+<h2 id="Linux的安装和命令"><a href="#Linux的安装和命令" class="headerlink" title="Linux的安装和命令"></a>Linux的安装和命令</h2><p>选择一款Linux的发行版并尝试安装。</p>
+<h2 id="Linux操作系统的基础技能"><a href="#Linux操作系统的基础技能" class="headerlink" title="Linux操作系统的基础技能"></a>Linux操作系统的基础技能</h2><p>了解用户、用户组、权限、程序等概念。</p>
+<h2 id="务必学会vi编辑器"><a href="#务必学会vi编辑器" class="headerlink" title="务必学会vi编辑器"></a>务必学会vi编辑器</h2><p>所有Unix Like的系统均安装了vi编辑器，平时操作修改配置文件都可能使用到。</p>
+<h2 id="Shell和Shell脚本的学习"><a href="#Shell和Shell脚本的学习" class="headerlink" title="Shell和Shell脚本的学习"></a>Shell和Shell脚本的学习</h2><p>玩命令行必须要经历的一步，主要包括“正则表达式”、“管道命令”与“数据流重定向”。</p>
+<h2 id="软件管理"><a href="#软件管理" class="headerlink" title="软件管理"></a>软件管理</h2><p>玩Linux的时候，免不了要自己安装驱动程序或者额外的软件，Tarball/rpm/dpkg等软件包管理工具的使用就很重要了。</p>
+<h2 id="网络基础"><a href="#网络基础" class="headerlink" title="网络基础"></a>网络基础</h2><p>“IP”、“路由”等概念需要了解，以及再进一步的TCP/IP协议。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[鸟哥的私房菜]<br><a href="http://www.study-area.org/compu/compu.htm" target="_blank" rel="external">计算机基础</a><br><a href="http://www.study-area.org/network/network.htm" target="_blank" rel="external">网络基础</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里罗列一些关于学习Linux的基础准备工作，来自《鸟哥的私房菜》，近期准备重新刷一遍，巩固一下Linux的知识和操作。&lt;/p&gt;
+&lt;h2 id=&quot;计算机概论与硬件相关知识&quot;&gt;&lt;a href=&quot;#计算机概论与硬件相关知识&quot; class=&quot;headerlink&quot; title=&quot;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Linux" scheme="http://www.bookcell.org/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>程序员养生和每日饮食习惯</title>
+    <link href="http://www.bookcell.org/2017/03/16/every-day-diet-guide/"/>
+    <id>http://www.bookcell.org/2017/03/16/every-day-diet-guide/</id>
+    <published>2017-03-16T14:46:43.000Z</published>
+    <updated>2017-03-16T15:06:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为程序员，刚开始工作的几年的，不太注意饮食习惯，有一餐没一餐或者不定时的饮食习惯，会导致胃消化能力变差，甚至得慢性胃炎。</p>
+<p>慢慢的，发现胃难受，开始关注养胃，早知道一开始就注意饮食习惯，这里就是给后续的程序员做一些程序员的饮食习惯的参考。</p>
+<p>你和我一样，要开始注重养生和饮食了!!!</p>
+<h2 id="大原则"><a href="#大原则" class="headerlink" title="大原则"></a>大原则</h2><h3 id="影响健康的几点因素"><a href="#影响健康的几点因素" class="headerlink" title="影响健康的几点因素"></a>影响健康的几点因素</h3><blockquote>
+<p>心态，饮食，健身，睡眠，金钱</p>
+</blockquote>
+<h3 id="饮食要点："><a href="#饮食要点：" class="headerlink" title="饮食要点："></a>饮食要点：</h3><p>这是盛传的一句话，适合要养胃的朋友们：</p>
+<blockquote>
+<p>早吃好，午吃饱，晚吃少。</p>
+</blockquote>
+<p>总体好消化; 早晚餐量少、有营养，午餐吃饱量稍多些。</p>
+<p>整体的每顿尽量不要超过7分饱。</p>
+<h2 id="日常三餐"><a href="#日常三餐" class="headerlink" title="日常三餐"></a>日常三餐</h2><p>以下是我列举的饮食选择，作为平日里每顿饮食的选项。</p>
+<p>早餐: 红枣大米粥、鸡蛋。(可选: 玉米、面包、紫薯、燕麦、黑芝麻糊、小米粥、小份水果、牛奶)</p>
+<p>午餐: 肉类(猪肉、鸡肉、鱼肉、鸭肉、羊肉、牛肉)、蔬菜(各类蔬菜)、米饭(可选: 面条)</p>
+<p>晚餐: 红枣大米粥、肉类或者蔬菜(可选:面条，馄饨，水饺)</p>
+<h2 id="水果和零食"><a href="#水果和零食" class="headerlink" title="水果和零食"></a>水果和零食</h2><p>除了一日三餐的正常饮食之外，需要一些水果和坚果零食来进行相应的补充。</p>
+<p>水果可补充我们所需要的维生素，坚果可补充一些微量元素。</p>
+<h2 id="早睡早起"><a href="#早睡早起" class="headerlink" title="早睡早起"></a>早睡早起</h2><p>也许上大学和刚毕业的时候，觉得年轻无极限，通宵加班神马的都无所谓，可这是在透支身体，时间会慢慢让你认识到的。</p>
+<p>因此，早点养成早睡早起的习惯，对你的身体会更有益。</p>
+<p>我现在开始养成晚上11点前后入睡，早睡在7点前后醒来，中午可能会午睡半个小时，一天的精力感觉比较充沛。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>愿大家开始注重养生，拥有健康！</p>
+<p>-2017.03.16初稿</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为程序员，刚开始工作的几年的，不太注意饮食习惯，有一餐没一餐或者不定时的饮食习惯，会导致胃消化能力变差，甚至得慢性胃炎。&lt;/p&gt;
+&lt;p&gt;慢慢的，发现胃难受，开始关注养胃，早知道一开始就注意饮食习惯，这里就是给后续的程序员做一些程序员的饮食习惯的参考。&lt;/p&gt;
+&lt;p&gt;你和我
+    
+    </summary>
+    
+      <category term="生活" scheme="http://www.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活" scheme="http://www.bookcell.org/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="饮食" scheme="http://www.bookcell.org/tags/%E9%A5%AE%E9%A3%9F/"/>
+    
+      <category term="养生" scheme="http://www.bookcell.org/tags/%E5%85%BB%E7%94%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>百度地图获取可视区域及回调事件的用法简介</title>
+    <link href="http://www.bookcell.org/2017/03/11/baidumap-get-view-area-and-event-callback-introduction/"/>
+    <id>http://www.bookcell.org/2017/03/11/baidumap-get-view-area-and-event-callback-introduction/</id>
+    <published>2017-03-11T07:00:39.000Z</published>
+    <updated>2017-03-11T07:02:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录使用百度地图获取可视区域、回调事件的用法。</p>
+<h2 id="可视区域"><a href="#可视区域" class="headerlink" title="可视区域"></a>可视区域</h2><p>使用百度地图获取可视区域的坐标点的方法：</p>
+<p>原理：通过地图状态方法的接口getBounds()可获取到Bounds对象，包含东北和西南角的坐标点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 获取地图可视化区域的坐标点</div><div class="line">function getViewAreaPoint(map) &#123;</div><div class="line">  var bounds = map.getBounds();</div><div class="line">  console.log(bounds);</div><div class="line">  var swPoint = bounds.getSouthWest();</div><div class="line">  var nePoint = bounds.getNorthEast();</div><div class="line">  var nwPoint = new BMap.Point(swPoint.lng, nePoint.lat);</div><div class="line">  var sePoint = new BMap.Point(nePoint.lng, swPoint.lat);</div><div class="line">  console.log(swPoint);</div><div class="line">  console.log(nePoint);</div><div class="line">  console.log(nwPoint);</div><div class="line">  console.log(sePoint);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p>原理：定义事件回调函数，添加事件的监听。</p>
+<p>以click事件为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">map.addEventListener(&quot;click&quot;, showInfo);</div><div class="line"></div><div class="line">function showInfo(e) &#123;</div><div class="line">  console.debug(e);</div><div class="line">  console.debug(e.type);</div><div class="line">  console.debug(e.target);</div><div class="line">  console.debug(e.point);</div><div class="line">  console.debug(e.pixel);</div><div class="line">  console.debug(e.overlay);</div><div class="line">  // console.debug(e.point.lng + &quot;, &quot; + e.point.lat);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>百度地图的JavaScript类参考中列举click事件的说明：<br>事件: click<br>参数：(type, target, point, pixel, overlay)<br>描述：左键单击地图时触发此事件。</p>
+<p>参数的说明：<br>type: 事件类型(“onclick”)<br>target: 地图实例<br>point: 经纬度坐标点Point对象<br>pixel: 像素坐标<br>overlay: 覆盖物对象</p>
+<p>【以上】</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录使用百度地图获取可视区域、回调事件的用法。&lt;/p&gt;
+&lt;h2 id=&quot;可视区域&quot;&gt;&lt;a href=&quot;#可视区域&quot; class=&quot;headerlink&quot; title=&quot;可视区域&quot;&gt;&lt;/a&gt;可视区域&lt;/h2&gt;&lt;p&gt;使用百度地图获取可视区域的坐标点的方法：&lt;/p&gt;
+&lt;p&gt;原理：
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发，百度地图" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%8C%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>disable超链接的css样式</title>
+    <link href="http://www.bookcell.org/2017/03/08/disabled-hyperlink-style/"/>
+    <id>http://www.bookcell.org/2017/03/08/disabled-hyperlink-style/</id>
+    <published>2017-03-08T02:41:38.000Z</published>
+    <updated>2017-03-11T07:04:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>想要设置disabled的超链接，让用户不可点击，可添加一个class来设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.disabled-link &#123;</div><div class="line">  pointer-events: none;</div><div class="line">  cursor: default;</div><div class="line">  opacity: 0.6;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;a href=&quot;#&quot; class=&quot;disabled-link&quot;&gt;link&lt;/a&gt;</div></pre></td></tr></table></figure>
+<p>注意：<br>pointer-events这个属性对浏览器兼容性有一定的要求。</p>
+<p>IE11<br>Edge 14<br>Firefox 51<br>Chrome 49<br>Safari 10<br>Opera 43</p>
+<p>【以上】</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想要设置disabled的超链接，让用户不可点击，可添加一个class来设置。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义li的css样式</title>
+    <link href="http://www.bookcell.org/2017/02/20/css-custom-li-style/"/>
+    <id>http://www.bookcell.org/2017/02/20/css-custom-li-style/</id>
+    <published>2017-02-20T09:16:27.000Z</published>
+    <updated>2017-02-20T09:17:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>li的默认样式有几种，我们想要自定义li的样式，例如定义颜色或者显示的图标，以下是操作的两种方法。</p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>修改的原理，取消list默认的style，并通过伪元素before来设置新的样式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ul &#123;list-style: none&#125;</div><div class="line"></div><div class="line">li::before &#123;</div><div class="line">  content: &quot;•&quot;; color: red;</div><div class="line">  display: inline-block; width: 1em;</div><div class="line">  margin-left: -1em</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>特殊符号的一些输入可使用Unicode编码：• = “\2022”, ◦ = \25E6” and ▪ = “\25AA”</p>
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>修改的原理，通过自定义的class来区分标点和文字的颜色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.listStyle &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.listStyle p &#123;</div><div class="line">  color: black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;ul class=&quot;listStyle&quot;&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
+<li><a href="https://www.w3.org/Style/Examples/007/color-bullets.en.html" target="_blank" rel="external">COLORED BULLETS</a></li>
+<li><a href="http://stackoverflow.com/questions/25717340/change-the-bullet-color-of-list" target="_blank" rel="external">Change the bullet color of list</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;li的默认样式有几种，我们想要自定义li的样式，例如定义颜色或者显示的图标，以下是操作的两种方法。&lt;/p&gt;
+&lt;h2 id=&quot;方法一：&quot;&gt;&lt;a href=&quot;#方法一：&quot; class=&quot;headerlink&quot; title=&quot;方法一：&quot;&gt;&lt;/a&gt;方法一：&lt;/h2&gt;&lt;p&gt;修改的原理
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
+    
+      <category term="custom" scheme="http://www.bookcell.org/tags/custom/"/>
+    
+      <category term="自定义" scheme="http://www.bookcell.org/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源协议系列之Creative Commons</title>
+    <link href="http://www.bookcell.org/2017/02/09/opensource-license-series-creativecommons/"/>
+    <id>http://www.bookcell.org/2017/02/09/opensource-license-series-creativecommons/</id>
+    <published>2017-02-09T06:24:26.000Z</published>
+    <updated>2017-02-09T06:25:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Creative Commons协议。</p>
+<a id="more"></a>
+<h2 id="英文版"><a href="#英文版" class="headerlink" title="英文版"></a>英文版</h2><p>Creative Commons Attribution 4.0 International Public License</p>
+<p>By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.</p>
+<p>Section 1 – Definitions.</p>
+<p>Adapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.<br>Adapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.<br>Copyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.<br>Effective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.<br>Exceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.<br>Licensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.<br>Licensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.<br>Licensor means the individual(s) or entity(ies) granting rights under this Public License.<br>Share means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.<br>Sui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.<br>You means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.<br>Section 2 – Scope.</p>
+<p>License grant.<br>Subject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:<br>reproduce and Share the Licensed Material, in whole or in part; and<br>produce, reproduce, and Share Adapted Material.<br>Exceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.<br>Term. The term of this Public License is specified in Section 6(a).<br>Media and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.<br>Downstream recipients.<br>Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.<br>No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.<br>No endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).<br>Other rights.</p>
+<p>Moral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.<br>Patent and trademark rights are not licensed under this Public License.<br>To the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.<br>Section 3 – License Conditions.</p>
+<p>Your exercise of the Licensed Rights is expressly made subject to the following conditions.</p>
+<p>Attribution.</p>
+<p>If You Share the Licensed Material (including in modified form), You must:</p>
+<p>retain the following if it is supplied by the Licensor with the Licensed Material:<br>identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);<br>a copyright notice;<br>a notice that refers to this Public License;<br>a notice that refers to the disclaimer of warranties;<br>a URI or hyperlink to the Licensed Material to the extent reasonably practicable;<br>indicate if You modified the Licensed Material and retain an indication of any previous modifications; and<br>indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.<br>You may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.<br>If requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.<br>If You Share Adapted Material You produce, the Adapter’s License You apply must not prevent recipients of the Adapted Material from complying with this Public License.<br>Section 4 – Sui Generis Database Rights.</p>
+<p>Where the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:</p>
+<p>for the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;<br>if You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material; and<br>You must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.<br>For the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.<br>Section 5 – Disclaimer of Warranties and Limitation of Liability.</p>
+<p>Unless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.<br>To the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.<br>The disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.<br>Section 6 – Term and Termination.</p>
+<p>This Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.<br>Where Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:</p>
+<p>automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or<br>upon express reinstatement by the Licensor.<br>For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.<br>For the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.<br>Sections 1, 5, 6, 7, and 8 survive termination of this Public License.<br>Section 7 – Other Terms and Conditions.</p>
+<p>The Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.<br>Any arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.<br>Section 8 – Interpretation.</p>
+<p>For the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.<br>To the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.<br>No term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.<br>Nothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.</p>
+<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>许可</p>
+<p>本作品（定义如下）的提供是以适用知识共享组织的公共许可（ 简称“CCPL” 或 “许可”） 条款为前提的。本作品受著作权法以及其他相关法律的保护。对本作品的使用不得超越本许可授权的范围。</p>
+<p>如您行使本许可授予的使用本作品的权利，就表明您接受并同意遵守本许可的条款。在您接受这些条款和规定的前提下，许可人授予您本许可所包括的权利。</p>
+<p>1、定义</p>
+<p>“汇编作品”是指如期刊、文选、百科全书这类作品。在这类作品中本作品以未被修改的形式出现，和其他组成部分一样，它们本身都是单独、独立的作品，集合起来成为一个整体。在本许可定义之下构成汇编作品的作品不被视为演绎作品（定义如下）。<br>“演绎作品”指基于本作品，或本作品与其他已存在作品之上而创作的作品，如翻译、编曲、编剧、小说改编、摄制电影、艺术再现、节选、缩写，或其他任何对本作品改造、转换、或改写后的形式。在本许可定义之下构成汇编作品的作品不被视为演绎作品。为避免疑义，并为本许可之目的，当作品是乐曲时，将该作品依时间序列关系与动态影像配合一致而形成的结果，视为演绎作品。<br>“许可人”指根据本许可提供本作品的自然人、法人或者其他组织。<br>“原始作者”指创作本作品的自然人或者依法被视为本作品作者的法人或其他组织。<br>“本作品”指在本许可条款下提供的可受著作权保护的作品。录音制品不属于“本作品”的范畴，但是，对它的许可适用本协议中可适用录音制品的条款。<br>“您”指以前就本作品没有违反过本许可条款，或曾违反过条款但已获得许可人明确同意，依据本许可行使权利的自然人、法人或者其他组织。<br>“著作人身权”指作者对其受著作权保护的作品所享有的发表权、署名权、修改权以及保护作品完整权。<br>2、本许可无意削减、限制、或约束您基于以下法律规定对本作品的合法使用：合理使用，权利穷竭原则，及著作权法或其他相关法律对著作权人专有权利的限制。</p>
+<p>3、授予许可。根据本许可的条款和条件，许可人在此授予您全球性、免版税、非独占并且在本作品的著作权存续期间内均有效的许可，就本作品行使以下权利：</p>
+<p>复制本作品，将本作品收入一个或多个汇编作品中，复制汇编作品中收录的本作品；<br>创作和复制演绎作品；<br>发行本作品（包括汇编作品中收录的本作品）的复制件或录音制品，公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品（包括汇编作品中收录的本作品）；<br>发行演绎作品的复制件或录音制品，公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播演绎作品；<br>为避免疑义，当本作品是乐曲的时候，许可人放弃收取以下两种情形下的使用费的权利：</p>
+<p>一揽子许可的使用费。</p>
+<p>许可人放弃由个人或者借助著作权集体管理组织收取公开表演、公开放映、公开广播或者通过信息网络向公众传播本作品的使用费的专有权。<br>录制权与法定许可使用费。</p>
+<p>您依据《中华人民共和国著作权法》第39条第3款（或者其他司法管辖区相对应的法律）规定的法定许可，将本作品制作成录音制品（“翻录版”）并发行，则许可人放弃由个人或者借助著作权集体管理组织或者其他受委托的机构，向您就制作并发行本作品的录音制品收取使用费的专有权。<br>以上权利可在任何现有的或者以后出现的媒体和形式上行使。上述权利包括为在其他媒体和形式上行使权利而必须进行技术性修改的权利。许可人在此保留所有未明示授予的权利。</p>
+<p>4、限制。第3条的授权须受以下条款的限制：</p>
+<p>只有在遵守本许可条款的情况下，您可发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品。在您发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品的每份复制件或录音制品中，您必须附上一份本协议的复制件或本协议的网址（Uniform Resource Identifier）。</p>
+<p>您不得就本作品提出或增加任何条款，从而变更或限制本许可条款或者获得本作品的第三方在本许可条款下所享有的权利。您不得对本作品进行分许可，并且必须完整保留所有与本许可条款及责任限制相关的声明。</p>
+<p>在发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品时，您不得使用任何技术性的措施以不符合本许可协议条款的方式来控制对本作品的访问和使用。以上限制同样适用于收录在汇编作品中的本作品，但并不要求本作品外的汇编作品受本许可条款的约束。</p>
+<p>在创作汇编作品时，若接到任何许可人的通知，您必须按照其要求，在可行范围内删除汇编作品中根据第4条第b款的要求所作的有关原始作者的身份及其他有关原始作品的相关信息的标注。在创作演绎作品时，若接到任何许可人的通知，您必须根据其要求，在可行范围内删除演绎作品中根据第4条b款的要求所作的有关原始作者的身份及其他有关原始作品的相关信息的标注。<br>在发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品或任何演绎、汇编作品时，您必须完整保留所有关于本作品的著作权声明，并以适合所使用的媒体或工具的形式：（i）在原始作者的姓名（或笔名）已被提供的情况下，给出该姓名（或笔名），和/或(ii)在原始作者和/或许可人以许可人的著作权声明、服务条款或其他合理的方式，指定可以在作品上署名的他方当事人的情况下，给出该他方当事人的名称；在本作品标题已被提供的情况下，给出本作品的标题；并在合理可行的程度上，标明许可人指定需与本作品同时出现的网址，除非该网址没有涉及到本作品的著作权声明或者关于本作品的许可信息；如果是演绎作品，须指明演绎作品中使用的本作品的作者姓名和作品名称（例如，“某作者作品的法语译本”，或“基于某作者作品的电影剧本”）。对作者姓名和作品名称的指明可采取任何合理方式，但在演绎作品或汇编作品中，对本作品名称和作者姓名的指明须同时出现在任何其他作者姓名出现的地方，并至少与对其他作者的指明一样显著。<br>在创作演绎作品，以及以任何形式复制、发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品、本作品的演绎作品或汇编作品时，您不得侵犯作者的著作人身权。<br>5、声明、保证和免责条款</p>
+<p>除非本许可的当事人相互以书面的方式做出相反约定，许可人按其现状提供本作品，对本作品不作任何明示或者默示、依照法律或者其他规定的陈述或担保，包括但是不限于任何有关权利归属、可否商业性使用、是否符合特定的目的、未侵害他人权利、不具有潜在的或者其他缺陷、准确性或者不论能否被发现的错误不存在的担保。有些司法管辖区不允许排除前述默示保证，因此这些排除性规定并不一定适用于您。</p>
+<p>6、责任限制条款</p>
+<p>除非属于相关法律所要求的范围，许可人在任何情况下都不对您因本许可或因使用本作品而产生的任何直接损失、间接损失或惩罚性赔偿负责，即使许可人已被告知发生此类损害的可能性。</p>
+<p>7、终止</p>
+<p>在您违反本许可任何条款时，本许可及其所授予的权利将自动终止。然而，根据本许可从您处获取演绎作品或汇编作品的自然人、法人或者其他组织，如果他们仍完全遵守相关许可，则他们的许可不会随之终止。即使本许可被终止，第1、2、5、6、7、8条仍然有效。<br>在上述条款及条件的前提下，此处授予的许可在法定著作权保护期限内有效。即便如此，许可人保留依其他许可条款发行本作品及在任何时候停止发行本作品的权利；但是，许可人的上述权利不能被用于撤销本许可（或任何其他在本许可条款下授予的或必须授予的许可）的目的， 除本条a款指明的终止外，本许可将保持其完全效力。<br>8、其他</p>
+<p>当您发行、通过信息网络向公众传播本作品或汇编作品时，许可人给获得作品的第三方提供本作品的许可，其条款和条件与您所获得的许可相同。<br>当您发行或通过信息网络向公众传播演绎作品时，许可人给获得作品的第三方提供本作品的许可，其条款和条件与您所获得的许可相同。<br>如因相关法律，本许可的某一条款无效或不能履行，本许可其余条款的有效性和可履行性不受影响。如本许可的当事人未采取进一步措施，此类无效条款应在最小的必要范围内修改以使其有效和可履行。<br>除非当事人书面同意并签字放弃某条款和允许某违约行为，本许可的任何条款或规定都不应被视为已被放弃，或被视为允许此违约行为。<br>本许可构成相关当事人与本授权作品相关的全部协议。除已在此处确认的之外，并不存在任何与本作品相关的谅解备忘录、协议或声明。许可人不受您提出的任何附加规定约束。未经许可人与您双方书面同意，本许可不得更改。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="external">creative commons Attribution 4.0 International</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Creative_Commons" target="_blank" rel="external">Creative Commons</a></li>
+<li><a href="https://creativecommons.org/licenses/by/2.5/cn/" target="_blank" rel="external">署名 2.5 中国大陆 (CC BY 2.5 CN)</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2008/04/creative_commons_licenses.html" target="_blank" rel="external">谈谈创作共用许可证（Creative Commons licenses）</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%88%9B%E4%BD%9C%E5%85%B1%E7%94%A8" target="_blank" rel="external">知识共享</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Creative Commons协议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="开源协议" scheme="http://www.bookcell.org/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="license" scheme="http://www.bookcell.org/tags/license/"/>
+    
+      <category term="Creative Commons" scheme="http://www.bookcell.org/tags/Creative-Commons/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源协议系列之GPL</title>
+    <link href="http://www.bookcell.org/2017/02/08/opensource-license-series-gpl/"/>
+    <id>http://www.bookcell.org/2017/02/08/opensource-license-series-gpl/</id>
+    <published>2017-02-08T09:43:31.000Z</published>
+    <updated>2017-02-23T06:23:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为GPL协议。</p>
+<a id="more"></a>
+<h2 id="英文版"><a href="#英文版" class="headerlink" title="英文版"></a>英文版</h2><h3 id="GNU-GENERAL-PUBLIC-LICENSE"><a href="#GNU-GENERAL-PUBLIC-LICENSE" class="headerlink" title="GNU GENERAL PUBLIC LICENSE"></a>GNU GENERAL PUBLIC LICENSE</h3><p>Version 3, 29 June 2007</p>
+<p>Copyright (C) 2007 Free Software Foundation, Inc.<br><a href="http://fsf.org/" target="_blank" rel="external">http://fsf.org/</a></p>
+<p>Everyone is permitted to copy and distribute verbatim copies of this<br>license document, but changing it is not allowed.</p>
+<h3 id="Preamble"><a href="#Preamble" class="headerlink" title="Preamble"></a>Preamble</h3><p>The GNU General Public License is a free, copyleft license for<br>software and other kinds of works.</p>
+<p>The licenses for most software and other practical works are designed<br>to take away your freedom to share and change the works. By contrast,<br>the GNU General Public License is intended to guarantee your freedom<br>to share and change all versions of a program–to make sure it remains<br>free software for all its users. We, the Free Software Foundation, use<br>the GNU General Public License for most of our software; it applies<br>also to any other work released this way by its authors. You can apply<br>it to your programs, too.</p>
+<p>When we speak of free software, we are referring to freedom, not<br>price. Our General Public Licenses are designed to make sure that you<br>have the freedom to distribute copies of free software (and charge for<br>them if you wish), that you receive source code or can get it if you<br>want it, that you can change the software or use pieces of it in new<br>free programs, and that you know you can do these things.</p>
+<p>To protect your rights, we need to prevent others from denying you<br>these rights or asking you to surrender the rights. Therefore, you<br>have certain responsibilities if you distribute copies of the<br>software, or if you modify it: responsibilities to respect the freedom<br>of others.</p>
+<p>For example, if you distribute copies of such a program, whether<br>gratis or for a fee, you must pass on to the recipients the same<br>freedoms that you received. You must make sure that they, too, receive<br>or can get the source code. And you must show them these terms so they<br>know their rights.</p>
+<p>Developers that use the GNU GPL protect your rights with two steps:<br>(1) assert copyright on the software, and (2) offer you this License<br>giving you legal permission to copy, distribute and/or modify it.</p>
+<p>For the developers’ and authors’ protection, the GPL clearly explains<br>that there is no warranty for this free software. For both users’ and<br>authors’ sake, the GPL requires that modified versions be marked as<br>changed, so that their problems will not be attributed erroneously to<br>authors of previous versions.</p>
+<p>Some devices are designed to deny users access to install or run<br>modified versions of the software inside them, although the<br>manufacturer can do so. This is fundamentally incompatible with the<br>aim of protecting users’ freedom to change the software. The<br>systematic pattern of such abuse occurs in the area of products for<br>individuals to use, which is precisely where it is most unacceptable.<br>Therefore, we have designed this version of the GPL to prohibit the<br>practice for those products. If such problems arise substantially in<br>other domains, we stand ready to extend this provision to those<br>domains in future versions of the GPL, as needed to protect the<br>freedom of users.</p>
+<p>Finally, every program is threatened constantly by software patents.<br>States should not allow patents to restrict development and use of<br>software on general-purpose computers, but in those that do, we wish<br>to avoid the special danger that patents applied to a free program<br>could make it effectively proprietary. To prevent this, the GPL<br>assures that patents cannot be used to render the program non-free.</p>
+<p>The precise terms and conditions for copying, distribution and<br>modification follow.</p>
+<h3 id="TERMS-AND-CONDITIONS"><a href="#TERMS-AND-CONDITIONS" class="headerlink" title="TERMS AND CONDITIONS"></a>TERMS AND CONDITIONS</h3><h4 id="0-Definitions"><a href="#0-Definitions" class="headerlink" title="0. Definitions."></a>0. Definitions.</h4><p>“This License” refers to version 3 of the GNU General Public License.</p>
+<p>“Copyright” also means copyright-like laws that apply to other kinds<br>of works, such as semiconductor masks.</p>
+<p>“The Program” refers to any copyrightable work licensed under this<br>License. Each licensee is addressed as “you”. “Licensees” and<br>“recipients” may be individuals or organizations.</p>
+<p>To “modify” a work means to copy from or adapt all or part of the work<br>in a fashion requiring copyright permission, other than the making of<br>an exact copy. The resulting work is called a “modified version” of<br>the earlier work or a work “based on” the earlier work.</p>
+<p>A “covered work” means either the unmodified Program or a work based<br>on the Program.</p>
+<p>To “propagate” a work means to do anything with it that, without<br>permission, would make you directly or secondarily liable for<br>infringement under applicable copyright law, except executing it on a<br>computer or modifying a private copy. Propagation includes copying,<br>distribution (with or without modification), making available to the<br>public, and in some countries other activities as well.</p>
+<p>To “convey” a work means any kind of propagation that enables other<br>parties to make or receive copies. Mere interaction with a user<br>through a computer network, with no transfer of a copy, is not<br>conveying.</p>
+<p>An interactive user interface displays “Appropriate Legal Notices” to<br>the extent that it includes a convenient and prominently visible<br>feature that (1) displays an appropriate copyright notice, and (2)<br>tells the user that there is no warranty for the work (except to the<br>extent that warranties are provided), that licensees may convey the<br>work under this License, and how to view a copy of this License. If<br>the interface presents a list of user commands or options, such as a<br>menu, a prominent item in the list meets this criterion.</p>
+<h4 id="1-Source-Code"><a href="#1-Source-Code" class="headerlink" title="1. Source Code."></a>1. Source Code.</h4><p>The “source code” for a work means the preferred form of the work for<br>making modifications to it. “Object code” means any non-source form of<br>a work.</p>
+<p>A “Standard Interface” means an interface that either is an official<br>standard defined by a recognized standards body, or, in the case of<br>interfaces specified for a particular programming language, one that<br>is widely used among developers working in that language.</p>
+<p>The “System Libraries” of an executable work include anything, other<br>than the work as a whole, that (a) is included in the normal form of<br>packaging a Major Component, but which is not part of that Major<br>Component, and (b) serves only to enable use of the work with that<br>Major Component, or to implement a Standard Interface for which an<br>implementation is available to the public in source code form. A<br>“Major Component”, in this context, means a major essential component<br>(kernel, window system, and so on) of the specific operating system<br>(if any) on which the executable work runs, or a compiler used to<br>produce the work, or an object code interpreter used to run it.</p>
+<p>The “Corresponding Source” for a work in object code form means all<br>the source code needed to generate, install, and (for an executable<br>work) run the object code and to modify the work, including scripts to<br>control those activities. However, it does not include the work’s<br>System Libraries, or general-purpose tools or generally available free<br>programs which are used unmodified in performing those activities but<br>which are not part of the work. For example, Corresponding Source<br>includes interface definition files associated with source files for<br>the work, and the source code for shared libraries and dynamically<br>linked subprograms that the work is specifically designed to require,<br>such as by intimate data communication or control flow between those<br>subprograms and other parts of the work.</p>
+<p>The Corresponding Source need not include anything that users can<br>regenerate automatically from other parts of the Corresponding Source.</p>
+<p>The Corresponding Source for a work in source code form is that same<br>work.</p>
+<h4 id="2-Basic-Permissions"><a href="#2-Basic-Permissions" class="headerlink" title="2. Basic Permissions."></a>2. Basic Permissions.</h4><p>All rights granted under this License are granted for the term of<br>copyright on the Program, and are irrevocable provided the stated<br>conditions are met. This License explicitly affirms your unlimited<br>permission to run the unmodified Program. The output from running a<br>covered work is covered by this License only if the output, given its<br>content, constitutes a covered work. This License acknowledges your<br>rights of fair use or other equivalent, as provided by copyright law.</p>
+<p>You may make, run and propagate covered works that you do not convey,<br>without conditions so long as your license otherwise remains in force.<br>You may convey covered works to others for the sole purpose of having<br>them make modifications exclusively for you, or provide you with<br>facilities for running those works, provided that you comply with the<br>terms of this License in conveying all material for which you do not<br>control copyright. Those thus making or running the covered works for<br>you must do so exclusively on your behalf, under your direction and<br>control, on terms that prohibit them from making any copies of your<br>copyrighted material outside their relationship with you.</p>
+<p>Conveying under any other circumstances is permitted solely under the<br>conditions stated below. Sublicensing is not allowed; section 10 makes<br>it unnecessary.</p>
+<h4 id="3-Protecting-Users’-Legal-Rights-From-Anti-Circumvention-Law"><a href="#3-Protecting-Users’-Legal-Rights-From-Anti-Circumvention-Law" class="headerlink" title="3. Protecting Users’ Legal Rights From Anti-Circumvention Law."></a>3. Protecting Users’ Legal Rights From Anti-Circumvention Law.</h4><p>No covered work shall be deemed part of an effective technological<br>measure under any applicable law fulfilling obligations under article<br>11 of the WIPO copyright treaty adopted on 20 December 1996, or<br>similar laws prohibiting or restricting circumvention of such<br>measures.</p>
+<p>When you convey a covered work, you waive any legal power to forbid<br>circumvention of technological measures to the extent such<br>circumvention is effected by exercising rights under this License with<br>respect to the covered work, and you disclaim any intention to limit<br>operation or modification of the work as a means of enforcing, against<br>the work’s users, your or third parties’ legal rights to forbid<br>circumvention of technological measures.</p>
+<h4 id="4-Conveying-Verbatim-Copies"><a href="#4-Conveying-Verbatim-Copies" class="headerlink" title="4. Conveying Verbatim Copies."></a>4. Conveying Verbatim Copies.</h4><p>You may convey verbatim copies of the Program’s source code as you<br>receive it, in any medium, provided that you conspicuously and<br>appropriately publish on each copy an appropriate copyright notice;<br>keep intact all notices stating that this License and any<br>non-permissive terms added in accord with section 7 apply to the code;<br>keep intact all notices of the absence of any warranty; and give all<br>recipients a copy of this License along with the Program.</p>
+<p>You may charge any price or no price for each copy that you convey,<br>and you may offer support or warranty protection for a fee.</p>
+<h4 id="5-Conveying-Modified-Source-Versions"><a href="#5-Conveying-Modified-Source-Versions" class="headerlink" title="5. Conveying Modified Source Versions."></a>5. Conveying Modified Source Versions.</h4><p>You may convey a work based on the Program, or the modifications to<br>produce it from the Program, in the form of source code under the<br>terms of section 4, provided that you also meet all of these<br>conditions:</p>
+<ul>
+<li>a) The work must carry prominent notices stating that you modified<br>it, and giving a relevant date.</li>
+<li>b) The work must carry prominent notices stating that it is<br>released under this License and any conditions added under<br>section 7. This requirement modifies the requirement in section 4<br>to “keep intact all notices”.</li>
+<li>c) You must license the entire work, as a whole, under this<br>License to anyone who comes into possession of a copy. This<br>License will therefore apply, along with any applicable section 7<br>additional terms, to the whole of the work, and all its parts,<br>regardless of how they are packaged. This License gives no<br>permission to license the work in any other way, but it does not<br>invalidate such permission if you have separately received it.</li>
+<li>d) If the work has interactive user interfaces, each must display<br>Appropriate Legal Notices; however, if the Program has interactive<br>interfaces that do not display Appropriate Legal Notices, your<br>work need not make them do so.</li>
+</ul>
+<p>A compilation of a covered work with other separate and independent<br>works, which are not by their nature extensions of the covered work,<br>and which are not combined with it such as to form a larger program,<br>in or on a volume of a storage or distribution medium, is called an<br>“aggregate” if the compilation and its resulting copyright are not<br>used to limit the access or legal rights of the compilation’s users<br>beyond what the individual works permit. Inclusion of a covered work<br>in an aggregate does not cause this License to apply to the other<br>parts of the aggregate.</p>
+<h4 id="6-Conveying-Non-Source-Forms"><a href="#6-Conveying-Non-Source-Forms" class="headerlink" title="6. Conveying Non-Source Forms."></a>6. Conveying Non-Source Forms.</h4><p>You may convey a covered work in object code form under the terms of<br>sections 4 and 5, provided that you also convey the machine-readable<br>Corresponding Source under the terms of this License, in one of these<br>ways:</p>
+<ul>
+<li>a) Convey the object code in, or embodied in, a physical product<br>(including a physical distribution medium), accompanied by the<br>Corresponding Source fixed on a durable physical medium<br>customarily used for software interchange.</li>
+<li>b) Convey the object code in, or embodied in, a physical product<br>(including a physical distribution medium), accompanied by a<br>written offer, valid for at least three years and valid for as<br>long as you offer spare parts or customer support for that product<br>model, to give anyone who possesses the object code either (1) a<br>copy of the Corresponding Source for all the software in the<br>product that is covered by this License, on a durable physical<br>medium customarily used for software interchange, for a price no<br>more than your reasonable cost of physically performing this<br>conveying of source, or (2) access to copy the Corresponding<br>Source from a network server at no charge.</li>
+<li>c) Convey individual copies of the object code with a copy of the<br>written offer to provide the Corresponding Source. This<br>alternative is allowed only occasionally and noncommercially, and<br>only if you received the object code with such an offer, in accord<br>with subsection 6b.</li>
+<li>d) Convey the object code by offering access from a designated<br>place (gratis or for a charge), and offer equivalent access to the<br>Corresponding Source in the same way through the same place at no<br>further charge. You need not require recipients to copy the<br>Corresponding Source along with the object code. If the place to<br>copy the object code is a network server, the Corresponding Source<br>may be on a different server (operated by you or a third party)<br>that supports equivalent copying facilities, provided you maintain<br>clear directions next to the object code saying where to find the<br>Corresponding Source. Regardless of what server hosts the<br>Corresponding Source, you remain obligated to ensure that it is<br>available for as long as needed to satisfy these requirements.</li>
+<li>e) Convey the object code using peer-to-peer transmission,<br>provided you inform other peers where the object code and<br>Corresponding Source of the work are being offered to the general<br>public at no charge under subsection 6d.</li>
+</ul>
+<p>A separable portion of the object code, whose source code is excluded<br>from the Corresponding Source as a System Library, need not be<br>included in conveying the object code work.</p>
+<p>A “User Product” is either (1) a “consumer product”, which means any<br>tangible personal property which is normally used for personal,<br>family, or household purposes, or (2) anything designed or sold for<br>incorporation into a dwelling. In determining whether a product is a<br>consumer product, doubtful cases shall be resolved in favor of<br>coverage. For a particular product received by a particular user,<br>“normally used” refers to a typical or common use of that class of<br>product, regardless of the status of the particular user or of the way<br>in which the particular user actually uses, or expects or is expected<br>to use, the product. A product is a consumer product regardless of<br>whether the product has substantial commercial, industrial or<br>non-consumer uses, unless such uses represent the only significant<br>mode of use of the product.</p>
+<p>“Installation Information” for a User Product means any methods,<br>procedures, authorization keys, or other information required to<br>install and execute modified versions of a covered work in that User<br>Product from a modified version of its Corresponding Source. The<br>information must suffice to ensure that the continued functioning of<br>the modified object code is in no case prevented or interfered with<br>solely because modification has been made.</p>
+<p>If you convey an object code work under this section in, or with, or<br>specifically for use in, a User Product, and the conveying occurs as<br>part of a transaction in which the right of possession and use of</p>
+<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>GNU 通用公共授权 (简体中文翻译版)</p>
+<p>声明!<br>这是一份 GNU 通用公共授权非正式的中文翻译。它并非由自由软件基金会所发表，亦非使用 GNU 通用公共授权的软件的法定发布条款─只有 GNU 通用公共授权英文原文的版本始具有此等效力。然而，我们希望这份翻译能帮助中文的使用者更了解 GNU 通用公共授权。   This is an unofficial translation of the GNU General Public License into Chinese. It was not published by the Free Software Foundation, and does not legally state the distribution terms for software that uses the GNU GPL–only the original English text of the GNU GPL does that. However, we hope that this translation will help Chinese speakers understand the GNU GPL better.</p>
+<p>GNU 通用公共授权<br>第二版, 1991年6月</p>
+<p>著作权所有 (C) 1989，1991 Free Software Foundation, Inc.<br>59 Temple Place, Suite 330, Boston, MA 02111-1307 USA</p>
+<p>允许每个人复制和发布本授权文件的完整副本，<br>但不允许对它进行任何修改。</p>
+<p>导言<br>大多数软件授权声明是设计用以剥夺您共享与修改软件的自由。相反地，GNU通用公共授权力图保证您分享与修改自由软件的自由-确保软件对所有的使用者都是自由的。通用公共授权适用于大多数自由软件基金会的软件，以及任何作者指定使用本授权的其他软件。（有些自由软件基金会的软件，则适用GNU函式库通用公共授权规定。）您也可以让您的软件适用本授权规定。</p>
+<p>当我们在谈论自由软件时，我们所指的是自由，而不是价格。我们的通用公共授权是设计用以确保使您拥有发布自由软件备份的自由（以及您可以决定此一服务是否收费），确保您能收到源码或者在您需要时能得到它，确保您能变更软件或将它的一部分用于新的自由软件；并且确保您知道您可以做上述的这些事情。</p>
+<p>为了保障您的权利，我们需要作出限制：禁止任何人否认您上述的权利，或者要求您放弃这些权利。如果您发布软件的副本，或者对之加以修改，这些限制就转化成为您的责任。</p>
+<p>例如，假如您发布此类程序的副本，无论是免费或收取费用，您必须将您所享有的一切权利给予收受者。您也必须确保他们也能收到或得到原始程序码。而且您必须向他们展示这些条款的內容，使他们知到他们所享有的权利。</p>
+<p>我们采取两项措施來保护您的权利：(1)以著作权保护软件，以及(2)提供您本授权，赋与您复制、发布并且／或者修改软件的法律许可。</p>
+<p>同时，为了保护作者与我们（按：指自由软件基金会），我们想要确定每个人都明白，自由软件是沒有担保责任的。如果软件被他人修改并加以传播，我们需要其收受者知道，他们所得到的并非原始版本，因此由他人所引出的任何问题对原作者的声誉将不会有任何的影响。</p>
+<p>最后，所有自由软件不断地受到软件专利的威胁。我们希望能避免自由软件的再发布者以个人名义取得专利授权而使程序专有化的风险。为了防止上述的情事发生，我们在此明确声明：任何专利都必须为了每个人的自由使用而核准，否则就不应授与专利。</p>
+<p>以下是有关复制、发布及修改的明确条款及条件。</p>
+<p>复制、发布与修改的条款与条件<br>零、 凡著作权人在其程序或其他著作中声明，该程序或著作会在通用公共授权条款下发布，本授权对其均有适用。以下所称的”程序”，是指任何一种适用通用公共授权的程序或著作；并且一个”基于本程序的著作”，则指本程序或任何基于著作权法所产生的衍生著作，换言之，是指包含本程序全部或一部的著作，不论是完整的或经过修改的程序，以及（或）翻译成其他语言的程序（以下”修改”一词包括但不限于翻译行为在內）。被授权人则称为”您”。</p>
+<p>本授权不适用于复制、发布与修改以外的行为；这些行为不在本授权范围内。执行本程序的行为并不受限制，而本程序的输出只有在其內容构成基于本程序所生的著作（而非只是因为执行本程序所造成）时，始受本授权拘束。至于程序的输出內容是否构成本程序的衍生著作，则取决于本程序的具体用途。</p>
+<p>一、 您可以对所收受的本程序源代码，无论以何种媒介，复制与发布其完整的复制物，然而您必须符合以下要件：以显著及适当的方式在每一份复制物上发布适当的著作权标示及无担保声明；维持所有有关本授权以及无担保声明的原貌；并将本授权的副本连同本程序一起交付予其他任何一位本程序的收受者。</p>
+<p>您可以对让与复制物的实际行为收取一定的费用，您也可以自由决定是否提供担保以作为对价的交换。</p>
+<p>二、 您可以修改本程序的一个或数个复制物或者本程序的任何部份，以此形成基于本程序所生的著作，并依前述第一条规定，复制与发布此一修改过的程序或著作，但您必须符合以下要件：</p>
+<p>(a) 您必须在所修改的挡案上附加显著的标示，阐明您修改过这些挡案，以及修改日期。</p>
+<p>(b) 您必须就您所发布或发行的著作，无论是包含本程序全部或一部的著作，或者是自本程序或其任何部份所衍生的著作，整体授权所有第三人依本授权规定使用，且不得因此项授权行为而收取任何费用。</p>
+<p>(c) 若经过修改的程序在执行时通常以交互方式读取命令时，您必须在最常被使用的方式下，于开始进入这种交互式使用时，列印或展示以下宣告：适当的著作权标示及无担保声明（或者声明您提供担保）、使用者可以依这些条件再发布此程序，以及告知使用者如何浏览本授权的副本。（例外：若本程序本身是以交互的方式执行，然而通常却不会列印该宣告时，则您基于本程序所生的著作便无需列印该宣告。）</p>
+<p>这些要求对修改过的著作是整体适用的。倘著作中可识別的一部份并非衍生自本程序，并且可以合理地认为是一独立的、个別的著作，则当您将其作为个別著作加以发布时，本授权及其条款将不适用于该部分。然而当您将上述部分，作为基于本程序所生著作的一部而发布时，整个著作的发布必须符合本授权条款的规定，而本授权对于其他被授权人所为的许可及于著作整体。</p>
+<p>因此，本条规定的意图不在于主张或剥夺您对于完全由您所完成著作的权利；应该說，本条规定意在行使对基于程序所生的之衍生著作或集合著作发布行为的控制权。</p>
+<p>此外，非基于本程序所生的其他著作与本程序（或基于本程序所生的著作）在同一储存或发布的媒介上的单纯聚集行为，并不会使该著作因此受本授权条款约束。</p>
+<p>三、 您可以依前述第一、二条规定，复制与发布本程序（或第二条所述基于本程序所产生的著作）的目的码或可执行形式，但您必须符合以下要件：</p>
+<p>(a) 附上完整、相对应的机器可判读源码，而这些源码必须依前述第一、二条规定在经常用以作为软件交换的媒介物上发布；或</p>
+<p>(b) 附上至少三年有效的书面报价文件，提供任何第三人在支付不超过实际发布源码所需成本的费用下，取得相同源码的完整机器可读复制物，并依前述第一、二条规定在经常用以作为软件交换的媒介物上发布该复制物；或</p>
+<p>(c) 附上您所收受有关发布相同源码的报价资讯。（本项选择仅在非赢利发布、且仅在您依前述b项方式自该书面报价文件收受程序目的码或可执行形式时，始有适用。）</p>
+<p>著作的源码，是指对著作进行修改时适用的形式。对于一个可执行的著作而言，完整的源码是指著作中所包含所有模组的全部源码，加上相关介面的定义挡，还加上用以控制该著作编译与安裝的描述。然而，特別的例外情况是，所发布的源码并不需包含任何通常会随著所执行作业系统的主要组成部分（编译器、核心等等）而发布的软件（无论以源码或二进位格式），除非该部分本身即附加在可执行程序中。</p>
+<p>若可执行码或目的码的发布方式，是以指定的地点提供存取位置供人复制，则提供可自相同地点复制源码的使用机会，视同对于源码的发布，然而第三人并不因此而负有将目的码连同源码一起复制的义务。</p>
+<p>四、 除本授权所明示的方式外，您不得对本程序加以复制、修改、再授权或发布。任何试图以其他方式进行复制、修改、再授权或者发布本程序的行为均为无效，并且将自动终止您基于本授权所得享有的权利。然而，依本授权规定自您手中收受复制物或权利之人，只要遵守本授权规定，他们所获得的授权并不会因此终止。</p>
+<p>五、 因为您并未在本授权上签名，所以您无须接受本授权。然而，除此之外您別无其他修改或发布本程序或其衍生著作的授权许可。若您不接受本授权，则这些行为在法律上都是被禁止的。因此，藉由对本程序（或任何基于本程序所生的著作）的修改或发布行为，您表示了对于本授权的接受，以及接受所有关于复制、发布或修改本程序或基于本程序所生著作的条款与条件。</p>
+<p>六、 每当您再发布本程序（或任何基于本程序所生的著作）时，收受者即自动获得原授权人所授予依本授权条款与条件复制、发布或修改本程序的权利。您不得就本授权所赋予收受者行使的权利附加任何进一步的限制。您对于第三人是否履行本授权一事，无须负责。</p>
+<p>七、 若法院判决、专利侵权主张或者其他任何理由（不限于专利争议）的结果，使得加诸于您的条件（无论是由法院命令、协议书或其他方式造成）与本授权规定有所冲突，他们并不免除您对于本授权规定的遵守。若您无法同时符合依本授权所生义务及其他相关义务而进行发布，那么其结果便是您不得发布该程序。例如，若专利授权不允许其他人直接或间接取得复制物，通过您以免付权利金的方式再发布该程序，您唯一能同时滿足该义务及本授权的方式就是徹底避免进行该程序的发布。</p>
+<p>若本条任一部份在特殊情况下被认定无效或无法执行时，本条其余部分仍应适用，且本条全部于其他情况下仍应适用。</p>
+<p>本条的目的并不在诱使您侵害专利或其他財产权的权利主张，或就此类主张的有效性加以争执；本条的唯一目的，是在保障藉由公共授权惯例所执行自由软件发布系统的完整性。许多人信赖该系统一贯使用的应用程序，而对经由此系统发布的大量软件有相当多的贡献；作者／贡献者有权决定他或她是否希望经由其他的系统发布软件，而被授权人则无该种选择权。</p>
+<p>本条的用意在于将本授权其他不确定的部分徹底解释清楚。</p>
+<p>八、 若因为专利或享有著作权保护的介面问题，而使得本程序的发布与／或使用局限于某些国家时，则将本程序置于本授权规范之下的原著作权人得增列明确的发布地区限制条款，将这些国家排除在外，而使发布的许可只限在未受排除的国家之內或之中。在该等情况下，该限制条款如同以书面方式订定于本授权內容中，而成为本授权的条款。</p>
+<p>九、 自由软件基金会得随时发表通用公共授权的修正版与／或新版本。新版本在精神上将近似于目前的版本，然而在细节上或所不同以因应新的问题或状况。</p>
+<p>每一个版本都有个別的版本号码。若本程序指定有授权版本号码，表示其适用该版本或是”任何新版本”时，您可以选择遵循该版本或任何由自由软件基金会日后所发表新版本的条款与条件。若本程序并未指定授权版本号码时，您可以选择任一自由软件基金会所发表的版本。</p>
+<p>十、 若您想将部分本程序纳入其他自由程序，而其发布的条件有所不同时，请写信取得作者的许可。若为自由软件基金会享有著作权的软件，请写信至自由软件基金会；我们有时会以例外方式予以处理。我们的决定取决于两项目标：确保我们自由软件的所有衍生著作均维持在自由的状态，并广泛地促进软件的分享与再利用。</p>
+<p>无担保声明</p>
+<p>十一、 由于本程序是无偿授权，因此在法律许可范围內，本授权对本程序并不负担保责任。非经书面声明，著作权人与／或其他提供程序之人，无论明示或默许，均是依「现况」提供本程序而并无任何形式的担保责任，其包括但不限于，就适售性以及特定目的的适用性为默示性担保。有关本程序品质与效能的全部风险均由您承担。如本程序被证明有瑕疵，您应承担所有服务、修复或改正的费用。</p>
+<p>十二、 非经法律要求或书面同意，任何著作权人或任何可能依前述方式修改与／或发布本程序者，对于您因为使用或不能使用本程序所造成的一般性、特殊性、意外性或间接性损失，不负任何责任（包括但不限于，资料损失，资料执行不精确，或应由您或第三人承担的损失，或本程序无法与其他程序运作等），即便前述的著作权人或其他人已被告知该等损失的可能性时，也是一样。</p>
+<p>-条文结束-</p>
+<p>您的新程序该如何采用这些条款？</p>
+<p>如果您开发了一个新程序，并且希望能够让它尽可能地被大众使用，达成此目的的最好方式就是让它成为自由软件，任何人依这些条款规定都能就该软件再为发布及修改。</p>
+<p>为了做到这一点，请将以下声明附加到程序上。最安全的作法，是将声明放在每份源码挡案的起始处，以有效传达无担保责任的讯息；且每份挡案至少应有「著作权」列以及本份声明全文位置的提示。</p>
+<p>用一行描述程序的名称与其用途简述<br>著作权所有(C) 〈年份〉〈作者姓名〉</p>
+<p>本程序为自由软件；您可依据自由软件基金会所发表的GNU通用公共授权条款规定，就本程序再为发布与／或修改；无论您依据的是本授权的第二版或（您自行选择的）任一日后发行的版本。</p>
+<p>本程序是基于使用目的而加以发布，然而不负任何担保责任；亦无对适售性或特定目的适用性所为的默示性担保。详情请参照GNU通用公共授权。</p>
+<p>您应已收到附随于本程序的GNU通用公共授权的副本；如果没有，请写信至自由软件基金会：59 Temple Place - Suite 330, Boston, Ma 02111-1307, USA。</p>
+<p>同时附上如何以电子及书面信件与您联系的资料。</p>
+<p>若程序是以交互方式运作时，请在交互式模式开始时，输出简短提示如下：</p>
+<p>Gnomovision 第69版，著作权所有 (c) 年份 作者姓名<br>Gnomovision不负担保责任，欲知详情请键入’show w’。这是一个自由软件，欢迎您在特定条件下再发布本程序；欲知详情请键入’show c’。</p>
+<p>所假设的指令’show w’与’show c’应显示通用公共授权的相对应条款。当然，您可以使用’show w’与’show c’以外的指令名称；甚至以鼠标键击或选菜单方式进行-只要是合于您程序需要的方式都可以。</p>
+<p>如有需要，您亦应取得您的雇主（若您的工作为程序设计師）或学校就本程序所签署的「著作权放弃承諾书」。其范例如下，您只要修改姓名即可：</p>
+<p>Yoyodyne公司，茲此放弃James Hacker所写之’Gnomovision’程序（该程序产出编译器所需资讯）所有的著作权利益。</p>
+<p>〈Ty Coon公司签章〉，1989年四月一日</p>
+<p>Ty Coon公司,副总裁</p>
+<p>本通用公共授权并不允许您将本程序并入专有程序中。若您的程序是一子程序函数库时，您可能认为允许专有应用程序与该函式库相连结会更有帮助。若这是您所想做的，请使用GNU函式库通用公共授权代替本授权。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.gnu.org/licenses/gpl-3.0.md" target="_blank" rel="external">GNU GENERAL PUBLIC LICENSE </a></li>
+<li><a href="http://www.thebigfly.com/gnu/gpl/gpl.txt" target="_blank" rel="external">GNU 通用公共授权 (简体中文翻译版)</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为GPL协议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="开源协议" scheme="http://www.bookcell.org/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="license" scheme="http://www.bookcell.org/tags/license/"/>
+    
+      <category term="GPL" scheme="http://www.bookcell.org/tags/GPL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源协议系列之Mozila</title>
+    <link href="http://www.bookcell.org/2017/02/07/opensource-license-series-mozila/"/>
+    <id>http://www.bookcell.org/2017/02/07/opensource-license-series-mozila/</id>
+    <published>2017-02-07T09:01:52.000Z</published>
+    <updated>2017-02-23T06:19:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Mozila协议。</p>
+<a id="more"></a>
+<h2 id="英文版"><a href="#英文版" class="headerlink" title="英文版"></a>英文版</h2><h1 id="Mozilla-Public-License-Version-2-0"><a href="#Mozilla-Public-License-Version-2-0" class="headerlink" title="Mozilla Public License Version 2.0"></a>Mozilla Public License Version 2.0</h1><h2 id="1-Definitions"><a href="#1-Definitions" class="headerlink" title="1. Definitions"></a>1. Definitions</h2><p>1.1. “Contributor”<br>    means each individual or legal entity that creates, contributes to<br>    the creation of, or owns Covered Software.</p>
+<p>1.2. “Contributor Version”<br>    means the combination of the Contributions of others (if any) used<br>    by a Contributor and that particular Contributor’s Contribution.</p>
+<p>1.3. “Contribution”<br>    means Covered Software of a particular Contributor.</p>
+<p>1.4. “Covered Software”<br>    means Source Code Form to which the initial Contributor has attached<br>    the notice in Exhibit A, the Executable Form of such Source Code<br>    Form, and Modifications of such Source Code Form, in each case<br>    including portions thereof.</p>
+<p>1.5. “Incompatible With Secondary Licenses”<br>    means</p>
+<p>(a) that the initial Contributor has attached the notice described<br>    in Exhibit B to the Covered Software; or</p>
+<p>(b) that the Covered Software was made available under the terms of<br>    version 1.1 or earlier of the License, but not also under the<br>    terms of a Secondary License.</p>
+<p>1.6. “Executable Form”<br>    means any form of the work other than Source Code Form.</p>
+<p>1.7. “Larger Work”<br>    means a work that combines Covered Software with other material, in<br>    a separate file or files, that is not Covered Software.</p>
+<p>1.8. “License”<br>    means this document.</p>
+<p>1.9. “Licensable”<br>    means having the right to grant, to the maximum extent possible,<br>    whether at the time of the initial grant or subsequently, any and<br>    all of the rights conveyed by this License.</p>
+<p>1.10. “Modifications”<br>    means any of the following:</p>
+<p>(a) any file in Source Code Form that results from an addition to,<br>    deletion from, or modification of the contents of Covered<br>    Software; or</p>
+<p>(b) any new file in Source Code Form that contains any Covered<br>    Software.</p>
+<p>1.11. “Patent Claims” of a Contributor<br>    means any patent claim(s), including without limitation, method,<br>    process, and apparatus claims, in any patent Licensable by such<br>    Contributor that would be infringed, but for the grant of the<br>    License, by the making, using, selling, offering for sale, having<br>    made, import, or transfer of either its Contributions or its<br>    Contributor Version.</p>
+<p>1.12. “Secondary License”<br>    means either the GNU General Public License, Version 2.0, the GNU<br>    Lesser General Public License, Version 2.1, the GNU Affero General<br>    Public License, Version 3.0, or any later versions of those<br>    licenses.</p>
+<p>1.13. “Source Code Form”<br>    means the form of the work preferred for making modifications.</p>
+<p>1.14. “You” (or “Your”)<br>    means an individual or a legal entity exercising rights under this<br>    License. For legal entities, “You” includes any entity that<br>    controls, is controlled by, or is under common control with You. For<br>    purposes of this definition, “control” means (a) the power, direct<br>    or indirect, to cause the direction or management of such entity,<br>    whether by contract or otherwise, or (b) ownership of more than<br>    fifty percent (50%) of the outstanding shares or beneficial<br>    ownership of such entity.</p>
+<h2 id="2-License-Grants-and-Conditions"><a href="#2-License-Grants-and-Conditions" class="headerlink" title="2. License Grants and Conditions"></a>2. License Grants and Conditions</h2><p>2.1. Grants</p>
+<p>Each Contributor hereby grants You a world-wide, royalty-free,<br>non-exclusive license:</p>
+<p>(a) under intellectual property rights (other than patent or trademark)<br>    Licensable by such Contributor to use, reproduce, make available,<br>    modify, display, perform, distribute, and otherwise exploit its<br>    Contributions, either on an unmodified basis, with Modifications, or<br>    as part of a Larger Work; and</p>
+<p>(b) under Patent Claims of such Contributor to make, use, sell, offer<br>    for sale, have made, import, and otherwise transfer either its<br>    Contributions or its Contributor Version.</p>
+<p>2.2. Effective Date</p>
+<p>The licenses granted in Section 2.1 with respect to any Contribution<br>become effective for each Contribution on the date the Contributor first<br>distributes such Contribution.</p>
+<p>2.3. Limitations on Grant Scope</p>
+<p>The licenses granted in this Section 2 are the only rights granted under<br>this License. No additional rights or licenses will be implied from the<br>distribution or licensing of Covered Software under this License.<br>Notwithstanding Section 2.1(b) above, no patent license is granted by a<br>Contributor:</p>
+<p>(a) for any code that a Contributor has removed from Covered Software;<br>    or</p>
+<p>(b) for infringements caused by: (i) Your and any other third party’s<br>    modifications of Covered Software, or (ii) the combination of its<br>    Contributions with other software (except as part of its Contributor<br>    Version); or</p>
+<p>(c) under Patent Claims infringed by Covered Software in the absence of<br>    its Contributions.</p>
+<p>This License does not grant any rights in the trademarks, service marks,<br>or logos of any Contributor (except as may be necessary to comply with<br>the notice requirements in Section 3.4).</p>
+<p>2.4. Subsequent Licenses</p>
+<p>No Contributor makes additional grants as a result of Your choice to<br>distribute the Covered Software under a subsequent version of this<br>License (see Section 10.2) or under the terms of a Secondary License (if<br>permitted under the terms of Section 3.3).</p>
+<p>2.5. Representation</p>
+<p>Each Contributor represents that the Contributor believes its<br>Contributions are its original creation(s) or it has sufficient rights<br>to grant the rights to its Contributions conveyed by this License.</p>
+<p>2.6. Fair Use</p>
+<p>This License is not intended to limit any rights You have under<br>applicable copyright doctrines of fair use, fair dealing, or other<br>equivalents.</p>
+<p>2.7. Conditions</p>
+<p>Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted<br>in Section 2.1.</p>
+<h2 id="3-Responsibilities"><a href="#3-Responsibilities" class="headerlink" title="3. Responsibilities"></a>3. Responsibilities</h2><p>3.1. Distribution of Source Form</p>
+<p>All distribution of Covered Software in Source Code Form, including any<br>Modifications that You create or to which You contribute, must be under<br>the terms of this License. You must inform recipients that the Source<br>Code Form of the Covered Software is governed by the terms of this<br>License, and how they can obtain a copy of this License. You may not<br>attempt to alter or restrict the recipients’ rights in the Source Code<br>Form.</p>
+<p>3.2. Distribution of Executable Form</p>
+<p>If You distribute Covered Software in Executable Form then:</p>
+<p>(a) such Covered Software must also be made available in Source Code<br>    Form, as described in Section 3.1, and You must inform recipients of<br>    the Executable Form how they can obtain a copy of such Source Code<br>    Form by reasonable means in a timely manner, at a charge no more<br>    than the cost of distribution to the recipient; and</p>
+<p>(b) You may distribute such Executable Form under the terms of this<br>    License, or sublicense it under different terms, provided that the<br>    license for the Executable Form does not attempt to limit or alter<br>    the recipients’ rights in the Source Code Form under this License.</p>
+<p>3.3. Distribution of a Larger Work</p>
+<p>You may create and distribute a Larger Work under terms of Your choice,<br>provided that You also comply with the requirements of this License for<br>the Covered Software. If the Larger Work is a combination of Covered<br>Software with a work governed by one or more Secondary Licenses, and the<br>Covered Software is not Incompatible With Secondary Licenses, this<br>License permits You to additionally distribute such Covered Software<br>under the terms of such Secondary License(s), so that the recipient of<br>the Larger Work may, at their option, further distribute the Covered<br>Software under the terms of either this License or such Secondary<br>License(s).</p>
+<p>3.4. Notices</p>
+<p>You may not remove or alter the substance of any license notices<br>(including copyright notices, patent notices, disclaimers of warranty,<br>or limitations of liability) contained within the Source Code Form of<br>the Covered Software, except that You may alter any license notices to<br>the extent required to remedy known factual inaccuracies.</p>
+<p>3.5. Application of Additional Terms</p>
+<p>You may choose to offer, and to charge a fee for, warranty, support,<br>indemnity or liability obligations to one or more recipients of Covered<br>Software. However, You may do so only on Your own behalf, and not on<br>behalf of any Contributor. You must make it absolutely clear that any<br>such warranty, support, indemnity, or liability obligation is offered by<br>You alone, and You hereby agree to indemnify every Contributor for any<br>liability incurred by such Contributor as a result of warranty, support,<br>indemnity or liability terms You offer. You may include additional<br>disclaimers of warranty and limitations of liability specific to any<br>jurisdiction.</p>
+<h2 id="4-Inability-to-Comply-Due-to-Statute-or-Regulation"><a href="#4-Inability-to-Comply-Due-to-Statute-or-Regulation" class="headerlink" title="4. Inability to Comply Due to Statute or Regulation"></a>4. Inability to Comply Due to Statute or Regulation</h2><p>If it is impossible for You to comply with any of the terms of this<br>License with respect to some or all of the Covered Software due to<br>statute, judicial order, or regulation then You must: (a) comply with<br>the terms of this License to the maximum extent possible; and (b)<br>describe the limitations and the code they affect. Such description must<br>be placed in a text file included with all distributions of the Covered<br>Software under this License. Except to the extent prohibited by statute<br>or regulation, such description must be sufficiently detailed for a<br>recipient of ordinary skill to be able to understand it.</p>
+<h2 id="5-Termination"><a href="#5-Termination" class="headerlink" title="5. Termination"></a>5. Termination</h2><p>5.1. The rights granted under this License will terminate automatically<br>if You fail to comply with any of its terms. However, if You become<br>compliant, then the rights granted under this License from a particular<br>Contributor are reinstated (a) provisionally, unless and until such<br>Contributor explicitly and finally terminates Your grants, and (b) on an<br>ongoing basis, if such Contributor fails to notify You of the<br>non-compliance by some reasonable means prior to 60 days after You have<br>come back into compliance. Moreover, Your grants from a particular<br>Contributor are reinstated on an ongoing basis if such Contributor<br>notifies You of the non-compliance by some reasonable means, this is the<br>first time You have received notice of non-compliance with this License<br>from such Contributor, and You become compliant prior to 30 days after<br>Your receipt of the notice.</p>
+<p>5.2. If You initiate litigation against any entity by asserting a patent<br>infringement claim (excluding declaratory judgment actions,<br>counter-claims, and cross-claims) alleging that a Contributor Version<br>directly or indirectly infringes any patent, then the rights granted to<br>You by any and all Contributors for the Covered Software under Section<br>2.1 of this License shall terminate.</p>
+<p>5.3. In the event of termination under Sections 5.1 or 5.2 above, all<br>end user license agreements (excluding distributors and resellers) which<br>have been validly granted by You or Your distributors under this License<br>prior to termination shall survive termination.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">************************************************************************</div><div class="line">*                                                                      *</div><div class="line">*  6. Disclaimer of Warranty                                           *</div><div class="line">*  -------------------------                                           *</div><div class="line">*                                                                      *</div><div class="line">*  Covered Software is provided under this License on an &quot;as is&quot;       *</div><div class="line">*  basis, without warranty of any kind, either expressed, implied, or  *</div><div class="line">*  statutory, including, without limitation, warranties that the       *</div><div class="line">*  Covered Software is free of defects, merchantable, fit for a        *</div><div class="line">*  particular purpose or non-infringing. The entire risk as to the     *</div><div class="line">*  quality and performance of the Covered Software is with You.        *</div><div class="line">*  Should any Covered Software prove defective in any respect, You     *</div><div class="line">*  (not any Contributor) assume the cost of any necessary servicing,   *</div><div class="line">*  repair, or correction. This disclaimer of warranty constitutes an   *</div><div class="line">*  essential part of this License. No use of any Covered Software is   *</div><div class="line">*  authorized under this License except under this disclaimer.         *</div><div class="line">*                                                                      *</div><div class="line">************************************************************************</div><div class="line"></div><div class="line">************************************************************************</div><div class="line">*                                                                      *</div><div class="line">*  7. Limitation of Liability                                          *</div><div class="line">*  --------------------------                                          *</div><div class="line">*                                                                      *</div><div class="line">*  Under no circumstances and under no legal theory, whether tort      *</div><div class="line">*  (including negligence), contract, or otherwise, shall any           *</div><div class="line">*  Contributor, or anyone who distributes Covered Software as          *</div><div class="line">*  permitted above, be liable to You for any direct, indirect,         *</div><div class="line">*  special, incidental, or consequential damages of any character      *</div><div class="line">*  including, without limitation, damages for lost profits, loss of    *</div><div class="line">*  goodwill, work stoppage, computer failure or malfunction, or any    *</div><div class="line">*  and all other commercial damages or losses, even if such party      *</div><div class="line">*  shall have been informed of the possibility of such damages. This   *</div><div class="line">*  limitation of liability shall not apply to liability for death or   *</div><div class="line">*  personal injury resulting from such party&apos;s negligence to the       *</div><div class="line">*  extent applicable law prohibits such limitation. Some               *</div><div class="line">*  jurisdictions do not allow the exclusion or limitation of           *</div><div class="line">*  incidental or consequential damages, so this exclusion and          *</div><div class="line">*  limitation may not apply to You.                                    *</div><div class="line">*                                                                      *</div><div class="line">************************************************************************</div></pre></td></tr></table></figure>
+<h2 id="8-Litigation"><a href="#8-Litigation" class="headerlink" title="8. Litigation"></a>8. Litigation</h2><p>Any litigation relating to this License may be brought only in the<br>courts of a jurisdiction where the defendant maintains its principal<br>place of business and such litigation shall be governed by laws of that<br>jurisdiction, without reference to its conflict-of-law provisions.<br>Nothing in this Section shall prevent a party’s ability to bring<br>cross-claims or counter-claims.</p>
+<h2 id="9-Miscellaneous"><a href="#9-Miscellaneous" class="headerlink" title="9. Miscellaneous"></a>9. Miscellaneous</h2><p>This License represents the complete agreement concerning the subject<br>matter hereof. If any provision of this License is held to be<br>unenforceable, such provision shall be reformed only to the extent<br>necessary to make it enforceable. Any law or regulation which provides<br>that the language of a contract shall be construed against the drafter<br>shall not be used to construe this License against a Contributor.</p>
+<h2 id="10-Versions-of-the-License"><a href="#10-Versions-of-the-License" class="headerlink" title="10. Versions of the License"></a>10. Versions of the License</h2><p>10.1. New Versions</p>
+<p>Mozilla Foundation is the license steward. Except as provided in Section<br>10.3, no one other than the license steward has the right to modify or<br>publish new versions of this License. Each version will be given a<br>distinguishing version number.</p>
+<p>10.2. Effect of New Versions</p>
+<p>You may distribute the Covered Software under the terms of the version<br>of the License under which You originally received the Covered Software,<br>or under the terms of any subsequent version published by the license<br>steward.</p>
+<p>10.3. Modified Versions</p>
+<p>If you create software not governed by this License, and you want to<br>create a new license for such software, you may create and use a<br>modified version of this License if you rename the license and remove<br>any references to the name of the license steward (except to note that<br>such modified license differs from this License).</p>
+<p>10.4. Distributing Source Code Form that is Incompatible With Secondary<br>Licenses</p>
+<p>If You choose to distribute Source Code Form that is Incompatible With<br>Secondary Licenses under the terms of this version of the License, the<br>notice described in Exhibit B of this License must be attached.</p>
+<h2 id="Exhibit-A-Source-Code-Form-License-Notice"><a href="#Exhibit-A-Source-Code-Form-License-Notice" class="headerlink" title="Exhibit A - Source Code Form License Notice"></a>Exhibit A - Source Code Form License Notice</h2><p>  This Source Code Form is subject to the terms of the Mozilla Public<br>  License, v. 2.0. If a copy of the MPL was not distributed with this<br>  file, You can obtain one at <a href="http://mozilla.org/MPL/2.0/" target="_blank" rel="external">http://mozilla.org/MPL/2.0/</a>.</p>
+<p>If it is not possible or desirable to put the notice in a particular<br>file, then You may include the notice in a location (such as a LICENSE<br>file in a relevant directory) where a recipient would be likely to look<br>for such a notice.</p>
+<p>You may add additional accurate notices of copyright ownership.</p>
+<h2 id="Exhibit-B-“Incompatible-With-Secondary-Licenses”-Notice"><a href="#Exhibit-B-“Incompatible-With-Secondary-Licenses”-Notice" class="headerlink" title="Exhibit B - “Incompatible With Secondary Licenses” Notice"></a>Exhibit B - “Incompatible With Secondary Licenses” Notice</h2><p>  This Source Code Form is “Incompatible With Secondary Licenses”, as<br>  defined by the Mozilla Public License, v. 2.0.</p>
+<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>(简体中文版译者声明：Mozilla 公共许可协议 2.0版简体中文翻译版仅为开发者参考使用，并不具备法律效力。开发者开发和发布相关软件须以Mozilla Public License 2.0英文版 （<a href="https://www.mozilla.org/MPL/2.0/）" target="_blank" rel="external">https://www.mozilla.org/MPL/2.0/）</a> 条款为准。译者不承担任何法律责任。 )</p>
+<p>Mozilla 公共许可协议 2.0版</p>
+<p>一、 定义</p>
+<p>1.1 “贡献者”<br>     是指创造，协助创造，或拥有适用软件所有权的个人或法人实体。</p>
+<p>1.2 “贡献者版本”</p>
+<p>   是指一个贡献者使用他人的贡献（若有他人贡献）和该贡献者的个人贡献相结合创建的版本。<br>1.3 “贡献”</p>
+<p>   是指特定贡献者的适用软件。<br>1.4 “适用软件”</p>
+<p>是指原始贡献者在附录A中随附声明的源代码形式，相应源代码可执行形式，以及相应源代码形式的修改内容，并依情况显示修改占比。</p>
+<p>1.5 “不兼容次级许可证”</p>
+<p>   是指：</p>
+<p>a. 初始贡献者在附录B中随附适用软件声明；或<br>b. 该适用软件适用于Mozilla 公共许可协议 1.1版本或更早的许可证版本的条款，但对次级许可证的条款并不适用。</p>
+<p>1.6 “可执行形式”</p>
+<p>   是指除源代码形式以外的任何软件形式。<br>1.7 “广义软件”</p>
+<p>   是指由适用软件和其他资料结合创建，并以独立文件或者文件集合形式存在的软件，该软件不属于适用软件范畴。</p>
+<p>1.8 “许可证”</p>
+<p>   是指本文档。</p>
+<p>1.9 “许可授权”</p>
+<p>   是指在最大范围内，无论是在初次许可或后继许可的情况下，有权授予任何及所有本许可证赋予的权利。</p>
+<p>1.10 “修改”</p>
+<p>   是指以下任何情形：</p>
+<p>a. 源代码形式中针对适用软件进行补充，删除，或内容修改后生成的任何文件；或<br>b. 源代码形式中包含任何适用文件的全新文件。</p>
+<p>1.11 贡献者的“专利权利声明”</p>
+<p>   是指贡献者的任何一个或多个专利声明，包括但不限于方法，过程和设备声明，在任何可授权专利范围内被侵犯，但对于已授予许可的，包括制造，使用，销售，销售邀请，半成品，进口，或该软件或其贡献版本的转移形式不属于侵权范围。</p>
+<p>1.12 “次级许可”</p>
+<p>   是指GNU通用公共许可证2.0版本 （GNU General Public License, Version 2.0），GNU宽通用公共许可证2.1 版本（GNU Lesser General Public License, Version 2.1），GNU Affero 通用公共许可3.0版本（GNU Affero General Public License, Version 3.0），或其更新的许可证版本。</p>
+<p>1.13 “源代码形式”</p>
+<p>   是指可用于修改的代码形式。</p>
+<p>1.14 “您”（或“您的”）</p>
+<p>   是指个人或执行本许可权利的法律实体。对于法人实体，“您”包括控制，被控制，或者和您在共同控制情况下的任何实体。在本定义中，“控制”是指（a） 以合同或者非合同形式引导或管理实体的直接或者间接权力，或（b）拥有超过百分之五十（50％）流通股所有权，或拥有该实体的实益拥有权。</p>
+<p>二、 许可授予及条件<br>2.1 授予</p>
+<p>每个贡献者以此方式授予您全球的，免版税及无排他性的许可：</p>
+<p>a. 在知识产权（非专利或商标权）许可权的情况下，允许贡献者使用，复制，普及，修改，展示，操作，传播，并以此用于开发个人贡献版本，无论是在未经修改的基础上，创建修改版本，或者作为广义软件的一部分；以及<br>b. 在专利声明的情况下，允许贡献者制造，使用，销售，销售邀请，半成品制造，进口，及转让其贡献软件或其贡献者版本。</p>
+<p>2.2 生效日期</p>
+<p>在第2.1条中有关贡献作品的许可授权，在贡献者发布其贡献软件的首日起生效。</p>
+<p>2.3 授予范围限制</p>
+<p>在第2节中授予的许可证是本许可下授予的唯一权利。在本许可下有关适用软件的发布及许可权，在无特别声明的情况下，不具备除本许可规定之外的权利或者许可。在以下情况中，第2.1（b）条不表示贡献者已被授予专利权：</p>
+<p>a. 对于一个贡献者已经从适用软件中删除的任何代码；或<br>b. 由以下情形产生的侵权行为：（i）您和任何第三方对于适用软件的修改，或（ii）其贡献软件与其它软件的结合（除非该软件已是贡献者版本的一部分）；或<br>c. 对于专利声明中因缺失贡献软件对适用软件产生的侵权行为 。</p>
+<p>本许可证不授予任何贡献者商标，服务标记，或徽标（除可能需要符合第3.4条有关声明要求的情况外）许可。</p>
+<p>2.4 后续许可证<br>对于您根据此许可的后续版本（见第10.2条），或者根据次级许可的条款（除依第3.3条允许的情况外）发布的适用软件，贡献者禁止对于进行额外的许可授权。</p>
+<p>2.5 表示</p>
+<p>每个贡献者表示该贡献者认可贡献软件是其原创的一个（或多个）软件，或依据本许可证对于其贡献软件拥有足够的权限授予权利。</p>
+<p>2.6 合理使用</p>
+<p>本许可证并非意在限制您在遵守版权规定下的合理使用，公平交易，或其他等值适用的权利。</p>
+<p>2.7 条件<br>在第2.1条中的许可授予需满足第3.1，3.2，3.3，和3.4条中规定的条件。</p>
+<p>三、 责任<br>3.1 源代码形式发布</p>
+<p>适用软件的所有源代码形式发布，包括您独自创建的修改，或您参与贡献的修改，必须遵守本许可证的条款。您必须告知接受者该适用软件的源代码形式是由本许可条款规定管理的，并告知其如何获得此许可证的副本。您无权修改或限制使用者对源代码形式的权利。</p>
+<p>3.2 可执行形式发布</p>
+<p>如果您以可执行形式发布适用软件，则：</p>
+<p>a. 这样的适用软件必须同时以源代码形式提供，按第3.1条所述，您必须及时告知可执行形式的接受者如何通过合理的方式获得该源代码形式的副本，并且费用收取不超过因发布给接受者而产生的费用；以及<br>b. 您可依据本许可证条款发布可执行形式，或在符合本许可条款的情形下制定不同条款规定，但前提是可执行形式的许可证不可尝试限制或改变接受者依据本许可条款规定对源代码形式获取的权利。</p>
+<p>3.3 广义软件发布</p>
+<p>您可以根据您选择的条款创建和发布一个广义软件，前提是您同时符合本许可证有关适用软件的要求。如果该广义软件是由适用软件与符合一个或者多个次级许可证规定的一个软件结合创建，并且适用软件与次级许可证条款不兼容，本许可证允许您在相应次级许可的条款下额外发布该适用软件，广义软件接收者可以，依据其选择，按照本许可证条款或者相应次级许可证条款发布此适用软件。</p>
+<p>3.4 声明</p>
+<p>您不得删除或更改适用软件的源代码形式中包含的任何许可证声明（包括版权声明，专利声明，免责声明，或赔偿责任限制），除非该修改是对已知事实错误的补偿。</p>
+<p>3.5 附加条款的使用</p>
+<p>您可以选择向一个或者多个适用软件的接受者提供无偿或有偿的保修，支持，赔偿或责任义务。但是，您只可以您自己的名义提供，而不是代表任何贡献者的名义。您必须绝对清楚地表明任何此类担保，支持，赔偿或责任义务是由您个人独立提供，并且您同意承担赔偿每一个贡献者因承担担保，支持，赔偿或责任义务而产生的任何赔偿责任。您必须提供附加免责声明，并将责任限制特定于任何一个司法管辖区。</p>
+<p>四、 因法规或条例产生的不可抗力</p>
+<p>若因政策法规，司法命令或者监管制度，使得部分或者整个适用软件不能遵守本许可的某项条款，您则必须：（a）尽最大可能符合本许可证条款；和（b）描述因该政策引起的限制以及受影响的代码。该声明描述必须以文本文件形式包含在根据本协议发布的适用软件的所有发行版本中。除法律或法规禁止的情形外，声明描述必须足够详细清晰，以保证普通接受者能够理解该声明内容。</p>
+<p>五、 终止</p>
+<p>5.1 如果您违反本许可的任何一项条款，依据本许可授予的权利将自动终止。但是，如果您重新遵守本许可的规定，那么您从某特定贡献者按本许可所授予的权利可在如下情况下被恢复（a）临时恢复，除非贡献者明确终止对您的权利授予，以及（b）保留恢复，如果贡献者因合理原因未能在您重新遵守本许可规定之日的六十日前通知您违反规定。此外，如果您是第一次因违反本许可的规定受到贡献者的违例通知，并且您在三十日内重新遵守本许可规定，则您从该特定贡献者处获得的权利将被保留 。</p>
+<p>5.2 如果您通过声明的专利侵权索赔发起针对任何实体的诉讼（不包括宣告式判决，反诉和交叉诉讼），声称一个贡献者版本直接或间接侵犯某项专利权利， 依据本许可第2.1条授予您对适用软件的任何和所有权利将被终止。</p>
+<p>5.3 因以上第5.1条或第5.2条终止的情形，您或者您的发布者在本许可证终止前有效授予的所有最终用户许可协议（不包括分销商和经销商） 将继续有效。</p>
+<p>六、 免责声明</p>
+<p>适用软件在根据本许可的“原样”的基础上，不予任何形式的担保，任何明示，暗示或法定的担保，包括但不限于担保适用软件免于缺陷，适销，适于特定目的或不侵权。您将承担有关适用软件的质量和性能的全部风险。如果任何适用软件在任何方面欠妥，将由您（不是任何贡献者）承担所有必要的服务，维修或纠正的费用成本。本免责声明构成了本许可的重要组成部分。除非遵守本免责声明，适用软件的使用将授权无效。</p>
+<p>七、 责任限制</p>
+<p>在任何情况下，在任何法律规定下，无论是侵权（包括过失），合同或其他情形，任何贡献者，或按上述规定有权发布使用软件的任何实体，都不将承担您的任何直接，间接，特殊，偶然或后果损害赔偿，包括但不限于利润损失，商誉损失，停工，电脑故障或失灵，或任何和所有其他商业损害或损失，即使该方已被告知损失的可能性也不例外。该责任限制不适用于由于一方疏忽引起的死亡或人身伤害，适用法律禁止此类限制的范围内产生的法律责任。某些司法管辖区不允许意外或间接损害的排除或限制，因此此类排除和限制对您并不适用。</p>
+<p>八、 诉讼</p>
+<p>任何与本协议有关的诉讼只能在不和地方法律规定冲突的情况下，在被告主营业务所在地的司法管辖区提出。本节不妨碍任何一方的交叉诉讼或反诉能力。</p>
+<p>九、 其他</p>
+<p>本许可代表就本合同标的物的全部协议。如果本许可协议的任何条款被认为是不可执行的，该条款应进行修改至能予以执行的程度。按任何法律或法规规定，合同的语言应按对贡献者有利的解释，而不是向合同起草方有利的解释。</p>
+<p>十、 许可证版本<br>10.1新版本</p>
+<p>Mozilla基金会是本许可证发布人。除第10.3条规定，许可证发布人之外的其他人无权修改或发布此许可证新版本的权利。每一个版本都会跟随一个全新的版本号。</p>
+<p>10.2新版本的影响</p>
+<p>您可以依据您最初收到适用软件时的许可证，或依据由许可发布人发布的任何后续版本的许可条款发布适用软件。</p>
+<p>10.3修改版本</p>
+<p>如果您未在本许可证监管下创建软件，并且您想为该软件创建新的许可证，您可以创建并使用此许可证的修改版，前提是您重新命名本许可证，并删除任何本许可证发布人的名字引用（注明这种修改许可证版本完全不同于原本许可证版本）。</p>
+<p>10.4不兼容次级许可证的源代码形式发布</p>
+<p>如果您选择发布的源代码形式，不兼容该版本许可证条款下的次级许可证，则必须随附在本许可证附录B中描述的通知。</p>
+<p>附录A - 源代码形式许可声明</p>
+<p>该源代码形式遵守Mozilla公共许可协议2.0的条款。如果该源代码文件中没有随附MPL的副本，您可以在以下地址获取：<a href="http://mozilla.org/MPL/2.0/。" target="_blank" rel="external">http://mozilla.org/MPL/2.0/。</a></p>
+<p>如果未能将声明存放于一个特定文件，您则必须将声明包括在某个文件位置（如在许可文件相关目录中），接收者很可能在这样的位置查找此类声明。</p>
+<p>您可以增加有关版权所有权情况的准确描述。</p>
+<p>附录B - “不兼容二级许可证”的声明</p>
+<p>按Mozilla公共许可协议2.0所定义，该源代码形式 “不兼容二级许可证” 。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank" rel="external">Mozilla Public License Version 2.0</a></li>
+<li><a href="https://github.com/MozillaChina/MPL/blob/master/Mozilla_Public_License_2.0_Simplified_Chinese_Reference.md" target="_blank" rel="external">Mozilla_Public_License_2.0_Simplified_Chinese_Reference.md</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Mozila协议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="开源协议" scheme="http://www.bookcell.org/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="license" scheme="http://www.bookcell.org/tags/license/"/>
+    
+      <category term="Mozila" scheme="http://www.bookcell.org/tags/Mozila/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源协议系列之Apache</title>
+    <link href="http://www.bookcell.org/2017/02/06/opensource-license-series-apache/"/>
+    <id>http://www.bookcell.org/2017/02/06/opensource-license-series-apache/</id>
+    <published>2017-02-06T08:22:14.000Z</published>
+    <updated>2017-02-23T06:13:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Apache 2.0协议。</p>
+<a id="more"></a>
+<h2 id="英文版"><a href="#英文版" class="headerlink" title="英文版"></a>英文版</h2><p>Apache License</p>
+<p>Version 2.0, January 2004</p>
+<p><a href="http://www.apache.org/licenses/" target="_blank" rel="external">http://www.apache.org/licenses/</a></p>
+<p>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</p>
+<ol>
+<li>Definitions.</li>
+</ol>
+<p>“License” shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.</p>
+<p>“Licensor” shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.</p>
+<p>“Legal Entity” shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, “control” means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.</p>
+<p>“You” (or “Your”) shall mean an individual or Legal Entity exercising permissions granted by this License.</p>
+<p>“Source” form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.</p>
+<p>“Object” form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.</p>
+<p>“Work” shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).</p>
+<p>“Derivative Works” shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.</p>
+<p>“Contribution” shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, “submitted” means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as “Not a Contribution.”</p>
+<p>“Contributor” shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.</p>
+<ol>
+<li><p>Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.</p>
+</li>
+<li><p>Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.</p>
+</li>
+<li><p>Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:</p>
+</li>
+</ol>
+<p>You must give any other recipients of the Work or Derivative Works a copy of this License; and<br>You must cause any modified files to carry prominent notices stating that You changed the files; and<br>You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and<br>If the Work includes a “NOTICE” text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.</p>
+<p>You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.</p>
+<ol>
+<li><p>Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.</p>
+</li>
+<li><p>Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.</p>
+</li>
+<li><p>Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.</p>
+</li>
+<li><p>Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.</p>
+</li>
+<li><p>Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.</p>
+</li>
+</ol>
+<p>END OF TERMS AND CONDITIONS</p>
+<p>APPENDIX: HOW TO APPLY THE APACHE LICENSE TO YOUR WORK<br>To apply the Apache License to your work, attach the following boilerplate notice, with the fields enclosed by brackets “[]” replaced with your own identifying information. (Don’t include the brackets!) The text should be enclosed in the appropriate comment syntax for the file format. We also recommend that a file or class name and description of purpose be included on the same “printed page” as the copyright notice for easier identification within third-party archives.</p>
+<p>Copyright [yyyy] [name of copyright owner]</p>
+<p>Licensed under the Apache License, Version 2.0 (the “License”);<br>you may not use this file except in compliance with the License.<br>You may obtain a copy of the License at</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="external">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>Unless required by applicable law or agreed to in writing, software<br>distributed under the License is distributed on an “AS IS” BASIS,<br>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br>See the License for the specific language governing permissions and<br>limitations under the License.</p>
+<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>译者：Joe 改动：hbW<br>使用、重生成及分发的术语和条件：</p>
+<p>1.定义</p>
+<p>“许可证”是指根据本文档第1到第9部分关于使用、重生成和分发的术语和条件。</p>
+<p>“许可证颁发者”是指版权所有者或者由版权所有者批准的授权许可证的实体。</p>
+<p>“法律实体”是指实施实体和进行控制的所有其它实体受该实体控制，或者受该实体集中控制。根据此定义，”控制”是指(i)让无论是否签订协议的上述实体，进行指导或管理的直接权利或间接权利，或者(ii)拥有百分之五十(50%)或以上已发行股票的所有者，或者(iii)上述实体的实权所有者。</p>
+<p>“用户”(或”用户的”)是指行使本许可证所授予权限的个人或法律实体。</p>
+<p>“源程序”形式是指对包含但不限制软件源代码、文档源程序和配置文件进行修改的首选形式。</p>
+<p>“目标”形式是指对源程序形式进行机械转换或翻译的任何形式，包括但不限于对编译的目标代码，生成的文件以及转换为其它媒体类型。</p>
+<p>“作品”是指根据本许可证所制作的源程序形式或目标形式的著作，在著作中包含的或附加的版权通知(在下面附录中提供了一个示例)。</p>
+<p>“衍生作品”是指基于作品(或从作品衍生而来)的源程序形式或目标形式的任何作品，以及编辑修订、注释、详细描述或其它修订等构成原创著作作品的整体。根据本许可证，衍生作品不得包括与作品及其衍生作品分离之作品，或仅与作品及其衍生作品的接口相链接(或按名称结合)之作品。</p>
+<p>“贡献”是指任何著作作品，包括作品的原始版本和对该作品或衍生作品所做的任何修订或补充，意在提交给许可证颁发者以让版权所有者或代表版权所有者的授权个人或法律实体包含在其作品中。根据此定义，”提交”一词表示发送给许可证颁发者或其代表人，任何电子的、口头的或书面的交流信息形式，包括但不限于在由许可证颁发者或者代表其管理的电子邮件清单、源代码控制系统、以及发布跟踪系统上为讨论和提高作品的交流，但不包括由版权所有者以书面形式明显标注或指定为”非贡献”的交流活动。</p>
+<p>“贡献者”是指许可证颁发者和代表从许可证颁发者接受之贡献的并随后包含在作品之贡献中的任何个人或法律实体。</p>
+<p>2.版权许可证的授予</p>
+<p>根据本许可证的条款，每个贡献者授予用户永久性的、全球性的、非专有性的、免费的、无版权费的、不可撤销的版权许可证以源程序形式或目标形式复制、准备衍生作品、公开显示、公开执行、授予分许可证、以及分发作品和这样的衍生作品。</p>
+<p>3.专利许可证的授予</p>
+<p>根据本许可证的条款，每个贡献者授予用户永久性的、全球性的、非专有性的、免费的、无版权费的、不可撤销的(除在本部分进行说明)专利许可证对作品进行制作、让人制作、使用、提供销售、销售、进口和其它转让，且这样的许可证仅适用于在所递交作品的贡献中因可由单一的或多个这样的贡献者授予而必须侵犯的申请专利。如果用户对任何实体针对作品或作品中所涉及贡献提出因直接性或贡献性专利侵权而提起专利法律诉讼(包括交互诉讼请求或反索赔)，那么根据本许可证，授予用户针对作品的任何专利许可证将在提起上述诉讼之日起终止。</p>
+<p>4.重新分发</p>
+<p>用户可在任何媒介中复制和分发作品或衍生作品之副本，无论是否修订，还是以源程序形式或目标形式，条件是用户需满足下列条款：</p>
+<p>用户必须为作品或衍生作品的任何其他接收者提供本许可证的副本；并且<br>用户必须让任何修改过的文件附带明显的通知，声明用户已更改文件；并且<br>用户必须从作品的源程序形式中保留衍生作品源程序形式的用户所分发的所有版权、专利、商标和属性通知，但不包括不属于衍生作品任何部分的类似通知；并且<br>如果作品将”通知”文本文件包括为其分发作品的一部分，那么用户分发的任何衍生作品中须至少在下列地方之一包括，在这样的通知文件中所包含的属性通知的可读副本，但不包括那些不属于衍生作品任何部分的通知：在作为衍生作品一部分而分发的通知文本文件中；如果与衍生作品一起提供则在源程序形式或文件中；或者通常作为第三方通知出现的时候和地方，在衍生作品中产生的画面中。通知文件的内容仅供信息提供，并未对许可证进行修改。用户可在其分发的衍生作品中在作品的通知文本后或作为附录添加自己的属性通知，条件是附加的属性通知不得构成修改本许可证。<br>用户可以为自身所做出的修订添加自己的版权声明并可对自身所做出修订内容或为这样的衍生作品作为整体的使用、复制或分发提供附加或不同的条款，条件是用户对作品的使用、复制和分发必须符合本许可证中声明的条款。</p>
+<p>5.贡献的提交。</p>
+<p>除非用户明确声明，在作品中由用户向许可证颁发者的提交若要包含在贡献中，必须在无任何附加条款下符合本许可证的条款。尽管上面如此规定，执行许可证颁发者有关贡献的条款时，任何情况下均不得替代或修改任何单独许可证协议的条款。</p>
+<p>6.商标。本许可证并未授予用户使用许可证颁发者的商号、商标、服务标记或产品名称，除非将这些名称用于合理性和惯例性描述作品起源和复制通知文件的内容时。<br>7.保证否认条款。除非因适用法律需要或书面同意，许可证颁发者以”按原样”基础提供作品(并且每个贡献者提供其贡献)，无任何明示的或暗示的保证或条件，包括但不限于关于所有权、不侵权、商品适销性、或适用性的保证或条件。用户仅对使用或重新分发作品的正确性负责，并需承担根据本许可证行使权限时的任何风险。<br>8.责任限制条款。在任何情况下并根据任何法律，无论是因侵权(包括过失)或根据合同，还是其它原因，除非根据适用法律需要(例如故意行为和重大过失行为)或经书面同意，即使贡献者事先已被告知发生损害的可能性，任何贡献者不就用户因使用本许可证或不能使用或无法使用作品(包括但不限于商誉损失、停工、计算机失效或故障，或任何商业损坏或损失)而造成的损失，包括直接的、非直接的、特殊的、意外的或间接的字符损坏而负责。<br>9.接受保证或附加责任。重新分发作品或及其衍生作品时，用户可选择提供或为符合本许可证承担之支持、担保、赔偿或其它职责义务和/或权利而收取费用。但是，在承担上述义务时，用户只可代表用户本身和用户本身责任来执行，无需代表任何其它贡献者，并且用户仅可保证、防护并保持每个贡献者不受任何因此而产生的责任或对因用户自身承担这样的保证或附加责任而对这样的贡献者所提出的索赔。<br>条款结束</p>
+<p>附录：如何向用户作品中应用Apache许可证。</p>
+<p>若要向用户作品应用Apache许可证，请附加下列样本通知，将括号”[]”中的字段以用户自身的区分信息来替换(但不包括括号)。文本必须以文件格式适当的注释句法包含在其中。另外建议将文件名或类别名以及目的说明包含在相同的”打印页”上作为版权通知，以更加容易的区分出第三方档案。</p>
+<blockquote>
+<p>版权所有[yyyy][版权所有者的名称]</p>
+<p>根据2.0版本Apache许可证(“许可证”)授权；根据本许可证，用户可以不使用此文件。用户可从下列网址获得许可证副本：<a href="http://www.apache.org/licenses/LICENSE-2.0除非因适用法律需要或书面同意，根据许可证分发的软件是基于&quot;按原样&quot;基础提供，无任何明示的或暗示的保证或条件。详见根据许可证许可下，特定语言的管辖权限和限制。" target="_blank" rel="external">http://www.apache.org/licenses/LICENSE-2.0除非因适用法律需要或书面同意，根据许可证分发的软件是基于&quot;按原样&quot;基础提供，无任何明示的或暗示的保证或条件。详见根据许可证许可下，特定语言的管辖权限和限制。</a></p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Apache_License" target="_blank" rel="external">Apache License</a></li>
+<li><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="external">Apache License 2.0</a></li>
+<li><a href="http://blog.csdn.net/arui319/article/details/2436097" target="_blank" rel="external">Apache License Version 2.0 英文内容及中文翻译</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Apache 2.0协议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="开源协议" scheme="http://www.bookcell.org/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="license" scheme="http://www.bookcell.org/tags/license/"/>
+    
+      <category term="Apache" scheme="http://www.bookcell.org/tags/Apache/"/>
+    
+  </entry>
+  
+</feed>
