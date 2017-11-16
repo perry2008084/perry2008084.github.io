@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2017/09/01/javascript-create-object/</loc>
+    <lastmod>2017-11-16T14:11:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript中对象的几种创建方式</title>
+        <pubTime>2017-09-01T01:26:21.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>对象</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2017/11/07/use-smart-critera-set-goal/</loc>
-    <lastmod>2017-11-07T05:04:13.000Z</lastmod>
+    <lastmod>2017-11-16T14:11:34.000Z</lastmod>
     <data>
         <display>
         <title>设定目标-使用SMART法则</title>
@@ -16,6 +40,34 @@
         <tag>目标</tag>
          
         <tag>SMART法则</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</loc>
+    <lastmod>2017-11-16T14:10:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>Sublime Text 3 安装eslint的JavaScript ES5版本插件总结</title>
+        <pubTime>2017-11-16T13:59:41.000Z</pubTime>
+        
+        <tag>sublime</tag>
+         
+        <tag>sublime Text 3</tag>
+         
+        <tag>eslint</tag>
+         
+        <tag>es5</tag>
+         
+        <tag>SublimeLInter</tag>
          
          
            
@@ -45,30 +97,6 @@
            
              
               <breadCrumb title="读书" url="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.bookcell.org/2017/09/01/javascript-create-object/</loc>
-    <lastmod>2017-09-01T01:33:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript中对象的几种创建方式</title>
-        <pubTime>2017-09-01T01:26:21.000Z</pubTime>
-        
-        <tag>前端开发</tag>
-         
-        <tag>JavaScript</tag>
-         
-        <tag>对象</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
           
         </display>
     </data>

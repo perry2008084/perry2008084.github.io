@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Sublime Text 3 安装eslint的JavaScript ES5版本插件总结]]></title>
+    <url>%2F2017%2F11%2F16%2Fsublime-install-plugin-eslint-es5%2F</url>
+    <content type="text"><![CDATA[ESLint在JavaScript静态代码检测中变得很流行了，主要有几个原因：第一，容易配置；第二，混合了JShint和JSCS；第三，大神Nicholas Zakas写的，写JavaScript红宝石的作者。 安装ESLint安装ESLint之前，确保环境中已经安装Node.js和npm。 npm install -g eslint 可以选择全局安装，也可以选择安装在项目本地。 配置通过项目根目录下.eslintrc配置文件进行规则配置，这里介绍的是根据airbnb提供的扩展文件进行配置，后面会介绍这个文件的配置。 配置文件的格式如下：123456789101112131415161718&#123; "globals": &#123; // Put things like jQuery, etc "jQuery": true, "$": true &#125;, "env": &#123; // I write for browser "browser": true, // in CommonJS "node": true &#125;, // To give you an idea how to override rule options: "rules": &#123; // Tons of rules you can use, for example... "quotes": [1, "double"] &#125;&#125; 规则规则通过一个数组来进行配置，第一项是启用某一项规则的配置。 0 - 禁止规则 1 - 警告该项规则 2 - 报错该项规则 第二项参数为配置规则的内容。 例如：1wrap-iife: [&quot;error&quot;, &quot;outside&quot;] 配置IIFE的括号在外侧，正确代码为：1var x = (function () &#123; return &#123; y: 1 &#125;;&#125;()); // wrapped call expression Sublime-Linter首先安装Sublime Text插件 SublimeLinter，这是一个代码检测的框架，基于这个框架插件，可以再安装其他的插件，包括ESLint。通过Command + Shift + P，安装包SublimeLinter和SublimeLinter-contrib-eslint： 接着配置SublimeLinter，通过菜单Sublime Text -&gt; Prefences -&gt; Package Settings -&gt; SublimeLinter -&gt; Settings-User进行设置，在这里需要配置一下node的安装位置，通过paths配置项告诉SublimeLinter。可以通过which node命令来确定node的安装路径。如果你是使用nvm，那么配置项如下：1234567&quot;paths&quot;: &#123; &quot;linux&quot;: [], &quot;osx&quot;: [ &quot;/Users/jonathanc/.nvm/versions/io.js/v2.0.0/bin&quot; ], &quot;windows&quot;: []&#125;, 配置Airbnb代码规范插件这里介绍ES5的版本，github上最新的airbnb JavaScript代码规范是支持ES6的。Linux和Mac用户安装方法：( export PKG=eslint-config-airbnb-base; npm info “$PKG” peerDependencies –json | command sed ‘s/[{},]//g ; s/: /@/g’ | xargs npm install –save-dev “$PKG”) 这类似于运行了以下的安装命令：npm install –save-dev eslint-config-airbnb-base eslint@^3.0.1 eslint-plugin-import@^1.10.3 注：这里的安装命令，可以选择全局安装或者项目中安装，不过需要和eslint进行匹配，否则eslint跑起来可能会报错。 接着，在项目根目录.eslintrc的文件中增加配置项：“extends”: “airbnb-base/legacy” 这样你的项目在Sublime编辑器中就可以看到代码检测的提示了。 Sublime Linter工具使用通过Tools - SublimeLinter菜单，可以设置代码检测的运行方式、提示风格、错误的跳转等等。 错误的解决方法如果通过上述的配置，eslint并没有生效，可以通过工具菜单打开debug模式，并且展开sublime的控制台(View-Show Console)，查看报错信息来解决。 需要注意eslint和eslint-config-airbnb-base的安装是全局的，还是局部的。]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>sublime</tag>
+        <tag>sublime Text 3</tag>
+        <tag>eslint</tag>
+        <tag>es5</tag>
+        <tag>SublimeLInter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[设定目标-使用SMART法则]]></title>
     <url>%2F2017%2F11%2F07%2Fuse-smart-critera-set-goal%2F</url>
     <content type="text"><![CDATA[大纲：设定目标的意义和常见的问题使用SMART法则设定适当的目标执行、检查和修正目标 设定目标的意义和常见的问题目标犹如一座灯塔，设定了一个准确的目标，能够帮助我们达到我们想要的目的。 准确的设定目标，是目标能够达成的前提条件之一。而我们通常遇到的问题，比较严重的就是，没有准确的设定目标，导致目标在执行过程中，出现以下的几类问题：1、不知道如何评判是否达成目标2、没有时间期限导致拖延3、目标太模糊、太大，导致无法实现而放弃 使用SMART法则设定适当的目标为了解决上述遇到的问题，管理学前辈George T. Doran在1981年提出了SMART法则，依该法则设定的目标，容易理解并能够判断是否完成。 SMART代表5个单词的首字母，有不同版本的说法，比较主流的是: Specific Measurable Achievable Relevant Time-bound 具体说明一下各个维度的管理， Specific(具体的)列出具体的目标内容，或者改进方面。 Measurable（可衡量的）目标需要是量化的，或者是有判断依据的，最终要完成的程度是可以衡量的。 Achievable（可达到的）目标需要是在能力范围之内的，如果目标是远在能力之外的，那设定这个目标就毫无意义了。另外，《The Power Of Less》这本书提到，设定的目标开始的时候尽量小一些，坚持去做，养成一个好的习惯，对不断达成新的目标是有很大帮助。 Relevant(相关性)目标的设定，要有一定的相关性，与实际的生活、工作以及其他的目标相关联，否则目标相对独立，不容易去完成。 Time-bound(有时限的)目标的设定，需要有一个时限性，确定一个明确的截止期限。这样，才能督促自己在明确的时间点去完成目标。 总结通过使用SMART法则，设定清晰适当的目标，对于目标的完成以及生活工作的不断前进有很大的帮助。不过，要用好这个法则，还需要不断的去练习。 另外，推荐《The Power Of Less》by Leo Babauta 这本书，主要讲述聚焦和如何提高效率，对于工作、生活、学习均有帮助。]]></content>

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.bookcell.org/2017/09/01/javascript-create-object/</loc>
+    
+    <lastmod>2017-11-16T14:11:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.bookcell.org/2017/11/07/use-smart-critera-set-goal/</loc>
     
-    <lastmod>2017-11-07T05:04:13.000Z</lastmod>
+    <lastmod>2017-11-16T14:11:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</loc>
+    
+    <lastmod>2017-11-16T14:10:59.000Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>http://www.bookcell.org/2017/09/02/deepwork-reading-note/</loc>
     
     <lastmod>2017-09-02T03:01:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.bookcell.org/2017/09/01/javascript-create-object/</loc>
-    
-    <lastmod>2017-09-01T01:33:28.000Z</lastmod>
     
   </url>
   

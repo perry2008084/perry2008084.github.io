@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="书格笔记">
 <meta property="og:description" content="记录JavaScript中创建对象的几种方法。 工厂模式工厂模式是一种设计模式，抽象创建具体对象的过程，用函数来封装特定接口并创建对象的细节。 实例：1234567891011121314151617/* 工厂模式 */function createPerson(name, age, job) &amp;#123;    var o = new Object();    o.name = name;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-01T01:33:28.000Z">
+<meta property="og:updated_time" content="2017-11-16T14:11:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中对象的几种创建方式">
 <meta name="twitter:description" content="记录JavaScript中创建对象的几种方法。 工厂模式工厂模式是一种设计模式，抽象创建具体对象的过程，用函数来封装特定接口并创建对象的细节。 实例：1234567891011121314151617/* 工厂模式 */function createPerson(name, age, job) &amp;#123;    var o = new Object();    o.name = name;">
@@ -407,6 +407,7 @@
 <p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/* 工厂模式 */</div><div class="line">function createPerson(name, age, job) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.job = job;</div><div class="line">    o.sayName = function() &#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = createPerson(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);</div><div class="line">var person2 = createPerson(&quot;Greg&quot;, 27, &quot;Doctor&quot;);</div><div class="line"></div><div class="line">console.log(person1);</div><div class="line">console.log(person2);</div></pre></td></tr></table></figure></p>
 <p>优点:<br>解决创建多个相似对象。</p>
 <p>缺点：<br>没有解决对象识别的问题。</p>
+<a id="more"></a>
 <h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><p>构造函数模式，通过创建自定义的构造函数，定义自定义对象类型的属性和方法。</p>
 <p>构造函数，函数名开头使用大写字母。0</p>
 <p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 构造函数</div><div class="line">function Person(name, age, job) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.sayName = function() &#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = new Person(&quot;Perry&quot;, 27, &quot;FE&quot;);</div><div class="line">var person2 = new Person(&quot;Kobe&quot;, 33, &quot;Player&quot;);</div><div class="line"></div><div class="line">console.log(person1);</div><div class="line">console.log(person2);</div></pre></td></tr></table></figure></p>
@@ -562,7 +563,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -579,7 +580,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">103</span>
+                <span class="site-state-item-count">107</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

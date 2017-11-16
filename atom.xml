@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2017-11-07T05:04:13.000Z</updated>
+  <updated>2017-11-16T14:10:59.000Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -16,15 +16,77 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Sublime Text 3 安装eslint的JavaScript ES5版本插件总结</title>
+    <link href="http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/"/>
+    <id>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</id>
+    <published>2017-11-16T13:59:41.000Z</published>
+    <updated>2017-11-16T14:10:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>ESLint在JavaScript静态代码检测中变得很流行了，主要有几个原因：第一，容易配置；第二，混合了JShint和JSCS；第三，大神Nicholas Zakas写的，写JavaScript红宝石的作者。</p>
+<h2 id="安装ESLint"><a href="#安装ESLint" class="headerlink" title="安装ESLint"></a>安装ESLint</h2><p>安装ESLint之前，确保环境中已经安装Node.js和npm。</p>
+<p>npm install -g eslint</p>
+<p>可以选择全局安装，也可以选择安装在项目本地。</p>
+<a id="more"></a>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>通过项目根目录下.eslintrc配置文件进行规则配置，这里介绍的是根据airbnb提供的扩展文件进行配置，后面会介绍这个文件的配置。</p>
+<p>配置文件的格式如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"globals"</span>: &#123;</div><div class="line">    <span class="comment">// Put things like jQuery, etc</span></div><div class="line">    <span class="string">"jQuery"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"$"</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"env"</span>: &#123;</div><div class="line">    <span class="comment">// I write for browser</span></div><div class="line">    <span class="string">"browser"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="comment">// in CommonJS</span></div><div class="line">    <span class="string">"node"</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// To give you an idea how to override rule options:</span></div><div class="line">  <span class="string">"rules"</span>: &#123;</div><div class="line">    <span class="comment">// Tons of rules you can use, for example...</span></div><div class="line">    <span class="string">"quotes"</span>: [<span class="number">1</span>, <span class="string">"double"</span>]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><p>规则通过一个数组来进行配置，第一项是启用某一项规则的配置。</p>
+<ul>
+<li>0 - 禁止规则</li>
+<li>1 - 警告该项规则</li>
+<li>2 - 报错该项规则</li>
+</ul>
+<p>第二项参数为配置规则的内容。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wrap-iife: [&quot;error&quot;, &quot;outside&quot;]</div></pre></td></tr></table></figure></p>
+<p>配置IIFE的括号在外侧，正确代码为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var x = (function () &#123; return &#123; y: 1 &#125;;&#125;()); // wrapped call expression</div></pre></td></tr></table></figure></p>
+<h2 id="Sublime-Linter"><a href="#Sublime-Linter" class="headerlink" title="Sublime-Linter"></a>Sublime-Linter</h2><p>首先安装Sublime Text插件 SublimeLinter，这是一个代码检测的框架，基于这个框架插件，可以再安装其他的插件，包括ESLint。通过Command + Shift + P，安装包SublimeLinter和SublimeLinter-contrib-eslint：<br><img src="../image/sublime-install-sublimelinter.jpg" alt="安装sublimelinter"><br><img src="../image/sublime-install-eslint.jpg" alt="安装eslint"></p>
+<p>接着配置SublimeLinter，通过菜单Sublime Text -&gt; Prefences -&gt; Package Settings -&gt; SublimeLinter -&gt; Settings-User进行设置，<br>在这里需要配置一下node的安装位置，通过paths配置项告诉SublimeLinter。可以通过which node命令来确定node的安装路径。如果你是使用nvm，那么配置项如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&quot;paths&quot;: &#123;</div><div class="line">  &quot;linux&quot;: [],</div><div class="line">  &quot;osx&quot;: [</div><div class="line">    &quot;/Users/jonathanc/.nvm/versions/io.js/v2.0.0/bin&quot;</div><div class="line">  ],</div><div class="line">  &quot;windows&quot;: []</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p><img src="../image/sublime-config-sublimelint.jpg" alt="配置sublimelint"></p>
+<h2 id="配置Airbnb代码规范插件"><a href="#配置Airbnb代码规范插件" class="headerlink" title="配置Airbnb代码规范插件"></a>配置Airbnb代码规范插件</h2><p>这里介绍ES5的版本，github上最新的airbnb JavaScript代码规范是支持ES6的。<br>Linux和Mac用户安装方法：<br>(<br>  export PKG=eslint-config-airbnb-base;<br>  npm info “$PKG” peerDependencies –json | command sed ‘s/[{},]//g ; s/: /@/g’ | xargs npm install –save-dev “$PKG”<br>)</p>
+<p>这类似于运行了以下的安装命令：<br>npm install –save-dev eslint-config-airbnb-base eslint@^3.0.1 eslint-plugin-import@^1.10.3</p>
+<p>注：这里的安装命令，可以选择全局安装或者项目中安装，不过需要和eslint进行匹配，否则eslint跑起来可能会报错。</p>
+<p>接着，在项目根目录.eslintrc的文件中增加配置项：<br>“extends”: “airbnb-base/legacy”</p>
+<p>这样你的项目在Sublime编辑器中就可以看到代码检测的提示了。</p>
+<p><img src="../image/sublime-lint-result.jpg" alt="代码检测结果"></p>
+<h2 id="Sublime-Linter工具使用"><a href="#Sublime-Linter工具使用" class="headerlink" title="Sublime Linter工具使用"></a>Sublime Linter工具使用</h2><p>通过Tools - SublimeLinter菜单，可以设置代码检测的运行方式、提示风格、错误的跳转等等。<br><img src="../image/sublime-sublimelinter-options.jpg" alt="代码检测工具配置项"></p>
+<h2 id="错误的解决方法"><a href="#错误的解决方法" class="headerlink" title="错误的解决方法"></a>错误的解决方法</h2><p>如果通过上述的配置，eslint并没有生效，可以通过工具菜单打开debug模式，并且展开sublime的控制台(View-Show Console)，查看报错信息来解决。</p>
+<p>需要注意eslint和eslint-config-airbnb-base的安装是全局的，还是局部的。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ESLint在JavaScript静态代码检测中变得很流行了，主要有几个原因：第一，容易配置；第二，混合了JShint和JSCS；第三，大神Nicholas Zakas写的，写JavaScript红宝石的作者。&lt;/p&gt;
+&lt;h2 id=&quot;安装ESLint&quot;&gt;&lt;a href=&quot;#安装ESLint&quot; class=&quot;headerlink&quot; title=&quot;安装ESLint&quot;&gt;&lt;/a&gt;安装ESLint&lt;/h2&gt;&lt;p&gt;安装ESLint之前，确保环境中已经安装Node.js和npm。&lt;/p&gt;
+&lt;p&gt;npm install -g eslint&lt;/p&gt;
+&lt;p&gt;可以选择全局安装，也可以选择安装在项目本地。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="sublime" scheme="http://www.bookcell.org/tags/sublime/"/>
+    
+      <category term="sublime Text 3" scheme="http://www.bookcell.org/tags/sublime-Text-3/"/>
+    
+      <category term="eslint" scheme="http://www.bookcell.org/tags/eslint/"/>
+    
+      <category term="es5" scheme="http://www.bookcell.org/tags/es5/"/>
+    
+      <category term="SublimeLInter" scheme="http://www.bookcell.org/tags/SublimeLInter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>设定目标-使用SMART法则</title>
     <link href="http://www.bookcell.org/2017/11/07/use-smart-critera-set-goal/"/>
     <id>http://www.bookcell.org/2017/11/07/use-smart-critera-set-goal/</id>
     <published>2017-11-07T05:02:17.000Z</published>
-    <updated>2017-11-07T05:04:13.000Z</updated>
+    <updated>2017-11-16T14:11:34.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="大纲："><a href="#大纲：" class="headerlink" title="大纲："></a>大纲：</h2><p>设定目标的意义和常见的问题<br>使用SMART法则设定适当的目标<br>执行、检查和修正目标</p>
 <h2 id="设定目标的意义和常见的问题"><a href="#设定目标的意义和常见的问题" class="headerlink" title="设定目标的意义和常见的问题"></a>设定目标的意义和常见的问题</h2><p>目标犹如一座灯塔，设定了一个准确的目标，能够帮助我们达到我们想要的目的。</p>
 <p>准确的设定目标，是目标能够达成的前提条件之一。而我们通常遇到的问题，比较严重的就是，没有<br>准确的设定目标，导致目标在执行过程中，出现以下的几类问题：<br>1、不知道如何评判是否达成目标<br>2、没有时间期限导致拖延<br>3、目标太模糊、太大，导致无法实现而放弃</p>
+<a id="more"></a>
 <h2 id="使用SMART法则设定适当的目标"><a href="#使用SMART法则设定适当的目标" class="headerlink" title="使用SMART法则设定适当的目标"></a>使用SMART法则设定适当的目标</h2><p>为了解决上述遇到的问题，管理学前辈George T. Doran在1981年提出了SMART法则，依该法则设定的<br>目标，容易理解并能够判断是否完成。</p>
 <p>SMART代表5个单词的首字母，有不同版本的说法，比较主流的是:</p>
 <ul>
@@ -47,7 +109,8 @@
     <summary type="html">
     
       &lt;h2 id=&quot;大纲：&quot;&gt;&lt;a href=&quot;#大纲：&quot; class=&quot;headerlink&quot; title=&quot;大纲：&quot;&gt;&lt;/a&gt;大纲：&lt;/h2&gt;&lt;p&gt;设定目标的意义和常见的问题&lt;br&gt;使用SMART法则设定适当的目标&lt;br&gt;执行、检查和修正目标&lt;/p&gt;
-&lt;h2 id=&quot;设定目标的意
+&lt;h2 id=&quot;设定目标的意义和常见的问题&quot;&gt;&lt;a href=&quot;#设定目标的意义和常见的问题&quot; class=&quot;headerlink&quot; title=&quot;设定目标的意义和常见的问题&quot;&gt;&lt;/a&gt;设定目标的意义和常见的问题&lt;/h2&gt;&lt;p&gt;目标犹如一座灯塔，设定了一个准确的目标，能够帮助我们达到我们想要的目的。&lt;/p&gt;
+&lt;p&gt;准确的设定目标，是目标能够达成的前提条件之一。而我们通常遇到的问题，比较严重的就是，没有&lt;br&gt;准确的设定目标，导致目标在执行过程中，出现以下的几类问题：&lt;br&gt;1、不知道如何评判是否达成目标&lt;br&gt;2、没有时间期限导致拖延&lt;br&gt;3、目标太模糊、太大，导致无法实现而放弃&lt;/p&gt;
     
     </summary>
     
@@ -103,13 +166,14 @@
     <link href="http://www.bookcell.org/2017/09/01/javascript-create-object/"/>
     <id>http://www.bookcell.org/2017/09/01/javascript-create-object/</id>
     <published>2017-09-01T01:26:21.000Z</published>
-    <updated>2017-09-01T01:33:28.000Z</updated>
+    <updated>2017-11-16T14:11:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>记录JavaScript中创建对象的几种方法。</p>
 <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式是一种设计模式，抽象创建具体对象的过程，用函数来封装特定接口并创建对象的细节。</p>
 <p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/* 工厂模式 */</div><div class="line">function createPerson(name, age, job) &#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.job = job;</div><div class="line">    o.sayName = function() &#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;;</div><div class="line">    return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = createPerson(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);</div><div class="line">var person2 = createPerson(&quot;Greg&quot;, 27, &quot;Doctor&quot;);</div><div class="line"></div><div class="line">console.log(person1);</div><div class="line">console.log(person2);</div></pre></td></tr></table></figure></p>
 <p>优点:<br>解决创建多个相似对象。</p>
 <p>缺点：<br>没有解决对象识别的问题。</p>
+<a id="more"></a>
 <h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><p>构造函数模式，通过创建自定义的构造函数，定义自定义对象类型的属性和方法。</p>
 <p>构造函数，函数名开头使用大写字母。0</p>
 <p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 构造函数</div><div class="line">function Person(name, age, job) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.sayName = function() &#123;</div><div class="line">        alert(this.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = new Person(&quot;Perry&quot;, 27, &quot;FE&quot;);</div><div class="line">var person2 = new Person(&quot;Kobe&quot;, 33, &quot;Player&quot;);</div><div class="line"></div><div class="line">console.log(person1);</div><div class="line">console.log(person2);</div></pre></td></tr></table></figure></p>
@@ -141,7 +205,10 @@
     <summary type="html">
     
       &lt;p&gt;记录JavaScript中创建对象的几种方法。&lt;/p&gt;
-&lt;h2 id=&quot;工厂模式&quot;&gt;&lt;a href=&quot;#工厂模式&quot; class=&quot;headerlink&quot; title=&quot;工厂模式&quot;&gt;&lt;/a&gt;工厂模式&lt;/h2&gt;&lt;p&gt;工厂模式是一种设计模式，抽象创建具体对象的过程，用函数来封装特
+&lt;h2 id=&quot;工厂模式&quot;&gt;&lt;a href=&quot;#工厂模式&quot; class=&quot;headerlink&quot; title=&quot;工厂模式&quot;&gt;&lt;/a&gt;工厂模式&lt;/h2&gt;&lt;p&gt;工厂模式是一种设计模式，抽象创建具体对象的过程，用函数来封装特定接口并创建对象的细节。&lt;/p&gt;
+&lt;p&gt;实例：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;/* 工厂模式 */&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;function createPerson(name, age, job) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    var o = new Object();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    o.name = name;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    o.age = age;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    o.job = job;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    o.sayName = function() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        alert(this.name);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    return o;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;var person1 = createPerson(&amp;quot;Nicholas&amp;quot;, 29, &amp;quot;Software Engineer&amp;quot;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;var person2 = createPerson(&amp;quot;Greg&amp;quot;, 27, &amp;quot;Doctor&amp;quot;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;console.log(person1);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;console.log(person2);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;优点:&lt;br&gt;解决创建多个相似对象。&lt;/p&gt;
+&lt;p&gt;缺点：&lt;br&gt;没有解决对象识别的问题。&lt;/p&gt;
     
     </summary>
     
@@ -977,190 +1044,6 @@
       <category term="license" scheme="http://www.bookcell.org/tags/license/"/>
     
       <category term="GPL" scheme="http://www.bookcell.org/tags/GPL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开源协议系列之Mozila</title>
-    <link href="http://www.bookcell.org/2017/02/07/opensource-license-series-mozila/"/>
-    <id>http://www.bookcell.org/2017/02/07/opensource-license-series-mozila/</id>
-    <published>2017-02-07T09:01:52.000Z</published>
-    <updated>2017-02-23T06:19:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Mozila协议。</p>
-<a id="more"></a>
-<h2 id="英文版"><a href="#英文版" class="headerlink" title="英文版"></a>英文版</h2><h1 id="Mozilla-Public-License-Version-2-0"><a href="#Mozilla-Public-License-Version-2-0" class="headerlink" title="Mozilla Public License Version 2.0"></a>Mozilla Public License Version 2.0</h1><h2 id="1-Definitions"><a href="#1-Definitions" class="headerlink" title="1. Definitions"></a>1. Definitions</h2><p>1.1. “Contributor”<br>    means each individual or legal entity that creates, contributes to<br>    the creation of, or owns Covered Software.</p>
-<p>1.2. “Contributor Version”<br>    means the combination of the Contributions of others (if any) used<br>    by a Contributor and that particular Contributor’s Contribution.</p>
-<p>1.3. “Contribution”<br>    means Covered Software of a particular Contributor.</p>
-<p>1.4. “Covered Software”<br>    means Source Code Form to which the initial Contributor has attached<br>    the notice in Exhibit A, the Executable Form of such Source Code<br>    Form, and Modifications of such Source Code Form, in each case<br>    including portions thereof.</p>
-<p>1.5. “Incompatible With Secondary Licenses”<br>    means</p>
-<p>(a) that the initial Contributor has attached the notice described<br>    in Exhibit B to the Covered Software; or</p>
-<p>(b) that the Covered Software was made available under the terms of<br>    version 1.1 or earlier of the License, but not also under the<br>    terms of a Secondary License.</p>
-<p>1.6. “Executable Form”<br>    means any form of the work other than Source Code Form.</p>
-<p>1.7. “Larger Work”<br>    means a work that combines Covered Software with other material, in<br>    a separate file or files, that is not Covered Software.</p>
-<p>1.8. “License”<br>    means this document.</p>
-<p>1.9. “Licensable”<br>    means having the right to grant, to the maximum extent possible,<br>    whether at the time of the initial grant or subsequently, any and<br>    all of the rights conveyed by this License.</p>
-<p>1.10. “Modifications”<br>    means any of the following:</p>
-<p>(a) any file in Source Code Form that results from an addition to,<br>    deletion from, or modification of the contents of Covered<br>    Software; or</p>
-<p>(b) any new file in Source Code Form that contains any Covered<br>    Software.</p>
-<p>1.11. “Patent Claims” of a Contributor<br>    means any patent claim(s), including without limitation, method,<br>    process, and apparatus claims, in any patent Licensable by such<br>    Contributor that would be infringed, but for the grant of the<br>    License, by the making, using, selling, offering for sale, having<br>    made, import, or transfer of either its Contributions or its<br>    Contributor Version.</p>
-<p>1.12. “Secondary License”<br>    means either the GNU General Public License, Version 2.0, the GNU<br>    Lesser General Public License, Version 2.1, the GNU Affero General<br>    Public License, Version 3.0, or any later versions of those<br>    licenses.</p>
-<p>1.13. “Source Code Form”<br>    means the form of the work preferred for making modifications.</p>
-<p>1.14. “You” (or “Your”)<br>    means an individual or a legal entity exercising rights under this<br>    License. For legal entities, “You” includes any entity that<br>    controls, is controlled by, or is under common control with You. For<br>    purposes of this definition, “control” means (a) the power, direct<br>    or indirect, to cause the direction or management of such entity,<br>    whether by contract or otherwise, or (b) ownership of more than<br>    fifty percent (50%) of the outstanding shares or beneficial<br>    ownership of such entity.</p>
-<h2 id="2-License-Grants-and-Conditions"><a href="#2-License-Grants-and-Conditions" class="headerlink" title="2. License Grants and Conditions"></a>2. License Grants and Conditions</h2><p>2.1. Grants</p>
-<p>Each Contributor hereby grants You a world-wide, royalty-free,<br>non-exclusive license:</p>
-<p>(a) under intellectual property rights (other than patent or trademark)<br>    Licensable by such Contributor to use, reproduce, make available,<br>    modify, display, perform, distribute, and otherwise exploit its<br>    Contributions, either on an unmodified basis, with Modifications, or<br>    as part of a Larger Work; and</p>
-<p>(b) under Patent Claims of such Contributor to make, use, sell, offer<br>    for sale, have made, import, and otherwise transfer either its<br>    Contributions or its Contributor Version.</p>
-<p>2.2. Effective Date</p>
-<p>The licenses granted in Section 2.1 with respect to any Contribution<br>become effective for each Contribution on the date the Contributor first<br>distributes such Contribution.</p>
-<p>2.3. Limitations on Grant Scope</p>
-<p>The licenses granted in this Section 2 are the only rights granted under<br>this License. No additional rights or licenses will be implied from the<br>distribution or licensing of Covered Software under this License.<br>Notwithstanding Section 2.1(b) above, no patent license is granted by a<br>Contributor:</p>
-<p>(a) for any code that a Contributor has removed from Covered Software;<br>    or</p>
-<p>(b) for infringements caused by: (i) Your and any other third party’s<br>    modifications of Covered Software, or (ii) the combination of its<br>    Contributions with other software (except as part of its Contributor<br>    Version); or</p>
-<p>(c) under Patent Claims infringed by Covered Software in the absence of<br>    its Contributions.</p>
-<p>This License does not grant any rights in the trademarks, service marks,<br>or logos of any Contributor (except as may be necessary to comply with<br>the notice requirements in Section 3.4).</p>
-<p>2.4. Subsequent Licenses</p>
-<p>No Contributor makes additional grants as a result of Your choice to<br>distribute the Covered Software under a subsequent version of this<br>License (see Section 10.2) or under the terms of a Secondary License (if<br>permitted under the terms of Section 3.3).</p>
-<p>2.5. Representation</p>
-<p>Each Contributor represents that the Contributor believes its<br>Contributions are its original creation(s) or it has sufficient rights<br>to grant the rights to its Contributions conveyed by this License.</p>
-<p>2.6. Fair Use</p>
-<p>This License is not intended to limit any rights You have under<br>applicable copyright doctrines of fair use, fair dealing, or other<br>equivalents.</p>
-<p>2.7. Conditions</p>
-<p>Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted<br>in Section 2.1.</p>
-<h2 id="3-Responsibilities"><a href="#3-Responsibilities" class="headerlink" title="3. Responsibilities"></a>3. Responsibilities</h2><p>3.1. Distribution of Source Form</p>
-<p>All distribution of Covered Software in Source Code Form, including any<br>Modifications that You create or to which You contribute, must be under<br>the terms of this License. You must inform recipients that the Source<br>Code Form of the Covered Software is governed by the terms of this<br>License, and how they can obtain a copy of this License. You may not<br>attempt to alter or restrict the recipients’ rights in the Source Code<br>Form.</p>
-<p>3.2. Distribution of Executable Form</p>
-<p>If You distribute Covered Software in Executable Form then:</p>
-<p>(a) such Covered Software must also be made available in Source Code<br>    Form, as described in Section 3.1, and You must inform recipients of<br>    the Executable Form how they can obtain a copy of such Source Code<br>    Form by reasonable means in a timely manner, at a charge no more<br>    than the cost of distribution to the recipient; and</p>
-<p>(b) You may distribute such Executable Form under the terms of this<br>    License, or sublicense it under different terms, provided that the<br>    license for the Executable Form does not attempt to limit or alter<br>    the recipients’ rights in the Source Code Form under this License.</p>
-<p>3.3. Distribution of a Larger Work</p>
-<p>You may create and distribute a Larger Work under terms of Your choice,<br>provided that You also comply with the requirements of this License for<br>the Covered Software. If the Larger Work is a combination of Covered<br>Software with a work governed by one or more Secondary Licenses, and the<br>Covered Software is not Incompatible With Secondary Licenses, this<br>License permits You to additionally distribute such Covered Software<br>under the terms of such Secondary License(s), so that the recipient of<br>the Larger Work may, at their option, further distribute the Covered<br>Software under the terms of either this License or such Secondary<br>License(s).</p>
-<p>3.4. Notices</p>
-<p>You may not remove or alter the substance of any license notices<br>(including copyright notices, patent notices, disclaimers of warranty,<br>or limitations of liability) contained within the Source Code Form of<br>the Covered Software, except that You may alter any license notices to<br>the extent required to remedy known factual inaccuracies.</p>
-<p>3.5. Application of Additional Terms</p>
-<p>You may choose to offer, and to charge a fee for, warranty, support,<br>indemnity or liability obligations to one or more recipients of Covered<br>Software. However, You may do so only on Your own behalf, and not on<br>behalf of any Contributor. You must make it absolutely clear that any<br>such warranty, support, indemnity, or liability obligation is offered by<br>You alone, and You hereby agree to indemnify every Contributor for any<br>liability incurred by such Contributor as a result of warranty, support,<br>indemnity or liability terms You offer. You may include additional<br>disclaimers of warranty and limitations of liability specific to any<br>jurisdiction.</p>
-<h2 id="4-Inability-to-Comply-Due-to-Statute-or-Regulation"><a href="#4-Inability-to-Comply-Due-to-Statute-or-Regulation" class="headerlink" title="4. Inability to Comply Due to Statute or Regulation"></a>4. Inability to Comply Due to Statute or Regulation</h2><p>If it is impossible for You to comply with any of the terms of this<br>License with respect to some or all of the Covered Software due to<br>statute, judicial order, or regulation then You must: (a) comply with<br>the terms of this License to the maximum extent possible; and (b)<br>describe the limitations and the code they affect. Such description must<br>be placed in a text file included with all distributions of the Covered<br>Software under this License. Except to the extent prohibited by statute<br>or regulation, such description must be sufficiently detailed for a<br>recipient of ordinary skill to be able to understand it.</p>
-<h2 id="5-Termination"><a href="#5-Termination" class="headerlink" title="5. Termination"></a>5. Termination</h2><p>5.1. The rights granted under this License will terminate automatically<br>if You fail to comply with any of its terms. However, if You become<br>compliant, then the rights granted under this License from a particular<br>Contributor are reinstated (a) provisionally, unless and until such<br>Contributor explicitly and finally terminates Your grants, and (b) on an<br>ongoing basis, if such Contributor fails to notify You of the<br>non-compliance by some reasonable means prior to 60 days after You have<br>come back into compliance. Moreover, Your grants from a particular<br>Contributor are reinstated on an ongoing basis if such Contributor<br>notifies You of the non-compliance by some reasonable means, this is the<br>first time You have received notice of non-compliance with this License<br>from such Contributor, and You become compliant prior to 30 days after<br>Your receipt of the notice.</p>
-<p>5.2. If You initiate litigation against any entity by asserting a patent<br>infringement claim (excluding declaratory judgment actions,<br>counter-claims, and cross-claims) alleging that a Contributor Version<br>directly or indirectly infringes any patent, then the rights granted to<br>You by any and all Contributors for the Covered Software under Section<br>2.1 of this License shall terminate.</p>
-<p>5.3. In the event of termination under Sections 5.1 or 5.2 above, all<br>end user license agreements (excluding distributors and resellers) which<br>have been validly granted by You or Your distributors under this License<br>prior to termination shall survive termination.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">************************************************************************</div><div class="line">*                                                                      *</div><div class="line">*  6. Disclaimer of Warranty                                           *</div><div class="line">*  -------------------------                                           *</div><div class="line">*                                                                      *</div><div class="line">*  Covered Software is provided under this License on an &quot;as is&quot;       *</div><div class="line">*  basis, without warranty of any kind, either expressed, implied, or  *</div><div class="line">*  statutory, including, without limitation, warranties that the       *</div><div class="line">*  Covered Software is free of defects, merchantable, fit for a        *</div><div class="line">*  particular purpose or non-infringing. The entire risk as to the     *</div><div class="line">*  quality and performance of the Covered Software is with You.        *</div><div class="line">*  Should any Covered Software prove defective in any respect, You     *</div><div class="line">*  (not any Contributor) assume the cost of any necessary servicing,   *</div><div class="line">*  repair, or correction. This disclaimer of warranty constitutes an   *</div><div class="line">*  essential part of this License. No use of any Covered Software is   *</div><div class="line">*  authorized under this License except under this disclaimer.         *</div><div class="line">*                                                                      *</div><div class="line">************************************************************************</div><div class="line"></div><div class="line">************************************************************************</div><div class="line">*                                                                      *</div><div class="line">*  7. Limitation of Liability                                          *</div><div class="line">*  --------------------------                                          *</div><div class="line">*                                                                      *</div><div class="line">*  Under no circumstances and under no legal theory, whether tort      *</div><div class="line">*  (including negligence), contract, or otherwise, shall any           *</div><div class="line">*  Contributor, or anyone who distributes Covered Software as          *</div><div class="line">*  permitted above, be liable to You for any direct, indirect,         *</div><div class="line">*  special, incidental, or consequential damages of any character      *</div><div class="line">*  including, without limitation, damages for lost profits, loss of    *</div><div class="line">*  goodwill, work stoppage, computer failure or malfunction, or any    *</div><div class="line">*  and all other commercial damages or losses, even if such party      *</div><div class="line">*  shall have been informed of the possibility of such damages. This   *</div><div class="line">*  limitation of liability shall not apply to liability for death or   *</div><div class="line">*  personal injury resulting from such party&apos;s negligence to the       *</div><div class="line">*  extent applicable law prohibits such limitation. Some               *</div><div class="line">*  jurisdictions do not allow the exclusion or limitation of           *</div><div class="line">*  incidental or consequential damages, so this exclusion and          *</div><div class="line">*  limitation may not apply to You.                                    *</div><div class="line">*                                                                      *</div><div class="line">************************************************************************</div></pre></td></tr></table></figure>
-<h2 id="8-Litigation"><a href="#8-Litigation" class="headerlink" title="8. Litigation"></a>8. Litigation</h2><p>Any litigation relating to this License may be brought only in the<br>courts of a jurisdiction where the defendant maintains its principal<br>place of business and such litigation shall be governed by laws of that<br>jurisdiction, without reference to its conflict-of-law provisions.<br>Nothing in this Section shall prevent a party’s ability to bring<br>cross-claims or counter-claims.</p>
-<h2 id="9-Miscellaneous"><a href="#9-Miscellaneous" class="headerlink" title="9. Miscellaneous"></a>9. Miscellaneous</h2><p>This License represents the complete agreement concerning the subject<br>matter hereof. If any provision of this License is held to be<br>unenforceable, such provision shall be reformed only to the extent<br>necessary to make it enforceable. Any law or regulation which provides<br>that the language of a contract shall be construed against the drafter<br>shall not be used to construe this License against a Contributor.</p>
-<h2 id="10-Versions-of-the-License"><a href="#10-Versions-of-the-License" class="headerlink" title="10. Versions of the License"></a>10. Versions of the License</h2><p>10.1. New Versions</p>
-<p>Mozilla Foundation is the license steward. Except as provided in Section<br>10.3, no one other than the license steward has the right to modify or<br>publish new versions of this License. Each version will be given a<br>distinguishing version number.</p>
-<p>10.2. Effect of New Versions</p>
-<p>You may distribute the Covered Software under the terms of the version<br>of the License under which You originally received the Covered Software,<br>or under the terms of any subsequent version published by the license<br>steward.</p>
-<p>10.3. Modified Versions</p>
-<p>If you create software not governed by this License, and you want to<br>create a new license for such software, you may create and use a<br>modified version of this License if you rename the license and remove<br>any references to the name of the license steward (except to note that<br>such modified license differs from this License).</p>
-<p>10.4. Distributing Source Code Form that is Incompatible With Secondary<br>Licenses</p>
-<p>If You choose to distribute Source Code Form that is Incompatible With<br>Secondary Licenses under the terms of this version of the License, the<br>notice described in Exhibit B of this License must be attached.</p>
-<h2 id="Exhibit-A-Source-Code-Form-License-Notice"><a href="#Exhibit-A-Source-Code-Form-License-Notice" class="headerlink" title="Exhibit A - Source Code Form License Notice"></a>Exhibit A - Source Code Form License Notice</h2><p>  This Source Code Form is subject to the terms of the Mozilla Public<br>  License, v. 2.0. If a copy of the MPL was not distributed with this<br>  file, You can obtain one at <a href="http://mozilla.org/MPL/2.0/" target="_blank" rel="external">http://mozilla.org/MPL/2.0/</a>.</p>
-<p>If it is not possible or desirable to put the notice in a particular<br>file, then You may include the notice in a location (such as a LICENSE<br>file in a relevant directory) where a recipient would be likely to look<br>for such a notice.</p>
-<p>You may add additional accurate notices of copyright ownership.</p>
-<h2 id="Exhibit-B-“Incompatible-With-Secondary-Licenses”-Notice"><a href="#Exhibit-B-“Incompatible-With-Secondary-Licenses”-Notice" class="headerlink" title="Exhibit B - “Incompatible With Secondary Licenses” Notice"></a>Exhibit B - “Incompatible With Secondary Licenses” Notice</h2><p>  This Source Code Form is “Incompatible With Secondary Licenses”, as<br>  defined by the Mozilla Public License, v. 2.0.</p>
-<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>(简体中文版译者声明：Mozilla 公共许可协议 2.0版简体中文翻译版仅为开发者参考使用，并不具备法律效力。开发者开发和发布相关软件须以Mozilla Public License 2.0英文版 （<a href="https://www.mozilla.org/MPL/2.0/）" target="_blank" rel="external">https://www.mozilla.org/MPL/2.0/）</a> 条款为准。译者不承担任何法律责任。 )</p>
-<p>Mozilla 公共许可协议 2.0版</p>
-<p>一、 定义</p>
-<p>1.1 “贡献者”<br>     是指创造，协助创造，或拥有适用软件所有权的个人或法人实体。</p>
-<p>1.2 “贡献者版本”</p>
-<p>   是指一个贡献者使用他人的贡献（若有他人贡献）和该贡献者的个人贡献相结合创建的版本。<br>1.3 “贡献”</p>
-<p>   是指特定贡献者的适用软件。<br>1.4 “适用软件”</p>
-<p>是指原始贡献者在附录A中随附声明的源代码形式，相应源代码可执行形式，以及相应源代码形式的修改内容，并依情况显示修改占比。</p>
-<p>1.5 “不兼容次级许可证”</p>
-<p>   是指：</p>
-<p>a. 初始贡献者在附录B中随附适用软件声明；或<br>b. 该适用软件适用于Mozilla 公共许可协议 1.1版本或更早的许可证版本的条款，但对次级许可证的条款并不适用。</p>
-<p>1.6 “可执行形式”</p>
-<p>   是指除源代码形式以外的任何软件形式。<br>1.7 “广义软件”</p>
-<p>   是指由适用软件和其他资料结合创建，并以独立文件或者文件集合形式存在的软件，该软件不属于适用软件范畴。</p>
-<p>1.8 “许可证”</p>
-<p>   是指本文档。</p>
-<p>1.9 “许可授权”</p>
-<p>   是指在最大范围内，无论是在初次许可或后继许可的情况下，有权授予任何及所有本许可证赋予的权利。</p>
-<p>1.10 “修改”</p>
-<p>   是指以下任何情形：</p>
-<p>a. 源代码形式中针对适用软件进行补充，删除，或内容修改后生成的任何文件；或<br>b. 源代码形式中包含任何适用文件的全新文件。</p>
-<p>1.11 贡献者的“专利权利声明”</p>
-<p>   是指贡献者的任何一个或多个专利声明，包括但不限于方法，过程和设备声明，在任何可授权专利范围内被侵犯，但对于已授予许可的，包括制造，使用，销售，销售邀请，半成品，进口，或该软件或其贡献版本的转移形式不属于侵权范围。</p>
-<p>1.12 “次级许可”</p>
-<p>   是指GNU通用公共许可证2.0版本 （GNU General Public License, Version 2.0），GNU宽通用公共许可证2.1 版本（GNU Lesser General Public License, Version 2.1），GNU Affero 通用公共许可3.0版本（GNU Affero General Public License, Version 3.0），或其更新的许可证版本。</p>
-<p>1.13 “源代码形式”</p>
-<p>   是指可用于修改的代码形式。</p>
-<p>1.14 “您”（或“您的”）</p>
-<p>   是指个人或执行本许可权利的法律实体。对于法人实体，“您”包括控制，被控制，或者和您在共同控制情况下的任何实体。在本定义中，“控制”是指（a） 以合同或者非合同形式引导或管理实体的直接或者间接权力，或（b）拥有超过百分之五十（50％）流通股所有权，或拥有该实体的实益拥有权。</p>
-<p>二、 许可授予及条件<br>2.1 授予</p>
-<p>每个贡献者以此方式授予您全球的，免版税及无排他性的许可：</p>
-<p>a. 在知识产权（非专利或商标权）许可权的情况下，允许贡献者使用，复制，普及，修改，展示，操作，传播，并以此用于开发个人贡献版本，无论是在未经修改的基础上，创建修改版本，或者作为广义软件的一部分；以及<br>b. 在专利声明的情况下，允许贡献者制造，使用，销售，销售邀请，半成品制造，进口，及转让其贡献软件或其贡献者版本。</p>
-<p>2.2 生效日期</p>
-<p>在第2.1条中有关贡献作品的许可授权，在贡献者发布其贡献软件的首日起生效。</p>
-<p>2.3 授予范围限制</p>
-<p>在第2节中授予的许可证是本许可下授予的唯一权利。在本许可下有关适用软件的发布及许可权，在无特别声明的情况下，不具备除本许可规定之外的权利或者许可。在以下情况中，第2.1（b）条不表示贡献者已被授予专利权：</p>
-<p>a. 对于一个贡献者已经从适用软件中删除的任何代码；或<br>b. 由以下情形产生的侵权行为：（i）您和任何第三方对于适用软件的修改，或（ii）其贡献软件与其它软件的结合（除非该软件已是贡献者版本的一部分）；或<br>c. 对于专利声明中因缺失贡献软件对适用软件产生的侵权行为 。</p>
-<p>本许可证不授予任何贡献者商标，服务标记，或徽标（除可能需要符合第3.4条有关声明要求的情况外）许可。</p>
-<p>2.4 后续许可证<br>对于您根据此许可的后续版本（见第10.2条），或者根据次级许可的条款（除依第3.3条允许的情况外）发布的适用软件，贡献者禁止对于进行额外的许可授权。</p>
-<p>2.5 表示</p>
-<p>每个贡献者表示该贡献者认可贡献软件是其原创的一个（或多个）软件，或依据本许可证对于其贡献软件拥有足够的权限授予权利。</p>
-<p>2.6 合理使用</p>
-<p>本许可证并非意在限制您在遵守版权规定下的合理使用，公平交易，或其他等值适用的权利。</p>
-<p>2.7 条件<br>在第2.1条中的许可授予需满足第3.1，3.2，3.3，和3.4条中规定的条件。</p>
-<p>三、 责任<br>3.1 源代码形式发布</p>
-<p>适用软件的所有源代码形式发布，包括您独自创建的修改，或您参与贡献的修改，必须遵守本许可证的条款。您必须告知接受者该适用软件的源代码形式是由本许可条款规定管理的，并告知其如何获得此许可证的副本。您无权修改或限制使用者对源代码形式的权利。</p>
-<p>3.2 可执行形式发布</p>
-<p>如果您以可执行形式发布适用软件，则：</p>
-<p>a. 这样的适用软件必须同时以源代码形式提供，按第3.1条所述，您必须及时告知可执行形式的接受者如何通过合理的方式获得该源代码形式的副本，并且费用收取不超过因发布给接受者而产生的费用；以及<br>b. 您可依据本许可证条款发布可执行形式，或在符合本许可条款的情形下制定不同条款规定，但前提是可执行形式的许可证不可尝试限制或改变接受者依据本许可条款规定对源代码形式获取的权利。</p>
-<p>3.3 广义软件发布</p>
-<p>您可以根据您选择的条款创建和发布一个广义软件，前提是您同时符合本许可证有关适用软件的要求。如果该广义软件是由适用软件与符合一个或者多个次级许可证规定的一个软件结合创建，并且适用软件与次级许可证条款不兼容，本许可证允许您在相应次级许可的条款下额外发布该适用软件，广义软件接收者可以，依据其选择，按照本许可证条款或者相应次级许可证条款发布此适用软件。</p>
-<p>3.4 声明</p>
-<p>您不得删除或更改适用软件的源代码形式中包含的任何许可证声明（包括版权声明，专利声明，免责声明，或赔偿责任限制），除非该修改是对已知事实错误的补偿。</p>
-<p>3.5 附加条款的使用</p>
-<p>您可以选择向一个或者多个适用软件的接受者提供无偿或有偿的保修，支持，赔偿或责任义务。但是，您只可以您自己的名义提供，而不是代表任何贡献者的名义。您必须绝对清楚地表明任何此类担保，支持，赔偿或责任义务是由您个人独立提供，并且您同意承担赔偿每一个贡献者因承担担保，支持，赔偿或责任义务而产生的任何赔偿责任。您必须提供附加免责声明，并将责任限制特定于任何一个司法管辖区。</p>
-<p>四、 因法规或条例产生的不可抗力</p>
-<p>若因政策法规，司法命令或者监管制度，使得部分或者整个适用软件不能遵守本许可的某项条款，您则必须：（a）尽最大可能符合本许可证条款；和（b）描述因该政策引起的限制以及受影响的代码。该声明描述必须以文本文件形式包含在根据本协议发布的适用软件的所有发行版本中。除法律或法规禁止的情形外，声明描述必须足够详细清晰，以保证普通接受者能够理解该声明内容。</p>
-<p>五、 终止</p>
-<p>5.1 如果您违反本许可的任何一项条款，依据本许可授予的权利将自动终止。但是，如果您重新遵守本许可的规定，那么您从某特定贡献者按本许可所授予的权利可在如下情况下被恢复（a）临时恢复，除非贡献者明确终止对您的权利授予，以及（b）保留恢复，如果贡献者因合理原因未能在您重新遵守本许可规定之日的六十日前通知您违反规定。此外，如果您是第一次因违反本许可的规定受到贡献者的违例通知，并且您在三十日内重新遵守本许可规定，则您从该特定贡献者处获得的权利将被保留 。</p>
-<p>5.2 如果您通过声明的专利侵权索赔发起针对任何实体的诉讼（不包括宣告式判决，反诉和交叉诉讼），声称一个贡献者版本直接或间接侵犯某项专利权利， 依据本许可第2.1条授予您对适用软件的任何和所有权利将被终止。</p>
-<p>5.3 因以上第5.1条或第5.2条终止的情形，您或者您的发布者在本许可证终止前有效授予的所有最终用户许可协议（不包括分销商和经销商） 将继续有效。</p>
-<p>六、 免责声明</p>
-<p>适用软件在根据本许可的“原样”的基础上，不予任何形式的担保，任何明示，暗示或法定的担保，包括但不限于担保适用软件免于缺陷，适销，适于特定目的或不侵权。您将承担有关适用软件的质量和性能的全部风险。如果任何适用软件在任何方面欠妥，将由您（不是任何贡献者）承担所有必要的服务，维修或纠正的费用成本。本免责声明构成了本许可的重要组成部分。除非遵守本免责声明，适用软件的使用将授权无效。</p>
-<p>七、 责任限制</p>
-<p>在任何情况下，在任何法律规定下，无论是侵权（包括过失），合同或其他情形，任何贡献者，或按上述规定有权发布使用软件的任何实体，都不将承担您的任何直接，间接，特殊，偶然或后果损害赔偿，包括但不限于利润损失，商誉损失，停工，电脑故障或失灵，或任何和所有其他商业损害或损失，即使该方已被告知损失的可能性也不例外。该责任限制不适用于由于一方疏忽引起的死亡或人身伤害，适用法律禁止此类限制的范围内产生的法律责任。某些司法管辖区不允许意外或间接损害的排除或限制，因此此类排除和限制对您并不适用。</p>
-<p>八、 诉讼</p>
-<p>任何与本协议有关的诉讼只能在不和地方法律规定冲突的情况下，在被告主营业务所在地的司法管辖区提出。本节不妨碍任何一方的交叉诉讼或反诉能力。</p>
-<p>九、 其他</p>
-<p>本许可代表就本合同标的物的全部协议。如果本许可协议的任何条款被认为是不可执行的，该条款应进行修改至能予以执行的程度。按任何法律或法规规定，合同的语言应按对贡献者有利的解释，而不是向合同起草方有利的解释。</p>
-<p>十、 许可证版本<br>10.1新版本</p>
-<p>Mozilla基金会是本许可证发布人。除第10.3条规定，许可证发布人之外的其他人无权修改或发布此许可证新版本的权利。每一个版本都会跟随一个全新的版本号。</p>
-<p>10.2新版本的影响</p>
-<p>您可以依据您最初收到适用软件时的许可证，或依据由许可发布人发布的任何后续版本的许可条款发布适用软件。</p>
-<p>10.3修改版本</p>
-<p>如果您未在本许可证监管下创建软件，并且您想为该软件创建新的许可证，您可以创建并使用此许可证的修改版，前提是您重新命名本许可证，并删除任何本许可证发布人的名字引用（注明这种修改许可证版本完全不同于原本许可证版本）。</p>
-<p>10.4不兼容次级许可证的源代码形式发布</p>
-<p>如果您选择发布的源代码形式，不兼容该版本许可证条款下的次级许可证，则必须随附在本许可证附录B中描述的通知。</p>
-<p>附录A - 源代码形式许可声明</p>
-<p>该源代码形式遵守Mozilla公共许可协议2.0的条款。如果该源代码文件中没有随附MPL的副本，您可以在以下地址获取：<a href="http://mozilla.org/MPL/2.0/。" target="_blank" rel="external">http://mozilla.org/MPL/2.0/。</a></p>
-<p>如果未能将声明存放于一个特定文件，您则必须将声明包括在某个文件位置（如在许可文件相关目录中），接收者很可能在这样的位置查找此类声明。</p>
-<p>您可以增加有关版权所有权情况的准确描述。</p>
-<p>附录B - “不兼容二级许可证”的声明</p>
-<p>按Mozilla公共许可协议2.0所定义，该源代码形式 “不兼容二级许可证” 。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank" rel="external">Mozilla Public License Version 2.0</a></li>
-<li><a href="https://github.com/MozillaChina/MPL/blob/master/Mozilla_Public_License_2.0_Simplified_Chinese_Reference.md" target="_blank" rel="external">Mozilla_Public_License_2.0_Simplified_Chinese_Reference.md</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Mozila协议。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="开源协议" scheme="http://www.bookcell.org/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
-    
-      <category term="license" scheme="http://www.bookcell.org/tags/license/"/>
-    
-      <category term="Mozila" scheme="http://www.bookcell.org/tags/Mozila/"/>
     
   </entry>
   
