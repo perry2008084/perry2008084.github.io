@@ -4,6 +4,62 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2017/11/28/the-power-of-less-notes/</loc>
+    <lastmod>2017-11-28T07:34:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>《The power of less》读书笔记</title>
+        <pubTime>2017-11-28T07:33:05.000Z</pubTime>
+        
+        <tag>读书</tag>
+         
+        <tag>效率</tag>
+         
+        <tag>方法</tag>
+         
+        <tag>少即是多</tag>
+         
+        <tag>book</tag>
+         
+         
+           
+             
+              <breadCrumb title="读书" url="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</loc>
+    <lastmod>2017-11-28T07:34:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>Sublime Text 3 安装eslint的JavaScript ES5版本插件总结</title>
+        <pubTime>2017-11-16T13:59:41.000Z</pubTime>
+        
+        <tag>sublime</tag>
+         
+        <tag>sublime Text 3</tag>
+         
+        <tag>eslint</tag>
+         
+        <tag>es5</tag>
+         
+        <tag>SublimeLInter</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2017/09/01/javascript-create-object/</loc>
     <lastmod>2017-11-16T14:11:56.000Z</lastmod>
     <data>
@@ -40,34 +96,6 @@
         <tag>目标</tag>
          
         <tag>SMART法则</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</loc>
-    <lastmod>2017-11-16T14:10:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>Sublime Text 3 安装eslint的JavaScript ES5版本插件总结</title>
-        <pubTime>2017-11-16T13:59:41.000Z</pubTime>
-        
-        <tag>sublime</tag>
-         
-        <tag>sublime Text 3</tag>
-         
-        <tag>eslint</tag>
-         
-        <tag>es5</tag>
-         
-        <tag>SublimeLInter</tag>
          
          
            
