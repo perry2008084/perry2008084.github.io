@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Echarts绘制多个系列数据一一对应坐标轴]]></title>
+    <url>%2F2017%2F12%2F25%2Fechart-series-coodinator%2F</url>
+    <content type="text"><![CDATA[问题通过Echarts展示多个系列的数据，并且每个系列的数据只有一条展示在坐标轴的某个值上。比如，Y轴类别A上展示A系列，Y轴类别B上展示B系列数据，X轴共享，正常配置数据会导致Y轴上显示1条数据，但是会有两条空白。 解决方案通过系列数据中的barGap属性，设置柱间距离为”-100%”，使各个柱重叠显示。 实例See the Pen Echarts Demo独立系列独立坐标轴 by Perry (@perry2008084) on CodePen.]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>Echarts</tag>
+        <tag>图表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2018年阅读清单]]></title>
     <url>%2F2017%2F12%2F24%2Fread-list-2018%2F</url>
     <content type="text"><![CDATA[技术类:[ ] 《HTML5实战手册》[ ] 《HTTP权威指南》[ ] 《Web前端开发修炼之道》[ ] 《CSS禅意花园》[ ] 《锋利的jquery》[ ] 《JavaScript权威指南》[ ] 《重构》[ ] 《别闹了，费曼先生》 人文历史类:[ ] 《富兰克林传》[ ] 《百年孤独》[ ] 《十日谈》[ ] 《异类》[ ] 《人生的盛宴》[ ] 《浮生若梦》 经济类:[ ] 《国富论》[ ] 《一本书读懂财报》[ ] 《世界上最简单的会计书》 其他:[ ] 《创业维艰》[ ] 《精益创业》[ ] 《黑客与画家》[ ] 《可爱的诅咒：圣母型人格心理自助手册》[ ] 《正念的奇迹》[ ] 《只要会呼吸.就能做冥想》[ ] 《生命之书》 初版，更新于2017年12月24号]]></content>
@@ -441,8 +453,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>数据可视化</tag>
         <tag>数据</tag>
+        <tag>数据可视化</tag>
         <tag>概念</tag>
         <tag>data</tag>
         <tag>visualization</tag>

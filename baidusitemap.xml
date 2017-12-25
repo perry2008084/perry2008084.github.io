@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2017/12/25/echart-series-coodinator/</loc>
+    <lastmod>2017-12-25T10:42:51.000Z</lastmod>
+    <data>
+        <display>
+        <title>Echarts绘制多个系列数据一一对应坐标轴</title>
+        <pubTime>2017-12-25T10:37:00.000Z</pubTime>
+        
+        <tag>Echarts</tag>
+         
+        <tag>图表</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2017/12/24/read-list-2018/</loc>
     <lastmod>2017-12-24T14:53:15.000Z</lastmod>
     <data>
@@ -1005,9 +1027,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据可视化</tag>
-         
         <tag>数据</tag>
+         
+        <tag>数据可视化</tag>
          
         <tag>概念</tag>
          

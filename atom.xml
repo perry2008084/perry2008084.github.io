@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2017-12-24T14:53:15.000Z</updated>
+  <updated>2017-12-25T10:42:51.000Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Echarts绘制多个系列数据一一对应坐标轴</title>
+    <link href="http://www.bookcell.org/2017/12/25/echart-series-coodinator/"/>
+    <id>http://www.bookcell.org/2017/12/25/echart-series-coodinator/</id>
+    <published>2017-12-25T10:37:00.000Z</published>
+    <updated>2017-12-25T10:42:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>通过Echarts展示多个系列的数据，并且每个系列的数据只有一条展示在坐标轴的某个值上。<br>比如，Y轴类别A上展示A系列，Y轴类别B上展示B系列数据，X轴共享，正常配置数据会导致Y轴<br>上显示1条数据，但是会有两条空白。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>通过系列数据中的barGap属性，设置柱间距离为”-100%”，使各个柱重叠显示。</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p></p><p data-height="473" data-theme-id="0" data-slug-hash="YYpOqQ" data-default-tab="result" data-user="perry2008084" data-embed-version="2" data-pen-title="Echarts Demo独立系列独立坐标轴" class="codepen">See the Pen <a href="https://codepen.io/perry2008084/pen/YYpOqQ/" target="_blank" rel="external">Echarts Demo独立系列独立坐标轴</a> by Perry (<a href="https://codepen.io/perry2008084" target="_blank" rel="external">@perry2008084</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;通过Echarts展示多个系列的数据，并且每个系列的数据只有一条展示在坐标轴的某个值上。&lt;br&gt;比如，Y轴类别A上展示A系列，Y轴类别B上展
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Echarts" scheme="http://www.bookcell.org/tags/Echarts/"/>
+    
+      <category term="图表" scheme="http://www.bookcell.org/tags/%E5%9B%BE%E8%A1%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>2018年阅读清单</title>
@@ -854,45 +881,6 @@
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义li的css样式</title>
-    <link href="http://www.bookcell.org/2017/02/20/css-custom-li-style/"/>
-    <id>http://www.bookcell.org/2017/02/20/css-custom-li-style/</id>
-    <published>2017-02-20T09:16:27.000Z</published>
-    <updated>2017-02-20T09:17:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>li的默认样式有几种，我们想要自定义li的样式，例如定义颜色或者显示的图标，以下是操作的两种方法。</p>
-<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>修改的原理，取消list默认的style，并通过伪元素before来设置新的样式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ul &#123;list-style: none&#125;</div><div class="line"></div><div class="line">li::before &#123;</div><div class="line">  content: &quot;•&quot;; color: red;</div><div class="line">  display: inline-block; width: 1em;</div><div class="line">  margin-left: -1em</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>特殊符号的一些输入可使用Unicode编码：• = “\2022”, ◦ = \25E6” and ▪ = “\25AA”</p>
-<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>修改的原理，通过自定义的class来区分标点和文字的颜色。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.listStyle &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.listStyle p &#123;</div><div class="line">  color: black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;ul class=&quot;listStyle&quot;&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
-<li><a href="https://www.w3.org/Style/Examples/007/color-bullets.en.html" target="_blank" rel="external">COLORED BULLETS</a></li>
-<li><a href="http://stackoverflow.com/questions/25717340/change-the-bullet-color-of-list" target="_blank" rel="external">Change the bullet color of list</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;li的默认样式有几种，我们想要自定义li的样式，例如定义颜色或者显示的图标，以下是操作的两种方法。&lt;/p&gt;
-&lt;h2 id=&quot;方法一：&quot;&gt;&lt;a href=&quot;#方法一：&quot; class=&quot;headerlink&quot; title=&quot;方法一：&quot;&gt;&lt;/a&gt;方法一：&lt;/h2&gt;&lt;p&gt;修改的原理
-    
-    </summary>
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
-    
-      <category term="custom" scheme="http://www.bookcell.org/tags/custom/"/>
-    
-      <category term="自定义" scheme="http://www.bookcell.org/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
     
   </entry>
   
