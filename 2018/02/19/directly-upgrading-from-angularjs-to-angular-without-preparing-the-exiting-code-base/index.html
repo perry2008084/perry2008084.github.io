@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://www.bookcell.org/2018/02/19/image/angularjs-upgrade-2.png">
 <meta property="og:image" content="http://www.bookcell.org/2018/02/19/image/angularjs-upgrade-3.png">
 <meta property="og:image" content="http://www.bookcell.org/2018/02/19/image/angularjs-upgrade-4.png">
-<meta property="og:updated_time" content="2018-02-26T14:13:35.000Z">
+<meta property="og:updated_time" content="2018-02-26T14:17:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS 1.x平滑升级Angular实战">
 <meta name="twitter:description" content="本文翻译自Directly Upgrading From AngularJS 1.X To Angular Without Preparing The Existing Code Base 正文： 当我们从AngularJS 1.x升级到Angular(2/4/5)时，我们通常会先准备AngularJS 1.x的代码：  这个过程会引入像组件这类新的AngularJS 1.x技术。并且，引入Typ">
@@ -417,6 +417,7 @@
 <p>这篇文章一步步展示如何完成这个过程。像<a href="https://angular.io/guide/upgrade" target="_blank" rel="external">官方的升级教程</a>一样，包含准备代码的工作，这里也是升级流行的<a href="https://github.com/angular/angular-phonecat" target="_blank" rel="external">AngularJS 1.x 手机分类实例</a>。</p>
 <p>即使这个实例覆盖了AngularJS 1.5中引入的组件，这里展示的对使用控制器(controller)和指令(directive)的代码也适用。</p>
 <p>整个实例代码可以在<a href="https://github.com/manfredsteyer/ngUpgrade-without-preparation" target="_blank" rel="external">Github 仓库</a>中找到。为了接下来每一步更容易，我针对每一步做了一个代码提交。</p>
+<a id="more"></a>
 <h2 id="第一步：创建新的Angular应用"><a href="#第一步：创建新的Angular应用" class="headerlink" title="第一步：创建新的Angular应用"></a>第一步：创建新的Angular应用</h2><p>一开始，本文假设我们使用<a href="https://cli.angular.io/" target="_blank" rel="external">Angular CLI</a>来搭建一个新的Angular应用:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng new migrated</div></pre></td></tr></table></figure>
 <p>为了让这个新的方案结构清晰，在src目录下创建了一个文件夹给已有的AngularJS代码，另一个文件夹给新的Angular代码。<br>在下面的实例中，我使用了ng1和ng2来命名：</p>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-02-26T14:13:35.000Z</updated>
+  <updated>2018-02-26T14:17:02.000Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/"/>
     <id>http://www.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/</id>
     <published>2018-02-19T03:54:57.000Z</published>
-    <updated>2018-02-26T14:13:35.000Z</updated>
+    <updated>2018-02-26T14:17:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文翻译自<a href="https://www.softwarearchitekt.at/post/2017/07/14/directly-upgrading-from-angularjs-1-x-to-angular-by-skipping-preparation.aspx" target="_blank" rel="external">Directly Upgrading From AngularJS 1.X To Angular Without Preparing The Existing Code Base</a></p>
 <p>正文：</p>
@@ -32,6 +32,7 @@
 <p>这篇文章一步步展示如何完成这个过程。像<a href="https://angular.io/guide/upgrade" target="_blank" rel="external">官方的升级教程</a>一样，包含准备代码的工作，这里也是升级流行的<a href="https://github.com/angular/angular-phonecat" target="_blank" rel="external">AngularJS 1.x 手机分类实例</a>。</p>
 <p>即使这个实例覆盖了AngularJS 1.5中引入的组件，这里展示的对使用控制器(controller)和指令(directive)的代码也适用。</p>
 <p>整个实例代码可以在<a href="https://github.com/manfredsteyer/ngUpgrade-without-preparation" target="_blank" rel="external">Github 仓库</a>中找到。为了接下来每一步更容易，我针对每一步做了一个代码提交。</p>
+<a id="more"></a>
 <h2 id="第一步：创建新的Angular应用"><a href="#第一步：创建新的Angular应用" class="headerlink" title="第一步：创建新的Angular应用"></a>第一步：创建新的Angular应用</h2><p>一开始，本文假设我们使用<a href="https://cli.angular.io/" target="_blank" rel="external">Angular CLI</a>来搭建一个新的Angular应用:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng new migrated</div></pre></td></tr></table></figure>
 <p>为了让这个新的方案结构清晰，在src目录下创建了一个文件夹给已有的AngularJS代码，另一个文件夹给新的Angular代码。<br>在下面的实例中，我使用了ng1和ng2来命名：</p>
@@ -52,7 +53,16 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文翻译自&lt;a href=&quot;https://www.softwarearchitekt.at/post/2017/07/14/directly-upgrading-from-angularjs-1-x-to-angular-by-skipping-preparation.a
+      &lt;p&gt;本文翻译自&lt;a href=&quot;https://www.softwarearchitekt.at/post/2017/07/14/directly-upgrading-from-angularjs-1-x-to-angular-by-skipping-preparation.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Directly Upgrading From AngularJS 1.X To Angular Without Preparing The Existing Code Base&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;正文：&lt;/p&gt;
+&lt;p&gt;当我们从AngularJS 1.x升级到Angular(2/4/5)时，我们通常会先准备AngularJS 1.x的代码：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../image/angularjs-upgrade-1.png&quot; alt=&quot;angularjs-upgrade-1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这个过程会引入像组件这类新的AngularJS 1.x技术。并且，引入TypeScript和像SystemJS或者Webpack之类的模块加载器是准备已有代码的进一步工作。这样做的目的是为了让代码更接近Angular便于更好的集成。&lt;/p&gt;
+&lt;p&gt;但是，在一些情况下，准备已有的代码成本很大。例如，试想一下这样的情形，当你不想修修改已有的AngularJS1.x的代码，并且想要写一些Angular的应用。当这样的情况在你的项目中发生，跳过准备阶段是一个好的主意。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../image/angularjs-upgrade-2.png&quot; alt=&quot;angularjs-upgrade-2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这篇文章一步步展示如何完成这个过程。像&lt;a href=&quot;https://angular.io/guide/upgrade&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方的升级教程&lt;/a&gt;一样，包含准备代码的工作，这里也是升级流行的&lt;a href=&quot;https://github.com/angular/angular-phonecat&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS 1.x 手机分类实例&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;即使这个实例覆盖了AngularJS 1.5中引入的组件，这里展示的对使用控制器(controller)和指令(directive)的代码也适用。&lt;/p&gt;
+&lt;p&gt;整个实例代码可以在&lt;a href=&quot;https://github.com/manfredsteyer/ngUpgrade-without-preparation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github 仓库&lt;/a&gt;中找到。为了接下来每一步更容易，我针对每一步做了一个代码提交。&lt;/p&gt;
     
     </summary>
     
