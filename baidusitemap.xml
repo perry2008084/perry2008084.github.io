@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://www.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/</loc>
-    <lastmod>2018-03-01T13:48:19.000Z</lastmod>
+    <lastmod>2018-03-01T13:52:36.000Z</lastmod>
     <data>
         <display>
         <title>AngularJS 1.x平滑升级Angular实战(翻译)</title>
@@ -1051,9 +1051,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据</tag>
-         
         <tag>数据可视化</tag>
+         
+        <tag>数据</tag>
          
         <tag>概念</tag>
          
