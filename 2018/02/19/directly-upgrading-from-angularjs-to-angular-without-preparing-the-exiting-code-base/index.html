@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://www.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/image/angularjs-upgrade-5.png">
 <meta property="og:image" content="http://www.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/image/angularjs-upgrade-6.png">
 <meta property="og:image" content="http://www.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/image/angularjs-upgrade-7.png">
-<meta property="og:updated_time" content="2018-03-01T13:52:36.000Z">
+<meta property="og:updated_time" content="2018-03-02T15:04:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS 1.x平滑升级Angular实战(翻译)">
 <meta name="twitter:description" content="本文翻译自Directly Upgrading From AngularJS 1.X To Angular Without Preparing The Existing Code Base 正文： 当我们从AngularJS 1.x升级到Angular(2/4/5)时，我们通常会先准备AngularJS 1.x的代码：  这个过程会引入像组件这类新的AngularJS 1.x技术。并且，引入Typ">
@@ -469,7 +469,12 @@
 <p><img src="./image/angularjs-upgrade-7.png" alt="angularjs-upgrade-7"></p>
 <p>注意我们有一个Angular 1.x的组件和一个Angular组件并使用AngularJS 1.x服务提供的数据进行显示。</p>
 <p>不仅仅是嵌套AngularJS 1.x和Angular的东西，我们还需要从各自的版本激活路由。下一节会处理相关内容。</p>
-<h2 id="第五步：导航到Angular组件"><a href="#第五步：导航到Angular组件" class="headerlink" title="第五步：导航到Angular组件"></a>第五步：导航到Angular组件</h2><p>[未完待续]</p>
+<h2 id="第五步：导航到Angular组件"><a href="#第五步：导航到Angular组件" class="headerlink" title="第五步：导航到Angular组件"></a>第五步：导航到Angular组件</h2><p>让AngularJS 1.x的路由来激活Angular组件是很简单的。我们仅需要配置一个路由的模板指向相应的模板即可:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$routeProvider.</div><div class="line">  when(<span class="string">'/phones'</span>, &#123;</div><div class="line">    template: <span class="string">'&lt;phone-list&gt;&lt;/phone-list&gt;'</span> <span class="comment">// AngularJS 1.x template</span></div><div class="line">  &#125;).</div><div class="line">  when(<span class="string">'/phones/:phoneId'</span>, &#123;</div><div class="line">    template: <span class="string">'&lt;phone-detail&gt;&lt;/phone-detail&gt;'</span> <span class="comment">// AngularJS 1.x template</span></div><div class="line">  &#125;).</div><div class="line">  when(<span class="string">'/ng2-demo'</span>, &#123;</div><div class="line">    template: <span class="string">'&lt;ng2-demo&gt;&lt;/ng2-demo&gt;'</span> <span class="comment">// Angular component</span></div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<p>这样就允许使用Angular组件和AngularJS的路由一起使用，并可以和传统的指令和组件一起使用。</p>
+<p>这里要强调一下，同样使用流行的UI-Router。</p>
+<p>这个方案简单的同时，同时也有一个缺点：我们不能利用Angular路由来使用新写的组件。为了让这个成为可能，我们会实现Victor Savkin提出的Sibling Outlet approach，使两种路由共存。实现的基础是他提出的升级壳模式(Upgrade Shell pattern)。下两章会介绍如何实现这里的想法。</p>
+<h2 id="第六步：使用Victor-Savkin的升级壳模式"><a href="#第六步：使用Victor-Savkin的升级壳模式" class="headerlink" title="第六步：使用Victor Savkin的升级壳模式"></a>第六步：使用Victor Savkin的升级壳模式</h2><p>[未完待续]</p>
 
       
     </div>
@@ -670,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：创建新的Angular应用"><span class="nav-number">1.</span> <span class="nav-text">第一步：创建新的Angular应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：启动一个AngularJS-Angular的混合应用"><span class="nav-number">2.</span> <span class="nav-text">第二步：启动一个AngularJS+Angular的混合应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：降级一个Angular组件"><span class="nav-number">3.</span> <span class="nav-text">第三步：降级一个Angular组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：升级一个服务"><span class="nav-number">4.</span> <span class="nav-text">第四步：升级一个服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步：导航到Angular组件"><span class="nav-number">5.</span> <span class="nav-text">第五步：导航到Angular组件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：创建新的Angular应用"><span class="nav-number">1.</span> <span class="nav-text">第一步：创建新的Angular应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：启动一个AngularJS-Angular的混合应用"><span class="nav-number">2.</span> <span class="nav-text">第二步：启动一个AngularJS+Angular的混合应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：降级一个Angular组件"><span class="nav-number">3.</span> <span class="nav-text">第三步：降级一个Angular组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：升级一个服务"><span class="nav-number">4.</span> <span class="nav-text">第四步：升级一个服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步：导航到Angular组件"><span class="nav-number">5.</span> <span class="nav-text">第五步：导航到Angular组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六步：使用Victor-Savkin的升级壳模式"><span class="nav-number">6.</span> <span class="nav-text">第六步：使用Victor Savkin的升级壳模式</span></a></li></ol></div>
             
 
           </div>
