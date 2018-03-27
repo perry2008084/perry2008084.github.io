@@ -406,7 +406,7 @@
 <p>其中使用锚点进行页面的各部分内容跳转，有时候页面的导航栏是使用固定定位(fixed)的布局，可能会导致标题遮挡部分跳转后的内容，因此，需要对锚点调整后的位置进行偏移。</p>
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>通过使用css实现锚点跳转后的位置调整：</p>
 <p>定义一个class:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.named-target &#123;</div><div class="line">  padding-top: 50px;</div><div class="line">  margin-top: -50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.named-target &#123;</span><br><span class="line">  padding-top: 50px;</span><br><span class="line">  margin-top: -50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>将这个class赋给锚点或者锚点后的元素即可。</p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>字面上的原理可以理解为元素外边距向上移动了50像素，使用上内边距给抵消了。<br>内在的原理，我还没理解，待理解了再更新。</p>
 
@@ -554,7 +554,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -571,7 +571,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

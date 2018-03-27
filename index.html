@@ -292,6 +292,189 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2018/03/26/from-npm-to-yarn/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Perry">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/totoro.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="书格笔记">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="书格笔记" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/26/from-npm-to-yarn/" itemprop="url">
+                  从npm到yarn
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-26T22:48:11+08:00">
+                2018-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2018/03/26/from-npm-to-yarn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/26/from-npm-to-yarn/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/03/26/from-npm-to-yarn/" class="leancloud_visitors" data-flag-title="从npm到yarn">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>由于使用NPM在国内的安装速度很慢，找了一些解决方案，因此引出了Yarn + 淘宝源的使用方案，记录一下Yarn使用的方法</p>
+<ol>
+<li>Yarn简介</li>
+<li>Yarn安装</li>
+<li>NPM源配置</li>
+<li>Yarn使用</li>
+</ol>
+<h2 id="Yarn简介"><a href="#Yarn简介" class="headerlink" title="Yarn简介"></a>Yarn简介</h2><p>Yarn是FaceBook推出的一款基于nodejs的依赖管理工具，在npm基础上做了一些改进。Github上的star已经超过30k。</p>
+<p>超快</p>
+<blockquote>
+<p>Yarn caches every package it downloads so it never needs to download it again. It also parallelizes operations to maximize resource utilization so install times are faster than ever.</p>
+</blockquote>
+<p>非常安全</p>
+<blockquote>
+<p>Yarn uses checksums to verify the integrity of every installed package before its code is executed.</p>
+</blockquote>
+<p>超可靠</p>
+<blockquote>
+<p>Using a detailed, but concise, lockfile format, and a deterministic algorithm for installs, Yarn is able to guarantee that an install that worked on one system will work exactly the same way on any other system.</p>
+</blockquote>
+<p>详细的优点可参看知乎的评价文章<a href="https://www.zhihu.com/question/51502849" target="_blank" rel="external">如何评价Facebook推出的JavaScript模块管理器yarn？</a></p>
+<h2 id="Yarn安装"><a href="#Yarn安装" class="headerlink" title="Yarn安装"></a>Yarn安装</h2><p>这里列一下MacOS下的安装方法：</p>
+<p>使用Homebrew进行安装，如果没有安装Node.js会自动进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn</span><br></pre></td></tr></table></figure></p>
+<p>如果已经使用nvm或者类似的工具安装过Node.js，可以选择忽略安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn --without-node</span><br></pre></td></tr></table></figure></p>
+<p>验证是否安装成功:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn --version</span><br></pre></td></tr></table></figure></p>
+<h2 id="NPM源配置"><a href="#NPM源配置" class="headerlink" title="NPM源配置"></a>NPM源配置</h2><p>有两种方法：</p>
+<p>一、直接配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 配置registry</span><br><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br><span class="line"></span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+<p>二、使用nrm切换npm源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 安装nrm</span><br><span class="line">npm i nrm -g</span><br><span class="line"></span><br><span class="line">// 列出所有可用的registry</span><br><span class="line">nrm ls</span><br><span class="line"></span><br><span class="line">// 使用淘宝源</span><br><span class="line">nrm use taobao</span><br><span class="line"></span><br><span class="line">// 测试速度</span><br><span class="line">nrm test</span><br></pre></td></tr></table></figure>
+<p>建议使用第二种方案</p>
+<h2 id="Yarn使用"><a href="#Yarn使用" class="headerlink" title="Yarn使用"></a>Yarn使用</h2><p>列举一些常用的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 新建一个项目</span><br><span class="line">yarn init</span><br><span class="line"></span><br><span class="line">// 添加依赖</span><br><span class="line">yarn add [package]</span><br><span class="line">yarn add [package]@[version]</span><br><span class="line">yarn add [package]@[tag]</span><br><span class="line"></span><br><span class="line">// 添加其他类型的依赖到项目中</span><br><span class="line">// 其中dev是开发依赖；peer一般用于开发库；</span><br><span class="line">// optional为可选依赖，安装过程中报错也可忽略</span><br><span class="line">yarn add [package] --dev</span><br><span class="line">yarn add [package] --peer</span><br><span class="line">yarn add [package] --optional</span><br><span class="line"></span><br><span class="line">// 升级依赖</span><br><span class="line">yarn upgrade [package]</span><br><span class="line">yarn upgrade [package]@[version]</span><br><span class="line">yarn upgrade [package]@[tag]</span><br><span class="line"></span><br><span class="line">// 移除依赖</span><br><span class="line">yarn remove [package]</span><br><span class="line"></span><br><span class="line">// 安装一个项目的所有依赖</span><br><span class="line">yarn</span><br><span class="line"></span><br><span class="line">// 或者</span><br><span class="line">yarn install</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -910,164 +1093,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Perry">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/totoro.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="书格笔记">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="书格笔记" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/11/16/sublime-install-plugin-eslint-es5/" itemprop="url">
-                  Sublime Text 3 安装eslint的JavaScript ES5版本插件总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-16T21:59:41+08:00">
-                2017-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2017/11/16/sublime-install-plugin-eslint-es5/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/16/sublime-install-plugin-eslint-es5/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/11/16/sublime-install-plugin-eslint-es5/" class="leancloud_visitors" data-flag-title="Sublime Text 3 安装eslint的JavaScript ES5版本插件总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>ESLint在JavaScript静态代码检测中变得很流行了，主要有几个原因：第一，容易配置；第二，混合了JShint和JSCS；第三，大神Nicholas Zakas写的，写JavaScript红宝石的作者。</p>
-<h2 id="安装ESLint"><a href="#安装ESLint" class="headerlink" title="安装ESLint"></a>安装ESLint</h2><p>安装ESLint之前，确保环境中已经安装Node.js和npm。</p>
-<p>npm install -g eslint</p>
-<p>可以选择全局安装，也可以选择安装在项目本地。</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/11/16/sublime-install-plugin-eslint-es5/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1113,7 +1138,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1130,7 +1155,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

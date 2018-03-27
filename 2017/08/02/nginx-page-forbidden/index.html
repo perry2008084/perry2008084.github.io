@@ -405,12 +405,12 @@
         <p>近期搭建一个Wordpress站点，前期的准备工作完成，登录界面登录成功后，<br>显示的页面为403，禁止访问。</p>
 <p>在网上搜索后，发现问题在于权限的问题，主要是页面文件所在的文件夹的访问<br>权限。由于nginx默认使用的用户权限无法访问页面的文件，导致报的403。</p>
 <p>解决方法：</p>
-<p>1、打开nginx.conf文件修改启动用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /user/local/nginx/conf/nginx.conf</div></pre></td></tr></table></figure></p>
+<p>1、打开nginx.conf文件修改启动用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /user/local/nginx/conf/nginx.conf</span><br></pre></td></tr></table></figure></p>
 <p>修改开头的用户，</p>
 <p>#user nobody</p>
 <p>改为<br>user nginx web;</p>
 <p>或者其他用户，格式为用户[空格]用户组</p>
-<p>2、重新启动nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /user/local/nginx/sbin/nginx -s reload</div></pre></td></tr></table></figure></p>
+<p>2、重新启动nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /user/local/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure></p>
 <p>此时，重新测试，应该就可以访问成功了。</p>
 
       
@@ -548,7 +548,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -565,7 +565,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

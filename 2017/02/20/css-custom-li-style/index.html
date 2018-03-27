@@ -404,10 +404,10 @@
       
         <p>li的默认样式有几种，我们想要自定义li的样式，例如定义颜色或者显示的图标，以下是操作的两种方法。</p>
 <h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>修改的原理，取消list默认的style，并通过伪元素before来设置新的样式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ul &#123;list-style: none&#125;</div><div class="line"></div><div class="line">li::before &#123;</div><div class="line">  content: &quot;•&quot;; color: red;</div><div class="line">  display: inline-block; width: 1em;</div><div class="line">  margin-left: -1em</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ul &#123;list-style: none&#125;</span><br><span class="line"></span><br><span class="line">li::before &#123;</span><br><span class="line">  content: &quot;•&quot;; color: red;</span><br><span class="line">  display: inline-block; width: 1em;</span><br><span class="line">  margin-left: -1em</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>特殊符号的一些输入可使用Unicode编码：• = “\2022”, ◦ = \25E6” and ▪ = “\25AA”</p>
 <h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>修改的原理，通过自定义的class来区分标点和文字的颜色。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.listStyle &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.listStyle p &#123;</div><div class="line">  color: black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;ul class=&quot;listStyle&quot;&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.listStyle &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.listStyle p &#123;</span><br><span class="line">  color: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;ul class=&quot;listStyle&quot;&gt;</span><br><span class="line">  &lt;li&gt;</span><br><span class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">  &lt;li&gt;</span><br><span class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
 <li><a href="https://www.w3.org/Style/Examples/007/color-bullets.en.html" target="_blank" rel="external">COLORED BULLETS</a></li>
 <li><a href="http://stackoverflow.com/questions/25717340/change-the-bullet-color-of-list" target="_blank" rel="external">Change the bullet color of list</a></li>
@@ -559,7 +559,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -576,7 +576,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

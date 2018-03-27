@@ -403,9 +403,9 @@
 
       
         <p>使用browserSync自动热加载开发单页应用，启用AngularJS下的HTML5模式，相对路径的URL刷新会<br>提示无法获取请求。</p>
-<h3 id="安装connect-history-api-fallback包"><a href="#安装connect-history-api-fallback包" class="headerlink" title="安装connect-history-api-fallback包"></a>安装connect-history-api-fallback包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install connect-history-api-fallback --save-dev</div></pre></td></tr></table></figure>
+<h3 id="安装connect-history-api-fallback包"><a href="#安装connect-history-api-fallback包" class="headerlink" title="安装connect-history-api-fallback包"></a>安装connect-history-api-fallback包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install connect-history-api-fallback --save-dev</span><br></pre></td></tr></table></figure>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在gulpfile.js文件中配置以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var historyApiFallback = require(&apos;connect-history-api-fallback&apos;)</div><div class="line">var bs = require(&apos;browser-sync&apos;).create();</div><div class="line"></div><div class="line">bs.init(&#123;</div><div class="line">   server: &#123;</div><div class="line">       baseDir: &quot;./app&quot;,</div><div class="line">       middleware: [ historyApiFallback() ]</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var historyApiFallback = require(&apos;connect-history-api-fallback&apos;)</span><br><span class="line">var bs = require(&apos;browser-sync&apos;).create();</span><br><span class="line"></span><br><span class="line">bs.init(&#123;</span><br><span class="line">   server: &#123;</span><br><span class="line">       baseDir: &quot;./app&quot;,</span><br><span class="line">       middleware: [ historyApiFallback() ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>【全文完】</p>
 
       
@@ -552,7 +552,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -569,7 +569,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

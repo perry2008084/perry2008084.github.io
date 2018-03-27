@@ -385,7 +385,7 @@
 
       
         <h3 id="粗暴解决多个github账号冲突"><a href="#粗暴解决多个github账号冲突" class="headerlink" title="粗暴解决多个github账号冲突"></a>粗暴解决多个github账号冲突</h3><p>简单粗暴的方法:<br>设定某一个账号名和邮箱为全局.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &apos;xxx&apos;</div><div class="line">git config --global user.email &apos;xxx&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &apos;xxx&apos;</span><br><span class="line">git config --global user.email &apos;xxx&apos;</span><br></pre></td></tr></table></figure>
 <h3 id="优雅解决github多账号的问题解决方案"><a href="#优雅解决github多账号的问题解决方案" class="headerlink" title="优雅解决github多账号的问题解决方案"></a>优雅解决github多账号的问题解决方案</h3><a id="more"></a>
 <h4 id="各账号SSH的配置"><a href="#各账号SSH的配置" class="headerlink" title="各账号SSH的配置"></a>各账号SSH的配置</h4><ul>
 <li>配置相应账号的ssh key</li>
@@ -396,22 +396,24 @@
 <ul>
 <li>取消全局的邮箱和名称配置</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global --unset user.name</div><div class="line">git config --global --unset user.email</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset user.name</span><br><span class="line">git config --global --unset user.email</span><br></pre></td></tr></table></figure>
 <ul>
 <li>各项目配置相应的账号邮箱和名称</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config user.name &quot;xxx&quot;</div><div class="line">git config user.email &quot;xxx@xxx.com&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name &quot;xxx&quot;</span><br><span class="line">git config user.email &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
 <h4 id="各账号的使用"><a href="#各账号的使用" class="headerlink" title="各账号的使用"></a>各账号的使用</h4><p>每个账号根据ssh中配置的Host名来指定。</p>
 <p>例如：</p>
 <blockquote>
 <p>账号1 host: githubLive</p>
+</blockquote>
+<blockquote>
 <p>账号2 host: githubWork</p>
 </blockquote>
-<p>账号1下clone的操作如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone githubLive:user/repo.git</div></pre></td></tr></table></figure></p>
-<p>账号2下clone的操作如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone githubWork:user/repo.git</div></pre></td></tr></table></figure></p>
+<p>账号1下clone的操作如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone githubLive:user/repo.git</span><br></pre></td></tr></table></figure></p>
+<p>账号2下clone的操作如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone githubWork:user/repo.git</span><br></pre></td></tr></table></figure></p>
 <p>其中, <em>user</em> 为github用户名， <em>repo</em> 为github仓库名。</p>
 <p>此外，已经下载的repo可以通过修改相应项目的.git/config文件来进行操作，修改格式如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[remote &quot;origin&quot;]</div><div class="line">    url = githubLive:user/repo.git</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = githubLive:user/repo.git</span><br></pre></td></tr></table></figure>
 <p>后续的push和pull都轻松无压力了。</p>
 <h4 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h4><ol>
 <li>提示无权限访问repo<blockquote>
@@ -420,7 +422,7 @@
 </li>
 </ol>
 <p>解决方法：</p>
-<p>确认user账号的ssh私钥是否添加到ssh agent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add ~/.ssh/id_rsa_work</div></pre></td></tr></table></figure></p>
+<p>确认user账号的ssh私钥是否添加到ssh agent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_work</span><br></pre></td></tr></table></figure></p>
 <p>根据第一步中生成的私钥。</p>
 
       
@@ -565,7 +567,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -582,7 +584,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

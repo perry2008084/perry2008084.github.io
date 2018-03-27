@@ -405,11 +405,11 @@
         <p>记录AngularJS在生产环境下的一些配置，针对性能上的优化有帮助。</p>
 <h3 id="关闭调试数据"><a href="#关闭调试数据" class="headerlink" title="关闭调试数据"></a>关闭调试数据</h3><p>AngularJS默认会添加一些关于绑定、作用域到DOM节点，以及添加CSS类到数据绑定的元素。这些<br>信息主要是用于一些类似<a href="https://github.com/angular/protractor" target="_blank" rel="external">Protractor</a>和<br><a href="https://github.com/angular/angularjs-batarang" target="_blank" rel="external">Batarang</a>的工具使用。</p>
 <p>生产环境下可关闭这些调试数据，以优化项目的性能，配置方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myApp.config([&apos;$compileProvider&apos;, function ($compileProvider) &#123;</div><div class="line">  $compileProvider.debugInfoEnabled(false);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myApp.config([&apos;$compileProvider&apos;, function ($compileProvider) &#123;</span><br><span class="line">  $compileProvider.debugInfoEnabled(false);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
 <p>如果有需要调试，可以再浏览器的控制台中运行以下语句来打开：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.reloadWithDebugInfo();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">angular.reloadWithDebugInfo();</span><br></pre></td></tr></table></figure>
 <h3 id="关闭控制台的debug信息"><a href="#关闭控制台的debug信息" class="headerlink" title="关闭控制台的debug信息"></a>关闭控制台的debug信息</h3><p>一般我们会在代码中使用$log.debug()来添加控制台的调试信息，方便调试。一旦项目在生产环境下，这些<br>信息就不需要留给最终用户，因此可以选择关闭。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myApp.config([&apos;$logProvider&apos;, function ($logProvider) &#123;</div><div class="line">  $$logProvider.debugEnabled(false);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myApp.config([&apos;$logProvider&apos;, function ($logProvider) &#123;</span><br><span class="line">  $$logProvider.debugEnabled(false);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
 <p>说明：</p>
 <p>该配置只是关闭debug级别的信息，debug以上的级别还是会在控制台输出，包括info,warn,error这些。</p>
 <p>【全文完】</p>
@@ -558,7 +558,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -575,7 +575,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
