@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[搜索引擎的使用入门]]></title>
+    <url>%2F2018%2F04%2F13%2Fhow-to-use-google-search%2F</url>
+    <content type="text"><![CDATA[搜索引擎的使用直接影响到获取资讯的效率，这里收集一些常用的搜索引擎使用方法，前几次可以对照着使用，熟悉之后便可以随心所欲进行搜索了。 大纲 前言 构思关键词 常用技巧 不常用技巧 其他 参考 前言多用谷歌，少用百度 构思关键词搜索之前先花一点时间思考一下你要搜索的内容，找出几个关键词，越精确越好，磨刀不误砍柴工。 常用技巧全词匹配&quot;&quot;说明：双引号用于搜索双引号中文本完全匹配的内容 例如：&quot;应季水果&quot; 排除某个词-说明：横线用于排除匹配特定的词，搜索结果会不包含横线后面的词（注意横线前面的空格，横线与词之间不能有空格） 例如：speed -car 指定搜索文件类型filetype:说明：filetype指定要搜索的文件类型，使用英文的冒号 例如：应季水果 filetype:pdf 指定站点内搜索site:说明：site指定要搜索的站点，搜索结果只显示限定这个站点内的内容（冒号后面不能有空格或其他符号） 例如：site:v2ex.com 应季水果 通配符*说明：*用于代表一个不确定的词，可用在单词或者词组中，可以理解成麻将中百搭 例如：largest * in the world 不常用技巧组合搜索OR说明:OR用于组合不同的单词进行搜索，因为正常多个词用空格分隔的搜索都是与的关系 例如:marathon OR race 标题关键词intitle说明：intitle用于搜索标题包含搜索关键词的结果 例如:intitle:传习录 搜索相关网站related:说明:related用于搜索关键词中的相关网站，这里的关键词通常是一个网址 例如:related:time.com 搜索缓存的站点版本cache:说明：cache放置在网站地址的前面，用来搜索这个站点被谷歌缓存的版本 例如:cache:t.tt 其他页面内搜索通常的浏览器支持页面内搜索，Mac下是Cmd+F，Windows下是Ctrl+F 参考 知乎问答如何高效地使用搜索引擎 月光博客博文十大高明的Google搜索技巧 英文原文十大高明的Google搜索技巧 Refine web searches 20 Tips To Use Google Search Efficiently]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>搜索引擎</tag>
+        <tag>google</tag>
+        <tag>入门</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[从npm到yarn]]></title>
     <url>%2F2018%2F03%2F26%2Ffrom-npm-to-yarn%2F</url>
     <content type="text"><![CDATA[由于使用NPM在国内的安装速度很慢，找了一些解决方案，因此引出了Yarn + 淘宝源的使用方案，记录一下Yarn使用的方法 Yarn简介 Yarn安装 NPM源配置 Yarn使用 Yarn简介Yarn是FaceBook推出的一款基于nodejs的依赖管理工具，在npm基础上做了一些改进。Github上的star已经超过30k。 超快 Yarn caches every package it downloads so it never needs to download it again. It also parallelizes operations to maximize resource utilization so install times are faster than ever. 非常安全 Yarn uses checksums to verify the integrity of every installed package before its code is executed. 超可靠 Using a detailed, but concise, lockfile format, and a deterministic algorithm for installs, Yarn is able to guarantee that an install that worked on one system will work exactly the same way on any other system. 详细的优点可参看知乎的评价文章如何评价Facebook推出的JavaScript模块管理器yarn？ Yarn安装这里列一下MacOS下的安装方法： 使用Homebrew进行安装，如果没有安装Node.js会自动进行安装1brew install yarn 如果已经使用nvm或者类似的工具安装过Node.js，可以选择忽略安装1brew install yarn --without-node 验证是否安装成功:1yarn --version NPM源配置有两种方法： 一、直接配置 1234// 配置registrynpm config set registry https://registry.npm.taobao.org/npm config get registry 二、使用nrm切换npm源 1234567891011// 安装nrmnpm i nrm -g// 列出所有可用的registrynrm ls// 使用淘宝源nrm use taobao// 测试速度nrm test 建议使用第二种方案 Yarn使用列举一些常用的命令： 12345678910111213141516171819202122232425262728// 新建一个项目yarn init// 添加依赖yarn add [package]yarn add [package]@[version]yarn add [package]@[tag]// 添加其他类型的依赖到项目中// 其中dev是开发依赖；peer一般用于开发库；// optional为可选依赖，安装过程中报错也可忽略yarn add [package] --devyarn add [package] --peeryarn add [package] --optional// 升级依赖yarn upgrade [package]yarn upgrade [package]@[version]yarn upgrade [package]@[tag]// 移除依赖yarn remove [package]// 安装一个项目的所有依赖yarn// 或者yarn install]]></content>

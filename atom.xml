@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-03-26T14:49:00.683Z</updated>
+  <updated>2018-04-13T12:21:05.992Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搜索引擎的使用入门</title>
+    <link href="http://www.bookcell.org/2018/04/13/how-to-use-google-search/"/>
+    <id>http://www.bookcell.org/2018/04/13/how-to-use-google-search/</id>
+    <published>2018-04-13T12:17:38.000Z</published>
+    <updated>2018-04-13T12:21:05.992Z</updated>
+    
+    <content type="html"><![CDATA[<p>搜索引擎的使用直接影响到获取资讯的效率，这里收集一些常用的搜索引擎使用方法，前几次可以对照着使用，熟悉之后便可以随心所欲进行搜索了。</p>
+<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><ul>
+<li>前言</li>
+<li>构思关键词</li>
+<li>常用技巧</li>
+<li>不常用技巧</li>
+<li>其他</li>
+<li>参考</li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>多用谷歌，少用百度</p>
+<h2 id="构思关键词"><a href="#构思关键词" class="headerlink" title="构思关键词"></a>构思关键词</h2><p>搜索之前先花一点时间思考一下你要搜索的内容，找出几个关键词，越精确越好，磨刀不误砍柴工。</p>
+<h2 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h2><h3 id="全词匹配"><a href="#全词匹配" class="headerlink" title="全词匹配"></a>全词匹配</h3><p><code>&quot;&quot;</code><br><strong>说明</strong>：<br>双引号用于搜索双引号中文本完全匹配的内容</p>
+<p><strong>例如</strong>：<code>&quot;应季水果&quot;</code></p>
+<h3 id="排除某个词"><a href="#排除某个词" class="headerlink" title="排除某个词"></a>排除某个词</h3><p><code>-</code><br><strong>说明</strong>：<br>横线用于排除匹配特定的词，搜索结果会不包含横线后面的词（注意横线前面的空格，横线与词之间不能有空格）</p>
+<p><strong>例如</strong>：<code>speed -car</code></p>
+<h3 id="指定搜索文件类型"><a href="#指定搜索文件类型" class="headerlink" title="指定搜索文件类型"></a>指定搜索文件类型</h3><p><code>filetype:</code><br><strong>说明</strong>：<br>filetype指定要搜索的文件类型，使用英文的冒号</p>
+<p><strong>例如</strong>：<code>应季水果 filetype:pdf</code></p>
+<h3 id="指定站点内搜索"><a href="#指定站点内搜索" class="headerlink" title="指定站点内搜索"></a>指定站点内搜索</h3><p><code>site:</code><br><strong>说明</strong>：<br>site指定要搜索的站点，搜索结果只显示限定这个站点内的内容（冒号后面不能有空格或其他符号）</p>
+<p><strong>例如</strong>：<br><code>site:v2ex.com 应季水果</code></p>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p><code>*</code><br><strong>说明</strong>：<br>*用于代表一个不确定的词，可用在单词或者词组中，可以理解成麻将中百搭</p>
+<p><strong>例如</strong>：<br><code>largest * in the world</code></p>
+<h2 id="不常用技巧"><a href="#不常用技巧" class="headerlink" title="不常用技巧"></a>不常用技巧</h2><h3 id="组合搜索"><a href="#组合搜索" class="headerlink" title="组合搜索"></a>组合搜索</h3><p><code>OR</code><br><strong>说明</strong>:<br>OR用于组合不同的单词进行搜索，因为正常多个词用空格分隔的搜索都是与的关系</p>
+<p><strong>例如</strong>:<br><code>marathon OR race</code></p>
+<h3 id="标题关键词"><a href="#标题关键词" class="headerlink" title="标题关键词"></a>标题关键词</h3><p><code>intitle</code><br><strong>说明</strong>：<br>intitle用于搜索标题包含搜索关键词的结果</p>
+<p><strong>例如</strong>:<br><code>intitle:传习录</code></p>
+<h3 id="搜索相关网站"><a href="#搜索相关网站" class="headerlink" title="搜索相关网站"></a>搜索相关网站</h3><p><code>related:</code><br><strong>说明</strong>:<br>related用于搜索关键词中的相关网站，这里的关键词通常是一个网址</p>
+<p><strong>例如</strong>:<br><code>related:time.com</code></p>
+<h3 id="搜索缓存的站点版本"><a href="#搜索缓存的站点版本" class="headerlink" title="搜索缓存的站点版本"></a>搜索缓存的站点版本</h3><p><code>cache:</code><br><strong>说明</strong>：<br>cache放置在网站地址的前面，用来搜索这个站点被谷歌缓存的版本</p>
+<p><strong>例如</strong>:<br><code>cache:t.tt</code></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="页面内搜索"><a href="#页面内搜索" class="headerlink" title="页面内搜索"></a>页面内搜索</h3><p>通常的浏览器支持页面内搜索，Mac下是Cmd+F，Windows下是Ctrl+F</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>知乎问答<a href="https://www.zhihu.com/question/28013848" target="_blank" rel="external">如何高效地使用搜索引擎</a></li>
+<li>月光博客博文<a href="http://www.williamlong.info/archives/728.html" target="_blank" rel="external">十大高明的Google搜索技巧</a></li>
+<li>英文原文<a href="http://www.informit.com/articles/article.aspx?p=675274" target="_blank" rel="external">十大高明的Google搜索技巧</a></li>
+<li><a href="https://support.google.com/websearch/answer/2466433" target="_blank" rel="external">Refine web searches</a></li>
+<li><a href="https://www.lifehack.org/articles/technology/20-tips-use-google-search-efficiently.html" target="_blank" rel="external">20 Tips To Use Google Search Efficiently</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;搜索引擎的使用直接影响到获取资讯的效率，这里收集一些常用的搜索引擎使用方法，前几次可以对照着使用，熟悉之后便可以随心所欲进行搜索了。&lt;/p&gt;
+&lt;h2 id=&quot;大纲&quot;&gt;&lt;a href=&quot;#大纲&quot; class=&quot;headerlink&quot; title=&quot;大纲&quot;&gt;&lt;/a&gt;大纲&lt;/h2
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="搜索引擎" scheme="http://www.bookcell.org/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="google" scheme="http://www.bookcell.org/tags/google/"/>
+    
+      <category term="入门" scheme="http://www.bookcell.org/tags/%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>从npm到yarn</title>
@@ -964,57 +1030,6 @@
       <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Linux" scheme="http://www.bookcell.org/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>程序员养生和每日饮食习惯</title>
-    <link href="http://www.bookcell.org/2017/03/16/every-day-diet-guide/"/>
-    <id>http://www.bookcell.org/2017/03/16/every-day-diet-guide/</id>
-    <published>2017-03-16T14:46:43.000Z</published>
-    <updated>2017-03-16T15:06:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>作为程序员，刚开始工作的几年的，不太注意饮食习惯，有一餐没一餐或者不定时的饮食习惯，会导致胃消化能力变差，甚至得慢性胃炎。</p>
-<p>慢慢的，发现胃难受，开始关注养胃，早知道一开始就注意饮食习惯，这里就是给后续的程序员做一些程序员的饮食习惯的参考。</p>
-<p>你和我一样，要开始注重养生和饮食了!!!</p>
-<h2 id="大原则"><a href="#大原则" class="headerlink" title="大原则"></a>大原则</h2><h3 id="影响健康的几点因素"><a href="#影响健康的几点因素" class="headerlink" title="影响健康的几点因素"></a>影响健康的几点因素</h3><blockquote>
-<p>心态，饮食，健身，睡眠，金钱</p>
-</blockquote>
-<h3 id="饮食要点："><a href="#饮食要点：" class="headerlink" title="饮食要点："></a>饮食要点：</h3><p>这是盛传的一句话，适合要养胃的朋友们：</p>
-<blockquote>
-<p>早吃好，午吃饱，晚吃少。</p>
-</blockquote>
-<p>总体好消化; 早晚餐量少、有营养，午餐吃饱量稍多些。</p>
-<p>整体的每顿尽量不要超过7分饱。</p>
-<h2 id="日常三餐"><a href="#日常三餐" class="headerlink" title="日常三餐"></a>日常三餐</h2><p>以下是我列举的饮食选择，作为平日里每顿饮食的选项。</p>
-<p>早餐: 红枣大米粥、鸡蛋。(可选: 玉米、面包、紫薯、燕麦、黑芝麻糊、小米粥、小份水果、牛奶)</p>
-<p>午餐: 肉类(猪肉、鸡肉、鱼肉、鸭肉、羊肉、牛肉)、蔬菜(各类蔬菜)、米饭(可选: 面条)</p>
-<p>晚餐: 红枣大米粥、肉类或者蔬菜(可选:面条，馄饨，水饺)</p>
-<h2 id="水果和零食"><a href="#水果和零食" class="headerlink" title="水果和零食"></a>水果和零食</h2><p>除了一日三餐的正常饮食之外，需要一些水果和坚果零食来进行相应的补充。</p>
-<p>水果可补充我们所需要的维生素，坚果可补充一些微量元素。</p>
-<h2 id="早睡早起"><a href="#早睡早起" class="headerlink" title="早睡早起"></a>早睡早起</h2><p>也许上大学和刚毕业的时候，觉得年轻无极限，通宵加班神马的都无所谓，可这是在透支身体，时间会慢慢让你认识到的。</p>
-<p>因此，早点养成早睡早起的习惯，对你的身体会更有益。</p>
-<p>我现在开始养成晚上11点前后入睡，早睡在7点前后醒来，中午可能会午睡半个小时，一天的精力感觉比较充沛。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>愿大家开始注重养生，拥有健康！</p>
-<p>-2017.03.16初稿</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;作为程序员，刚开始工作的几年的，不太注意饮食习惯，有一餐没一餐或者不定时的饮食习惯，会导致胃消化能力变差，甚至得慢性胃炎。&lt;/p&gt;
-&lt;p&gt;慢慢的，发现胃难受，开始关注养胃，早知道一开始就注意饮食习惯，这里就是给后续的程序员做一些程序员的饮食习惯的参考。&lt;/p&gt;
-&lt;p&gt;你和我
-    
-    </summary>
-    
-      <category term="生活" scheme="http://www.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="生活" scheme="http://www.bookcell.org/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="饮食" scheme="http://www.bookcell.org/tags/%E9%A5%AE%E9%A3%9F/"/>
-    
-      <category term="养生" scheme="http://www.bookcell.org/tags/%E5%85%BB%E7%94%9F/"/>
     
   </entry>
   
