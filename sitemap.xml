@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.bookcell.org/2018/04/22/css-background-guide/</loc>
+    
+    <lastmod>2018-04-22T12:18:04.200Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.bookcell.org/2018/04/13/how-to-use-google-search/</loc>
     
     <lastmod>2018-04-13T12:21:05.992Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>http://www.bookcell.org/2017/04/17/git-checkout-a-specific-tag/</loc>
     
     <lastmod>2017-04-17T15:21:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.bookcell.org/2017/04/09/css-background-guide/</loc>
-    
-    <lastmod>2017-04-09T15:03:08.000Z</lastmod>
     
   </url>
   
