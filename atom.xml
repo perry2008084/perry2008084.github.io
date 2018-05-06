@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-04-22T12:31:17.702Z</updated>
+  <updated>2018-05-06T08:44:21.294Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>frontend-develop-tutorial-01</title>
+    <link href="http://www.bookcell.org/2018/05/06/frontend-develop-tutorial-01/"/>
+    <id>http://www.bookcell.org/2018/05/06/frontend-develop-tutorial-01/</id>
+    <published>2018-05-06T08:42:09.000Z</published>
+    <updated>2018-05-06T08:44:21.294Z</updated>
+    
+    <content type="html"><![CDATA[<p>现在是2018年，前端开发中层出不穷的框架和新技术，如何能入门前端开发？<br>这个专栏就是为了这个问题而产生的，把握住不变的要点，然后去适应这个变化的前端世界。</p>
+<h2 id="前端入门的方法"><a href="#前端入门的方法" class="headerlink" title="前端入门的方法"></a>前端入门的方法</h2><p>学好基础知识，循序渐进，不要一味追求新技术。</p>
+<h2 id="2018年的前端开发技能要求"><a href="#2018年的前端开发技能要求" class="headerlink" title="2018年的前端开发技能要求"></a>2018年的前端开发技能要求</h2><p>开发通用基础：<br><img src="https://imgur.com/P7lsIgJ" alt=""></p>
+<p>前端开发路线：<br><img src="https://imgur.com/0sbjMM5" alt=""></p>
+<p>前端开发路线详细：<br><img src="https://imgur.com/PHVzLEM" alt=""></p>
+<p><a href="https://github.com/kamranahmedse/developer-roadmap" target="_blank" rel="external">图片参考来源</a></p>
+<p>书格前端专栏的写作思路：<br>第一期、2018年前端开发技能全貌<br>第二期、HTML学习入门<br>第三期、CSS学习入门<br>第四期、JavaScript学习入门<br>第五期、搜索引擎的使用入门和解决问题的能力<br>第六期、基本的终端使用入门<br>第七期、Git和版本管理的使用入门<br>第八期、SSH的使用入门<br>第九期、HTTP/HTTPS 和 API入门<br>第十期、Github使用入门<br>第十一期、字符编码入门</p>
+<p>写作的思路会根据线路图片的的内容进行，每一期的内容如果多的话，也可能会拆分。<br>更新频率：<br>两周左右一篇文章。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现在是2018年，前端开发中层出不穷的框架和新技术，如何能入门前端开发？&lt;br&gt;这个专栏就是为了这个问题而产生的，把握住不变的要点，然后去适应这个变化的前端世界。&lt;/p&gt;
+&lt;h2 id=&quot;前端入门的方法&quot;&gt;&lt;a href=&quot;#前端入门的方法&quot; class=&quot;headerli
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="入门" scheme="http://www.bookcell.org/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="2018" scheme="http://www.bookcell.org/tags/2018/"/>
+    
+      <category term="知乎专栏" scheme="http://www.bookcell.org/tags/%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F/"/>
+    
+      <category term="书格前端" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E6%A0%BC%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS中background属性的使用指南</title>
@@ -226,13 +265,13 @@
       <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
+      <category term="入门" scheme="http://www.bookcell.org/tags/%E5%85%A5%E9%97%A8/"/>
+    
       <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="搜索引擎" scheme="http://www.bookcell.org/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     
       <category term="google" scheme="http://www.bookcell.org/tags/google/"/>
-    
-      <category term="入门" scheme="http://www.bookcell.org/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -488,9 +527,9 @@
     
       <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
     
-      <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
-    
       <category term="2018" scheme="http://www.bookcell.org/tags/2018/"/>
+    
+      <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
     
   </entry>
   
@@ -1075,40 +1114,6 @@
       <category term="国际化" scheme="http://www.bookcell.org/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
     
       <category term="jquery" scheme="http://www.bookcell.org/tags/jquery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux学习-基础知识部分</title>
-    <link href="http://www.bookcell.org/2017/03/18/linux-learning-base-knowledge/"/>
-    <id>http://www.bookcell.org/2017/03/18/linux-learning-base-knowledge/</id>
-    <published>2017-03-18T06:09:20.000Z</published>
-    <updated>2017-04-03T07:52:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里罗列一些关于学习Linux的基础准备工作，来自《鸟哥的私房菜》，近期准备重新刷一遍，巩固一下Linux的知识和操作。</p>
-<h2 id="计算机概论与硬件相关知识"><a href="#计算机概论与硬件相关知识" class="headerlink" title="计算机概论与硬件相关知识"></a>计算机概论与硬件相关知识</h2><p>了解计算机的概论，包括一些基本理论知识；以及计算机相关的硬件知识，包括计算机的组成。</p>
-<h2 id="Linux的安装和命令"><a href="#Linux的安装和命令" class="headerlink" title="Linux的安装和命令"></a>Linux的安装和命令</h2><p>选择一款Linux的发行版并尝试安装。</p>
-<h2 id="Linux操作系统的基础技能"><a href="#Linux操作系统的基础技能" class="headerlink" title="Linux操作系统的基础技能"></a>Linux操作系统的基础技能</h2><p>了解用户、用户组、权限、程序等概念。</p>
-<h2 id="务必学会vi编辑器"><a href="#务必学会vi编辑器" class="headerlink" title="务必学会vi编辑器"></a>务必学会vi编辑器</h2><p>所有Unix Like的系统均安装了vi编辑器，平时操作修改配置文件都可能使用到。</p>
-<h2 id="Shell和Shell脚本的学习"><a href="#Shell和Shell脚本的学习" class="headerlink" title="Shell和Shell脚本的学习"></a>Shell和Shell脚本的学习</h2><p>玩命令行必须要经历的一步，主要包括“正则表达式”、“管道命令”与“数据流重定向”。</p>
-<h2 id="软件管理"><a href="#软件管理" class="headerlink" title="软件管理"></a>软件管理</h2><p>玩Linux的时候，免不了要自己安装驱动程序或者额外的软件，Tarball/rpm/dpkg等软件包管理工具的使用就很重要了。</p>
-<h2 id="网络基础"><a href="#网络基础" class="headerlink" title="网络基础"></a>网络基础</h2><p>“IP”、“路由”等概念需要了解，以及再进一步的TCP/IP协议。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[鸟哥的私房菜]<br><a href="http://www.study-area.org/compu/compu.htm" target="_blank" rel="external">计算机基础</a><br><a href="http://www.study-area.org/network/network.htm" target="_blank" rel="external">网络基础</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里罗列一些关于学习Linux的基础准备工作，来自《鸟哥的私房菜》，近期准备重新刷一遍，巩固一下Linux的知识和操作。&lt;/p&gt;
-&lt;h2 id=&quot;计算机概论与硬件相关知识&quot;&gt;&lt;a href=&quot;#计算机概论与硬件相关知识&quot; class=&quot;headerlink&quot; title=&quot;
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Linux" scheme="http://www.bookcell.org/tags/Linux/"/>
     
   </entry>
   
