@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-05-06T08:49:48.996Z</updated>
+  <updated>2018-05-06T08:51:04.364Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://www.bookcell.org/2018/05/06/frontend-develop-tutorial-01/"/>
     <id>http://www.bookcell.org/2018/05/06/frontend-develop-tutorial-01/</id>
     <published>2018-05-06T08:42:09.000Z</published>
-    <updated>2018-05-06T08:49:48.996Z</updated>
+    <updated>2018-05-06T08:51:04.364Z</updated>
     
     <content type="html"><![CDATA[<p>现在是2018年，前端开发中层出不穷的框架和新技术，如何能入门前端开发？<br>这个专栏就是为了这个问题而产生的，把握住不变的要点，然后去适应这个变化的前端世界。</p>
+<a id="more"></a>
 <h2 id="前端入门的方法"><a href="#前端入门的方法" class="headerlink" title="前端入门的方法"></a>前端入门的方法</h2><p>学好基础知识，循序渐进，不要一味追求新技术。</p>
 <h2 id="2018年的前端开发技能要求"><a href="#2018年的前端开发技能要求" class="headerlink" title="2018年的前端开发技能要求"></a>2018年的前端开发技能要求</h2><p>开发通用基础：<br><img src="https://i.niupic.com/images/2018/05/06/5nEx.jpg" alt=""></p>
 <p>前端开发路线：<br><img src="https://i.niupic.com/images/2018/05/06/5nEy.jpg" alt=""></p>
@@ -35,7 +36,6 @@
     <summary type="html">
     
       &lt;p&gt;现在是2018年，前端开发中层出不穷的框架和新技术，如何能入门前端开发？&lt;br&gt;这个专栏就是为了这个问题而产生的，把握住不变的要点，然后去适应这个变化的前端世界。&lt;/p&gt;
-&lt;h2 id=&quot;前端入门的方法&quot;&gt;&lt;a href=&quot;#前端入门的方法&quot; class=&quot;headerli
     
     </summary>
     
