@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-05-06T08:51:04.364Z</updated>
+  <updated>2018-05-06T08:58:44.348Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>frontend-develop-tutorial-01</title>
+    <title>2018年前端开发技能全貌</title>
     <link href="http://www.bookcell.org/2018/05/06/frontend-develop-tutorial-01/"/>
     <id>http://www.bookcell.org/2018/05/06/frontend-develop-tutorial-01/</id>
     <published>2018-05-06T08:42:09.000Z</published>
-    <updated>2018-05-06T08:51:04.364Z</updated>
+    <updated>2018-05-06T08:58:44.348Z</updated>
     
     <content type="html"><![CDATA[<p>现在是2018年，前端开发中层出不穷的框架和新技术，如何能入门前端开发？<br>这个专栏就是为了这个问题而产生的，把握住不变的要点，然后去适应这个变化的前端世界。</p>
 <a id="more"></a>
@@ -31,6 +31,12 @@
 <p><a href="https://github.com/kamranahmedse/developer-roadmap" target="_blank" rel="external">图片参考来源</a></p>
 <p>书格前端专栏的写作思路：<br>第一期、2018年前端开发技能全貌<br>第二期、HTML学习入门<br>第三期、CSS学习入门<br>第四期、JavaScript学习入门<br>第五期、搜索引擎的使用入门和解决问题的能力<br>第六期、基本的终端使用入门<br>第七期、Git和版本管理的使用入门<br>第八期、SSH的使用入门<br>第九期、HTTP/HTTPS 和 API入门<br>第十期、Github使用入门<br>第十一期、字符编码入门</p>
 <p>写作的思路会根据线路图片的的内容进行，每一期的内容如果多的话，也可能会拆分。<br>更新频率：<br>两周左右一篇文章。</p>
+<p>同步发布在</p>
+<ul>
+<li><a href="http://bookcell.org/2018/05/06/frontend-develop-tutorial-01/" target="_blank" rel="external">博客: 书格前端</a></li>
+<li><a href="https://i.niupic.com/images/2018/05/06/5nED.jpg" target="_blank" rel="external">微信公众号: 书格前端</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/36497952" target="_blank" rel="external">知乎专栏: 书格前端</a></li>
+</ul>
 ]]></content>
     
     <summary type="html">
