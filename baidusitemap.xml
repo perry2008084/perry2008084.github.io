@@ -4,6 +4,36 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2018/05/29/localstorage-sessionstorage-cookie-and-session/</loc>
+    <lastmod>2018-05-29T14:51:17.735Z</lastmod>
+    <data>
+        <display>
+        <title>localStorage、sessionStorage、cookie和session的优缺点</title>
+        <pubTime>2018-05-29T14:48:14.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>localStorage</tag>
+         
+        <tag>sessionStorage</tag>
+         
+        <tag>cookie</tag>
+         
+        <tag>session</tag>
+         
+        <tag>存储</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/05/06/frontend-develop-tutorial-01/</loc>
     <lastmod>2018-05-06T09:03:00.112Z</lastmod>
     <data>
@@ -62,9 +92,9 @@
         <title>搜索引擎的使用入门</title>
         <pubTime>2018-04-13T12:17:38.000Z</pubTime>
         
-        <tag>入门</tag>
-         
         <tag>工具</tag>
+         
+        <tag>入门</tag>
          
         <tag>搜索引擎</tag>
          
@@ -1040,9 +1070,9 @@
         
         <tag>hexo</tag>
          
-        <tag>theme</tag>
-         
         <tag>Next</tag>
+         
+        <tag>theme</tag>
          
         <tag>简介</tag>
          
