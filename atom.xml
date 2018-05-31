@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-05-29T14:51:17.735Z</updated>
+  <updated>2018-05-31T13:19:03.745Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ag-grid在angularjs中的使用入门</title>
+    <link href="http://www.bookcell.org/2018/05/31/ag-grid-for-angularjs/"/>
+    <id>http://www.bookcell.org/2018/05/31/ag-grid-for-angularjs/</id>
+    <published>2018-05-31T13:17:08.000Z</published>
+    <updated>2018-05-31T13:19:03.745Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ag-grid介绍"><a href="#ag-grid介绍" class="headerlink" title="ag-grid介绍"></a>ag-grid介绍</h2><ul>
+<li>号称世界上最好的HTML5表格</li>
+<li>支持绝大多数主流框架: 原生JavaScript/Angular/React/Vue/AngularJS/Polymer/Aurelia/Web Components</li>
+<li>社区版和商业版，主要功能开放为社区版，商业版支持增强特性</li>
+</ul>
+<a id="more"></a>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载方式：</p>
+<ul>
+<li>Bower</li>
+<li>NPM</li>
+<li>Github下载</li>
+</ul>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><h3 id="直接引入"><a href="#直接引入" class="headerlink" title="直接引入"></a>直接引入</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"path-to-ag-grid-/ag-grid.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"example1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myGrid"</span> <span class="attr">style</span>=<span class="string">"height: 100%;"</span> <span class="attr">class</span>=<span class="string">"ag-theme-balham"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ECMA 5 - using nodes require() method</span></span><br><span class="line"><span class="keyword">var</span> AgGrid = <span class="built_in">require</span>(<span class="string">'ag-grid'</span>);</span><br><span class="line"><span class="comment">// only include this line if you want to use ag-grid-enterprise</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'ag-grid-enterprise'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ECMA 6 - using the system import method</span></span><br><span class="line"><span class="keyword">import</span> &#123;Grid&#125; <span class="keyword">from</span> <span class="string">'ag-grid/main'</span>;</span><br><span class="line"><span class="comment">// only include this line if you want to use ag-grid-enterprise</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'ag-grid-enterprise/main'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>引入ag-grid后，需要在angularjs中注册ag-grid指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// get ag-Grid to create an Angular module and register the ag-Grid directive</span><br><span class="line">agGrid.initialiseAgGridWithAngular1(angular);</span><br><span class="line"></span><br><span class="line">// create your module with ag-Grid as a dependency</span><br><span class="line">var module = angular.module(&quot;example&quot;, [&quot;agGrid&quot;]);</span><br></pre></td></tr></table></figure></p>
+<p>定义表格容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ag-grid=&quot;gridOptions&quot; class=&quot;ag-theme-balham&quot; style=&quot;height: 100%;&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>配置表格显示<br>核心配置项为列(columnDefs)和行数据(rowData)</p>
+<p>HTML:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> <span class="keyword">var</span> __basePath = <span class="string">''</span>; </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> html, body &#123; margin: 0; padding: 0; height: 100%; &#125; </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/ag-grid@17.1.1/dist/ag-grid.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">"example"</span> <span class="attr">ng-controller</span>=<span class="string">"exampleCtrl"</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ag-grid</span>=<span class="string">"gridOptions"</span> <span class="attr">class</span>=<span class="string">"ag-theme-balham"</span> <span class="attr">style</span>=<span class="string">"height: 100%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>JavaScript:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">agGrid.initialiseAgGridWithAngular1(angular);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = angular.module(<span class="string">"example"</span>, [<span class="string">"agGrid"</span>]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.controller(<span class="string">"exampleCtrl"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> columnDefs = [</span><br><span class="line">        &#123;<span class="attr">headerName</span>: <span class="string">"Make"</span>, <span class="attr">field</span>: <span class="string">"make"</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">headerName</span>: <span class="string">"Model"</span>, <span class="attr">field</span>: <span class="string">"model"</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">headerName</span>: <span class="string">"Price"</span>, <span class="attr">field</span>: <span class="string">"price"</span>&#125;</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> rowData = [</span><br><span class="line">        &#123;<span class="attr">make</span>: <span class="string">"Toyota"</span>, <span class="attr">model</span>: <span class="string">"Celica"</span>, <span class="attr">price</span>: <span class="number">35000</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">make</span>: <span class="string">"Ford"</span>, <span class="attr">model</span>: <span class="string">"Mondeo"</span>, <span class="attr">price</span>: <span class="number">32000</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">make</span>: <span class="string">"Porsche"</span>, <span class="attr">model</span>: <span class="string">"Boxter"</span>, <span class="attr">price</span>: <span class="number">72000</span>&#125;</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    $scope.gridOptions = &#123;</span><br><span class="line">        columnDefs: columnDefs,</span><br><span class="line">        rowData: rowData</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://embed.plnkr.co/9HnxJv9NbbeZLysLIO2u/" target="_blank" rel="external">官方的基础实例</a></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="事件和Digest周期"><a href="#事件和Digest周期" class="headerlink" title="事件和Digest周期"></a>事件和Digest周期</h3><p>如有需要触发digest周期，需手动调用<code>$scope.$apply()</code></p>
+<h3 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h3><p>使用ag-grid指令，不需要手动清除grid，指令使用的资源会自动释放</p>
+<h3 id="高级实例"><a href="#高级实例" class="headerlink" title="高级实例"></a>高级实例</h3><p><a href="https://plnkr.co/edit/NWcrpPwWy4WCiWcVevir?p=preview" target="_blank" rel="external">高级实例</a></p>
+<h3 id="表格组件"><a href="#表格组件" class="headerlink" title="表格组件"></a>表格组件</h3><p>ag-grid支持自定义表格中的部分组件<br><a href="https://plnkr.co/edit/RQXKhKAZLyMnTcXENCgc?p=preview" target="_blank" rel="external">组件实例</a></p>
+<h3 id="angular编译"><a href="#angular编译" class="headerlink" title="angular编译"></a>angular编译</h3><p><code>angularCompileRows</code>：设置是否开启编译，默认是关闭的。由于性能原因。</p>
+<p><a href="https://plnkr.co/edit/Xo949vdcUjVhkXsvE5BG?p=preview" target="_blank" rel="external">angular编译实例</a></p>
+<h3 id="单元格模板"><a href="#单元格模板" class="headerlink" title="单元格模板"></a>单元格模板</h3><p>表格支持使用模板来渲染单元格<br><a href="https://plnkr.co/edit/6xtw7HxbhbefbULqQ2SF?p=preview" target="_blank" rel="external">模板渲染实例</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;ag-grid介绍&quot;&gt;&lt;a href=&quot;#ag-grid介绍&quot; class=&quot;headerlink&quot; title=&quot;ag-grid介绍&quot;&gt;&lt;/a&gt;ag-grid介绍&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;号称世界上最好的HTML5表格&lt;/li&gt;
+&lt;li&gt;支持绝大多数主流框架: 原生JavaScript/Angular/React/Vue/AngularJS/Polymer/Aurelia/Web Components&lt;/li&gt;
+&lt;li&gt;社区版和商业版，主要功能开放为社区版，商业版支持增强特性&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="angularjs" scheme="http://www.bookcell.org/tags/angularjs/"/>
+    
+      <category term="ag-grid" scheme="http://www.bookcell.org/tags/ag-grid/"/>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="表格" scheme="http://www.bookcell.org/tags/%E8%A1%A8%E6%A0%BC/"/>
+    
+      <category term="table" scheme="http://www.bookcell.org/tags/table/"/>
+    
+  </entry>
   
   <entry>
     <title>localStorage、sessionStorage、cookie和session的优缺点</title>
@@ -319,9 +380,9 @@
       <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="入门" scheme="http://www.bookcell.org/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="搜索引擎" scheme="http://www.bookcell.org/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     
@@ -1080,39 +1141,6 @@
       <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
     
       <category term="锚" scheme="http://www.bookcell.org/tags/%E9%94%9A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css弹性盒简介之一</title>
-    <link href="http://www.bookcell.org/2017/03/23/css-flexbox-intro-1/"/>
-    <id>http://www.bookcell.org/2017/03/23/css-flexbox-intro-1/</id>
-    <published>2017-03-23T01:45:18.000Z</published>
-    <updated>2017-03-23T01:48:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>css布局经历了使用table和float布局的过程，W3C推出了flexbox的布局方式。</p>
-<h2 id="Flexbox基础"><a href="#Flexbox基础" class="headerlink" title="Flexbox基础"></a>Flexbox基础</h2><h3 id="flex-container"><a href="#flex-container" class="headerlink" title="flex container"></a>flex container</h3><p>使用div或者其他标签作为容器，用于放置其他子元素。</p>
-<h3 id="flex-items"><a href="#flex-items" class="headerlink" title="flex items"></a>flex items</h3><p>嵌套在容器中的直接元素自动转为flex item，子元素的子元素便不是flex item。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- html part --&gt;</span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">  &lt;div&gt;A flex item&lt;/div&gt;</span><br><span class="line">  &lt;div&gt;Another flex item&lt;/div&gt;</span><br><span class="line">  &lt;div&gt;A third flex item&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">/* css part */</span><br><span class="line">.container &#123;</span><br><span class="line">  display: -webkit-flex;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container div &#123;</span><br><span class="line">  -webkit-flex: 1;</span><br><span class="line">  flex: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;css布局经历了使用table和float布局的过程，W3C推出了flexbox的布局方式。&lt;/p&gt;
-&lt;h2 id=&quot;Flexbox基础&quot;&gt;&lt;a href=&quot;#Flexbox基础&quot; class=&quot;headerlink&quot; title=&quot;Flexbox基础&quot;&gt;&lt;/a&gt;Flexb
-    
-    </summary>
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="css" scheme="http://www.bookcell.org/tags/css/"/>
-    
-      <category term="flexbox" scheme="http://www.bookcell.org/tags/flexbox/"/>
-    
-      <category term="弹性盒" scheme="http://www.bookcell.org/tags/%E5%BC%B9%E6%80%A7%E7%9B%92/"/>
     
   </entry>
   

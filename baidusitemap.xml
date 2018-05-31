@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2018/05/31/ag-grid-for-angularjs/</loc>
+    <lastmod>2018-05-31T13:19:03.745Z</lastmod>
+    <data>
+        <display>
+        <title>ag-grid在angularjs中的使用入门</title>
+        <pubTime>2018-05-31T13:17:08.000Z</pubTime>
+        
+        <tag>angularjs</tag>
+         
+        <tag>ag-grid</tag>
+         
+        <tag>前端开发</tag>
+         
+        <tag>表格</tag>
+         
+        <tag>table</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/05/29/localstorage-sessionstorage-cookie-and-session/</loc>
     <lastmod>2018-05-29T14:51:17.735Z</lastmod>
     <data>
@@ -92,9 +120,9 @@
         <title>搜索引擎的使用入门</title>
         <pubTime>2018-04-13T12:17:38.000Z</pubTime>
         
-        <tag>工具</tag>
-         
         <tag>入门</tag>
+         
+        <tag>工具</tag>
          
         <tag>搜索引擎</tag>
          
@@ -1070,9 +1098,9 @@
         
         <tag>hexo</tag>
          
-        <tag>Next</tag>
-         
         <tag>theme</tag>
+         
+        <tag>Next</tag>
          
         <tag>简介</tag>
          
@@ -1356,9 +1384,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>url</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>url</tag>
          
          
            
