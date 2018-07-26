@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-07-26T13:10:05.504Z</updated>
+  <updated>2018-07-26T13:12:29.407Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -20,12 +20,13 @@
     <link href="http://www.bookcell.org/2018/07/26/git-quick-bookup-notes/"/>
     <id>http://www.bookcell.org/2018/07/26/git-quick-bookup-notes/</id>
     <published>2018-07-26T13:07:58.000Z</published>
-    <updated>2018-07-26T13:10:05.504Z</updated>
+    <updated>2018-07-26T13:12:29.407Z</updated>
     
     <content type="html"><![CDATA[<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><h3 id="三个配置文件"><a href="#三个配置文件" class="headerlink" title="三个配置文件"></a>三个配置文件</h3><p><code>git config --system</code>：文件位置<code>/etc/gitconfig</code>，系统级配置<br><code>git config --global</code>：文件位置<code>~/.gitconfig</code> 或 <code>~/.config/git/config</code> 文件，当前用户配置<br><code>.git/config</code>：文件位置仓库<code>.git/config</code>，当前仓库配置</p>
-<h3 id="用户信息配置"><a href="#用户信息配置" class="headerlink" title="用户信息配置"></a>用户信息配置</h3><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.name <span class="string">"John Doe"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.email johndoe@example.com</span></span><br></pre></td></tr></table></figure>
+<h3 id="用户信息配置"><a href="#用户信息配置" class="headerlink" title="用户信息配置"></a>用户信息配置</h3><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global user.name "John Doe"</span><br><span class="line"><span class="meta">$</span> git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure>
 <h3 id="查看配置"><a href="#查看配置" class="headerlink" title="查看配置"></a>查看配置</h3><p><code>git config --list</code>：列出所有 Git 当时能找到的配置</p>
-<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">help</span> &lt;verb&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git &lt;verb&gt; --<span class="built_in">help</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> man git-&lt;verb&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git help &lt;verb&gt;</span><br><span class="line"><span class="meta">$</span> git &lt;verb&gt; --help</span><br><span class="line"><span class="meta">$</span> man git-&lt;verb&gt;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="获取Git仓库"><a href="#获取Git仓库" class="headerlink" title="获取Git仓库"></a>获取Git仓库</h3><ul>
 <li>方式1，初始化现有目录：<code>git init</code></li>
 <li>方式2，克隆线上的仓库：<code>git clone https://github.com/libgit2/libgit2</code></li>
@@ -110,7 +111,7 @@
 <blockquote>
 <p>在 Git 中你并不能真的检出一个标签，因为它们并不能像分支一样来回移动。</p>
 </blockquote>
-<h3 id="Git-别名"><a href="#Git-别名" class="headerlink" title="Git 别名"></a>Git 别名</h3><p>Git 并不会在你输入部分命令时自动推断出你想要的命令。 如果不想每次都输入完整的 Git 命令，可以通过 <code>git config</code> 文件来轻松地为每一个命令设置一个别名。<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global alias.co checkout</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global alias.br branch</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global alias.ci commit</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global alias.st status</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Git-别名"><a href="#Git-别名" class="headerlink" title="Git 别名"></a>Git 别名</h3><p>Git 并不会在你输入部分命令时自动推断出你想要的命令。 如果不想每次都输入完整的 Git 命令，可以通过 <code>git config</code> 文件来轻松地为每一个命令设置一个别名。<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global alias.co checkout</span><br><span class="line"><span class="meta">$</span> git config --global alias.br branch</span><br><span class="line"><span class="meta">$</span> git config --global alias.ci commit</span><br><span class="line"><span class="meta">$</span> git config --global alias.st status</span><br></pre></td></tr></table></figure></p>
 <p><strong>设定别名的思路</strong><br><code>$ git config --global alias.unstage &#39;reset HEAD --&#39;</code>设定一个取消暂存的别名<br><code>git config --global alias.last &#39;log -1 HEAD&#39;</code>设定查看最后一次提交的别名</p>
 <p><strong>执行外部命令的别名</strong><br><code>$ git config --global alias.visual &#39;!gitk&#39;</code></p>
 <h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h3><p>Git 的分支，其实本质上仅仅是指向提交对象的可变指针。<br><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B" target="_blank" rel="external">分支简介参考</a></p>
@@ -211,7 +212,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;起步&quot;&gt;&lt;a href=&quot;#起步&quot; class=&quot;headerlink&quot; title=&quot;起步&quot;&gt;&lt;/a&gt;起步&lt;/h2&gt;&lt;h3 id=&quot;三个配置文件&quot;&gt;&lt;a href=&quot;#三个配置文件&quot; class=&quot;headerlink&quot; title=&quot;三个配置文件&quot;&gt;&lt;/a&gt;三
+      &lt;h2 id=&quot;起步&quot;&gt;&lt;a href=&quot;#起步&quot; class=&quot;headerlink&quot; title=&quot;起步&quot;&gt;&lt;/a&gt;起步&lt;/h2&gt;&lt;h3 id=&quot;三个配置文件&quot;&gt;&lt;a href=&quot;#三个配置文件&quot; class=&quot;headerlink&quot; title=&quot;三个配置文件&quot;&gt;&lt;/a&gt;三个配置文件&lt;/h3&gt;&lt;p&gt;&lt;code&gt;git config --system&lt;/code&gt;：文件位置&lt;code&gt;/etc/gitconfig&lt;/code&gt;，系统级配置&lt;br&gt;&lt;code&gt;git config --global&lt;/code&gt;：文件位置&lt;code&gt;~/.gitconfig&lt;/code&gt; 或 &lt;code&gt;~/.config/git/config&lt;/code&gt; 文件，当前用户配置&lt;br&gt;&lt;code&gt;.git/config&lt;/code&gt;：文件位置仓库&lt;code&gt;.git/config&lt;/code&gt;，当前仓库配置&lt;/p&gt;
+&lt;h3 id=&quot;用户信息配置&quot;&gt;&lt;a href=&quot;#用户信息配置&quot; class=&quot;headerlink&quot; title=&quot;用户信息配置&quot;&gt;&lt;/a&gt;用户信息配置&lt;/h3&gt;&lt;figure class=&quot;highlight console&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt; git config --global user.name &quot;John Doe&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt; git config --global user.email johndoe@example.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;查看配置&quot;&gt;&lt;a href=&quot;#查看配置&quot; class=&quot;headerlink&quot; title=&quot;查看配置&quot;&gt;&lt;/a&gt;查看配置&lt;/h3&gt;&lt;p&gt;&lt;code&gt;git config --list&lt;/code&gt;：列出所有 Git 当时能找到的配置&lt;/p&gt;
+&lt;h3 id=&quot;获取帮助&quot;&gt;&lt;a href=&quot;#获取帮助&quot; class=&quot;headerlink&quot; title=&quot;获取帮助&quot;&gt;&lt;/a&gt;获取帮助&lt;/h3&gt;&lt;figure class=&quot;highlight console&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt; git help &amp;lt;verb&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt; git &amp;lt;verb&amp;gt; --help&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt; man git-&amp;lt;verb&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
