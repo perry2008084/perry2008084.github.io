@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2018/07/26/git-quick-bookup-notes/</loc>
+    <lastmod>2018-07-26T13:10:05.504Z</lastmod>
+    <data>
+        <display>
+        <title>Git快速查找笔记</title>
+        <pubTime>2018-07-26T13:07:58.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>git</tag>
+         
+        <tag>笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/06/02/frontend-develop-tutorial-02-html/</loc>
     <lastmod>2018-06-02T14:43:05.960Z</lastmod>
     <data>
@@ -13,10 +37,6 @@
         
         <tag>前端开发</tag>
          
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
-         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -24,6 +44,10 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
+         
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
          
          
            
