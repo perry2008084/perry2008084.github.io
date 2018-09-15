@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2018/09/15/should-you-use-www-in-your-url-or-not/</loc>
+    <lastmod>2018-09-15T09:27:46.836Z</lastmod>
+    <data>
+        <display>
+        <title>你是否应该在URL中使用www</title>
+        <pubTime>2018-09-15T08:50:59.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>URL</tag>
+         
+        <tag>WWW</tag>
+         
+        <tag>HTTP</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/07/26/git-quick-bookup-notes/</loc>
     <lastmod>2018-07-26T13:12:29.407Z</lastmod>
     <data>
@@ -37,6 +63,10 @@
         
         <tag>前端开发</tag>
          
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
+         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -44,10 +74,6 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
-         
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
          
          
            
