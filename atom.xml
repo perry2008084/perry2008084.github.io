@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-09-15T09:27:46.836Z</updated>
+  <updated>2018-09-15T09:50:04.791Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="http://www.bookcell.org/2018/09/15/should-you-use-www-in-your-url-or-not/"/>
     <id>http://www.bookcell.org/2018/09/15/should-you-use-www-in-your-url-or-not/</id>
     <published>2018-09-15T08:50:59.000Z</published>
-    <updated>2018-09-15T09:27:46.836Z</updated>
+    <updated>2018-09-15T09:50:04.791Z</updated>
     
     <content type="html"><![CDATA[<p>文章翻译自于<a href="http://www.themezilla.com/should-you-use-www-in-your-url-or-not/" target="_blank" rel="external">Should you use “www” in your URL or not?</a>，这篇文章是写于2016，该不该在你的网站URL中使用www? 现在来看对于网站的SEO而言，了解一下还是有帮助的，并且MDN上也链接了这篇文章。</p>
 <p>正文：</p>
 <p>这是一个有很长时间的问题： 使用www或者不使用www? 多年来，人们会被问到这两者的区别，哪个对SEO更好，或者是否有必要修改他们的网址。</p>
 <p>没有什么可惊讶的，网络上充满了关于这个话题的观点。一方面，支持www的人争论说“使用www能为超出一台服务器时网站扩展带来的挑战做好准备”；另一方面，支持无www的人坚称“使用www是冗余的并浪费时间”。</p>
 <p>然而我们可以两方都支持，我们的观点是<em>其实</em>这不是太影响(Google也同意!)。对于普通的博客或自由职业者或者甚至机构，使用www或者不使用，都是绝对零优势。也就是说，他们在技术上是有区别的，并且有一个非常好的理由说明你为什么不应该同时使用。</p>
+<a id="more"></a>
 <h2 id="外表具有欺骗性"><a href="#外表具有欺骗性" class="headerlink" title="外表具有欺骗性"></a>外表具有欺骗性</h2><p>当前能够通过www和无www的URL来访问一个网站都是很普遍的。如果你访问我们的网站，例如，你可以输入”<a href="http://www.themezilla.com&quot;，或者裸的版本,&quot;themezilla.com&quot;，不管哪一种，你都可以到达我们的主页。" target="_blank" rel="external">http://www.themezilla.com&quot;，或者裸的版本,&quot;themezilla.com&quot;，不管哪一种，你都可以到达我们的主页。</a></p>
 <p>现在，这些URL看起来可能相同，很多人会争论越相同越好，但他们不是的。事实上，他们是完全不同的网站，并且Google也是这么认为的。</p>
 <p>为了捕获URL格式上的差异，有些人会设立不同地址但是内容相同的网站，但这只会让搜索引擎判罚为重复内容。一个更好的办法，是创建一个URL版本的301永久性重定向到另一个，而不是让你自己来竞争网页排名。(我们重定向所有themezilla.com流量到<a href="http://www.themezilla.com" target="_blank" rel="external">http://www.themezilla.com</a>)</p>
@@ -57,7 +58,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;文章翻译自于&lt;a href=&quot;http://www.themezilla.com/should-you-use-www-in-your-url-or-not/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Should you use “www” in y
+      &lt;p&gt;文章翻译自于&lt;a href=&quot;http://www.themezilla.com/should-you-use-www-in-your-url-or-not/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Should you use “www” in your URL or not?&lt;/a&gt;，这篇文章是写于2016，该不该在你的网站URL中使用www? 现在来看对于网站的SEO而言，了解一下还是有帮助的，并且MDN上也链接了这篇文章。&lt;/p&gt;
+&lt;p&gt;正文：&lt;/p&gt;
+&lt;p&gt;这是一个有很长时间的问题： 使用www或者不使用www? 多年来，人们会被问到这两者的区别，哪个对SEO更好，或者是否有必要修改他们的网址。&lt;/p&gt;
+&lt;p&gt;没有什么可惊讶的，网络上充满了关于这个话题的观点。一方面，支持www的人争论说“使用www能为超出一台服务器时网站扩展带来的挑战做好准备”；另一方面，支持无www的人坚称“使用www是冗余的并浪费时间”。&lt;/p&gt;
+&lt;p&gt;然而我们可以两方都支持，我们的观点是&lt;em&gt;其实&lt;/em&gt;这不是太影响(Google也同意!)。对于普通的博客或自由职业者或者甚至机构，使用www或者不使用，都是绝对零优势。也就是说，他们在技术上是有区别的，并且有一个非常好的理由说明你为什么不应该同时使用。&lt;/p&gt;
     
     </summary>
     
