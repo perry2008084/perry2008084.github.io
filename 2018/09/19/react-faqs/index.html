@@ -1,0 +1,1066 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端开发,URL,WWW,HTTP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="React的FAQ，来自官网的FAQ，学习后做的笔记，顺带翻译(不完全翻译) AJAX and APIslibaraies你可以在React中使用任何你喜欢的AJAX库 Axio, jQuery AJAX, window.fetch where did ajax callcomponentDidMount Babel, JSX, and Build StepsJSX是否必要不必要 ES6(+)是否">
+<meta name="keywords" content="前端开发,URL,WWW,HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reactjs的常见问题">
+<meta property="og:url" content="http://www.bookcell.org/2018/09/19/react-faqs/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="React的FAQ，来自官网的FAQ，学习后做的笔记，顺带翻译(不完全翻译) AJAX and APIslibaraies你可以在React中使用任何你喜欢的AJAX库 Axio, jQuery AJAX, window.fetch where did ajax callcomponentDidMount Babel, JSX, and Build StepsJSX是否必要不必要 ES6(+)是否">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-19T13:40:46.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reactjs的常见问题">
+<meta name="twitter:description" content="React的FAQ，来自官网的FAQ，学习后做的笔记，顺带翻译(不完全翻译) AJAX and APIslibaraies你可以在React中使用任何你喜欢的AJAX库 Axio, jQuery AJAX, window.fetch where did ajax callcomponentDidMount Babel, JSX, and Build StepsJSX是否必要不必要 ES6(+)是否">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'F5K4LBFFAQ',
+      apiKey: '7fae5b582054f18d3b464608d432831f',
+      indexName: 'title_Name',
+      hits: {"per_page":5},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.bookcell.org/2018/09/19/react-faqs/"/>
+
+
+
+
+
+  <title> Reactjs的常见问题 | 书格前端 </title>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-3438777168792359",
+      enable_page_level_ads: true
+    });
+  </script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a08469fe69bde20163091cead076f58a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">书格前端</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2018/09/19/react-faqs/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Perry">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/totoro.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="书格前端">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="书格前端" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Reactjs的常见问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-19T21:38:08+08:00">
+                2018-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2018/09/19/react-faqs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/19/react-faqs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/09/19/react-faqs/" class="leancloud_visitors" data-flag-title="Reactjs的常见问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>React的FAQ，来自官网的FAQ，学习后做的笔记，顺带翻译(不完全翻译)</p>
+<h2 id="AJAX-and-APIs"><a href="#AJAX-and-APIs" class="headerlink" title="AJAX and APIs"></a>AJAX and APIs</h2><h3 id="libaraies"><a href="#libaraies" class="headerlink" title="libaraies"></a>libaraies</h3><p>你可以在React中使用任何你喜欢的AJAX库</p>
+<p>Axio, jQuery AJAX, window.fetch</p>
+<h3 id="where-did-ajax-call"><a href="#where-did-ajax-call" class="headerlink" title="where did ajax call"></a>where did ajax call</h3><p>componentDidMount</p>
+<h2 id="Babel-JSX-and-Build-Steps"><a href="#Babel-JSX-and-Build-Steps" class="headerlink" title="Babel, JSX, and Build Steps"></a>Babel, JSX, and Build Steps</h2><h3 id="JSX是否必要"><a href="#JSX是否必要" class="headerlink" title="JSX是否必要"></a>JSX是否必要</h3><p>不必要</p>
+<h3 id="ES6-是否必要"><a href="#ES6-是否必要" class="headerlink" title="ES6(+)是否必要"></a>ES6(+)是否必要</h3><p>不必要</p>
+<h3 id="如何在JSX中写注释"><a href="#如何在JSX中写注释" class="headerlink" title="如何在JSX中写注释"></a>如何在JSX中写注释</h3><p>支持多行注释</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;<span class="comment">/* Comment goes here */</span>&#125;</span><br><span class="line">    Hello, &#123;name&#125;!</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="Passing-Functions-to-Components"><a href="#Passing-Functions-to-Components" class="headerlink" title="Passing Functions to Components"></a>Passing Functions to Components</h2><h3 id="如何传递event-handler到一个组件"><a href="#如何传递event-handler到一个组件" class="headerlink" title="如何传递event handler到一个组件"></a>如何传递event handler到一个组件</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;<span class="keyword">this</span>.handleClick&#125;&gt;</span><br></pre></td></tr></table></figure>
+<p>如果在handler中要访问父组件，需要在组件实例中绑定函数</p>
+<h3 id="如何绑定函数到一个组件实例"><a href="#如何绑定函数到一个组件实例" class="headerlink" title="如何绑定函数到一个组件实例"></a>如何绑定函数到一个组件实例</h3><blockquote>
+<p>There are several ways to make sure functions have access to component attributes like this.props and this.state, depending on which syntax and build steps you are using.</p>
+</blockquote>
+<p>Bind in Constructor(ES2015)</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    handleClick() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Click happend'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>Click Me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Class Properties (Stage 3 Proposal)</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    handleClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Click happend'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>Click Me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Bind in Render</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    handleClick() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Click happend'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick.bind(this)&#125;</span>&gt;</span>Click Me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Arrow Function in Render</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    handleClick() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Click happened'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.handleClick()&#125;&gt;Click Me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Component-State"><a href="#Component-State" class="headerlink" title="Component State"></a>Component State</h2><h3 id="setState做什么用？"><a href="#setState做什么用？" class="headerlink" title="setState做什么用？"></a>setState做什么用？</h3><p><code>setState()</code>安排更新一个组件的<code>state</code>对象。当状态改变时，组件会响应并重新渲染。</p>
+<h3 id="state和props之间有什么区别？"><a href="#state和props之间有什么区别？" class="headerlink" title="state和props之间有什么区别？"></a>state和props之间有什么区别？</h3><p><code>props</code>(“properties”的缩写)和<code>state</code>均是纯粹的JavaScript对象。虽然都拥有可以影响渲染输出的信息，但有有一个非常重要的区别：<br><code>props</code>由外部传递到组件(类似函数参数)，而<code>state</code>是组件内部管理(类似函数内声明的变量)。</p>
+<p>深入阅读何时使用<code>props</code> vs <code>state</code>:</p>
+<ul>
+<li><a href="https://github.com/uberVU/react-guide/blob/master/props-vs-state.md" target="_blank" rel="external">Props vs State</a></li>
+<li><a href="http://lucybain.com/blog/2016/react-state-vs-pros/" target="_blank" rel="external">ReactJS: Props vs State</a></li>
+</ul>
+<h3 id="为什么setState给了错误的值？"><a href="#为什么setState给了错误的值？" class="headerlink" title="为什么setState给了错误的值？"></a>为什么setState给了错误的值？</h3><p>在React中，<code>this.props</code>和<code>this.state</code>代表<em>渲染值</em>，比如当前在屏幕中的内容。</p>
+<p>调用<code>setState</code>是异步的，调用<code>setState</code>后，不要依赖<code>this.state</code>立即反馈新的值。如果你需要基于当前的state来计算值，传递一个更新函数代替一个对象。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">incrementCount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// Important read `state` instead of `this.state` when updating</span></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="attr">count</span>: state.count + <span class="number">1</span>&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleSomething() &#123;</span><br><span class="line">    <span class="comment">// Let's say `this.state.count` starts at 0.</span></span><br><span class="line">    <span class="keyword">this</span>.incrementCount();</span><br><span class="line">    <span class="keyword">this</span>.incrementCount();</span><br><span class="line">    <span class="keyword">this</span>.incrementCount();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// If you read `this.state.count` now, it would still be 0.</span></span><br><span class="line">    <span class="comment">// But when React re-renders the component, it will be 3.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Styling-and-CSS"><a href="#Styling-and-CSS" class="headerlink" title="Styling and CSS"></a>Styling and CSS</h2><h3 id="如何添加CSS类到组件中？"><a href="#如何添加CSS类到组件中？" class="headerlink" title="如何添加CSS类到组件中？"></a>如何添加CSS类到组件中？</h3><p>传递一个字符串到<code>className</code>属性中：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"menu navigation-menu"</span>&gt;</span>Menu<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>依赖于组件属性和状态的CSS类：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">let</span> className = <span class="string">'menu'</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.isActive) &#123;</span><br><span class="line">        className += <span class="string">' menu-active'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">&#123;className&#125;</span>&gt;</span>Menu<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>组装class可以使用包 <a href="https://www.npmjs.com/package/classnames" target="_blank" rel="external">classnames</a></p>
+<h2 id="File-Structure"><a href="#File-Structure" class="headerlink" title="File Structure"></a>File Structure</h2><ul>
+<li>按特性或者路由分组</li>
+<li>按文件类型分组</li>
+<li>避免太多嵌套</li>
+<li>不要过度考虑</li>
+</ul>
+<h2 id="Virtual-DOM-and-Internals"><a href="#Virtual-DOM-and-Internals" class="headerlink" title="Virtual DOM and Internals"></a>Virtual DOM and Internals</h2><p>虚拟DOM是一个编程概念，是一种保持在内存中的理想化的、虚拟的UI表示，并且通过类似ReactDOM的库来和真实的DOM同步。这个过程称作<code>reconciliation</code>（重新调解）。</p>
+<h3 id="Shadow-DOM和Virtual-DOM是否一样？"><a href="#Shadow-DOM和Virtual-DOM是否一样？" class="headerlink" title="Shadow DOM和Virtual DOM是否一样？"></a>Shadow DOM和Virtual DOM是否一样？</h3><p>不一样。Shadow DOM是一项浏览器技术，设计主要用于在web component中的局部变量和CSS。virtual DOM是一个使用基于浏览器API的JavaScript库实现的概念。</p>
+<h3 id="什么是”React-Fiber”？"><a href="#什么是”React-Fiber”？" class="headerlink" title="什么是”React Fiber”？"></a>什么是”React Fiber”？</h3><p>Fiber是在React 16中新的reconciliation的引擎。主要目标是使虚拟DOM的增量渲染变得可行。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/image/wechat-reward-img.png" alt="Perry WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端开发/" rel="tag"># 前端开发</a>
+          
+            <a href="/tags/URL/" rel="tag"># URL</a>
+          
+            <a href="/tags/WWW/" rel="tag"># WWW</a>
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/15/should-you-use-www-in-your-url-or-not/" rel="next" title="你是否应该在URL中使用www">
+                <i class="fa fa-chevron-left"></i> 你是否应该在URL中使用www
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/totoro.jpg"
+               alt="Perry" />
+          <p class="site-author-name" itemprop="name">Perry</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">137</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-and-APIs"><span class="nav-number">1.</span> <span class="nav-text">AJAX and APIs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#libaraies"><span class="nav-number">1.1.</span> <span class="nav-text">libaraies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#where-did-ajax-call"><span class="nav-number">1.2.</span> <span class="nav-text">where did ajax call</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Babel-JSX-and-Build-Steps"><span class="nav-number">2.</span> <span class="nav-text">Babel, JSX, and Build Steps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX是否必要"><span class="nav-number">2.1.</span> <span class="nav-text">JSX是否必要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6-是否必要"><span class="nav-number">2.2.</span> <span class="nav-text">ES6(+)是否必要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何在JSX中写注释"><span class="nav-number">2.3.</span> <span class="nav-text">如何在JSX中写注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Passing-Functions-to-Components"><span class="nav-number">3.</span> <span class="nav-text">Passing Functions to Components</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何传递event-handler到一个组件"><span class="nav-number">3.1.</span> <span class="nav-text">如何传递event handler到一个组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何绑定函数到一个组件实例"><span class="nav-number">3.2.</span> <span class="nav-text">如何绑定函数到一个组件实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component-State"><span class="nav-number">4.</span> <span class="nav-text">Component State</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setState做什么用？"><span class="nav-number">4.1.</span> <span class="nav-text">setState做什么用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#state和props之间有什么区别？"><span class="nav-number">4.2.</span> <span class="nav-text">state和props之间有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么setState给了错误的值？"><span class="nav-number">4.3.</span> <span class="nav-text">为什么setState给了错误的值？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Styling-and-CSS"><span class="nav-number">5.</span> <span class="nav-text">Styling and CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何添加CSS类到组件中？"><span class="nav-number">5.1.</span> <span class="nav-text">如何添加CSS类到组件中？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File-Structure"><span class="nav-number">6.</span> <span class="nav-text">File Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtual-DOM-and-Internals"><span class="nav-number">7.</span> <span class="nav-text">Virtual DOM and Internals</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shadow-DOM和Virtual-DOM是否一样？"><span class="nav-number">7.1.</span> <span class="nav-text">Shadow DOM和Virtual DOM是否一样？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是”React-Fiber”？"><span class="nav-number">7.2.</span> <span class="nav-text">什么是”React Fiber”？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'mdeditorwin';
+      var disqus_identifier = '2018/09/19/react-faqs/';
+
+      var disqus_title = "Reactjs的常见问题";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("8lR2tFbd0yS6tMjtGQoKFGJu-gzGzoHsz", "A3GwNmyaYz484CFzLpAFxJ3O");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Reactjs的常见问题]]></title>
+    <url>%2F2018%2F09%2F19%2Freact-faqs%2F</url>
+    <content type="text"><![CDATA[React的FAQ，来自官网的FAQ，学习后做的笔记，顺带翻译(不完全翻译) AJAX and APIslibaraies你可以在React中使用任何你喜欢的AJAX库 Axio, jQuery AJAX, window.fetch where did ajax callcomponentDidMount Babel, JSX, and Build StepsJSX是否必要不必要 ES6(+)是否必要不必要 如何在JSX中写注释支持多行注释 1234&lt;div&gt; &#123;/* Comment goes here */&#125; Hello, &#123;name&#125;!&lt;/div&gt; Passing Functions to Components如何传递event handler到一个组件1&lt;button onClick=&#123;this.handleClick&#125;&gt; 如果在handler中要访问父组件，需要在组件实例中绑定函数 如何绑定函数到一个组件实例 There are several ways to make sure functions have access to component attributes like this.props and this.state, depending on which syntax and build steps you are using. Bind in Constructor(ES2015) 123456789101112class Foo extends Component &#123; constructor(props) &#123; super(props); this.handleClick = this.handleClick.bind(this); &#125; handleClick() &#123; console.log('Click happend'); &#125; render() &#123; return &lt;button onClick=&#123;this.handleClick&#125;&gt;Click Me&lt;/button&gt; &#125;&#125; Class Properties (Stage 3 Proposal) 12345678class Foo extends Component &#123; handleClick = () =&gt; &#123; console.log('Click happend'); &#125; render() &#123; return &lt;button onClick=&#123;this.handleClick&#125;&gt;Click Me&lt;/button&gt; &#125;&#125; Bind in Render 12345678class Foo extends Component &#123; handleClick() &#123; console.log('Click happend'); &#125; render() &#123; return &lt;button onClick=&#123;this.handleClick.bind(this)&#125;&gt;Click Me&lt;/button&gt;; &#125;&#125; Arrow Function in Render 12345678class Foo extends Component &#123; handleClick() &#123; console.log('Click happened'); &#125; render() &#123; return &lt;button onClick=&#123;() =&gt; this.handleClick()&#125;&gt;Click Me&lt;/button&gt;; &#125;&#125; Component StatesetState做什么用？setState()安排更新一个组件的state对象。当状态改变时，组件会响应并重新渲染。 state和props之间有什么区别？props(“properties”的缩写)和state均是纯粹的JavaScript对象。虽然都拥有可以影响渲染输出的信息，但有有一个非常重要的区别：props由外部传递到组件(类似函数参数)，而state是组件内部管理(类似函数内声明的变量)。 深入阅读何时使用props vs state: Props vs State ReactJS: Props vs State 为什么setState给了错误的值？在React中，this.props和this.state代表渲染值，比如当前在屏幕中的内容。 调用setState是异步的，调用setState后，不要依赖this.state立即反馈新的值。如果你需要基于当前的state来计算值，传递一个更新函数代替一个对象。 12345678910111213141516incrementCount() &#123; this.setState((state) =&gt; &#123; // Important read `state` instead of `this.state` when updating return &#123;count: state.count + 1&#125; &#125;);&#125;handleSomething() &#123; // Let's say `this.state.count` starts at 0. this.incrementCount(); this.incrementCount(); this.incrementCount(); // If you read `this.state.count` now, it would still be 0. // But when React re-renders the component, it will be 3.&#125; Styling and CSS如何添加CSS类到组件中？传递一个字符串到className属性中： 123render() &#123; return &lt;span className="menu navigation-menu"&gt;Menu&lt;/span&gt;&#125; 依赖于组件属性和状态的CSS类： 1234567render() &#123; let className = 'menu'; if (this.props.isActive) &#123; className += ' menu-active'; &#125; return &lt;span className=&#123;className&#125;&gt;Menu&lt;/span&gt;&#125; 组装class可以使用包 classnames File Structure 按特性或者路由分组 按文件类型分组 避免太多嵌套 不要过度考虑 Virtual DOM and Internals虚拟DOM是一个编程概念，是一种保持在内存中的理想化的、虚拟的UI表示，并且通过类似ReactDOM的库来和真实的DOM同步。这个过程称作reconciliation（重新调解）。 Shadow DOM和Virtual DOM是否一样？不一样。Shadow DOM是一项浏览器技术，设计主要用于在web component中的局部变量和CSS。virtual DOM是一个使用基于浏览器API的JavaScript库实现的概念。 什么是”React Fiber”？Fiber是在React 16中新的reconciliation的引擎。主要目标是使虚拟DOM的增量渲染变得可行。]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>URL</tag>
+        <tag>WWW</tag>
+        <tag>HTTP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[你是否应该在URL中使用www]]></title>
     <url>%2F2018%2F09%2F15%2Fshould-you-use-www-in-your-url-or-not%2F</url>
     <content type="text"><![CDATA[文章翻译自于Should you use “www” in your URL or not?，这篇文章是写于2016，该不该在你的网站URL中使用www? 现在来看对于网站的SEO而言，了解一下还是有帮助的，并且MDN上也链接了这篇文章。 正文： 这是一个有很长时间的问题： 使用www或者不使用www? 多年来，人们会被问到这两者的区别，哪个对SEO更好，或者是否有必要修改他们的网址。 没有什么可惊讶的，网络上充满了关于这个话题的观点。一方面，支持www的人争论说“使用www能为超出一台服务器时网站扩展带来的挑战做好准备”；另一方面，支持无www的人坚称“使用www是冗余的并浪费时间”。 然而我们可以两方都支持，我们的观点是其实这不是太影响(Google也同意!)。对于普通的博客或自由职业者或者甚至机构，使用www或者不使用，都是绝对零优势。也就是说，他们在技术上是有区别的，并且有一个非常好的理由说明你为什么不应该同时使用。 外表具有欺骗性当前能够通过www和无www的URL来访问一个网站都是很普遍的。如果你访问我们的网站，例如，你可以输入”http://www.themezilla.com&quot;，或者裸的版本,&quot;themezilla.com&quot;，不管哪一种，你都可以到达我们的主页。 现在，这些URL看起来可能相同，很多人会争论越相同越好，但他们不是的。事实上，他们是完全不同的网站，并且Google也是这么认为的。 为了捕获URL格式上的差异，有些人会设立不同地址但是内容相同的网站，但这只会让搜索引擎判罚为重复内容。一个更好的办法，是创建一个URL版本的301永久性重定向到另一个，而不是让你自己来竞争网页排名。(我们重定向所有themezilla.com流量到http://www.themezilla.com) 变得权威“标准化”是一个很大的词，可能是或不是Google发明了一个流程适用于”当有多个可选项时选择最好的URL”。不管你决定使用哪个格式，最重要的是始终如一并帮助搜索引擎决定”权威版本”(代表你整个网站的最好版本)。 例如，不要让你的一半流量到http://www.yoursite.com和另一半到yoursite.com。相反，选择一个你喜欢的，并总是使用这个格式作为你的内部链接。这不仅仅是为了让搜索引擎保持简单，也会让Google认为这不是两个不同网站而形成网页排名和链接上的竞争。 作出你的选择URL格式是个人的偏好，这里涉及我们前面间接提到的一些技术性差异，可能会影响到非常高流量的网站。 简单的说，当你使用无www或者说裸的域名，并且你拥有多个子域名，这会让服务器或云服务更新DNS记录变得困难。另一个裸域名相关的问题是操作cookies：没有www，cookies会发送到所有的子域名，减慢访问静态内容和影响缓存。 如果你完全听不懂，不用担心。这是针对每天百万页面访问量的极其大型网站相关的特定场景。 总结对于我们的网站，我们默认使用www域名，因为我们对字母表末尾的字母情有独钟，并且这让我们自我感觉网站规模比目前更大。 但是你可能讨厌字母”w”，或者你更喜欢裸URL。这都是可以的。没有一个选择是明确优于另一个的，我们鼓励你作为你自己的网站管理员，来决定哪个是最好的。 这篇文章英文部分用词稍微有点晦涩，有翻译不到位的地方，可以结合原文进行理解。 英文原文Should you use “www” in your URL or not? It’s a question for the ages: to www or not to www? For years, people have been asking if there’s any difference between the two, which one (if any) is better for SEO, and whether or not they need to change their site address. Not surprisingly, the internet is full of opinions on the topic. On one side, you have the yes-www’ers who argue that using www “makes you more prepared to handle the challenges of a growing website beyond a single server.” On the other, you have the no-www’ers who insist that using www is “redundant and time-consuming.” While we can sympathize with both sides, our official opinion is that it doesn’t really matter (Google agrees!). For the average blogger or freelancer or even agency, there is absolutely zero advantage to using www or not. That said, there is a technical difference between the two, and there’s a very good reason why you shouldn’t be using both. Appearances can be deceivingIt’s pretty common these days to be able to access a website from both the www and non-www version of its URL. If you want to visit our website, for example, you can type in “http://www.themezilla.com” or the “naked” version, “themezilla.com”—either way, you’ll end up on our homepage. Now, these URLs may look similar—many would argue they’re as good as identical—but they’re not. In fact, they are completely separate sites, and Google treats them as such. To capture variations in URL formatting, some people set up their site at a handful of similar but different addresses, only to be penalized by search engines for duplicate content. Instead of competing against yourself for page rankings, a much better approach is to set up a 301 permanent redirection from one version of the URL to the other (we redirect all themezilla.com traffic to http://www.themezilla.com). Getting canonical“Canonicalization” is a big word that Google may or may not have made up to refer to “the process of picking the best URL when there are several choices.” No matter which format you decide to use, the important thing is to be consistent and help search engines determine the “canonical version” (ie. the version that best represents your entire site). For example, don’t send half your links to http://www.yoursite.com and the other half to yoursite.com. Instead, pick the URL you prefer and always use that format for your internal links. Not only does it keep things simple for search engines, it stops the page rank and link juice from getting divided between what Google thinks are two separate sites. Picking your poisonWhile URL formatting is a matter of personal preference, there are a couple technical differences we alluded to earlier that might affect sites with very high traffic. Basically, when you use a non-www or naked domain, and you also have several subdomains, it can become difficult for servers and cloud services to update DNS records. The other issue that can occur with naked domains has to do with cookies: without the www, the cookies get sent to all subdomains, slowing down access to static content and tripping up caching. If this all sounds like Greek to you, don’t worry. These are highly specialized situations that really only affect extremely large websites receiving millions of page views per day. (We hear the chorus of yes-www’ers countering, “But who doesn’t want their site to get that large?”) Summing upFor our site, we default to the www domain because we have a soft spot for end-of-alphabet characters, and because it makes us feel like we’re a part of something bigger than ourselves. But you may hate the letter “w,” or you may just prefer your URL to be naked. And that’s okay! No one option is unequivocally better than the other, and we encourage you to be your own webmaster and decide which is best for you.]]></content>
@@ -36,12 +50,12 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
-        <tag>html入门</tag>
-        <tag>html学习</tag>
         <tag>入门</tag>
         <tag>2018</tag>
         <tag>知乎专栏</tag>
         <tag>书格前端</tag>
+        <tag>html入门</tag>
+        <tag>html学习</tag>
       </tags>
   </entry>
   <entry>
@@ -53,8 +67,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>ag-grid</tag>
         <tag>前端开发</tag>
+        <tag>ag-grid</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -178,8 +192,8 @@
       </categories>
       <tags>
         <tag>读书</tag>
-        <tag>效率</tag>
         <tag>方法</tag>
+        <tag>效率</tag>
         <tag>少即是多</tag>
         <tag>book</tag>
       </tags>
@@ -657,8 +671,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>前端开发</tag>
         <tag>url</tag>
+        <tag>前端开发</tag>
       </tags>
   </entry>
   <entry>
