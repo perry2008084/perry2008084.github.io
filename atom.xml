@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-09-19T13:40:46.661Z</updated>
+  <updated>2018-09-29T04:34:15.027Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6中模块具名和默认导入导出</title>
+    <link href="http://www.bookcell.org/2018/09/28/es6-module-default-and-named/"/>
+    <id>http://www.bookcell.org/2018/09/28/es6-module-default-and-named/</id>
+    <published>2018-09-28T15:10:58.000Z</published>
+    <updated>2018-09-29T04:34:15.027Z</updated>
+    
+    <content type="html"><![CDATA[<p>ES6模块中有关默认和具名导出，是一个比较容易出错的地方。</p>
+<p>这里翻译了一下Stackoverflow上的一个<a href="https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281" target="_blank" rel="external">解答</a>，来自React社区的<code>Dan Abramov</code>的回答。</p>
+<a id="more"></a>
+<hr>
+<p>这是一个默认导入(default import):</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.js</span></span><br><span class="line"><span class="keyword">import</span> A <span class="keyword">from</span> <span class="string">'./A'</span></span><br></pre></td></tr></table></figure>
+<p>这只有在<code>A</code>中具有默认的导出(default export):</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">42</span></span><br></pre></td></tr></table></figure>
+<p>在这种情况下导入时不会在乎你使用什么名称：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.js</span></span><br><span class="line"><span class="keyword">import</span> A <span class="keyword">from</span> <span class="string">'./A'</span></span><br><span class="line"><span class="keyword">import</span> MyA <span class="keyword">from</span> <span class="string">'./A'</span></span><br><span class="line"><span class="keyword">import</span> Something <span class="keyword">from</span> <span class="string">'./A'</span></span><br></pre></td></tr></table></figure>
+<p>因为它总是会解析A的默认导出</p>
+<hr>
+<p>这是一个名称为<code>A</code>具名的导入:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; A &#125; <span class="keyword">from</span> <span class="string">'./A'</span></span><br></pre></td></tr></table></figure>
+<p>这只在<code>A</code>中包含一个叫做<code>A</code>具名的导出：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> A = <span class="number">42</span></span><br></pre></td></tr></table></figure>
+<p>在这种情况下，名称是有影响的，因为你通过导出名称来导入一个具体的内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; A &#125; <span class="keyword">from</span> <span class="string">'./A'</span></span><br><span class="line"><span class="keyword">import</span> &#123; myA &#125; <span class="keyword">from</span> <span class="string">'./A'</span> <span class="comment">// 无法工作</span></span><br><span class="line"><span class="keyword">import</span> &#123; Something &#125; <span class="keyword">from</span> <span class="string">'./A'</span> <span class="comment">// 无法工作</span></span><br></pre></td></tr></table></figure>
+<p>为了让这些能够工作，你需要添加对应的具名导出到<code>A</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> A = <span class="number">42</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> myA = <span class="number">43</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Something = <span class="number">44</span></span><br></pre></td></tr></table></figure>
+<p>一个模块只能拥有一个默认导出，但是可以有任意多个具名导出(零个，一个，两个或更多)。你可以一起导入他们：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">import A, &#123; myA, Something &#125; from &apos;./A&apos;</span><br></pre></td></tr></table></figure>
+<p>这里，我们导入了默认导出为<code>A</code>，与具名的导出<code>myA</code>和<code>Something</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">42</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> myA = <span class="number">43</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Something = <span class="number">44</span></span><br></pre></td></tr></table></figure>
+<p>我们可以在导入的时候赋给他们不同的名称：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.js</span></span><br><span class="line"><span class="keyword">import</span> X, &#123; myA <span class="keyword">as</span> myX, Something <span class="keyword">as</span> XSomething &#125; <span class="keyword">from</span> <span class="string">'./A'</span></span><br></pre></td></tr></table></figure>
+<p>默认导出倾向于用在任意你期望从模块中正常获取的内容。具名导出倾向于用在好用的地方，但不是必须的。然而，取决于你如何导出内容： 比如，一个模块可能完全没有默认导出。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ES6模块中有关默认和具名导出，是一个比较容易出错的地方。&lt;/p&gt;
+&lt;p&gt;这里翻译了一下Stackoverflow上的一个&lt;a href=&quot;https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;解答&lt;/a&gt;，来自React社区的&lt;code&gt;Dan Abramov&lt;/code&gt;的回答。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="es6" scheme="http://www.bookcell.org/tags/es6/"/>
+    
+      <category term="module" scheme="http://www.bookcell.org/tags/module/"/>
+    
+      <category term="default" scheme="http://www.bookcell.org/tags/default/"/>
+    
+      <category term="named" scheme="http://www.bookcell.org/tags/named/"/>
+    
+      <category term="import" scheme="http://www.bookcell.org/tags/import/"/>
+    
+      <category term="export" scheme="http://www.bookcell.org/tags/export/"/>
+    
+  </entry>
   
   <entry>
     <title>Reactjs的常见问题</title>
@@ -1116,9 +1178,9 @@
     
       <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
     
-      <category term="方法" scheme="http://www.bookcell.org/tags/%E6%96%B9%E6%B3%95/"/>
-    
       <category term="效率" scheme="http://www.bookcell.org/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="方法" scheme="http://www.bookcell.org/tags/%E6%96%B9%E6%B3%95/"/>
     
       <category term="少即是多" scheme="http://www.bookcell.org/tags/%E5%B0%91%E5%8D%B3%E6%98%AF%E5%A4%9A/"/>
     
@@ -1368,48 +1430,6 @@
       <category term="linux" scheme="http://www.bookcell.org/tags/linux/"/>
     
       <category term="nginx" scheme="http://www.bookcell.org/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ssh密钥登录配置</title>
-    <link href="http://www.bookcell.org/2017/07/29/ssh-key-configuration/"/>
-    <id>http://www.bookcell.org/2017/07/29/ssh-key-configuration/</id>
-    <published>2017-07-29T06:19:42.000Z</published>
-    <updated>2017-07-28T06:37:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>配置密钥可使用户免密ssh方式登录服务器。</p>
-<p>配置方法：</p>
-<h2 id="生成密钥对"><a href="#生成密钥对" class="headerlink" title="生成密钥对"></a>生成密钥对</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure>
-<p>此处可选择生成密钥的文件路径，默认为~/.ssh/id_rsa<br>密码为可选。</p>
-<h2 id="拷贝公钥到服务器"><a href="#拷贝公钥到服务器" class="headerlink" title="拷贝公钥到服务器"></a>拷贝公钥到服务器</h2><h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id -i ~/.ssh/id_rsa.pub xxx@host</span><br></pre></td></tr></table></figure>
-<h3 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h3><p>手动拷贝id_rsa.pub到服务器上，并收到添加认证文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
-<h2 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h2><p>配置服务器上/etc/ssh/sshd_config文件，修改以下配置项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile  .ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
-<p>修改后，重启sshd服务，根据不同的系统使用相应命令</p>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>直接登录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br></pre></td></tr></table></figure>
-<p>如果配置成功，则不需要密码直接登录。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="配置成功后，仍提示密码输入"><a href="#配置成功后，仍提示密码输入" class="headerlink" title="配置成功后，仍提示密码输入"></a>配置成功后，仍提示密码输入</h3><p>主要原因在于服务器上认证文件及所在目录的权限问题</p>
-<p>详情排查步骤可查看文章<a href="http://zouqingyun.blog.51cto.com/782246/1874410" target="_blank" rel="external">配置ssh公钥登录提示还是输入密码</a></p>
-<p>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 755 ~/home/xxxuser</span><br></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;配置密钥可使用户免密ssh方式登录服务器。&lt;/p&gt;
-&lt;p&gt;配置方法：&lt;/p&gt;
-&lt;h2 id=&quot;生成密钥对&quot;&gt;&lt;a href=&quot;#生成密钥对&quot; class=&quot;headerlink&quot; title=&quot;生成密钥对&quot;&gt;&lt;/a&gt;生成密钥对&lt;/h2&gt;&lt;figure class=&quot;high
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="linux" scheme="http://www.bookcell.org/tags/linux/"/>
-    
-      <category term="ssh" scheme="http://www.bookcell.org/tags/ssh/"/>
     
   </entry>
   

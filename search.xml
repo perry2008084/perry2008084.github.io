@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ES6中模块具名和默认导入导出]]></title>
+    <url>%2F2018%2F09%2F28%2Fes6-module-default-and-named%2F</url>
+    <content type="text"><![CDATA[ES6模块中有关默认和具名导出，是一个比较容易出错的地方。 这里翻译了一下Stackoverflow上的一个解答，来自React社区的Dan Abramov的回答。 这是一个默认导入(default import): 12// B.jsimport A from './A' 这只有在A中具有默认的导出(default export): 12// A.jsexport default 42 在这种情况下导入时不会在乎你使用什么名称： 1234// B.jsimport A from './A'import MyA from './A'import Something from './A' 因为它总是会解析A的默认导出 这是一个名称为A具名的导入: 1import &#123; A &#125; from './A' 这只在A中包含一个叫做A具名的导出： 1export const A = 42 在这种情况下，名称是有影响的，因为你通过导出名称来导入一个具体的内容： 1234// B.jsimport &#123; A &#125; from './A'import &#123; myA &#125; from './A' // 无法工作import &#123; Something &#125; from './A' // 无法工作 为了让这些能够工作，你需要添加对应的具名导出到A： 1234// A.jsexport const A = 42export const myA = 43export const Something = 44 一个模块只能拥有一个默认导出，但是可以有任意多个具名导出(零个，一个，两个或更多)。你可以一起导入他们： 12// B.jsimport A, &#123; myA, Something &#125; from &apos;./A&apos; 这里，我们导入了默认导出为A，与具名的导出myA和Something。 1234// A.jsexport default 42export const myA = 43export const Something = 44 我们可以在导入的时候赋给他们不同的名称： 12// B.jsimport X, &#123; myA as myX, Something as XSomething &#125; from './A' 默认导出倾向于用在任意你期望从模块中正常获取的内容。具名导出倾向于用在好用的地方，但不是必须的。然而，取决于你如何导出内容： 比如，一个模块可能完全没有默认导出。]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>es6</tag>
+        <tag>module</tag>
+        <tag>default</tag>
+        <tag>named</tag>
+        <tag>import</tag>
+        <tag>export</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Reactjs的常见问题]]></title>
     <url>%2F2018%2F09%2F19%2Freact-faqs%2F</url>
     <content type="text"><![CDATA[React的FAQ，来自官网的FAQ，学习后做的笔记，顺带翻译(不完全翻译) AJAX and APIslibaraies你可以在React中使用任何你喜欢的AJAX库 Axio, jQuery AJAX, window.fetch where did ajax callcomponentDidMount Babel, JSX, and Build StepsJSX是否必要不必要 ES6(+)是否必要不必要 如何在JSX中写注释支持多行注释 1234&lt;div&gt; &#123;/* Comment goes here */&#125; Hello, &#123;name&#125;!&lt;/div&gt; Passing Functions to Components如何传递event handler到一个组件1&lt;button onClick=&#123;this.handleClick&#125;&gt; 如果在handler中要访问父组件，需要在组件实例中绑定函数 如何绑定函数到一个组件实例 There are several ways to make sure functions have access to component attributes like this.props and this.state, depending on which syntax and build steps you are using. Bind in Constructor(ES2015) 123456789101112class Foo extends Component &#123; constructor(props) &#123; super(props); this.handleClick = this.handleClick.bind(this); &#125; handleClick() &#123; console.log('Click happend'); &#125; render() &#123; return &lt;button onClick=&#123;this.handleClick&#125;&gt;Click Me&lt;/button&gt; &#125;&#125; Class Properties (Stage 3 Proposal) 12345678class Foo extends Component &#123; handleClick = () =&gt; &#123; console.log('Click happend'); &#125; render() &#123; return &lt;button onClick=&#123;this.handleClick&#125;&gt;Click Me&lt;/button&gt; &#125;&#125; Bind in Render 12345678class Foo extends Component &#123; handleClick() &#123; console.log('Click happend'); &#125; render() &#123; return &lt;button onClick=&#123;this.handleClick.bind(this)&#125;&gt;Click Me&lt;/button&gt;; &#125;&#125; Arrow Function in Render 12345678class Foo extends Component &#123; handleClick() &#123; console.log('Click happened'); &#125; render() &#123; return &lt;button onClick=&#123;() =&gt; this.handleClick()&#125;&gt;Click Me&lt;/button&gt;; &#125;&#125; Component StatesetState做什么用？setState()安排更新一个组件的state对象。当状态改变时，组件会响应并重新渲染。 state和props之间有什么区别？props(“properties”的缩写)和state均是纯粹的JavaScript对象。虽然都拥有可以影响渲染输出的信息，但有有一个非常重要的区别：props由外部传递到组件(类似函数参数)，而state是组件内部管理(类似函数内声明的变量)。 深入阅读何时使用props vs state: Props vs State ReactJS: Props vs State 为什么setState给了错误的值？在React中，this.props和this.state代表渲染值，比如当前在屏幕中的内容。 调用setState是异步的，调用setState后，不要依赖this.state立即反馈新的值。如果你需要基于当前的state来计算值，传递一个更新函数代替一个对象。 12345678910111213141516incrementCount() &#123; this.setState((state) =&gt; &#123; // Important read `state` instead of `this.state` when updating return &#123;count: state.count + 1&#125; &#125;);&#125;handleSomething() &#123; // Let's say `this.state.count` starts at 0. this.incrementCount(); this.incrementCount(); this.incrementCount(); // If you read `this.state.count` now, it would still be 0. // But when React re-renders the component, it will be 3.&#125; Styling and CSS如何添加CSS类到组件中？传递一个字符串到className属性中： 123render() &#123; return &lt;span className="menu navigation-menu"&gt;Menu&lt;/span&gt;&#125; 依赖于组件属性和状态的CSS类： 1234567render() &#123; let className = 'menu'; if (this.props.isActive) &#123; className += ' menu-active'; &#125; return &lt;span className=&#123;className&#125;&gt;Menu&lt;/span&gt;&#125; 组装class可以使用包 classnames File Structure 按特性或者路由分组 按文件类型分组 避免太多嵌套 不要过度考虑 Virtual DOM and Internals虚拟DOM是一个编程概念，是一种保持在内存中的理想化的、虚拟的UI表示，并且通过类似ReactDOM的库来和真实的DOM同步。这个过程称作reconciliation（重新调解）。 Shadow DOM和Virtual DOM是否一样？不一样。Shadow DOM是一项浏览器技术，设计主要用于在web component中的局部变量和CSS。virtual DOM是一个使用基于浏览器API的JavaScript库实现的概念。 什么是”React Fiber”？Fiber是在React 16中新的reconciliation的引擎。主要目标是使虚拟DOM的增量渲染变得可行。]]></content>
@@ -192,8 +209,8 @@
       </categories>
       <tags>
         <tag>读书</tag>
-        <tag>方法</tag>
         <tag>效率</tag>
+        <tag>方法</tag>
         <tag>少即是多</tag>
         <tag>book</tag>
       </tags>

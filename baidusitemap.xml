@@ -4,6 +4,38 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2018/09/28/es6-module-default-and-named/</loc>
+    <lastmod>2018-09-29T04:34:15.027Z</lastmod>
+    <data>
+        <display>
+        <title>ES6中模块具名和默认导入导出</title>
+        <pubTime>2018-09-28T15:10:58.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>es6</tag>
+         
+        <tag>module</tag>
+         
+        <tag>default</tag>
+         
+        <tag>named</tag>
+         
+        <tag>import</tag>
+         
+        <tag>export</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/09/19/react-faqs/</loc>
     <lastmod>2018-09-19T13:40:46.661Z</lastmod>
     <data>
@@ -380,9 +412,9 @@
         
         <tag>读书</tag>
          
-        <tag>方法</tag>
-         
         <tag>效率</tag>
+         
+        <tag>方法</tag>
          
         <tag>少即是多</tag>
          
