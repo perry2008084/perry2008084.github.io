@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-10-03T10:37:59.750Z</updated>
+  <updated>2018-10-03T10:41:44.242Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.bookcell.org/2018/10/03/kindle-practical-skills/"/>
     <id>http://www.bookcell.org/2018/10/03/kindle-practical-skills/</id>
     <published>2018-10-03T10:35:19.000Z</published>
-    <updated>2018-10-03T10:37:59.750Z</updated>
+    <updated>2018-10-03T10:41:44.242Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Kindle实用指南"><a href="#Kindle实用指南" class="headerlink" title="Kindle实用指南"></a>Kindle实用指南</h1><ul>
 <li>电子书</li>
@@ -28,6 +28,7 @@
 <li>常用工具</li>
 <li>常用资源</li>
 </ul>
+<a id="more"></a>
 <h2 id="电子书"><a href="#电子书" class="headerlink" title="电子书"></a>电子书</h2><p>Kindle中电子书的几种获取方式，根据自身需求进行使用。</p>
 <h3 id="亚马逊电子书商城购买"><a href="#亚马逊电子书商城购买" class="headerlink" title="亚马逊电子书商城购买"></a>亚马逊电子书商城购买</h3><p>Kindle上直接通过内置的亚马逊电子书商店进行购买，需要先绑定信用卡，购买完成后Kindle联网时直接会推送到本机。</p>
 <p>另外，也可以通过其他浏览器登录亚马逊账户进行购买，购买完成后也会推送同步到Kindle。</p>
@@ -121,7 +122,9 @@
       &lt;h1 id=&quot;Kindle实用指南&quot;&gt;&lt;a href=&quot;#Kindle实用指南&quot; class=&quot;headerlink&quot; title=&quot;Kindle实用指南&quot;&gt;&lt;/a&gt;Kindle实用指南&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;电子书&lt;/li&gt;
 &lt;li&gt;使用技巧&lt;/li&gt;
-&lt;li&gt;常用工具&lt;
+&lt;li&gt;常用工具&lt;/li&gt;
+&lt;li&gt;常用资源&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
