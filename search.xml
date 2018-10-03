@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Kindle实用指南]]></title>
+    <url>%2F2018%2F10%2F03%2Fkindle-practical-skills%2F</url>
+    <content type="text"><![CDATA[Kindle实用指南 电子书 使用技巧 常用工具 常用资源 电子书Kindle中电子书的几种获取方式，根据自身需求进行使用。 亚马逊电子书商城购买Kindle上直接通过内置的亚马逊电子书商店进行购买，需要先绑定信用卡，购买完成后Kindle联网时直接会推送到本机。 另外，也可以通过其他浏览器登录亚马逊账户进行购买，购买完成后也会推送同步到Kindle。 邮箱推送配置 使用个人亚马逊账户登录亚马逊官网，并点击右上角我的账户-管理我的内容和设备 在个人文档设置中，查看要发送的kindle设备邮箱地址，类似xxx@kindle.cn 在已认可的发件人电子邮箱列表中，添加平常用来发送电子书或者文档的个人邮箱 配置完成后，即可通过个人的邮箱发送文件到kindle设备上 推送 推送邮件主题 如果需要将推送的文档由亚马逊自动转换为Kindle格式，主题中填写Convert 如果不需要转换，保持推送前文档的格式，主题留空即可 支持的文档格式 Kindle格式（.MOBI、.AZW） Microsoft Word（.DOC、.DOCX） HTML（.HTML、.HTM） RTF (.RTF) 文本(.TXT) JPEG（.JPEG、.JPG） GIF (.GIF) PNG (.PNG) BMP (.BMP) PDF (.PDF) 数量限制 一封邮件最多包含25个附件 一封邮件最多支持15个Kindle邮箱地址 文档总大小不超过50MB(支持ZIP压缩，文档转换服务支持解压提取) 个人文档最多保留60天 参考链接 官网个人文档服务帮助说明 微信推送国外版本Kindle所支持的SendToKindle在国内用不起来，替代版是使用亚马逊的微信服务号，关注后绑定账号，然后可以通过这个服务将微信上的文章推送到Kindle。 这个推送服务支持推送微信文章以及其他微信打开的网页链接内容。 另外，有一些其他的微信订阅号也支持推送图书的服务，原理也是通过绑定他们提供的邮箱来进行图书推送。 USB传输Kindle支持直接通过USB线连接电脑，然后通过电脑传输电子书或者其他文档到Kindle中。这种方式仅支持单个Kindle设备，无法像之前的方式，可以同步到其他的设备中。 使用技巧截屏 使用两只手指在屏幕对角线的角落同时按一下即可，截完后，图片会保存在kindle的根目录下，使用USB连接电脑后可查看。 收藏夹 通过收藏夹，可以将书分类管理，方便查找和阅读。 使用方法： 在主界面，点击右上角的下拉菜单，选择 新建收藏夹，创建后选择相应的书籍放入即可。 分类参考，TodoList-近期阅读书目，文学，技术，经济等等。 生词本 阅读图书过程中，通过划词翻译的词汇，会记录到生词本中，并支持复习。 使用方法： 主界面，点击右上角下拉菜单，选择生词本。 词典 Kindle内置了多语言的词典，默认的是现代英汉词典，现代汉语词典，可以自行切换。 使用方法： 主界面，点击右上角下拉菜单，选择语言和字典-字典，然后为英文和中文设置默认的词典，也支持自行拷贝字典数据文件，添加多本词典。 内置浏览器 Kindle内置了一个简易版的浏览器，相对于手机上的浏览器，功能要弱很多，仅支持浏览器简单的页面。 使用方法： 主界面点击下拉菜单，选择体验版网页浏览器，即可打开浏览器 浏览器支持书签、文章模式等功能 国内一款在线RSS阅读服务Reabble，支持通过kindle浏览器直接访问，前提是要和Inoreader集成 常用工具Calibre Calibre是一款电子书管理工具，免费、开源、管理、杂志新闻下载、阅读电子书。 Calibre官网 clippings.io clippings.io是一个在线Kindle书摘管理工具，支持Kindle、Kindle阅读软件的书摘导出解析和管理，并支持在线导出evernote中。 clippings官网 clippings FAQs 常用资源 古登堡计划免费电子书-英文公版书 开放图书馆-英文电子书 阿德莱德大学图书馆电子书-英文电子书 我的小书屋-大多数中文书籍 SaltTiger-技术类电子书 编辑记录 首次发布 2018.10.3]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>指南</tag>
+        <tag>阅读</tag>
+        <tag>工具</tag>
+        <tag>Kindle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ES6中模块具名和默认导入导出]]></title>
     <url>%2F2018%2F09%2F28%2Fes6-module-default-and-named%2F</url>
     <content type="text"><![CDATA[ES6模块中有关默认和具名导出，是一个比较容易出错的地方。 这里翻译了一下Stackoverflow上的一个解答，来自React社区的Dan Abramov的回答。 这是一个默认导入(default import): 12// B.jsimport A from './A' 这只有在A中具有默认的导出(default export): 12// A.jsexport default 42 在这种情况下导入时不会在乎你使用什么名称： 1234// B.jsimport A from './A'import MyA from './A'import Something from './A' 因为它总是会解析A的默认导出 这是一个名称为A具名的导入: 1import &#123; A &#125; from './A' 这只在A中包含一个叫做A具名的导出： 1export const A = 42 在这种情况下，名称是有影响的，因为你通过导出名称来导入一个具体的内容： 1234// B.jsimport &#123; A &#125; from './A'import &#123; myA &#125; from './A' // 无法工作import &#123; Something &#125; from './A' // 无法工作 为了让这些能够工作，你需要添加对应的具名导出到A： 1234// A.jsexport const A = 42export const myA = 43export const Something = 44 一个模块只能拥有一个默认导出，但是可以有任意多个具名导出(零个，一个，两个或更多)。你可以一起导入他们： 12// B.jsimport A, &#123; myA, Something &#125; from &apos;./A&apos; 这里，我们导入了默认导出为A，与具名的导出myA和Something。 1234// A.jsexport default 42export const myA = 43export const Something = 44 我们可以在导入的时候赋给他们不同的名称： 12// B.jsimport X, &#123; myA as myX, Something as XSomething &#125; from './A' 默认导出倾向于用在任意你期望从模块中正常获取的内容。具名导出倾向于用在好用的地方，但不是必须的。然而，取决于你如何导出内容： 比如，一个模块可能完全没有默认导出。]]></content>
