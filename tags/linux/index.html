@@ -88,7 +88,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="书格前端">
-<meta property="og:url" content="http://www.bookcell.org/tags/Linux/index.html">
+<meta property="og:url" content="http://www.bookcell.org/tags/linux/index.html">
 <meta property="og:site_name" content="书格前端">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.bookcell.org/tags/Linux/"/>
+  <link rel="canonical" href="http://www.bookcell.org/tags/linux/"/>
 
 
 
 
 
-  <title> 标签: Linux | 书格前端 </title>
+  <title> 标签: linux | 书格前端 </title>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -290,7 +290,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        Linux
+        linux
         <small>标签</small>
       </h2>
     </div>
@@ -303,9 +303,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/03/18/linux-learning-base-knowledge/" itemprop="url">
+            <a class="post-title-link" href="/2017/08/02/nginx-page-forbidden/" itemprop="url">
               
-                <span itemprop="name">Linux学习-基础知识部分</span>
+                <span itemprop="name">nginx访问页面报403的解决方法</span>
               
             </a>
         
@@ -313,9 +313,93 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-18T14:09:20+08:00"
-              content="2017-03-18" >
-          03-18
+              datetime="2017-08-02T09:30:42+08:00"
+              content="2017-08-02" >
+          08-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2017/07/29/ssh-key-configuration/" itemprop="url">
+              
+                <span itemprop="name">ssh密钥登录配置</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-07-29T14:19:42+08:00"
+              content="2017-07-29" >
+          07-29
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2017/04/28/linux-cli-search-commands/" itemprop="url">
+              
+                <span itemprop="name">Linux下搜索查找命令</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-04-28T16:27:45+08:00"
+              content="2017-04-28" >
+          04-28
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/12/06/mac-use-pem-file-ssh-to-server/" itemprop="url">
+              
+                <span itemprop="name">MAC下通过ssh使用PEM文件认证登录AWS的虚拟机</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-12-06T19:31:10+08:00"
+              content="2016-12-06" >
+          12-06
         </time>
       </div>
 
@@ -535,7 +619,7 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'mdeditorwin';
-      var disqus_identifier = 'tags/Linux/index.html';
+      var disqus_identifier = 'tags/linux/index.html';
 
       var disqus_title = "";
 
@@ -738,73 +822,6 @@
     function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
       var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-
-</body>
-</html>
-var url = $visitors.attr('id').trim();
       var title = $visitors.attr('data-flag-title').trim();
       var query = new AV.Query(Counter);
 

@@ -742,9 +742,9 @@
     
       <category term="angularjs" scheme="http://www.bookcell.org/tags/angularjs/"/>
     
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="ag-grid" scheme="http://www.bookcell.org/tags/ag-grid/"/>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="表格" scheme="http://www.bookcell.org/tags/%E8%A1%A8%E6%A0%BC/"/>
     
