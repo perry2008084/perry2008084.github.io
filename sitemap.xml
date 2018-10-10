@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.bookcell.org/about/index.html</loc>
+    
+    <lastmod>2018-10-10T23:05:40.365Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.bookcell.org/2018/10/09/update-hexo-and-theme-v6/</loc>
     
     <lastmod>2018-10-09T15:48:35.371Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://www.bookcell.org/2018/05/06/frontend-develop-tutorial-01/</loc>
     
     <lastmod>2018-05-06T09:03:00.112Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.bookcell.org/about/index.html</loc>
-    
-    <lastmod>2018-05-05T04:18:01.151Z</lastmod>
     
   </url>
   
