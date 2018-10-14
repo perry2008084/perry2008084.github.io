@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[升级博客的Hexo和Next主题版本]]></title>
     <url>%2F2018%2F10%2F09%2Fupdate-hexo-and-theme-v6%2F</url>
-    <content type="text"><![CDATA[本次升级更新了如下内容： Hexo的版本,从3.3.8升级到3.7.1版本，没有重大的破坏性变更。 主题Next版本，从5.1升级到v6.4.2版本，两者间有不兼容的地方，配置需要重新配；另外，新版本的主题支持更多的特性。]]></content>
+    <content type="text"><![CDATA[本次升级更新了如下内容： Hexo的版本,从3.3.8升级到3.7.1版本，没有重大的破坏性变更。 主题Next版本，从5.1升级到v6.4.2版本，两者间有不兼容的地方，配置需要重新配；另外，新版本的主题支持更多的特性。 有关Next主题的升级文档，这里给一下官方的指南，希望帮助有需要的朋友 hexo-theme-next中文文档 从 NexT v5.1.x 更新 升级过程中需要注意的是，v6和v5重大的变更之一是，插件依赖需要自己手动安装。 例如，假设你想要在你的站点中使用 fancybox 插件，请进入 NexT 配置文件，你会看到如下内容： 123# Fancybox# Dependencies: https://github.com/theme-next/theme-next-fancyboxfancybox: false 升级愉快！感谢next团队的贡献，v6带来了很多很棒的特性。]]></content>
       <categories>
         <category>工具</category>
       </categories>

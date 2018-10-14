@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-10-09T15:48:35.371Z</updated>
+  <updated>2018-10-14T14:35:53.292Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -20,11 +20,18 @@
     <link href="http://www.bookcell.org/2018/10/09/update-hexo-and-theme-v6/"/>
     <id>http://www.bookcell.org/2018/10/09/update-hexo-and-theme-v6/</id>
     <published>2018-10-09T15:43:31.000Z</published>
-    <updated>2018-10-09T15:48:35.371Z</updated>
+    <updated>2018-10-14T14:35:53.292Z</updated>
     
     <content type="html"><![CDATA[<p>本次升级更新了如下内容：</p>
 <p>Hexo的版本,从3.3.8升级到3.7.1版本，没有重大的破坏性变更。</p>
 <p>主题Next版本，从5.1升级到v6.4.2版本，两者间有不兼容的地方，配置需要重新配；另外，新版本的主题支持更多的特性。</p>
+<p>有关Next主题的升级文档，这里给一下官方的指南，希望帮助有需要的朋友</p>
+<p><a href="https://github.com/theme-next/hexo-theme-next/tree/master/docs/zh-CN" target="_blank" rel="noopener">hexo-theme-next中文文档</a></p>
+<p><a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md" target="_blank" rel="noopener">从 NexT v5.1.x 更新</a></p>
+<p>升级过程中需要注意的是，v6和v5重大的变更之一是，插件依赖需要自己手动安装。</p>
+<p>例如，假设你想要在你的站点中使用 fancybox 插件，请进入 NexT 配置文件，你会看到如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Fancybox</span><br><span class="line"># Dependencies: https://github.com/theme-next/theme-next-fancybox</span><br><span class="line">fancybox: false</span><br></pre></td></tr></table></figure>
+<p>升级愉快！感谢next团队的贡献，v6带来了很多很棒的特性。</p>
 ]]></content>
     
     <summary type="html">
@@ -32,7 +39,7 @@
       &lt;p&gt;本次升级更新了如下内容：&lt;/p&gt;
 &lt;p&gt;Hexo的版本,从3.3.8升级到3.7.1版本，没有重大的破坏性变更。&lt;/p&gt;
 &lt;p&gt;主题Next版本，从5.1升级到v6.4.2版本，两者间有不兼容的地方，配置需要重新配；另外，新版本的主题支持更多的特性。&lt;/p&gt;
-
+&lt;p&gt;有关Ne
     
     </summary>
     
