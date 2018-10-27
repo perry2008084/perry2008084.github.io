@@ -365,6 +365,199 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/" itemprop="url">
+                  AngularJS 1.x平滑升级Angular实战(翻译)
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-02-19 11:54:57" itemprop="dateCreated datePublished" datetime="2018-02-19T11:54:57+08:00">2018-02-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-03-04 16:18:03" itemprop="dateModified" datetime="2018-03-04T16:18:03+08:00">2018-03-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文翻译自<a href="https://www.softwarearchitekt.at/post/2017/07/14/directly-upgrading-from-angularjs-1-x-to-angular-by-skipping-preparation.aspx" target="_blank" rel="noopener">Directly Upgrading From AngularJS 1.X To Angular Without Preparing The Existing Code Base</a></p>
+<p>正文：</p>
+<p>当我们从AngularJS 1.x升级到Angular(2/4/5)时，我们通常会先准备AngularJS 1.x的代码：</p>
+<p><img src="/image/angularjs-upgrade-1.png" alt="angularjs-upgrade-1"></p>
+<p>这个过程会引入像组件这类新的AngularJS 1.x技术。并且，引入TypeScript和像SystemJS或者Webpack之类的模块加载器是准备已有代码的进一步工作。这样做的目的是为了让代码更接近Angular便于更好的集成。</p>
+<p>但是，在一些情况下，准备已有的代码成本很大。例如，试想一下这样的情形，当你不想修修改已有的AngularJS1.x的代码，并且想要写一些Angular的应用。当这样的情况在你的项目中发生，跳过准备阶段是一个好的主意。</p>
+<p><img src="/image/angularjs-upgrade-2.png" alt="angularjs-upgrade-2"></p>
+<p>这篇文章一步步展示如何完成这个过程。像<a href="https://angular.io/guide/upgrade" target="_blank" rel="noopener">官方的升级教程</a>一样，包含准备代码的工作，这里也是升级流行的<a href="https://github.com/angular/angular-phonecat" target="_blank" rel="noopener">AngularJS 1.x 手机分类实例</a>。</p>
+<p>即使这个实例覆盖了AngularJS 1.5中引入的组件，这里展示的对使用控制器(controller)和指令(directive)的代码也适用。</p>
+<p>整个实例代码可以在<a href="https://github.com/manfredsteyer/ngUpgrade-without-preparation" target="_blank" rel="noopener">Github 仓库</a>中找到。为了接下来每一步更容易，我针对每一步做了一个代码提交。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/12/25/echart-series-coodinator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1063,192 +1256,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/11/07/use-smart-critera-set-goal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/07/use-smart-critera-set-goal/" itemprop="url">
-                  设定目标-使用SMART法则
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-07 13:02:17" itemprop="dateCreated datePublished" datetime="2017-11-07T13:02:17+08:00">2017-11-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2017-11-16 22:11:34" itemprop="dateModified" datetime="2017-11-16T22:11:34+08:00">2017-11-16</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/07/use-smart-critera-set-goal/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/07/use-smart-critera-set-goal/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="大纲："><a href="#大纲：" class="headerlink" title="大纲："></a>大纲：</h2><p>设定目标的意义和常见的问题<br>使用SMART法则设定适当的目标<br>执行、检查和修正目标</p>
-<h2 id="设定目标的意义和常见的问题"><a href="#设定目标的意义和常见的问题" class="headerlink" title="设定目标的意义和常见的问题"></a>设定目标的意义和常见的问题</h2><p>目标犹如一座灯塔，设定了一个准确的目标，能够帮助我们达到我们想要的目的。</p>
-<p>准确的设定目标，是目标能够达成的前提条件之一。而我们通常遇到的问题，比较严重的就是，没有<br>准确的设定目标，导致目标在执行过程中，出现以下的几类问题：<br>1、不知道如何评判是否达成目标<br>2、没有时间期限导致拖延<br>3、目标太模糊、太大，导致无法实现而放弃</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/07/use-smart-critera-set-goal/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1296,7 +1303,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

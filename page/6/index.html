@@ -365,6 +365,186 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/04/28/linux-cli-search-commands/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/04/28/linux-cli-search-commands/" itemprop="url">
+                  Linux下搜索查找命令
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-04-28 16:27:45 / Modified: 16:30:09" itemprop="dateCreated datePublished" datetime="2017-04-28T16:27:45+08:00">2017-04-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/28/linux-cli-search-commands/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/04/28/linux-cli-search-commands/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="搜索查找命令"><a href="#搜索查找命令" class="headerlink" title="搜索查找命令"></a>搜索查找命令</h1><h2 id="which-显示命令的完整路径"><a href="#which-显示命令的完整路径" class="headerlink" title="which - 显示命令的完整路径"></a>which - 显示命令的完整路径</h2><p>说明：<br>查找命令的路径</p>
+<h2 id="locate-根据用户权限索引和搜索系统中的所有文件"><a href="#locate-根据用户权限索引和搜索系统中的所有文件" class="headerlink" title="locate - 根据用户权限索引和搜索系统中的所有文件"></a>locate - 根据用户权限索引和搜索系统中的所有文件</h2><p>说明：<br>updatedb用于更新索引数据库</p>
+<h2 id="find-查找一个目录下的文件"><a href="#find-查找一个目录下的文件" class="headerlink" title="find - 查找一个目录下的文件"></a>find - 查找一个目录下的文件</h2><p>说明：</p>
+<h3 id="通过名称搜索"><a href="#通过名称搜索" class="headerlink" title="通过名称搜索"></a>通过名称搜索</h3><p>find -name “query”</p>
+<h3 id="忽略大小写搜索"><a href="#忽略大小写搜索" class="headerlink" title="忽略大小写搜索"></a>忽略大小写搜索</h3><p>find -iname “query”</p>
+<h3 id="查找不包含的搜索"><a href="#查找不包含的搜索" class="headerlink" title="查找不包含的搜索"></a>查找不包含的搜索</h3><p>find -not -name “query”<br>find ! -name “query”</p>
+<h3 id="通过类型搜索"><a href="#通过类型搜索" class="headerlink" title="通过类型搜索"></a>通过类型搜索</h3><p>find -type type_descriptor query<br>f: regular file<br>d: directory<br>I: symbolic link<br>c: character devices<br>b: block devices</p>
+<p>find / -type c<br>find / -type f -name “*.conf”</p>
+<h3 id="通过时间和大小过滤"><a href="#通过时间和大小过滤" class="headerlink" title="通过时间和大小过滤"></a>通过时间和大小过滤</h3><p>c: bytes<br>k: Kilobytes<br>M: Megabytes<br>G: Gigabytes<br>b: 512-byte blocks</p>
+<p>find / -size 50c<br>find / -size -50c<br>find / -size +700M</p>
+<p>Access Time: 上一次读写时间<br>Modification Time: 上一次文件内容修改的时间<br>Change Time: 上一次节点元数据修改时间</p>
+<p>find / -mtime 1<br>find / -atime -1<br>find / -ctime +3</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-find-and-locate-to-search-for-files-on-a-linux-vps" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/04/17/git-checkout-a-specific-tag/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1078,199 +1258,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/03/22/jquery-i18next-plugin-usage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/22/jquery-i18next-plugin-usage/" itemprop="url">
-                  i18next的jquery插件jquery-i18next的使用方法
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-03-22 11:34:21 / Modified: 11:35:21" itemprop="dateCreated datePublished" datetime="2017-03-22T11:34:21+08:00">2017-03-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/22/jquery-i18next-plugin-usage/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/03/22/jquery-i18next-plugin-usage/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>使用jquery-i18next插件前，需要jquery和i18next的支持。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>jquery-i18next支持npm和bower安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># npm package</span><br><span class="line">$ npm install jquery-i18next</span><br><span class="line"></span><br><span class="line"># bower</span><br><span class="line">$ bower install jquery-i18next</span><br></pre></td></tr></table></figure>
-<h2 id="使用入门"><a href="#使用入门" class="headerlink" title="使用入门"></a>使用入门</h2><h3 id="在html代码中插入data-i18n的属性"><a href="#在html代码中插入data-i18n的属性" class="headerlink" title="在html代码中插入data-i18n的属性"></a>在html代码中插入data-i18n的属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;nav&quot;&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.home&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page1&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page2&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="定义翻译文件"><a href="#定义翻译文件" class="headerlink" title="定义翻译文件"></a>定义翻译文件</h3><p>可在源码路径下创建locales/en/translation.json文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;nav&quot;: &#123;</span><br><span class="line">    &quot;home&quot;: &quot;Home&quot;,</span><br><span class="line">    &quot;page1&quot;: &quot;Page One&quot;,</span><br><span class="line">    &quot;page2&quot;: &quot;Page Two&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="通过Javascript代码进行初始化和翻译"><a href="#通过Javascript代码进行初始化和翻译" class="headerlink" title="通过Javascript代码进行初始化和翻译"></a>通过Javascript代码进行初始化和翻译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 其中i18nextInstance是i18next的实例，最后一个参数是配置项</span><br><span class="line"></span><br><span class="line">jqueryI18next.init(i18nextInstance, $, &#123;</span><br><span class="line">  tName: &apos;t&apos;, // --&gt; appends $.t = i18next.t</span><br><span class="line">  i18nName: &apos;i18n&apos;, // --&gt; appends $.i18n = i18next</span><br><span class="line">  handleName: &apos;localize&apos;, // --&gt; appends $(selector).localize(opts);</span><br><span class="line">  selectorAttr: &apos;data-i18n&apos;, // selector for translating elements</span><br><span class="line">  targetAttr: &apos;i18n-target&apos;, // data-() attribute to grab target element to translate (if diffrent then itself)</span><br><span class="line">  optionsAttr: &apos;i18n-options&apos;, // data-() attribute that contains options, will load/set if useOptionsAttr = true</span><br><span class="line">  useOptionsAttr: false, // see optionsAttr</span><br><span class="line">  parseDefaultValueFromContent: true // parses default values from content ele.val or ele.text</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(&quot;.nav&quot;).localize();</span><br></pre></td></tr></table></figure>
-<p>最终展现在网页中的结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// &lt;ul class=&quot;nav&quot;&gt;</span><br><span class="line">//  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.home&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">//  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page1&quot;&gt;Page One&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">//  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page2&quot;&gt;Page Two&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">// &lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="使用进阶"><a href="#使用进阶" class="headerlink" title="使用进阶"></a>使用进阶</h2><p>通过jQuery的选择器来实现不同的翻译</p>
-<h3 id="翻译一个元素"><a href="#翻译一个元素" class="headerlink" title="翻译一个元素"></a>翻译一个元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;myKey&quot;&gt;&lt;/a&gt;</span><br><span class="line">$(&quot;#btn1&quot;).localize(options);</span><br></pre></td></tr></table></figure>
-<h3 id="翻译一个元素的子元素"><a href="#翻译一个元素的子元素" class="headerlink" title="翻译一个元素的子元素"></a>翻译一个元素的子元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;nav&quot;&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.home&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page1&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#&quot; data-i18n=&quot;nav.page2&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">$(&quot;.nav&quot;).localize();</span><br></pre></td></tr></table></figure>
-<h3 id="翻译一些内部元素"><a href="#翻译一些内部元素" class="headerlink" title="翻译一些内部元素"></a>翻译一些内部元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;outer&quot; data-i18n=&quot;ns:key&quot; data-i18n-target=&quot;.inner&quot;&gt;</span><br><span class="line">  &lt;input class=&quot;inner&quot; type=&quot;text&quot;&gt;&lt;/input&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">$(&quot;.outer&quot;).localize();</span><br></pre></td></tr></table></figure>
-<h3 id="设置不同属性的翻译"><a href="#设置不同属性的翻译" class="headerlink" title="设置不同属性的翻译"></a>设置不同属性的翻译</h3><p>比如，想要设置某个元素的title属性的多语言，可使用这种方式；或者其他提示信息等。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[title]key.for.title&quot;&gt;&lt;/a&gt;</span><br><span class="line">$(&quot;#btn1&quot;).localize();</span><br></pre></td></tr></table></figure>
-<h3 id="设置多个属性"><a href="#设置多个属性" class="headerlink" title="设置多个属性"></a>设置多个属性</h3><p>和设置单个属性类似，不过通过分号进行分隔，添加多个属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[title]key.for.title;myNamespace:key.for.text&quot;&gt;&lt;/a&gt;</span><br><span class="line">$(&quot;#btn1&quot;).localize();</span><br></pre></td></tr></table></figure>
-<h3 id="设置内部html的属性"><a href="#设置内部html的属性" class="headerlink" title="设置内部html的属性"></a>设置内部html的属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[html]key.for.title&quot;&gt;&lt;/a&gt;</span><br><span class="line">$(&quot;#btn1&quot;).localize();</span><br></pre></td></tr></table></figure>
-<h3 id="添加前置内容"><a href="#添加前置内容" class="headerlink" title="添加前置内容"></a>添加前置内容</h3><p>给一个元素原有内容前插入一些翻译文字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[prepend]key.for.title&quot;&gt;insert before me, please!&lt;/a&gt;</span><br><span class="line">$(&quot;#btn1&quot;).localize();</span><br></pre></td></tr></table></figure>
-<h3 id="添加后置内容"><a href="#添加后置内容" class="headerlink" title="添加后置内容"></a>添加后置内容</h3><p>给一个元素原有内容后追加一些翻译文字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[append]key.for.title&quot;&gt;append after me, please!&lt;/a&gt;</span><br><span class="line">$(&quot;#btn1&quot;).localize();</span><br></pre></td></tr></table></figure>
-<h3 id="设置数据"><a href="#设置数据" class="headerlink" title="设置数据"></a>设置数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;btn1&quot; href=&quot;#&quot; data-i18n=&quot;[data-someDataAttribute]key.for.content&quot;&gt;&lt;/a&gt;</span><br><span class="line">$(&quot;#btn1&quot;).localize();</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://github.com/i18next/jquery-i18next" target="_blank" rel="noopener">jquery-i18next</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1318,7 +1305,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

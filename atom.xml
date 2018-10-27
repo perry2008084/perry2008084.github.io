@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-10-14T14:35:53.292Z</updated>
+  <updated>2018-10-27T00:27:33.943Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,261 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP Learning Notes</title>
+    <link href="http://www.bookcell.org/2018/10/27/http-learning-notes/"/>
+    <id>http://www.bookcell.org/2018/10/27/http-learning-notes/</id>
+    <published>2018-10-27T00:25:41.000Z</published>
+    <updated>2018-10-27T00:27:33.943Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><code>HTTP</code> is a protocol which allows the fetching of resources, such as HTML documents.<br>Clients and servers communicate by exchanging individual messages(as opposed to stream of data).The messages sent by the client, usually a Web browser, are called <em>requests</em> and the messages sent by server as an answer are called <em>responses</em>.</p>
+<h2 id="Components-of-HTTP-based-systems"><a href="#Components-of-HTTP-based-systems" class="headerlink" title="Components of HTTP-based systems"></a>Components of HTTP-based systems</h2><h3 id="Client-The-user-agent"><a href="#Client-The-user-agent" class="headerlink" title="Client: The user-agent"></a>Client: The user-agent</h3><p>The <em>user-agent</em> is any tool that acts on the behalf of the user.</p>
+<h3 id="The-Web-server"><a href="#The-Web-server" class="headerlink" title="The Web server"></a>The Web server</h3><p>The server which serves the document as requested by the client.</p>
+<h3 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h3><ul>
+<li>caching</li>
+<li>filtering</li>
+<li>load balancing</li>
+<li>authentication</li>
+<li>logging</li>
+</ul>
+<h2 id="HTTP-flow"><a href="#HTTP-flow" class="headerlink" title="HTTP flow"></a>HTTP flow</h2><ol>
+<li>open a TCP connection</li>
+<li>Send an HTTP message</li>
+<li>Read the response sent by the server</li>
+<li>Close or reuse the connection for further requests</li>
+</ol>
+<h2 id="Evolution"><a href="#Evolution" class="headerlink" title="Evolution"></a>Evolution</h2><h3 id="Invention"><a href="#Invention" class="headerlink" title="Invention"></a>Invention</h3><p>1990, Berners-Lee build World Wide Web, it consisted of 4 building blocks:</p>
+<ul>
+<li>A text format to represent hypertext documents, the HyperText Markup Language(HTML)</li>
+<li>A simple protocol to exchange these documents, the HyperText Transfer Protocol(HTTP)</li>
+<li>A client to display(and accidentally edit) these documents, the first Web browser called WorldWideWeb</li>
+<li>A server to give access to the document, an early version of httpd</li>
+</ul>
+<h3 id="HTTP-0-9-The-one-line-protocol"><a href="#HTTP-0-9-The-one-line-protocol" class="headerlink" title="HTTP/0.9 - The one-line protocol"></a>HTTP/0.9 - The one-line protocol</h3><p>The initial version of HTTP had no version number; it has been later called 0.9 to differentiate it from the later version.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /mypage.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HTML&gt;</span><br><span class="line">A very simple HTML page</span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-1-0-Building-extensibility"><a href="#HTTP-1-0-Building-extensibility" class="headerlink" title="HTTP/1.0 - Building extensibility"></a>HTTP/1.0 - Building extensibility</h3><ul>
+<li>Versioning information is now sent within each request (HTTP/1.0 is appended to the GET line)</li>
+<li>A status code line is also sent at the beginning of the response, allowing the browser itself to understand the success or failure of the request and to adapt its behavior in consequence (like in updating or using its local cache in a specific way)</li>
+<li>The notion of HTTP headers has been introduced, both for the requests and the responses, allowing metadata to be transmitted and making the protocol extremely flexible and extensible.</li>
+<li>With the help of the new HTTP headers, the ability to transmit other documents than plain HTML files has been added (thanks to the Content-Type header).</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET /mypage.html HTTP/1.0</span><br><span class="line">User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)</span><br><span class="line"></span><br><span class="line">200 OK</span><br><span class="line">Date: Tue, 15 Nov 1994 08:12:31 GMT</span><br><span class="line">Server: CERN/3.0 libwww/2.17</span><br><span class="line">Content-Type: text/html</span><br><span class="line">&lt;HTML&gt; </span><br><span class="line">A page with an image</span><br><span class="line">  &lt;IMG SRC=&quot;/myimage.gif&quot;&gt;</span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-1-1-The-standardized-protocol"><a href="#HTTP-1-1-The-standardized-protocol" class="headerlink" title="HTTP/1.1 - The standardized protocol"></a>HTTP/1.1 - The standardized protocol</h3><p> The first standardized version of HTTP, HTTP/1.1 was published in early 1997, only a few months after HTTP/1.0.</p>
+<p> feature:</p>
+<ul>
+<li>A connection can be reused, saving the time to reopen it numerous times to display the resources embedded into the single original document retrieved.</li>
+<li>Pipelining has been added, allowing to send a second request before the answer for the first one is fully transmitted, lowering the latency of the communication.</li>
+<li>Chunked responses are now also supported.</li>
+<li>Additional cache control mechanisms have been introduced.</li>
+<li>Content negotiation, including language, encoding, or type, has been introduced, and allows a client and a server to agree on the most adequate content to exchange.</li>
+<li>Thanks to the Host header, the ability to host different domains at the same IP address now allows server collocation.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">GET /en-US/docs/Glossary/Simple_header HTTP/1.1</span><br><span class="line">Host: developer.mozilla.org</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">Accept-Language: en-US,en;q=0.5</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Referer: https://developer.mozilla.org/en-US/docs/Glossary/Simple_header</span><br><span class="line"></span><br><span class="line">200 OK</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Date: Wed, 20 Jul 2016 10:55:30 GMT</span><br><span class="line">Etag: &quot;547fa7e369ef56031dd3bff2ace9fc0832eb251a&quot;</span><br><span class="line">Keep-Alive: timeout=5, max=1000</span><br><span class="line">Last-Modified: Tue, 19 Jul 2016 00:59:33 GMT</span><br><span class="line">Server: Apache</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Vary: Cookie, Accept-Encoding</span><br><span class="line"></span><br><span class="line">(content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET /static/img/header-background.png HTTP/1.1</span><br><span class="line">Host: developer.cdn.mozilla.net</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Language: en-US,en;q=0.5</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Referer: https://developer.mozilla.org/en-US/docs/Glossary/Simple_header</span><br><span class="line"></span><br><span class="line">200 OK</span><br><span class="line">Age: 9578461</span><br><span class="line">Cache-Control: public, max-age=315360000</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Content-Length: 3077</span><br><span class="line">Content-Type: image/png</span><br><span class="line">Date: Thu, 31 Mar 2016 13:34:46 GMT</span><br><span class="line">Last-Modified: Wed, 21 Oct 2015 18:27:50 GMT</span><br><span class="line">Server: Apache</span><br><span class="line"></span><br><span class="line">(image content of 3077 bytes)</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-2-A-protocol-for-greater-performance"><a href="#HTTP-2-A-protocol-for-greater-performance" class="headerlink" title="HTTP/2 - A protocol for greater performance"></a>HTTP/2 - A protocol for greater performance</h3><p>feature:</p>
+<ul>
+<li>It is a binary protocol rather than text. It can no longer be read and created manually despite this hurdle, improved optimization techniques can now be implemented.</li>
+<li>It is a multiplexed protocol. Parallel requests can be handled over the same connection, removing the order and blocking constraints of the HTTP/1.x protocol.</li>
+<li>It compresses headers. As these are often similar among a set of requests, this removes duplication and overhead of data transmitted.</li>
+<li>It allows a server to populate data in a client cache, in advance of it being required, through a mechanism called the server push.</li>
+</ul>
+<h3 id="Post-HTTP-2-evolution"><a href="#Post-HTTP-2-evolution" class="headerlink" title="Post-HTTP/2 evolution"></a>Post-HTTP/2 evolution</h3><p>feature:</p>
+<ul>
+<li>Support of Alt-Svc allows the dissociation of the identification and the location of a given resource, allowing for a smarter CDN caching mechanism.</li>
+<li>The introduction of Client-Hints allows the browser, or client, to proactively communicate information about its requirements, or hardware constraints, to the server.</li>
+<li>The introduction of security-related prefixes in the Cookie header, now helps guarantee a secure cookie has not been altered.</li>
+</ul>
+<h2 id="HTTP-Messages"><a href="#HTTP-Messages" class="headerlink" title="HTTP Messages"></a>HTTP Messages</h2><p>HTTP messages are how data is exchanged between a server and a client. There are two types of messages: <em>request</em> sent by the client to trigger an action on the server, and <em>responses</em>, the answer from the server.</p>
+<p>HTTP requests, and responses, share similar structure and composed of:</p>
+<ol>
+<li>A start-line describing the requests to be implemented, or its status of whether successful or a failure. This start-line is always a single line.</li>
+<li>An optional set of <em>HTTP headers</em> specifying the request, or describing the body included in the message.</li>
+<li>A blank line indicating all meta-information for the request have been sent.</li>
+<li>An optional <em>body</em> containing data associated with the request(like content of an HTML form), or the document associated with a response. The presence of the body and its size is specified by the start-line and HTTP headers.</li>
+</ol>
+<h3 id="HTTP-Requests"><a href="#HTTP-Requests" class="headerlink" title="HTTP Requests"></a>HTTP Requests</h3><p><strong>Start line</strong></p>
+<ol>
+<li>An <em>HTTP method</em>, a verb(like <code>GET</code>, <code>PUT</code>, <code>POST</code>) or a noun(like <code>HEAD</code>, <code>OPTIONS</code>), that describes the action to be performed.</li>
+<li>The <em>request target</em>, usually a URL, or the absolute path of the protocol, port, and domain are usually characterized by the request context.</li>
+<li>The <em>HTTP version</em>, which defines the structure of the ramaining message, acting as an indicator of the expected version to use for the response.</li>
+</ol>
+<p><strong>Headers</strong></p>
+<p>HTTP headers from a request follow the same basic structure of an HTTP header: a case-insensitive string followed by a colon(‘:’) and a value whose structure depends upon the header.</p>
+<ul>
+<li><em>General headers</em>, like <code>Via</code>, apply to the message as a whole.</li>
+<li><em>Request headers</em>, like <code>User-Agent</code>, <code>Accept-Type</code>, modify the request by specifying it further(like <code>Accept-Language</code>), by giving context(like <code>Referer</code>), or by conditionally restricting it(like<code>If-None</code>).</li>
+<li><em>Entity headers</em>, like <code>Content-Length</code> which apply to the body of the request. Obviously there is no such header transmitted if there is no body in the request.</li>
+</ul>
+<p><strong>Body</strong></p>
+<p>often <code>POST</code> request has body.</p>
+<ul>
+<li>Single-resource bodies, consisting of one single file, defined by the two headers: <code>Content-Type</code> and <code>Content-Length</code>.</li>
+<li>Multiple-resource bodies, consisting of a multipart body, each containing a different bit of information. This is typically associated with HTML Forms.</li>
+</ul>
+<h3 id="HTTP-Responses"><a href="#HTTP-Responses" class="headerlink" title="HTTP Responses"></a>HTTP Responses</h3><p><strong>Status line</strong></p>
+<p>The start line of an HTTP response, called the <em>status line</em>, contains the following information:</p>
+<ol>
+<li>The <em>protocol version</em>, usually <code>HTTP/1.1</code>.</li>
+<li>A status code, indicating success or failure of the request. Common status codes are <code>200</code>, <code>404</code>, or <code>302</code>.</li>
+<li>A <em>status text</em>. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.</li>
+</ol>
+<p><strong>Headers</strong></p>
+<p>HTTP headers for responses follow the same structure as any other header: a case-insensitive string followed by a colon (‘:’) and a value whose structure depends upon the type of the header. </p>
+<ul>
+<li><em>General header</em>, like <code>Via</code>, apply to the whole message.</li>
+<li><em>Response headers</em>, like <code>Vary</code> and <code>Accept-Ranges</code>, give additional information about the server which doesn’t fit in the status line.</li>
+<li><em>Entity headers</em>, like <code>Content-Length</code>, apply to the body of the request.</li>
+</ul>
+<p><strong>Body</strong></p>
+<p>Not all responses have one: responses with a status code, like <code>201</code> or <code>204</code>, usually don’t.</p>
+<ul>
+<li>Single-resource bodies, consisting of a single file of known length, defined by the two headers: <code>Content-Type</code> and <code>Content-Length</code>.</li>
+<li>Single-resource bodies, consisting of a single file of unknown length, encoded by chunks with <code>Transfer-Encoding</code> set to chunked.</li>
+<li>Multiple-resource bodies, consisting of a multipart body, each containing a different section of information.These are relatively rare.</li>
+</ul>
+<h2 id="A-typical-HTTP-session"><a href="#A-typical-HTTP-session" class="headerlink" title="A typical HTTP session"></a>A typical HTTP session</h2><p>In client-server protocols, like HTTP, sessions consist of three phases:</p>
+<ol>
+<li>The client establishes a TCP connection (or the appropriate connection if the transport layer is not TCP).</li>
+<li>The client sends its request, and waits for the answer.</li>
+<li>The server processes the request, sending back its answer, providing a status code and appropriate data.</li>
+</ol>
+<h3 id="Establishing-a-connection"><a href="#Establishing-a-connection" class="headerlink" title="Establishing a connection"></a>Establishing a connection</h3><p>In client-server protocols, it is the client which establishes the connection.Opening a connection in HTTP means initiating a connection in the underlying transport layer, usually this is TCP.</p>
+<h3 id="Sending-a-client-request"><a href="#Sending-a-client-request" class="headerlink" title="Sending a client request"></a>Sending a client request</h3><p>Once the connection is established, the user-agent can send the request.</p>
+<h2 id="Connection-management-in-HTTP-1-x"><a href="#Connection-management-in-HTTP-1-x" class="headerlink" title="Connection management in HTTP/1.x"></a>Connection management in HTTP/1.x</h2><p>Connection management is a key topic in HTTP: opening and maintaining connections largely impacts the performance of Web sites and Web applications.</p>
+<ul>
+<li>short-lived connections</li>
+<li>persistent connections</li>
+<li>HTTP pipelining</li>
+</ul>
+<h2 id="MIME-Types"><a href="#MIME-Types" class="headerlink" title="MIME Types"></a>MIME Types</h2><p>Two primary MIME types are important for the role of default types:</p>
+<ul>
+<li><code>text/plain</code> is the default value for textual files. A textual file should be human-readable and must not contain binary data.</li>
+<li><code>application/octet-stream</code> is the default value for all other cases. An unknown file type should use this type.Browsers pay a particular care when manipulating these files, attempting to safeguard the user to prevent dangerous behaviors.</li>
+</ul>
+<h2 id="Choosing-between-www-and-non-www-URLs"><a href="#Choosing-between-www-and-non-www-URLs" class="headerlink" title="Choosing between www and non-www URLs"></a>Choosing between www and non-www URLs</h2><p>choose one of your domains as your canonical one.</p>
+<ul>
+<li>Using HTTP 301 redirects</li>
+<li>Using <code>&lt;link rel=&quot;canonical&quot;&gt;</code></li>
+</ul>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>An HTTP cookie(web cookie, browser cookie) is a small piece of data that a sever sends to the user’s web browser.The browser may store it and send it back with the next request to the same server.It remembers stateful information for the stateless HTTP protocol.</p>
+<p>Cookies are mainly used for three purposes:</p>
+<p><strong>Session management</strong><br>Logins, shopping carts, game scores, or anything else the server should remember</p>
+<p><strong>Personalization</strong><br>User preferences, themes, and other settings</p>
+<p><strong>Tracking</strong><br>Recording and analyzing user behavior</p>
+<h3 id="Creating-cookies"><a href="#Creating-cookies" class="headerlink" title="Creating cookies"></a>Creating cookies</h3><p><strong>Server</strong></p>
+<p>a server can send a <code>Set-Cookie</code> header with the response.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.0 200 OK</span><br><span class="line">Content-type: text/html</span><br><span class="line">Set-Cookie: yummy_cookie=choco</span><br><span class="line">Set-Cookie: tasty_cookie=strawberry</span><br><span class="line"></span><br><span class="line">[page content]</span><br></pre></td></tr></table></figure>
+<p><strong>Client</strong></p>
+<p>every new request to the server, the browser will send back all previously stored cookies to the server using the <code>Cookie</code> header.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /sample_page.html HTTP/1.1</span><br><span class="line">Host: www.example.org</span><br><span class="line">Cookie: yummy_cookie=choco; tasty_cookie=strawberry</span><br></pre></td></tr></table></figure>
+<p><strong>Session cookies</strong></p>
+<p>it is deleted when the client shuts down, because it didn’t specify an Expires or Max-Age directive</p>
+<p><strong>Permanent cookies</strong></p>
+<p>Instead of expiring when the client closes,permanent cookies expire at a specific date (Expires) or after a specific length of time (Max-Age).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT;</span><br></pre></td></tr></table></figure>
+<p><strong>Secure and HttpOnly cookies</strong></p>
+<p>A secure cookie is only sent to the server with an encrypted request over the HTTPS protocol. Even with Secure, sensitive information should never be stored in cookies, as they are inherently insecure and this flag can’t offer real protection. </p>
+<p>To prevent cross-site scripting (XSS) attacks, HttpOnly cookies are inaccessible to JavaScript’s Document.cookie API; they are only sent to the server. For example, cookies that persist server-side sessions don’t need to be available to JavaScript, and the HttpOnly flag should be set.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly</span><br></pre></td></tr></table></figure>
+<p><strong>Scope of cookies</strong></p>
+<p>The Domain and Path directives define the scope of the cookie: what URLs the cookies should be sent to.</p>
+<p><strong>JavaScript access using Document.cookie</strong></p>
+<p>New cookies can also be created via JavaScript using the Document.cookie property, and if the HttpOnly flag is not set, existing cookies can be accessed from JavaScript as well.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.cookie = &quot;yummy_cookie=choco&quot;; </span><br><span class="line">document.cookie = &quot;tasty_cookie=strawberry&quot;; </span><br><span class="line">console.log(document.cookie); </span><br><span class="line">// logs &quot;yummy_cookie=choco; tasty_cookie=strawberry&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-access-control-CORS"><a href="#HTTP-access-control-CORS" class="headerlink" title="HTTP access control(CORS)"></a>HTTP access control(CORS)</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank" rel="noopener">MDN CORS</a></p>
+<p>Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional HTTP headers to tell a browser to let a web application running at one origin (domain) have permission to access selected resources from a server at a different origin. A web application makes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, and port) than its own origin.</p>
+<h3 id="What-requests-use-CORS"><a href="#What-requests-use-CORS" class="headerlink" title="What requests use CORS"></a>What requests use CORS</h3><p>This <a href="https://fetch.spec.whatwg.org/#http-cors-protocol" target="_blank" rel="noopener">cross-origin sharing standard</a> is used to enable cross-site HTTP requests for:</p>
+<ul>
+<li>Invocations of the XMLHttpRequest or Fetch APIs in a cross-site manner, as discussed above.</li>
+<li>Web Fonts (for cross-domain font usage in @font-face within CSS), so that servers can deploy TrueType fonts that can only be cross-site loaded and used by web sites that are permitted to do so.</li>
+<li>WebGL textures.</li>
+<li>Images/video frames drawn to a canvas using drawImage().</li>
+<li>Stylesheets (for CSSOM access).</li>
+<li>Scripts (for unmuted exceptions).</li>
+</ul>
+<h3 id="Functional-overview"><a href="#Functional-overview" class="headerlink" title="Functional overview"></a>Functional overview</h3><p>The Cross-Origin Resource Sharing standard works by adding new HTTP headers that allow servers to describe the set of origins that are permitted to read that information using a web browser. Additionally, for HTTP request methods that can cause side-effects on server’s data (in particular, for HTTP methods other than GET, or for POST usage with certain MIME types), the specification mandates that browsers “preflight” the request, soliciting supported methods from the server with an HTTP OPTIONS request method, and then, upon “approval” from the server, sending the actual request with the actual HTTP request method. Servers can also notify clients whether “credentials” (including Cookies and HTTP Authentication data) should be sent with requests.</p>
+<h3 id="The-HTTP-response-headers"><a href="#The-HTTP-response-headers" class="headerlink" title="The HTTP response headers"></a>The HTTP response headers</h3><ul>
+<li>Access-Control-Allow-Origin</li>
+<li>Access-Control-Expose-Headers</li>
+<li>Access-Control-Max-Age</li>
+<li>Access-Control-Allow-Credentials</li>
+<li>Access-Control-Allow-Methods</li>
+<li>Access-Control-Allow-Headers</li>
+</ul>
+<h3 id="The-HTTP-request-headers"><a href="#The-HTTP-request-headers" class="headerlink" title="The HTTP request headers"></a>The HTTP request headers</h3><ul>
+<li>Origin</li>
+<li>Access-Control-Request-Method</li>
+<li>Access-Control-Request-Headers</li>
+</ul>
+<h2 id="HTTP-caching"><a href="#HTTP-caching" class="headerlink" title="HTTP caching"></a>HTTP caching</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching" target="_blank" rel="noopener">参考</a></p>
+<h2 id="Compression-in-HTTP"><a href="#Compression-in-HTTP" class="headerlink" title="Compression in HTTP"></a>Compression in HTTP</h2><p>Compression algorithms categories:</p>
+<ul>
+<li>Loss-less compression, where the compression-uncompression cycle doesn’t alter the data that is recovered. It matches (byte to byte) with the original.<br>For images, gif or png are using loss-less compression.</li>
+<li>Lossy compression, where the cycle alters the original data, in an imperceptible way for the user.<br>Video formats on the Web are lossy and for images, jpeg is.</li>
+</ul>
+<p>Some formats can be used for both loss-less or lossy compression, like webp, and usually lossy algorithm can be configured to compress more or less, which then of course leads to less or more quality.</p>
+<h3 id="End-to-end-compression"><a href="#End-to-end-compression" class="headerlink" title="End-to-end compression"></a>End-to-end compression</h3><p>For compression, end-to-end compression is where the largest performance improvements of Web sites reside. End-to-end compression refers to a compression of the body of a message that is done by the server and will last unchanged until it reaches the client. Whatever the intermediate nodes are, they leave the body untouched.</p>
+<p>compression algorithms:</p>
+<ul>
+<li><code>gzip</code></li>
+<li><code>br</code></li>
+</ul>
+<h3 id="Hop-by-hop-compression"><a href="#Hop-by-hop-compression" class="headerlink" title="Hop-by-hop compression"></a>Hop-by-hop compression</h3><p>Hop-by-hop compression, though similar to end-to-end compression, differs by one fundamental element: the compression doesn’t happen on the resource in the server, creating a specific representation that is then transmitted, but on the body of the message between any two nodes on the path between the client and the server. Connections between successive intermediate nodes may apply a different compression.</p>
+<h2 id="HTTP-conditional-requests"><a href="#HTTP-conditional-requests" class="headerlink" title="HTTP conditional requests"></a>HTTP conditional requests</h2><p>HTTP has a concept of conditional requests, where the result, and even the success of a request, can be changed by comparing the affected resources with the value of a validator. Such requests can be useful to validate the content of a cache, and sparing a useless control, to verify the integrity of a document, like when resuming a download, or when preventing to lose updates when uploading or modifying a document on the server.</p>
+<h3 id="Validators"><a href="#Validators" class="headerlink" title="Validators"></a>Validators</h3><ul>
+<li>the date of last modification of the document, the last-modified date.</li>
+<li>an opaque string, uniquely identifying each version, called the entity tag, or the etag.</li>
+</ul>
+<h3 id="Conditional-headers"><a href="#Conditional-headers" class="headerlink" title="Conditional headers"></a>Conditional headers</h3><p><strong>If-Match</strong><br>Succeeds if the ETag of the distant resource is equal to one listed in this header. By default, unless the etag is prefixed with ‘W/‘, it performs a strong validation.</p>
+<p><strong>If-None-Match</strong><br>Succeeds if the ETag of the distant resource is different to each listed in this header. By default, unless the etag is prefixed with ‘W/‘, it performs a strong validation.</p>
+<p><strong>If-Modified-Since</strong><br>Succeeds if the Last-Modified date of the distant resource is more recent than the one given in this header.</p>
+<p><strong>If-Unmodified-Since</strong><br>Succeeds if the Last-Modified date of the distant resource is older or the same than the one given in this header.</p>
+<p><strong>If-Range</strong><br>Similar to If-Match, or If-Unmodified-Since, but can have only one single etag, or one date. If it fails, the range request fails, and instead of a 206 Partial Content response, a 200 OK is sent with the complete resource.</p>
+<h2 id="HTTP-Content-negotiation"><a href="#HTTP-Content-negotiation" class="headerlink" title="HTTP Content negotiation"></a>HTTP Content negotiation</h2><p>In HTTP, content negotiation is the mechanism that is used for serving different representations of a resource at the same URI, so that the user agent can specify which is best suited for the user (for example, which language of a document, which image format, or which content encoding).</p>
+<h2 id="HTTP-range-requests"><a href="#HTTP-range-requests" class="headerlink" title="HTTP range requests"></a>HTTP range requests</h2><p>HTTP range requests allow to send only a portion of an HTTP message from a server to a client. Partial requests are useful for large media or downloading files with pause and resume functions, for example.</p>
+<h2 id="HTTP-redirections"><a href="#HTTP-redirections" class="headerlink" title="HTTP redirections"></a>HTTP redirections</h2><p>URL redirection, also known as URL forwarding, is a technique to give a page, a form or a whole Web application, more than one URL address. HTTP provides a special kind of responses, HTTP redirects, to perform this operation used for numerous goals: temporary redirection while site maintenance is ongoing, permanent redirection to keep external links working after a change of the site’s architecture, progress pages when uploading a file, and so on.</p>
+<p>There are several types of redirects and they fall into three categories: permanent, temporary and special redirections.</p>
+<h3 id="Permanent-redirections"><a href="#Permanent-redirections" class="headerlink" title="Permanent redirections"></a>Permanent redirections</h3><ul>
+<li>301</li>
+<li>308</li>
+</ul>
+<h3 id="Temporary-redirections"><a href="#Temporary-redirections" class="headerlink" title="Temporary redirections"></a>Temporary redirections</h3><ul>
+<li>302</li>
+<li>303</li>
+<li>307</li>
+</ul>
+<h3 id="Special-redirections"><a href="#Special-redirections" class="headerlink" title="Special redirections"></a>Special redirections</h3><ul>
+<li>300</li>
+<li>304</li>
+</ul>
+<h3 id="其他重定向方式"><a href="#其他重定向方式" class="headerlink" title="其他重定向方式"></a>其他重定向方式</h3><p><strong>HTML</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt; </span><br><span class="line">  &lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; URL=http://www.example.com/&quot; /&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>JavaScript</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.location = &quot;http://www.example.com/&quot;;</span><br></pre></td></tr></table></figure>
+<h3 id="使用顺序"><a href="#使用顺序" class="headerlink" title="使用顺序"></a>使用顺序</h3><ol>
+<li>HTTP redirects are always executed first when there is not even a page transmitted, and of course not even read.</li>
+<li>HTML redirects (<meta>) are executed if there weren’t any HTTP redirects.</li>
+<li>JavaScript redirects are used as the last resort, and only if JavaScript is enabled on the client side.</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;&lt;code&gt;HTTP&lt;/code&gt; is a protocol which allows the fetching 
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="笔记" scheme="http://www.bookcell.org/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="HTTP" scheme="http://www.bookcell.org/tags/HTTP/"/>
+    
+  </entry>
   
   <entry>
     <title>升级博客的Hexo和Next主题版本</title>
@@ -361,11 +616,11 @@
     
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
+      <category term="HTTP" scheme="http://www.bookcell.org/tags/HTTP/"/>
+    
       <category term="URL" scheme="http://www.bookcell.org/tags/URL/"/>
     
       <category term="WWW" scheme="http://www.bookcell.org/tags/WWW/"/>
-    
-      <category term="HTTP" scheme="http://www.bookcell.org/tags/HTTP/"/>
     
   </entry>
   
@@ -425,11 +680,11 @@
     
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
+      <category term="HTTP" scheme="http://www.bookcell.org/tags/HTTP/"/>
+    
       <category term="URL" scheme="http://www.bookcell.org/tags/URL/"/>
     
       <category term="WWW" scheme="http://www.bookcell.org/tags/WWW/"/>
-    
-      <category term="HTTP" scheme="http://www.bookcell.org/tags/HTTP/"/>
     
   </entry>
   
@@ -1457,55 +1712,6 @@
       <category term="es5" scheme="http://www.bookcell.org/tags/es5/"/>
     
       <category term="SublimeLInter" scheme="http://www.bookcell.org/tags/SublimeLInter/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设定目标-使用SMART法则</title>
-    <link href="http://www.bookcell.org/2017/11/07/use-smart-critera-set-goal/"/>
-    <id>http://www.bookcell.org/2017/11/07/use-smart-critera-set-goal/</id>
-    <published>2017-11-07T05:02:17.000Z</published>
-    <updated>2017-11-16T14:11:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="大纲："><a href="#大纲：" class="headerlink" title="大纲："></a>大纲：</h2><p>设定目标的意义和常见的问题<br>使用SMART法则设定适当的目标<br>执行、检查和修正目标</p>
-<h2 id="设定目标的意义和常见的问题"><a href="#设定目标的意义和常见的问题" class="headerlink" title="设定目标的意义和常见的问题"></a>设定目标的意义和常见的问题</h2><p>目标犹如一座灯塔，设定了一个准确的目标，能够帮助我们达到我们想要的目的。</p>
-<p>准确的设定目标，是目标能够达成的前提条件之一。而我们通常遇到的问题，比较严重的就是，没有<br>准确的设定目标，导致目标在执行过程中，出现以下的几类问题：<br>1、不知道如何评判是否达成目标<br>2、没有时间期限导致拖延<br>3、目标太模糊、太大，导致无法实现而放弃</p>
-<a id="more"></a>
-<h2 id="使用SMART法则设定适当的目标"><a href="#使用SMART法则设定适当的目标" class="headerlink" title="使用SMART法则设定适当的目标"></a>使用SMART法则设定适当的目标</h2><p>为了解决上述遇到的问题，管理学前辈George T. Doran在1981年提出了SMART法则，依该法则设定的<br>目标，容易理解并能够判断是否完成。</p>
-<p>SMART代表5个单词的首字母，有不同版本的说法，比较主流的是:</p>
-<ul>
-<li>Specific</li>
-<li>Measurable</li>
-<li>Achievable</li>
-<li>Relevant</li>
-<li>Time-bound</li>
-</ul>
-<p>具体说明一下各个维度的管理，</p>
-<h3 id="Specific-具体的"><a href="#Specific-具体的" class="headerlink" title="Specific(具体的)"></a>Specific(具体的)</h3><p>列出具体的目标内容，或者改进方面。</p>
-<h3 id="Measurable（可衡量的）"><a href="#Measurable（可衡量的）" class="headerlink" title="Measurable（可衡量的）"></a>Measurable（可衡量的）</h3><p>目标需要是量化的，或者是有判断依据的，最终要完成的程度是可以衡量的。</p>
-<h3 id="Achievable（可达到的）"><a href="#Achievable（可达到的）" class="headerlink" title="Achievable（可达到的）"></a>Achievable（可达到的）</h3><p>目标需要是在能力范围之内的，如果目标是远在能力之外的，那设定这个目标就毫无意义了。另外，<br>《The Power Of Less》这本书提到，设定的目标开始的时候尽量小一些，坚持去做，养成一个<br>好的习惯，对不断达成新的目标是有很大帮助。</p>
-<h3 id="Relevant-相关性"><a href="#Relevant-相关性" class="headerlink" title="Relevant(相关性)"></a>Relevant(相关性)</h3><p>目标的设定，要有一定的相关性，与实际的生活、工作以及其他的目标相关联，否则目标相对独立，<br>不容易去完成。</p>
-<h3 id="Time-bound-有时限的"><a href="#Time-bound-有时限的" class="headerlink" title="Time-bound(有时限的)"></a>Time-bound(有时限的)</h3><p>目标的设定，需要有一个时限性，确定一个明确的截止期限。这样，才能督促自己在明确的时间点去<br>完成目标。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过使用SMART法则，设定清晰适当的目标，对于目标的完成以及生活工作的不断前进有很大的帮助。<br>不过，要用好这个法则，还需要不断的去练习。</p>
-<p>另外，推荐《The Power Of Less》by Leo Babauta 这本书，主要讲述聚焦和如何提高效率，对于工作<br>、生活、学习均有帮助。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;大纲：&quot;&gt;&lt;a href=&quot;#大纲：&quot; class=&quot;headerlink&quot; title=&quot;大纲：&quot;&gt;&lt;/a&gt;大纲：&lt;/h2&gt;&lt;p&gt;设定目标的意义和常见的问题&lt;br&gt;使用SMART法则设定适当的目标&lt;br&gt;执行、检查和修正目标&lt;/p&gt;
-&lt;h2 id=&quot;设定目标的意义和常见的问题&quot;&gt;&lt;a href=&quot;#设定目标的意义和常见的问题&quot; class=&quot;headerlink&quot; title=&quot;设定目标的意义和常见的问题&quot;&gt;&lt;/a&gt;设定目标的意义和常见的问题&lt;/h2&gt;&lt;p&gt;目标犹如一座灯塔，设定了一个准确的目标，能够帮助我们达到我们想要的目的。&lt;/p&gt;
-&lt;p&gt;准确的设定目标，是目标能够达成的前提条件之一。而我们通常遇到的问题，比较严重的就是，没有&lt;br&gt;准确的设定目标，导致目标在执行过程中，出现以下的几类问题：&lt;br&gt;1、不知道如何评判是否达成目标&lt;br&gt;2、没有时间期限导致拖延&lt;br&gt;3、目标太模糊、太大，导致无法实现而放弃&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="目标" scheme="http://www.bookcell.org/tags/%E7%9B%AE%E6%A0%87/"/>
-    
-      <category term="方法" scheme="http://www.bookcell.org/tags/%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="SMART法则" scheme="http://www.bookcell.org/tags/SMART%E6%B3%95%E5%88%99/"/>
     
   </entry>
   
