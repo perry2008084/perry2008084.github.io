@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-10-27T00:27:33.943Z</updated>
+  <updated>2018-10-27T00:30:53.823Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://www.bookcell.org/2018/10/27/http-learning-notes/"/>
     <id>http://www.bookcell.org/2018/10/27/http-learning-notes/</id>
     <published>2018-10-27T00:25:41.000Z</published>
-    <updated>2018-10-27T00:27:33.943Z</updated>
+    <updated>2018-10-27T00:30:53.823Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><code>HTTP</code> is a protocol which allows the fetching of resources, such as HTML documents.<br>Clients and servers communicate by exchanging individual messages(as opposed to stream of data).The messages sent by the client, usually a Web browser, are called <em>requests</em> and the messages sent by server as an answer are called <em>responses</em>.</p>
+<a id="more"></a>
 <h2 id="Components-of-HTTP-based-systems"><a href="#Components-of-HTTP-based-systems" class="headerlink" title="Components of HTTP-based systems"></a>Components of HTTP-based systems</h2><h3 id="Client-The-user-agent"><a href="#Client-The-user-agent" class="headerlink" title="Client: The user-agent"></a>Client: The user-agent</h3><p>The <em>user-agent</em> is any tool that acts on the behalf of the user.</p>
 <h3 id="The-Web-server"><a href="#The-Web-server" class="headerlink" title="The Web server"></a>The Web server</h3><p>The server which serves the document as requested by the client.</p>
 <h3 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h3><ul>
@@ -255,7 +256,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;&lt;code&gt;HTTP&lt;/code&gt; is a protocol which allows the fetching 
+      &lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;&lt;code&gt;HTTP&lt;/code&gt; is a protocol which allows the fetching of resources, such as HTML documents.&lt;br&gt;Clients and servers communicate by exchanging individual messages(as opposed to stream of data).The messages sent by the client, usually a Web browser, are called &lt;em&gt;requests&lt;/em&gt; and the messages sent by server as an answer are called &lt;em&gt;responses&lt;/em&gt;.&lt;/p&gt;
     
     </summary>
     
