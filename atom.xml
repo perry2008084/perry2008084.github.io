@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-11-19T01:21:22.126Z</updated>
+  <updated>2018-11-26T04:48:01.507Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -16,15 +16,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>arts-2018-11-two</title>
+    <link href="http://www.bookcell.org/2018/11/26/arts-2018-11-two/"/>
+    <id>http://www.bookcell.org/2018/11/26/arts-2018-11-two/</id>
+    <published>2018-11-26T04:46:26.000Z</published>
+    <updated>2018-11-26T04:48:01.507Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>哈希表/hashtable</p>
+<p>复杂度:</p>
+<p>O(1)</p>
+<p>原理:</p>
+<p>使用字符串作为键，可以访问任意的数据类型。</p>
+<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://www.webdesignerdepot.com/2018/02/8-best-free-libraries-for-svg/" target="_blank" rel="noopener">https://www.webdesignerdepot.com/2018/02/8-best-free-libraries-for-svg/</a></p>
+<blockquote>
+<p>介绍了8个svg相关的库，比较推荐的有SVG.js和Snap.svg，Snap.svg支持导入现成的svg图片。如果涉及兼容性的问题，可以使用Raphaël这个库，Raphaël currently supports Firefox 3.0+, Safari 3.0+, Chrome 5.0+, Opera 9.5+ and Internet Explorer 6.0+.</p>
+</blockquote>
+<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p><a href="https://wesbos.com/tagged-template-literals/" target="_blank" rel="noopener">https://wesbos.com/tagged-template-literals/</a></p>
+<blockquote>
+<p>本文讲解了ES6中标签模板字符串</p>
+</blockquote>
+<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p><a href="https://www.jianshu.com/p/cadb63e8cf33" target="_blank" rel="noopener">Mac下配置iTerm命令行推荐</a><br><a href="https://2018.stateofjs.com/" target="_blank" rel="noopener">2018年的JavaScript生态报告</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;A-Algorithm&quot;&gt;&lt;a href=&quot;#A-Algorithm&quot; class=&quot;headerlink&quot; title=&quot;A(Algorithm):&quot;&gt;&lt;/a&gt;A(Algorithm):&lt;/h2&gt;&lt;p&gt;哈希表/hashtable&lt;/p&gt;
+&lt;p&gt;复杂度:&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
+    
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
+    
+      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
+    
+      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
+    
+      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
+    
+      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
+    
+  </entry>
+  
+  <entry>
     <title>arts-2018-11-one</title>
     <link href="http://www.bookcell.org/2018/11/19/arts-2018-11-one/"/>
     <id>http://www.bookcell.org/2018/11/19/arts-2018-11-one/</id>
     <published>2018-11-19T01:20:35.000Z</published>
-    <updated>2018-11-19T01:21:22.126Z</updated>
+    <updated>2018-11-26T04:47:43.910Z</updated>
     
     <content type="html"><![CDATA[<h1 id="arts-2018-11-one"><a href="#arts-2018-11-one" class="headerlink" title="arts-2018-11-one"></a>arts-2018-11-one</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>快速排序</p>
 <p>算法复杂度: O(nlog(n))</p>
-<p>原理: </p>
+<p>原理:</p>
 <p>通过分治的方法实现排序。</p>
 <ol>
 <li>取中间位置为一个支点</li>
@@ -49,6 +95,18 @@
     
     </summary>
     
+      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
+    
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
+    
+      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
+    
+      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
+    
+      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
+    
+      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
     
   </entry>
   
@@ -1074,9 +1132,9 @@
     
       <category term="angularjs" scheme="http://www.bookcell.org/tags/angularjs/"/>
     
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="ag-grid" scheme="http://www.bookcell.org/tags/ag-grid/"/>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="表格" scheme="http://www.bookcell.org/tags/%E8%A1%A8%E6%A0%BC/"/>
     
@@ -1653,42 +1711,6 @@
       <category term="2018" scheme="http://www.bookcell.org/tags/2018/"/>
     
       <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《The power of less》读书笔记</title>
-    <link href="http://www.bookcell.org/2017/11/28/the-power-of-less-notes/"/>
-    <id>http://www.bookcell.org/2017/11/28/the-power-of-less-notes/</id>
-    <published>2017-11-28T07:33:05.000Z</published>
-    <updated>2017-11-28T07:34:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="缘来"><a href="#缘来" class="headerlink" title="缘来:"></a>缘来:</h2><p>每一天的时间有限，做得越多，不重要的事也做得多，压力也大；因此，减少做的事情，做重要的事，提高效率。</p>
-<h2 id="总则："><a href="#总则：" class="headerlink" title="总则："></a>总则：</h2><p>1、简化事务(simplify)<br>2、专注事务(focus)</p>
-<h2 id="几个原则："><a href="#几个原则：" class="headerlink" title="几个原则："></a>几个原则：</h2><p>1、设置限制<br>2、选择必需的事务，让时间和效率最大化<br>3、简化，减少非必需的事务<br>4、专注，这是变得更加高效的最重要的工具<br>5、养成新的习惯来不断进步<br>6、通过小步提高来确保开始新的习惯</p>
-<h2 id="专注："><a href="#专注：" class="headerlink" title="专注："></a>专注：</h2><p>专注是决定你是否能完成一个目标或者坚持养成一个新习惯最重要的因素。保持你在模板和习惯上的专注。专注于当前和现在会让你受益良多。这样可以减少压力并帮助你享受充实的人生。只专注于手头上的任务和正能量的。关注负能量的想法并用正能力去代替。<br>单任务，同一时间只进行单任务。多任务的切换是耗费时间和精力的，会让你出错或者会<br>变得有压力。</p>
-<h2 id="习惯："><a href="#习惯：" class="headerlink" title="习惯："></a>习惯：</h2><p>养成一个长久坚持习惯的方法是应用少的力量：专注于一个习惯，一个月一个。<br>选择一个新习惯，写下计划，公开你的目标并每天更新你的进度。<br>养成习惯的时候，庆祝你的新习惯。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;缘来&quot;&gt;&lt;a href=&quot;#缘来&quot; class=&quot;headerlink&quot; title=&quot;缘来:&quot;&gt;&lt;/a&gt;缘来:&lt;/h2&gt;&lt;p&gt;每一天的时间有限，做得越多，不重要的事也做得多，压力也大；因此，减少做的事情，做重要的事，提高效率。&lt;/p&gt;
-&lt;h2 id=&quot;总则：&quot;&gt;
-    
-    </summary>
-    
-      <category term="读书" scheme="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-      <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
-    
-      <category term="效率" scheme="http://www.bookcell.org/tags/%E6%95%88%E7%8E%87/"/>
-    
-      <category term="方法" scheme="http://www.bookcell.org/tags/%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="少即是多" scheme="http://www.bookcell.org/tags/%E5%B0%91%E5%8D%B3%E6%98%AF%E5%A4%9A/"/>
-    
-      <category term="book" scheme="http://www.bookcell.org/tags/book/"/>
     
   </entry>
   

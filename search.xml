@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[arts-2018-11-two]]></title>
+    <url>%2F2018%2F11%2F26%2Farts-2018-11-two%2F</url>
+    <content type="text"><![CDATA[A(Algorithm):哈希表/hashtable 复杂度: O(1) 原理: 使用字符串作为键，可以访问任意的数据类型。 R(Review):https://www.webdesignerdepot.com/2018/02/8-best-free-libraries-for-svg/ 介绍了8个svg相关的库，比较推荐的有SVG.js和Snap.svg，Snap.svg支持导入现成的svg图片。如果涉及兼容性的问题，可以使用Raphaël这个库，Raphaël currently supports Firefox 3.0+, Safari 3.0+, Chrome 5.0+, Opera 9.5+ and Internet Explorer 6.0+. T(Technique):https://wesbos.com/tagged-template-literals/ 本文讲解了ES6中标签模板字符串 S(Share):Mac下配置iTerm命令行推荐2018年的JavaScript生态报告]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+        <tag>Algorithm</tag>
+        <tag>Review</tag>
+        <tag>Technique</tag>
+        <tag>Share</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[arts-2018-11-one]]></title>
     <url>%2F2018%2F11%2F19%2Farts-2018-11-one%2F</url>
     <content type="text"><![CDATA[arts-2018-11-oneA(Algorithm):快速排序 算法复杂度: O(nlog(n)) 原理: 通过分治的方法实现排序。 取中间位置为一个支点 根据支点的大小，划分大于、小于和等于支点值的数据部分 针对大于和小于的数据，重复步骤1和步骤2，直到剩余的数据为1个 拼接各数据成完整的数据 R(Review):https://medium.com/swlh/how-google-is-slowing-innovation-d53161108ea2 本文的主要观点是，拥抱、扩展和差异化来模仿和打败竞争对手。 T(Technique):https://blog.teamtreehouse.com/the-beginners-guide-to-three-js 本文讲解了使用three.js实现一个简单的3D的logo实例。 S(Share):Mac下清理的工具，推荐一下CleanMyMac(收费)和Onyx(免费)，近期清理出了100多个G的空间。]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+        <tag>Algorithm</tag>
+        <tag>Review</tag>
+        <tag>Technique</tag>
+        <tag>Share</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[HTTP Learning Notes]]></title>
@@ -143,8 +168,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>前端开发</tag>
         <tag>ag-grid</tag>
+        <tag>前端开发</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -674,8 +699,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>数据可视化</tag>
         <tag>数据</tag>
+        <tag>数据可视化</tag>
         <tag>概念</tag>
         <tag>data</tag>
         <tag>visualization</tag>
@@ -747,8 +772,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>url</tag>
         <tag>前端开发</tag>
+        <tag>url</tag>
       </tags>
   </entry>
   <entry>
@@ -847,8 +872,8 @@
     <content type="text"><![CDATA[安装及开始使用 使用Git拉取主题代码 修改站点配置文件，修改主题 选择主题外观 设置主题语言 设置菜单 设置头像 集成多说评论 集成百度统计 遇到的问题 页面显示大片空白？ 参考Next的issue 如果没有解决，可尝试主题配置文件中的use_motion配置项改为false。 主页底部显示一串乱码？ 解决方法：修改主题配置文件中的fancybox配置项为false。 参考 参考官网的说明]]></content>
       <tags>
         <tag>hexo</tag>
-        <tag>Next</tag>
         <tag>theme</tag>
+        <tag>Next</tag>
         <tag>简介</tag>
       </tags>
   </entry>

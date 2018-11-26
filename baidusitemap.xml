@@ -4,15 +4,56 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2018/11/26/arts-2018-11-two/</loc>
+    <lastmod>2018-11-26T04:48:01.507Z</lastmod>
+    <data>
+        <display>
+        <title>arts-2018-11-two</title>
+        <pubTime>2018-11-26T04:46:26.000Z</pubTime>
+        
+        <tag>ARTS</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Review</tag>
+         
+        <tag>Technique</tag>
+         
+        <tag>Share</tag>
+         
+         
+           
+             
+              <breadCrumb title="ARTS" url="http://www.bookcell.org/categories/ARTS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/11/19/arts-2018-11-one/</loc>
-    <lastmod>2018-11-19T01:21:22.126Z</lastmod>
+    <lastmod>2018-11-26T04:47:43.910Z</lastmod>
     <data>
         <display>
         <title>arts-2018-11-one</title>
         <pubTime>2018-11-19T01:20:35.000Z</pubTime>
         
+        <tag>ARTS</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Review</tag>
+         
+        <tag>Technique</tag>
+         
+        <tag>Share</tag>
+         
          
            
+             
+              <breadCrumb title="ARTS" url="http://www.bookcell.org/categories/ARTS/"/>
+          
         </display>
     </data>
     </url>
@@ -269,9 +310,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>前端开发</tag>
-         
         <tag>ag-grid</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>表格</tag>
          
@@ -1353,9 +1394,9 @@
         
         <tag>hexo</tag>
          
-        <tag>Next</tag>
-         
         <tag>theme</tag>
+         
+        <tag>Next</tag>
          
         <tag>简介</tag>
          
@@ -1444,9 +1485,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据可视化</tag>
-         
         <tag>数据</tag>
+         
+        <tag>数据可视化</tag>
          
         <tag>概念</tag>
          
@@ -1639,9 +1680,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>url</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>url</tag>
          
          
            
