@@ -120,7 +120,7 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="书格前端">
-<meta property="og:url" content="http://www.bookcell.org/tags/Share/index.html">
+<meta property="og:url" content="http://www.bookcell.org/tags/share/index.html">
 <meta property="og:site_name" content="书格前端">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://www.bookcell.org/tags/Share/"/>
+  <link rel="canonical" href="http://www.bookcell.org/tags/share/"/>
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>Tag: Share | 书格前端</title>
+  <title>Tag: share | 书格前端</title>
   
 
 
@@ -377,7 +377,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h2>Share<small>Tag</small>
+        <h2>share<small>Tag</small>
         </h2>
       </div>
 
@@ -389,37 +389,9 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/2018/11/26/arts-2018-11-two/" itemprop="url">
+            <a class="post-title-link" href="/2016/12/21/mac-remote-control/" itemprop="url">
               
-                <span itemprop="name">arts-2018-11-two</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-26T12:46:26+08:00"
-              content="2018-11-26" >
-          11-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/19/arts-2018-11-one/" itemprop="url">
-              
-                <span itemprop="name">arts-2018-11-one</span>
+                <span itemprop="name">Mac下远程控制方法</span>
               
             </a>
         
@@ -427,9 +399,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-19T09:20:35+08:00"
-              content="2018-11-19" >
-          11-19
+              datetime="2016-12-21T23:02:33+08:00"
+              content="2016-12-21" >
+          12-21
         </time>
       </div>
 
@@ -486,7 +458,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-count">71</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1533,6 +1505,56 @@
       transition: opacity .3s ease-in-out;
       opacity: 0;
       padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+px;
       position: absolute;
       right: 4px;
       top: 8px;

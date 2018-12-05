@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[arts-2018-11-three]]></title>
+    <url>%2F2018%2F12%2F05%2Farts-2018-11-three%2F</url>
+    <content type="text"><![CDATA[arts-2018-11-threeA(Algorithm):Graph 复杂度: O(顶点数+边数) 使用广度优先搜索进行查找，应用在寻找最短路径方面的搜索查找。 R(Review):https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work 讲解了SSH背后的加密原理，涉及到对称、非对称、哈希的加密方法。 T(Technique):Css Selector分为4大类： 元素选择器 ID、Class选择器 属性选择器 伪元素和伪类 S(Share):敏捷开发的方法论: 敏捷目的：以缩短周期，提高质量用户满意度为主 敏捷软件开发宣言: 个体和互动高于流程和工具 工作的软件高于详尽的文档 客户合作高于合同谈判 响应变化高于遵循计划]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+        <tag>Algorithm</tag>
+        <tag>Review</tag>
+        <tag>Technique</tag>
+        <tag>Share</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[arts-2018-11-two]]></title>
     <url>%2F2018%2F11%2F26%2Farts-2018-11-two%2F</url>
     <content type="text"><![CDATA[A(Algorithm):哈希表/hashtable 复杂度: O(1) 原理: 使用字符串作为键，可以访问任意的数据类型。 R(Review):https://www.webdesignerdepot.com/2018/02/8-best-free-libraries-for-svg/ 介绍了8个svg相关的库，比较推荐的有SVG.js和Snap.svg，Snap.svg支持导入现成的svg图片。如果涉及兼容性的问题，可以使用Raphaël这个库，Raphaël currently supports Firefox 3.0+, Safari 3.0+, Chrome 5.0+, Opera 9.5+ and Internet Explorer 6.0+. T(Technique):https://wesbos.com/tagged-template-literals/ 本文讲解了ES6中标签模板字符串 S(Share):Mac下配置iTerm命令行推荐2018年的JavaScript生态报告]]></content>
@@ -168,8 +183,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>ag-grid</tag>
         <tag>前端开发</tag>
+        <tag>ag-grid</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
