@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[arts-2018-12-one]]></title>
+    <url>%2F2018%2F12%2F10%2Farts-2018-12-one%2F</url>
+    <content type="text"><![CDATA[arts-2018-12-oneA(Algorithm):图(Graph) 原理： 图由点和边组成，分为有向图和无向图。 R(Review):css resets和why use manjaro linux css样式重置的几个要点，保持各浏览器间的显示效果统一，以及增加部分带有观点的样式。 Manjaro是一个基于Arch的Linux发行版，提供开箱即用的桌面环境，xfce、Gnome、KDE以及定制版，满足各级别用户的需求。软件包管理工具是pacman，继承自Arch，从Ubuntu或者其他发行版转过来，需要适应一段时间。 T(Technique):CSS中pointer-events的用法，设置某个特定的元素是否响应鼠标事件 支持的属性： 12345678910111213141516/* Keyword values */pointer-events: auto;pointer-events: none;pointer-events: visiblePainted; /* SVG only */pointer-events: visibleFill; /* SVG only */pointer-events: visibleStroke; /* SVG only */pointer-events: visible; /* SVG only */pointer-events: painted; /* SVG only */pointer-events: fill; /* SVG only */pointer-events: stroke; /* SVG only */pointer-events: all; /* SVG only *//* Global values */pointer-events: inherit;pointer-events: initial;pointer-events: unset; S(Share):敏捷开发的用户故事(User Story)切分方法 基于INVEST法则 I(Independent): 独立的 N(Negotiate): 可协商的 V(Value): 有价值的 E(Evaluable): 可评估的 S(Small): 小的 T(Testable): 可测试的]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+        <tag>Algorithm</tag>
+        <tag>Review</tag>
+        <tag>Technique</tag>
+        <tag>Share</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[arts-2018-11-three]]></title>
     <url>%2F2018%2F12%2F05%2Farts-2018-11-three%2F</url>
     <content type="text"><![CDATA[arts-2018-11-threeA(Algorithm):Graph 复杂度: O(顶点数+边数) 使用广度优先搜索进行查找，应用在寻找最短路径方面的搜索查找。 R(Review):https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work 讲解了SSH背后的加密原理，涉及到对称、非对称、哈希的加密方法。 T(Technique):Css Selector分为4大类： 元素选择器 ID、Class选择器 属性选择器 伪元素和伪类 S(Share):敏捷开发的方法论: 敏捷目的：以缩短周期，提高质量用户满意度为主 敏捷软件开发宣言: 个体和互动高于流程和工具 工作的软件高于详尽的文档 客户合作高于合同谈判 响应变化高于遵循计划]]></content>
@@ -183,8 +198,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>前端开发</tag>
         <tag>ag-grid</tag>
+        <tag>前端开发</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -240,8 +255,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>入门</tag>
         <tag>工具</tag>
+        <tag>入门</tag>
         <tag>搜索引擎</tag>
         <tag>google</tag>
       </tags>
