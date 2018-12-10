@@ -1172,6 +1172,10 @@
     
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
+      <category term="html入门" scheme="http://www.bookcell.org/tags/html%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="html学习" scheme="http://www.bookcell.org/tags/html%E5%AD%A6%E4%B9%A0/"/>
+    
       <category term="入门" scheme="http://www.bookcell.org/tags/%E5%85%A5%E9%97%A8/"/>
     
       <category term="2018" scheme="http://www.bookcell.org/tags/2018/"/>
@@ -1179,10 +1183,6 @@
       <category term="知乎专栏" scheme="http://www.bookcell.org/tags/%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F/"/>
     
       <category term="书格前端" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E6%A0%BC%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="html入门" scheme="http://www.bookcell.org/tags/html%E5%85%A5%E9%97%A8/"/>
-    
-      <category term="html学习" scheme="http://www.bookcell.org/tags/html%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -1237,9 +1237,9 @@
     
       <category term="angularjs" scheme="http://www.bookcell.org/tags/angularjs/"/>
     
-      <category term="ag-grid" scheme="http://www.bookcell.org/tags/ag-grid/"/>
-    
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="ag-grid" scheme="http://www.bookcell.org/tags/ag-grid/"/>
     
       <category term="表格" scheme="http://www.bookcell.org/tags/%E8%A1%A8%E6%A0%BC/"/>
     
@@ -1551,9 +1551,9 @@
       <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="入门" scheme="http://www.bookcell.org/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="搜索引擎" scheme="http://www.bookcell.org/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     

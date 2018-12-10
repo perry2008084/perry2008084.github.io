@@ -181,12 +181,12 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
+        <tag>html入门</tag>
+        <tag>html学习</tag>
         <tag>入门</tag>
         <tag>2018</tag>
         <tag>知乎专栏</tag>
         <tag>书格前端</tag>
-        <tag>html入门</tag>
-        <tag>html学习</tag>
       </tags>
   </entry>
   <entry>
@@ -198,8 +198,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>ag-grid</tag>
         <tag>前端开发</tag>
+        <tag>ag-grid</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -255,8 +255,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>工具</tag>
         <tag>入门</tag>
+        <tag>工具</tag>
         <tag>搜索引擎</tag>
         <tag>google</tag>
       </tags>
@@ -729,8 +729,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>数据</tag>
         <tag>数据可视化</tag>
+        <tag>数据</tag>
         <tag>概念</tag>
         <tag>data</tag>
         <tag>visualization</tag>
@@ -802,8 +802,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>前端开发</tag>
         <tag>url</tag>
+        <tag>前端开发</tag>
       </tags>
   </entry>
   <entry>
@@ -902,8 +902,8 @@
     <content type="text"><![CDATA[安装及开始使用 使用Git拉取主题代码 修改站点配置文件，修改主题 选择主题外观 设置主题语言 设置菜单 设置头像 集成多说评论 集成百度统计 遇到的问题 页面显示大片空白？ 参考Next的issue 如果没有解决，可尝试主题配置文件中的use_motion配置项改为false。 主页底部显示一串乱码？ 解决方法：修改主题配置文件中的fancybox配置项为false。 参考 参考官网的说明]]></content>
       <tags>
         <tag>hexo</tag>
-        <tag>theme</tag>
         <tag>Next</tag>
+        <tag>theme</tag>
         <tag>简介</tag>
       </tags>
   </entry>
