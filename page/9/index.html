@@ -365,6 +365,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/02/20/css-custom-li-style/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/20/css-custom-li-style/" itemprop="url">
+                  自定义li的css样式
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-02-20 17:16:27 / Modified: 17:17:31" itemprop="dateCreated datePublished" datetime="2017-02-20T17:16:27+08:00">2017-02-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/20/css-custom-li-style/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/02/20/css-custom-li-style/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>li的默认样式有几种，我们想要自定义li的样式，例如定义颜色或者显示的图标，以下是操作的两种方法。</p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>修改的原理，取消list默认的style，并通过伪元素before来设置新的样式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ul &#123;list-style: none&#125;</span><br><span class="line"></span><br><span class="line">li::before &#123;</span><br><span class="line">  content: &quot;•&quot;; color: red;</span><br><span class="line">  display: inline-block; width: 1em;</span><br><span class="line">  margin-left: -1em</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>特殊符号的一些输入可使用Unicode编码：• = “\2022”, ◦ = \25E6” and ▪ = “\25AA”</p>
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>修改的原理，通过自定义的class来区分标点和文字的颜色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.listStyle &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.listStyle p &#123;</span><br><span class="line">  color: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;ul class=&quot;listStyle&quot;&gt;</span><br><span class="line">  &lt;li&gt;</span><br><span class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">  &lt;li&gt;</span><br><span class="line">    &lt;p&gt;&lt;strong&gt;View :&lt;/strong&gt; blah blah.&lt;/p&gt;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
+<li><a href="https://www.w3.org/Style/Examples/007/color-bullets.en.html" target="_blank" rel="noopener">COLORED BULLETS</a></li>
+<li><a href="http://stackoverflow.com/questions/25717340/change-the-bullet-color-of-list" target="_blank" rel="noopener">Change the bullet color of list</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/02/09/opensource-license-series-creativecommons/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1074,192 +1251,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/01/23/opensource-license-series-bsd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/23/opensource-license-series-bsd/" itemprop="url">
-                  开源协议系列之BSD
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-01-23 14:23:31" itemprop="dateCreated datePublished" datetime="2017-01-23T14:23:31+08:00">2017-01-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2017-02-23 14:09:20" itemprop="dateModified" datetime="2017-02-23T14:09:20+08:00">2017-02-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/23/opensource-license-series-bsd/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/01/23/opensource-license-series-bsd/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为BSD协议。</p>
-<h2 id="英文版"><a href="#英文版" class="headerlink" title="英文版"></a>英文版</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">* Copyright (c) 1998, Regents of the University of California</span><br><span class="line">* All rights reserved.</span><br><span class="line">* Redistribution and use in source and binary forms, with or without</span><br><span class="line">* modification, are permitted provided that the following conditions are met:</span><br><span class="line">*</span><br><span class="line">*     * Redistributions of source code must retain the above copyright</span><br><span class="line">*       notice, this list of conditions and the following disclaimer.</span><br><span class="line">*     * Redistributions in binary form must reproduce the above copyright</span><br><span class="line">*       notice, this list of conditions and the following disclaimer in the</span><br><span class="line">*       documentation and/or other materials provided with the distribution.</span><br><span class="line">*     * Neither the name of the University of California, Berkeley nor the</span><br><span class="line">*       names of its contributors may be used to endorse or promote products</span><br><span class="line">*       derived from this software without specific prior written permission.</span><br><span class="line">*</span><br><span class="line">* THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY</span><br><span class="line">* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED</span><br><span class="line">* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE</span><br><span class="line">* DISCLAIMED. IN NO EVENT SHALL THE REGENTS AND CONTRIBUTORS BE LIABLE FOR ANY</span><br><span class="line">* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES</span><br><span class="line">* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;</span><br><span class="line">* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND</span><br><span class="line">* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span><br><span class="line">* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</span><br><span class="line">* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span><br></pre></td></tr></table></figure>
-<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">* Copyright (c) 1998 著作权由加州大学董事会所有。著作权人保留一切权利。</span><br><span class="line">*</span><br><span class="line">* 这份授权条款，在使用者符合以下三条件的情形下，授予使用者使用及再散播本</span><br><span class="line">* 软件包装原始码及二进位可执行形式的权利，无论此包装是否经改作皆然：</span><br><span class="line">*</span><br><span class="line">* * 对于本软件源代码的再散播，必须保留上述的版权宣告、此三条件表列，以</span><br><span class="line">*   及下述的免责声明。</span><br><span class="line">* * 对于本套件二进位可执行形式的再散播，必须连带以文件以及／或者其他附</span><br><span class="line">*   于散播包装中的媒介方式，重制上述之版权宣告、此三条件表列，以及下述</span><br><span class="line">*   的免责声明。</span><br><span class="line">* * 未获事前取得书面许可，不得使用柏克莱加州大学或本软件贡献者之名称，</span><br><span class="line">*   来为本软件之衍生物做任何表示支持、认可或推广、促销之行为。</span><br><span class="line">*</span><br><span class="line">* 免责声明：本软件是由加州大学董事会及本软件之贡献者以现状提供，</span><br><span class="line">* 本软件包装不负任何明示或默示之担保责任，包括但不限于就适售性以及特定目</span><br><span class="line">* 的的适用性为默示性担保。加州大学董事会及本软件之贡献者，无论任何条件、</span><br><span class="line">* 无论成因或任何责任主义、无论此责任为因合约关系、无过失责任主义或因非违</span><br><span class="line">* 约之侵权（包括过失或其他原因等）而起，对于任何因使用本软件包装所产生的</span><br><span class="line">* 任何直接性、间接性、偶发性、特殊性、惩罚性或任何结果的损害（包括但不限</span><br><span class="line">* 于替代商品或劳务之购用、使用损失、资料损失、利益损失、业务中断等等），</span><br><span class="line">* 不负任何责任，即在该种使用已获事前告知可能会造成此类损害的情形下亦然。</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://en.wikipedia.org/wiki/BSD_licenses" target="_blank" rel="noopener">BSD licenses</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/BSD%E8%AE%B8%E5%8F%AF%E8%AF%81" target="_blank" rel="noopener">BSD许可证</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1307,7 +1298,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">73</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

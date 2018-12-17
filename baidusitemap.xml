@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2018/12/17/arts-2018-12-two/</loc>
+    <lastmod>2018-12-17T14:39:05.599Z</lastmod>
+    <data>
+        <display>
+        <title>arts-2018-12-two</title>
+        <pubTime>2018-12-17T14:38:28.000Z</pubTime>
+        
+        <tag>ARTS</tag>
+         
+        <tag>Algorithm</tag>
+         
+        <tag>Review</tag>
+         
+        <tag>Technique</tag>
+         
+        <tag>Share</tag>
+         
+         
+           
+             
+              <breadCrumb title="ARTS" url="http://www.bookcell.org/categories/ARTS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/12/10/arts-2018-12-one/</loc>
     <lastmod>2018-12-10T14:06:26.368Z</lastmod>
     <data>
@@ -334,10 +362,6 @@
         
         <tag>前端开发</tag>
          
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
-         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -345,6 +369,10 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
+         
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
          
          
            
@@ -1450,9 +1478,9 @@
         
         <tag>hexo</tag>
          
-        <tag>Next</tag>
-         
         <tag>theme</tag>
+         
+        <tag>Next</tag>
          
         <tag>简介</tag>
          
@@ -1541,9 +1569,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据可视化</tag>
-         
         <tag>数据</tag>
+         
+        <tag>数据可视化</tag>
          
         <tag>概念</tag>
          

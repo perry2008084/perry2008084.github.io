@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[arts-2018-12-two]]></title>
+    <url>%2F2018%2F12%2F17%2Farts-2018-12-two%2F</url>
+    <content type="text"><![CDATA[arts-2018-12-twoA(Algorithm):加权图 用途：权重为正的加权图，使用Dijkstra算法进行最短路径搜索。 R(Review):小布什悼念演讲 小布什回顾了老布什的一生，还原了一个乐观、负责、有趣的老布什，值得多读几遍。 T(Technique):Nodejs file system api require(&#39;fs&#39;)进行使用，主要是提供了POSIX类似的文件系统相关接口。 S(Share):Chrome表单自动填充样式修改 罗列了Chrome下input表单元素自动填充时，背景颜色为黄色的处理方法以及添加背景图片等。]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+        <tag>Algorithm</tag>
+        <tag>Review</tag>
+        <tag>Technique</tag>
+        <tag>Share</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[arts-2018-12-one]]></title>
     <url>%2F2018%2F12%2F10%2Farts-2018-12-one%2F</url>
     <content type="text"><![CDATA[arts-2018-12-oneA(Algorithm):图(Graph) 原理： 图由点和边组成，分为有向图和无向图。 R(Review):css resets和why use manjaro linux css样式重置的几个要点，保持各浏览器间的显示效果统一，以及增加部分带有观点的样式。 Manjaro是一个基于Arch的Linux发行版，提供开箱即用的桌面环境，xfce、Gnome、KDE以及定制版，满足各级别用户的需求。软件包管理工具是pacman，继承自Arch，从Ubuntu或者其他发行版转过来，需要适应一段时间。 T(Technique):CSS中pointer-events的用法，设置某个特定的元素是否响应鼠标事件 支持的属性： 12345678910111213141516/* Keyword values */pointer-events: auto;pointer-events: none;pointer-events: visiblePainted; /* SVG only */pointer-events: visibleFill; /* SVG only */pointer-events: visibleStroke; /* SVG only */pointer-events: visible; /* SVG only */pointer-events: painted; /* SVG only */pointer-events: fill; /* SVG only */pointer-events: stroke; /* SVG only */pointer-events: all; /* SVG only *//* Global values */pointer-events: inherit;pointer-events: initial;pointer-events: unset; S(Share):敏捷开发的用户故事(User Story)切分方法 基于INVEST法则 I(Independent): 独立的 N(Negotiate): 可协商的 V(Value): 有价值的 E(Evaluable): 可评估的 S(Small): 小的 T(Testable): 可测试的]]></content>
@@ -181,12 +196,12 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
-        <tag>html入门</tag>
-        <tag>html学习</tag>
         <tag>入门</tag>
         <tag>2018</tag>
         <tag>知乎专栏</tag>
         <tag>书格前端</tag>
+        <tag>html入门</tag>
+        <tag>html学习</tag>
       </tags>
   </entry>
   <entry>
@@ -729,8 +744,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>数据可视化</tag>
         <tag>数据</tag>
+        <tag>数据可视化</tag>
         <tag>概念</tag>
         <tag>data</tag>
         <tag>visualization</tag>
@@ -902,8 +917,8 @@
     <content type="text"><![CDATA[安装及开始使用 使用Git拉取主题代码 修改站点配置文件，修改主题 选择主题外观 设置主题语言 设置菜单 设置头像 集成多说评论 集成百度统计 遇到的问题 页面显示大片空白？ 参考Next的issue 如果没有解决，可尝试主题配置文件中的use_motion配置项改为false。 主页底部显示一串乱码？ 解决方法：修改主题配置文件中的fancybox配置项为false。 参考 参考官网的说明]]></content>
       <tags>
         <tag>hexo</tag>
-        <tag>Next</tag>
         <tag>theme</tag>
+        <tag>Next</tag>
         <tag>简介</tag>
       </tags>
   </entry>
