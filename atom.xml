@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-12-17T14:39:05.599Z</updated>
+  <updated>2018-12-24T15:03:42.203Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>arts-2018-12-three</title>
+    <link href="http://www.bookcell.org/2018/12/24/arts-2018-12-three/"/>
+    <id>http://www.bookcell.org/2018/12/24/arts-2018-12-three/</id>
+    <published>2018-12-24T15:03:13.000Z</published>
+    <updated>2018-12-24T15:03:42.203Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="arts-2018-three"><a href="#arts-2018-three" class="headerlink" title="arts-2018-three"></a>arts-2018-three</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>贪婪算法和背包问题</p>
+<blockquote>
+<p>初步了解算法，通过近似的解来降低复杂度。</p>
+</blockquote>
+<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://nitayneeman.com/posts/a-taste-from-ecmascript-2019/" target="_blank" rel="noopener">ECMAScript - A Taste from ES2019 (ES10)</a></p>
+<ul>
+<li>Optional Catch Binding</li>
+<li>Subsume JSON</li>
+<li>Symbol Description Accessor</li>
+<li>Function “toString” Revision</li>
+</ul>
+<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p><a href="https://www.douban.com/note/173404594/" target="_blank" rel="noopener">衬线体和无衬线体</a></p>
+<blockquote>
+<p>衬线字体在字体笔画始末的地方有额外的装饰，适合阅读，无衬线适合标题。</p>
+</blockquote>
+<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p><a href="https://github.com/facebook/react/releases" target="_blank" rel="noopener">Reactjs v16.7.0版本发布</a></p>
+<blockquote>
+<p>主要涉及几个性能优化的地方。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;arts-2018-three&quot;&gt;&lt;a href=&quot;#arts-2018-three&quot; class=&quot;headerlink&quot; title=&quot;arts-2018-three&quot;&gt;&lt;/a&gt;arts-2018-three&lt;/h1&gt;&lt;h2 id=&quot;A-Algorithm&quot;&gt;
+    
+    </summary>
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
+    
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
+    
+      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
+    
+      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
+    
+      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
+    
+      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
+    
+  </entry>
   
   <entry>
     <title>arts-2018-12-two</title>
@@ -1279,9 +1328,9 @@
     
       <category term="angularjs" scheme="http://www.bookcell.org/tags/angularjs/"/>
     
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="ag-grid" scheme="http://www.bookcell.org/tags/ag-grid/"/>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="表格" scheme="http://www.bookcell.org/tags/%E8%A1%A8%E6%A0%BC/"/>
     
@@ -1600,73 +1649,6 @@
       <category term="搜索引擎" scheme="http://www.bookcell.org/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     
       <category term="google" scheme="http://www.bookcell.org/tags/google/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从npm到yarn</title>
-    <link href="http://www.bookcell.org/2018/03/26/from-npm-to-yarn/"/>
-    <id>http://www.bookcell.org/2018/03/26/from-npm-to-yarn/</id>
-    <published>2018-03-26T14:48:11.000Z</published>
-    <updated>2018-03-26T14:49:00.683Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于使用NPM在国内的安装速度很慢，找了一些解决方案，因此引出了Yarn + 淘宝源的使用方案，记录一下Yarn使用的方法</p>
-<ol>
-<li>Yarn简介</li>
-<li>Yarn安装</li>
-<li>NPM源配置</li>
-<li>Yarn使用</li>
-</ol>
-<h2 id="Yarn简介"><a href="#Yarn简介" class="headerlink" title="Yarn简介"></a>Yarn简介</h2><p>Yarn是FaceBook推出的一款基于nodejs的依赖管理工具，在npm基础上做了一些改进。Github上的star已经超过30k。</p>
-<p>超快</p>
-<blockquote>
-<p>Yarn caches every package it downloads so it never needs to download it again. It also parallelizes operations to maximize resource utilization so install times are faster than ever.</p>
-</blockquote>
-<p>非常安全</p>
-<blockquote>
-<p>Yarn uses checksums to verify the integrity of every installed package before its code is executed.</p>
-</blockquote>
-<p>超可靠</p>
-<blockquote>
-<p>Using a detailed, but concise, lockfile format, and a deterministic algorithm for installs, Yarn is able to guarantee that an install that worked on one system will work exactly the same way on any other system.</p>
-</blockquote>
-<p>详细的优点可参看知乎的评价文章<a href="https://www.zhihu.com/question/51502849" target="_blank" rel="noopener">如何评价Facebook推出的JavaScript模块管理器yarn？</a></p>
-<h2 id="Yarn安装"><a href="#Yarn安装" class="headerlink" title="Yarn安装"></a>Yarn安装</h2><p>这里列一下MacOS下的安装方法：</p>
-<p>使用Homebrew进行安装，如果没有安装Node.js会自动进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn</span><br></pre></td></tr></table></figure></p>
-<p>如果已经使用nvm或者类似的工具安装过Node.js，可以选择忽略安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn --without-node</span><br></pre></td></tr></table></figure></p>
-<p>验证是否安装成功:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn --version</span><br></pre></td></tr></table></figure></p>
-<h2 id="NPM源配置"><a href="#NPM源配置" class="headerlink" title="NPM源配置"></a>NPM源配置</h2><p>有两种方法：</p>
-<p>一、直接配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 配置registry</span><br><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br><span class="line"></span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-<p>二、使用nrm切换npm源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 安装nrm</span><br><span class="line">npm i nrm -g</span><br><span class="line"></span><br><span class="line">// 列出所有可用的registry</span><br><span class="line">nrm ls</span><br><span class="line"></span><br><span class="line">// 使用淘宝源</span><br><span class="line">nrm use taobao</span><br><span class="line"></span><br><span class="line">// 测试速度</span><br><span class="line">nrm test</span><br></pre></td></tr></table></figure>
-<p>建议使用第二种方案</p>
-<h2 id="Yarn使用"><a href="#Yarn使用" class="headerlink" title="Yarn使用"></a>Yarn使用</h2><p>列举一些常用的命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 新建一个项目</span><br><span class="line">yarn init</span><br><span class="line"></span><br><span class="line">// 添加依赖</span><br><span class="line">yarn add [package]</span><br><span class="line">yarn add [package]@[version]</span><br><span class="line">yarn add [package]@[tag]</span><br><span class="line"></span><br><span class="line">// 添加其他类型的依赖到项目中</span><br><span class="line">// 其中dev是开发依赖；peer一般用于开发库；</span><br><span class="line">// optional为可选依赖，安装过程中报错也可忽略</span><br><span class="line">yarn add [package] --dev</span><br><span class="line">yarn add [package] --peer</span><br><span class="line">yarn add [package] --optional</span><br><span class="line"></span><br><span class="line">// 升级依赖</span><br><span class="line">yarn upgrade [package]</span><br><span class="line">yarn upgrade [package]@[version]</span><br><span class="line">yarn upgrade [package]@[tag]</span><br><span class="line"></span><br><span class="line">// 移除依赖</span><br><span class="line">yarn remove [package]</span><br><span class="line"></span><br><span class="line">// 安装一个项目的所有依赖</span><br><span class="line">yarn</span><br><span class="line"></span><br><span class="line">// 或者</span><br><span class="line">yarn install</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于使用NPM在国内的安装速度很慢，找了一些解决方案，因此引出了Yarn + 淘宝源的使用方案，记录一下Yarn使用的方法&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Yarn简介&lt;/li&gt;
-&lt;li&gt;Yarn安装&lt;/li&gt;
-&lt;li&gt;NPM源配置&lt;/li&gt;
-&lt;li&gt;Yarn使用&lt;/li&gt;
-&lt;/
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="npm" scheme="http://www.bookcell.org/tags/npm/"/>
-    
-      <category term="yarn" scheme="http://www.bookcell.org/tags/yarn/"/>
-    
-      <category term="速度" scheme="http://www.bookcell.org/tags/%E9%80%9F%E5%BA%A6/"/>
     
   </entry>
   
