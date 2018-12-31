@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2018/12/31/reading-list-2019/</loc>
+    <lastmod>2018-12-31T06:47:34.823Z</lastmod>
+    <data>
+        <display>
+        <title>2019年阅读计划</title>
+        <pubTime>2018-12-31T06:44:29.000Z</pubTime>
+        
+        <tag>阅读</tag>
+         
+        <tag>读书</tag>
+         
+        <tag>书单</tag>
+         
+        <tag>2019</tag>
+         
+         
+           
+             
+              <breadCrumb title="读书" url="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/12/31/reading-history-2018/</loc>
     <lastmod>2018-12-31T06:42:09.184Z</lastmod>
     <data>
@@ -470,10 +496,6 @@
         
         <tag>前端开发</tag>
          
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
-         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -481,6 +503,10 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
+         
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
          
          
            
@@ -502,9 +528,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>前端开发</tag>
-         
         <tag>ag-grid</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>表格</tag>
          
@@ -1586,9 +1612,9 @@
         
         <tag>hexo</tag>
          
-        <tag>theme</tag>
-         
         <tag>Next</tag>
+         
+        <tag>theme</tag>
          
         <tag>简介</tag>
          
@@ -1872,9 +1898,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>url</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>url</tag>
          
          
            
