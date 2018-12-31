@@ -365,6 +365,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/09/01/javascript-create-object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/01/javascript-create-object/" itemprop="url">
+                  JavaScript中对象的几种创建方式
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-09-01 09:26:21" itemprop="dateCreated datePublished" datetime="2017-09-01T09:26:21+08:00">2017-09-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2017-11-16 22:11:56" itemprop="dateModified" datetime="2017-11-16T22:11:56+08:00">2017-11-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/01/javascript-create-object/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/09/01/javascript-create-object/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>记录JavaScript中创建对象的几种方法。</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式是一种设计模式，抽象创建具体对象的过程，用函数来封装特定接口并创建对象的细节。</p>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/* 工厂模式 */</span><br><span class="line">function createPerson(name, age, job) &#123;</span><br><span class="line">    var o = new Object();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.job = job;</span><br><span class="line">    o.sayName = function() &#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;;</span><br><span class="line">    return o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person1 = createPerson(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);</span><br><span class="line">var person2 = createPerson(&quot;Greg&quot;, 27, &quot;Doctor&quot;);</span><br><span class="line"></span><br><span class="line">console.log(person1);</span><br><span class="line">console.log(person2);</span><br></pre></td></tr></table></figure></p>
+<p>优点:<br>解决创建多个相似对象。</p>
+<p>缺点：<br>没有解决对象识别的问题。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/01/javascript-create-object/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/08/02/nginx-page-forbidden/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1075,219 +1263,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/04/09/buy-electromobile-guide/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/09/buy-electromobile-guide/" itemprop="url">
-                  电动自行车购买不完全指南
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-04-09 11:18:17 / Modified: 12:11:12" itemprop="dateCreated datePublished" datetime="2017-04-09T11:18:17+08:00">2017-04-09</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/09/buy-electromobile-guide/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/04/09/buy-electromobile-guide/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>年初的时候，也就是刚过完年，准备弄个电动自行车（后续简称为电动车），方便平时的生活，主要是周末进行买菜以及附近的办事。<br>购买之后，使用了将近2个多月的时间，心得体会是，生活的半径确实扩大了，有一些地铁和公交不方便达到的地方，有时候想去也会去看看了。虽然电动车的行程没有汽车的覆盖范围广，但是两者的功能职责是不同的，汽车的购买也在计划中了。</p>
-<p>这里就列举下购买电动车的一些心得：</p>
-<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>这里的定位，主要是你想购买的电动车的用途、重量、续航。</p>
-<p>所谓的用途，有点类似你的目标，你想要电动车做什么事。比如说上下班通勤、周末买菜、运送小件货物等等。</p>
-<p>重量和续航，会影响到后续的使用，锂电池和铅酸电池的电动车重量不一样，另外，不同的车架重量也不一样。</p>
-<p>续航，影响到日常的使用，通常充满电在50公里的行程比较多，也有60~80公里的行程，更多的是100公里。超长续航的比较少，代价是更重的电池和价格。</p>
-<p>购买之前，先想清楚，购买电动车的定位，方便下一步筛选。</p>
-<h2 id="预算"><a href="#预算" class="headerlink" title="预算"></a>预算</h2><p>根据第一步所想得定位，可初步筛选出相应功能的电动车品牌所对应的车型，这一步，就要确定一下购买的预算。</p>
-<p>车架不同，价格有大概1K左右的预算，简单车架的电动车一般在2k左右，完整车架的电动车一般在3~4k左右(简单车架和完整车架为我自己创的，方便描述)</p>
-<p>确定了预算之后，就可以进一步排除筛选的范围，直到确定想买的车型。</p>
-<h2 id="选车"><a href="#选车" class="headerlink" title="选车"></a>选车</h2><p>确定了定位和预算之后，这一步就要从众多的电动车品牌中选一出一款自己喜欢的车子。每个人的诉求不同，性价比、颜值、续航、重量、品牌粉、广告代言明星粉(胡歌^_^)等等</p>
-<p>这里罗列一下国内主要的电动车品牌，供参考：</p>
-<ul>
-<li>小牛</li>
-<li>雅迪</li>
-<li>绿源</li>
-<li>爱玛</li>
-<li>新日</li>
-<li>立马</li>
-<li>台铃</li>
-<li>绿佳</li>
-<li>比德文</li>
-<li>小刀</li>
-<li>小鸟</li>
-</ul>
-<p>讲一下我购买前关注的比较多的品牌情况，小牛、雅迪、绿源、爱玛。</p>
-<p>1、小牛<br>主要生产锂电池电动车，外形比较酷，续航很不错，稍微高端一点的车型还配有app监控服务，另外还提供保险。缺点是价格偏高，价位在4500以上依车型而定。<br>本来是很中意小牛的，最终没有买，一来是价格偏高，二来是担心被盗心疼。</p>
-<p>2、雅迪<br>算是国内电动车的第一品牌，有铅酸电池和锂电池的电动车可供选择，续航和售后还不错，价格属于中上，配套服务没有小牛的好，目前雅迪应该是走偏高端的路线。<br>我最终购买了雅迪的铅酸电池的一款车，买的是60V的电池，续航还不错，在60~80公里的样子，主要是我老婆看中了车子的颜值。</p>
-<p>3、绿源<br>车子的外观和雅迪相似，功能上也和雅迪相近，价格比雅迪偏低一点，也是一个不错的选择，性能上没有测试过。</p>
-<p>4、爱玛<br>爱玛是从自行车出身的，因此车架上会更偏向自行车一些，走得偏低端的路线。</p>
-<p>以上这些情况，供大家参考，实际购买的时候，需要找几家门店去看看实际的车子，包括看外观、试骑等等。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>说说购买电动车之后的使用情况，主要是平时周末的时候买菜和出去周边游玩。</p>
-<ul>
-<li><p>载人和物<br>可以带一个人，可以带超市购买的物品完全没有问题，只是不是大件。曾经带过最大的一件物品是，从宜家拖了一个花架，大概有1.7米的高度。</p>
-</li>
-<li><p>续航<br>平时走的公里，坡度普遍不高的情况，一般充满电，可使用70公里以上。就平时周末使用，一周充一次电的频率。</p>
-</li>
-<li><p>重量<br>这里不得不吐槽，购买的铅酸电池及完整车架的电动车，重量太重了，上下楼很费劲，平时推一下挪一下都要费力。如果是在意车子重量的，建议买锂电池的车。</p>
-</li>
-</ul>
-<p>以上所有内容为购买过程中的心得体会，有不足的地方，欢迎提问或者讨论</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1330,7 +1310,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
