@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2018-12-31T06:47:34.823Z</updated>
+  <updated>2019-01-08T14:04:23.756Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019年D2和SEE Conf的参会感想</title>
+    <link href="http://www.bookcell.org/2019/01/06/2019-d2-and-seeconf/"/>
+    <id>http://www.bookcell.org/2019/01/06/2019-d2-and-seeconf/</id>
+    <published>2019-01-06T12:08:03.000Z</published>
+    <updated>2019-01-08T14:04:23.756Z</updated>
+    
+    <content type="html"><![CDATA[<p>2019年的第一个周末在杭州参加了两个都是阿里主导的前端技术会议，一个是SEE Conf，另一个是D2，从参会人员规模和演讲嘉宾来看，D2的级别更高一点，干货也更多。但是，SEE Conf的初心是很不错的，而且也是免费分享，提出了体验的重要性和可持续的未来相关观点。</p>
+<h2 id="SEE-Conf"><a href="#SEE-Conf" class="headerlink" title="SEE Conf"></a>SEE Conf</h2><p>SEE Conf，全称是Seeking Experience and Engineer Conference，关注体验和工程，他们的口号是探索极致用户体验和最佳工程实践，他们也是身体力行的在探索。</p>
+<p>从一整天的会议听下来，不免有一些蚂蚁金服在推广他们的开源产品，但是其中也分享了不少新鲜的观点。这里列几个对我印象比较深刻的主题。</p>
+<h2 id="玉伯提的SaaS应用和体验"><a href="#玉伯提的SaaS应用和体验" class="headerlink" title="玉伯提的SaaS应用和体验"></a>玉伯提的SaaS应用和体验</h2><p>开场玉伯致辞，久闻大名，第一次在现场见到，很接地气。</p>
+<p>玉伯提出了当前SaaS应用渐渐成为主流，也因此应用的体验变得日趋重要，这也是他们一直在推行探索体验技术的一个推力之一。另外一点，现场中玉伯也提到了Ant Design项目的“圣诞彩蛋”项目，并且现场道歉了，对于开源项目的态度还是比较诚恳的，对于后续他们对开源项目的维护有些期待，希望阿里和蚂蚁对开源社区多用心，负责。</p>
+<h2 id="同济大学娄永琪院长的《交互设计与人类未来》"><a href="#同济大学娄永琪院长的《交互设计与人类未来》" class="headerlink" title="同济大学娄永琪院长的《交互设计与人类未来》"></a>同济大学娄永琪院长的《交互设计与人类未来》</h2><p>这个主题前半部分一直在谈人类的历史和地球面临的问题，一直没有和设计扯上关系。到了中期，慢慢过渡到交互设计，人类可持续发展与设计的关联，再扩展到设计与社区的实践。这个主题分享确实能开阔眼界，学术前沿的研究方向。</p>
+<p>其中娄院长提到了其中一本书《翻转极限》，应该值得一看，讲目前人类遇到的种种问题，以及现今的解决方案。</p>
+<h2 id="林峰的《科技与人文结合的体验度量》"><a href="#林峰的《科技与人文结合的体验度量》" class="headerlink" title="林峰的《科技与人文结合的体验度量》"></a>林峰的《科技与人文结合的体验度量》</h2><p>相信很多人知道林峰是因为ECharts，现在林峰应该是在蚂蚁带领可视化的团队。林峰的演讲整体给人的感觉，演讲很流畅，口才听好的。演讲的内容也很有趣，主要谈及的是产品在体验方面的定量度量方法，并且能提供建议，他们内部的产品名称是“九色鹿”，应该还没有开源。主要的依据是PTECH指标，后续可以了解一下，TECH指标是在上一届SEE Conf中提出的。</p>
+<h2 id="云谦的《蚂蚁金服前端框架探索之路》"><a href="#云谦的《蚂蚁金服前端框架探索之路》" class="headerlink" title="云谦的《蚂蚁金服前端框架探索之路》"></a>云谦的《蚂蚁金服前端框架探索之路》</h2><p>用过dva和roadhog项目，在github上的id是sorrycc，现场看到真人和头像不怎么像，可能是胖了。</p>
+<p>这个分享中云谦提到了蚂蚁金服在前端框架选型和造轮子路上，一路走来的历程，从roof、redux、dva、umi，踩过不少坑。现场看，他们内部主要在用umi以及基于umi的一套插件生态，dva他们只用在数据流方面，已经濒临淘汰；不过现场的观众来看，还是有不少人在使用dva，大家也表示出对dva后续开发维护的担忧，云谦给出的答复是，dva后续会有第3版的升级，roadhog将会进入维护模式。而且，期间云谦也分享了他在技术选型方面的建议，除了技术或者工具本身的情况，另外还有一点是运气。</p>
+<h2 id="D2"><a href="#D2" class="headerlink" title="D2"></a>D2</h2><p>今年的D2是第13届，据说来参加的人数有近千人。之前听说是没有收费的，今年也开始进行收费了，场地选在杭州下沙的和达希尔顿酒店，场地费应该也不便宜，这次会议不止是阿里的专家演讲，也请了外边的好几个讲师，包括facebook工程师和德国的小哥等等。整体而言，干货很多，也了解了当前前端方面的一些趋势。</p>
+<p>有关前端趋势方面，前段时间，2018年的stateofjs网站进行问卷调查，出了一个js生态相关的报告，可以了解到世界范围前端的趋势。这里，阿里的的前端委员会主席圆心也提了几点，主要涉及几点：</p>
+<ul>
+<li>前端往无线端</li>
+<li>nodejs生态的成熟</li>
+<li>toB业务对前端的要求见多</li>
+<li>前端工程化</li>
+<li>前端渐稳定，国内选择前端框架主要在react和vue</li>
+</ul>
+<blockquote>
+<p>从整个会议下来，Angular基本被国内开发者忽视，国内的开源生态也基本是基于react和vue。</p>
+</blockquote>
+<h3 id="GraphQL"><a href="#GraphQL" class="headerlink" title="GraphQL"></a>GraphQL</h3><p>台湾小哥王启安带来的GraphQL实践，布道。国内的实践还是处于萌芽阶段，真正使用的团队还比较少，不过GraphQL相对于Rest API而言，性能上是有很大优势的。通过前端自定义查询字段，从而减少http请求和无效数据带宽浪费。相信这是一个未来的趋势。</p>
+<h3 id="海量数据渲染"><a href="#海量数据渲染" class="headerlink" title="海量数据渲染"></a>海量数据渲染</h3><p>阿里西蒙有关天猫双十一的海量数据渲染，涉及到WebGL 2、WebAssembly等的使用和优化案例，很精彩。</p>
+<h3 id="大规模地理数据绘制"><a href="#大规模地理数据绘制" class="headerlink" title="大规模地理数据绘制"></a>大规模地理数据绘制</h3><p>这个topic是有关大规模地理数据的绘制的理论研究，其中提到了一些方法，蓝噪声采样处理数据，以及如何解决大数据量的前端绘制的方案。其中提到，数据量较大的情况下，其实有些时候是可以在后台进行绘制，而前端进行展示。</p>
+<h3 id="React-suspense-API"><a href="#React-suspense-API" class="headerlink" title="React suspense API"></a>React suspense API</h3><p>来自Facebook的工程师，讲解了suspense的使用，用于组件懒加载时显示loading内容的方式。以及介绍了后续react支持异步数据加载的API，值得期待。</p>
+<h3 id="WebAssembly"><a href="#WebAssembly" class="headerlink" title="WebAssembly"></a>WebAssembly</h3><p>这个topic是由法国的一个哥们讲的有关WebAssembly，由浅入深的讲解，没有过实践，也只能听听。从D2整体的报告来看，WebAssembly技术在国内外实践落地的不少，而且从兼容性来看也基本可以上生产了。</p>
+<h3 id="Class-Field"><a href="#Class-Field" class="headerlink" title="Class Field"></a>Class Field</h3><p>最后一个报告是在第3号报告厅，听的Hax讲的关于JS中Class Field相关的问题，据说是浓缩了3个小时的精华，信息量确实很大。这个话题主要涉及到ECMAScript标准中有争议的内容，槽点较多。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>今年的主题，都比较有含金量，毕竟是收费了，还是值得参加的。另外，还有一些感兴趣的话题，时间上是冲突的，没法去听，后续通过视频回放再看。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2019年的第一个周末在杭州参加了两个都是阿里主导的前端技术会议，一个是SEE Conf，另一个是D2，从参会人员规模和演讲嘉宾来看，D2的级别更高一点，干货也更多。但是，SEE Conf的初心是很不错的，而且也是免费分享，提出了体验的重要性和可持续的未来相关观点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://www.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="D2" scheme="http://www.bookcell.org/tags/D2/"/>
+    
+      <category term="SEE Conf" scheme="http://www.bookcell.org/tags/SEE-Conf/"/>
+    
+      <category term="会议" scheme="http://www.bookcell.org/tags/%E4%BC%9A%E8%AE%AE/"/>
+    
+      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
+    
+      <category term="感想" scheme="http://www.bookcell.org/tags/%E6%84%9F%E6%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>2019年阅读计划</title>
@@ -79,13 +138,13 @@
       <category term="读书" scheme="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
     
     
+      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
+    
       <category term="阅读" scheme="http://www.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
     
       <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
     
       <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
-    
-      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
     
   </entry>
   
@@ -1689,67 +1748,6 @@
       <category term="html入门" scheme="http://www.bookcell.org/tags/html%E5%85%A5%E9%97%A8/"/>
     
       <category term="html学习" scheme="http://www.bookcell.org/tags/html%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ag-grid在angularjs中的使用入门</title>
-    <link href="http://www.bookcell.org/2018/05/31/ag-grid-for-angularjs/"/>
-    <id>http://www.bookcell.org/2018/05/31/ag-grid-for-angularjs/</id>
-    <published>2018-05-31T13:17:08.000Z</published>
-    <updated>2018-05-31T13:19:03.745Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="ag-grid介绍"><a href="#ag-grid介绍" class="headerlink" title="ag-grid介绍"></a>ag-grid介绍</h2><ul>
-<li>号称世界上最好的HTML5表格</li>
-<li>支持绝大多数主流框架: 原生JavaScript/Angular/React/Vue/AngularJS/Polymer/Aurelia/Web Components</li>
-<li>社区版和商业版，主要功能开放为社区版，商业版支持增强特性</li>
-</ul>
-<a id="more"></a>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载方式：</p>
-<ul>
-<li>Bower</li>
-<li>NPM</li>
-<li>Github下载</li>
-</ul>
-<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><h3 id="直接引入"><a href="#直接引入" class="headerlink" title="直接引入"></a>直接引入</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"path-to-ag-grid-/ag-grid.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"example1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myGrid"</span> <span class="attr">style</span>=<span class="string">"height: 100%;"</span> <span class="attr">class</span>=<span class="string">"ag-theme-balham"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ECMA 5 - using nodes require() method</span></span><br><span class="line"><span class="keyword">var</span> AgGrid = <span class="built_in">require</span>(<span class="string">'ag-grid'</span>);</span><br><span class="line"><span class="comment">// only include this line if you want to use ag-grid-enterprise</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'ag-grid-enterprise'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ECMA 6 - using the system import method</span></span><br><span class="line"><span class="keyword">import</span> &#123;Grid&#125; <span class="keyword">from</span> <span class="string">'ag-grid/main'</span>;</span><br><span class="line"><span class="comment">// only include this line if you want to use ag-grid-enterprise</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'ag-grid-enterprise/main'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>引入ag-grid后，需要在angularjs中注册ag-grid指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// get ag-Grid to create an Angular module and register the ag-Grid directive</span><br><span class="line">agGrid.initialiseAgGridWithAngular1(angular);</span><br><span class="line"></span><br><span class="line">// create your module with ag-Grid as a dependency</span><br><span class="line">var module = angular.module(&quot;example&quot;, [&quot;agGrid&quot;]);</span><br></pre></td></tr></table></figure></p>
-<p>定义表格容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ag-grid=&quot;gridOptions&quot; class=&quot;ag-theme-balham&quot; style=&quot;height: 100%;&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>配置表格显示<br>核心配置项为列(columnDefs)和行数据(rowData)</p>
-<p>HTML:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> <span class="keyword">var</span> __basePath = <span class="string">''</span>; </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> html, body &#123; margin: 0; padding: 0; height: 100%; &#125; </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/ag-grid@17.1.1/dist/ag-grid.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">"example"</span> <span class="attr">ng-controller</span>=<span class="string">"exampleCtrl"</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ag-grid</span>=<span class="string">"gridOptions"</span> <span class="attr">class</span>=<span class="string">"ag-theme-balham"</span> <span class="attr">style</span>=<span class="string">"height: 100%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>JavaScript:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">agGrid.initialiseAgGridWithAngular1(angular);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = angular.module(<span class="string">"example"</span>, [<span class="string">"agGrid"</span>]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.controller(<span class="string">"exampleCtrl"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> columnDefs = [</span><br><span class="line">        &#123;<span class="attr">headerName</span>: <span class="string">"Make"</span>, <span class="attr">field</span>: <span class="string">"make"</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">headerName</span>: <span class="string">"Model"</span>, <span class="attr">field</span>: <span class="string">"model"</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">headerName</span>: <span class="string">"Price"</span>, <span class="attr">field</span>: <span class="string">"price"</span>&#125;</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> rowData = [</span><br><span class="line">        &#123;<span class="attr">make</span>: <span class="string">"Toyota"</span>, <span class="attr">model</span>: <span class="string">"Celica"</span>, <span class="attr">price</span>: <span class="number">35000</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">make</span>: <span class="string">"Ford"</span>, <span class="attr">model</span>: <span class="string">"Mondeo"</span>, <span class="attr">price</span>: <span class="number">32000</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">make</span>: <span class="string">"Porsche"</span>, <span class="attr">model</span>: <span class="string">"Boxter"</span>, <span class="attr">price</span>: <span class="number">72000</span>&#125;</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    $scope.gridOptions = &#123;</span><br><span class="line">        columnDefs: columnDefs,</span><br><span class="line">        rowData: rowData</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://embed.plnkr.co/9HnxJv9NbbeZLysLIO2u/" target="_blank" rel="noopener">官方的基础实例</a></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="事件和Digest周期"><a href="#事件和Digest周期" class="headerlink" title="事件和Digest周期"></a>事件和Digest周期</h3><p>如有需要触发digest周期，需手动调用<code>$scope.$apply()</code></p>
-<h3 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h3><p>使用ag-grid指令，不需要手动清除grid，指令使用的资源会自动释放</p>
-<h3 id="高级实例"><a href="#高级实例" class="headerlink" title="高级实例"></a>高级实例</h3><p><a href="https://plnkr.co/edit/NWcrpPwWy4WCiWcVevir?p=preview" target="_blank" rel="noopener">高级实例</a></p>
-<h3 id="表格组件"><a href="#表格组件" class="headerlink" title="表格组件"></a>表格组件</h3><p>ag-grid支持自定义表格中的部分组件<br><a href="https://plnkr.co/edit/RQXKhKAZLyMnTcXENCgc?p=preview" target="_blank" rel="noopener">组件实例</a></p>
-<h3 id="angular编译"><a href="#angular编译" class="headerlink" title="angular编译"></a>angular编译</h3><p><code>angularCompileRows</code>：设置是否开启编译，默认是关闭的。由于性能原因。</p>
-<p><a href="https://plnkr.co/edit/Xo949vdcUjVhkXsvE5BG?p=preview" target="_blank" rel="noopener">angular编译实例</a></p>
-<h3 id="单元格模板"><a href="#单元格模板" class="headerlink" title="单元格模板"></a>单元格模板</h3><p>表格支持使用模板来渲染单元格<br><a href="https://plnkr.co/edit/6xtw7HxbhbefbULqQ2SF?p=preview" target="_blank" rel="noopener">模板渲染实例</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;ag-grid介绍&quot;&gt;&lt;a href=&quot;#ag-grid介绍&quot; class=&quot;headerlink&quot; title=&quot;ag-grid介绍&quot;&gt;&lt;/a&gt;ag-grid介绍&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;号称世界上最好的HTML5表格&lt;/li&gt;
-&lt;li&gt;支持绝大多数主流框架: 原生JavaScript/Angular/React/Vue/AngularJS/Polymer/Aurelia/Web Components&lt;/li&gt;
-&lt;li&gt;社区版和商业版，主要功能开放为社区版，商业版支持增强特性&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="angularjs" scheme="http://www.bookcell.org/tags/angularjs/"/>
-    
-      <category term="ag-grid" scheme="http://www.bookcell.org/tags/ag-grid/"/>
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="表格" scheme="http://www.bookcell.org/tags/%E8%A1%A8%E6%A0%BC/"/>
-    
-      <category term="table" scheme="http://www.bookcell.org/tags/table/"/>
     
   </entry>
   
