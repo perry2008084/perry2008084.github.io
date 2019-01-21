@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ARTS-2019-January-Two]]></title>
+    <url>%2F2019%2F01%2F21%2FARTS-2019-January-Two%2F</url>
+    <content type="text"><![CDATA[ARTS-2019-01-TwoA(Algorithm):算法或者数据结构名称 空缺 R(Review):creating-a-react-app-from-scratch 从零开始搭建一个支持热加载和支持ES6+、JSX语法的基础开发环境。 T(Technique):CSS Grid布局方法 支持二维的布局，逐步会替换一些UI框架所支持的网格功能。 S(Share):CSS布局方案总结 最新的布局解决方案为CSS Grid和Flexbox，兼容旧浏览器的情况会使用到Floats。]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+        <tag>Algorithm</tag>
+        <tag>Review</tag>
+        <tag>Technique</tag>
+        <tag>Share</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ARTS-2019-January-One]]></title>
     <url>%2F2019%2F01%2F08%2FARTS-2019-January-One%2F</url>
     <content type="text"><![CDATA[ARTS-2019-January-OneA(Algorithm):The definite of Algorithm: “a set of rules that precisely defines a sequence of operations.” 这个是维基百科上给出的一个非正式的定义，精确定义一系列操作的一个规则集合。 R(Review):The Elements of UI Engineering Dan在这篇文章中提到了UI工程相关的挑战，并希望读者能够在不使用任何库或者框架的情况下去实现，了解不同的实现方式和折中的方案，从而提高自己。 T(Technique):react-router 手动控制导航 在React-router v4中两种实现跳转的方式，&lt;Redirect&gt;组件(优先推荐)和history.push Redirect方式1234567891011121314151617181920212223class Register extends React.Component &#123; state = &#123; toDashboard: false, &#125; handleSubmit = (user) =&gt; &#123; saveUser(user) .then(() =&gt; this.setState(() =&gt; (&#123; toDashboard: true &#125;))) &#125; render() &#123; if (this.state.toDashboard === true) &#123; return &lt;Redirect to=&apos;/dashboard&apos; /&gt; &#125; return ( &lt;div&gt; &lt;h1&gt;Register&lt;/h1&gt; &lt;Form onSubmit=&#123;this.handleSubmit&#125; /&gt; &lt;/div&gt; ) &#125;&#125; history方式123456789101112131415class Register extends React.Component &#123; handleSubmit = (user) =&gt; &#123; saveUser(user).then(() =&gt; this.props.history.push(&apos;/dashboard&apos;) )) &#125; render() &#123; return ( &lt;div&gt; &lt;h1&gt;Register&lt;/h1&gt; &lt;Form onSubmit=&#123;this.handleSubmit&#125; /&gt; &lt;/div&gt; ) &#125;&#125; S(Share):SEE Conf和D2参会感想]]></content>
