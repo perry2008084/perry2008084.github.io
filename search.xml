@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[create-react-app-from-scratch]]></title>
+    <url>%2F2019%2F01%2F22%2Fcreate-react-app-from-scratch%2F</url>
+    <content type="text"><![CDATA[React社区中提供了类似create-react-app这样的命令行工具，作为React项目的脚手架，这个工具提供了大而全的功能，直接拿过来使用，你可能不明白背后的原理，这里跟着Creating a React App… From Scratch这篇文章一起从零搭建一个React App，有条件的同学可以直接阅读英文版，这里实现的是一个最简单的功能，支持ES6+和JSX语法、热加载。 起步创建一个目录并且通过npm init初始化一个项目，有需要也可以通过git init创建版本管理，新项目的文件结构如下： 123.+-- public+-- src 此时可以添加一个.gitignore文件，并把node_modules和dist目录排除在提交范围。 在public目录中，将会存放一些静态的资产，最主要的是放置index.html文件，让react用来渲染app用。 index.html如下： 12345678910111213141516171819&lt;!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html --&gt;&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt; &lt;meta charset="UTF-8" /&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt; &lt;title&gt;React Starter&lt;/title&gt;&lt;/head&gt;&lt;body&gt; &lt;div id="root"&gt;&lt;/div&gt; &lt;noscript&gt; You need to enable JavaScript to run this app. &lt;/noscript&gt; &lt;script src="../dist/bundle.js"&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt; 这里react通过root这个id进行关联渲染元素，我们后续打包的文件名称为bundle.js。 Babel接下来添加babel相关的软件包: 1npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0 babel-core是主要的babel包，用于转译代码。babel-cli用于在命令行中编译文件。preset-react和preset-env用于预先配置要转换的代码类型，env预置用以转换ES6+的代码到ES5的代码，react预置转换JSX的代码。 接着在项目的根目录，创建一个文件.babelrc，用于告诉bebel我们要配置的预置项。 123&#123; "presets": ["@babel/env", "@babel/preset-react"]&#125; Babel还有很多的插件值得研究。 Webpack接下来需要配置Webpack来打包和启用开发热加载等功能。 安装开发依赖: 1npm install --save-dev webpack@4.19.1 webpack-cli@3.1.1 webpack-dev-server@3.1.8 style-loader@0.23.0 css-loader@1.0.0 babel-loader@8.0.2 Webpack使用loader来处理不同类型的文件并进行打包，并提供一个开发服务器方便高效的进行开发。 在项目根目录下创建一个新文件webapck.config.js，在这里导出一个包含webpack配置的对象： 12345678910111213141516171819202122232425262728293031323334const path = require("path");const webpack = require("webpack");module.exports = &#123; entry: "./src/index.js", mode: "development", module: &#123; rules: [ &#123; test: /\.(js|jsx)$/, exclude: /(node_modules|bower_components)/, loader: "babel-loader", options: &#123; presets: ["@babel/env"] &#125; &#125;, &#123; test: /\.css$/, use: ["style-loader", "css-loader"] &#125; ] &#125;, resolve: &#123; extensions: ["*", ".js", ".jsx"] &#125;, output: &#123; path: path.resolve(__dirname, "dist/"), publicPath: "/dist/", filename: "bundle.js" &#125;, devServer: &#123; contentBase: path.join(__dirname, "public/"), port: 3000, publicPath: "http://localhost:3000/dist/", hotOnly: true &#125;, plugins: [new webpack.HotModuleReplacementPlugin()]&#125;; 这里webpack的配置项暂时不解释，接下来进行React的配置。 React首先，我们要添加两个软件包: `react@16.5.2和react-dom@16.5.2` 1npm install --save react@16.5.2 react-dom@16.5.2 接下来，要告诉React app在哪里关联DOM，在src文件夹中创建一个index.js文件： 1234import React from "react";import ReactDOM from "react-dom";import App from "./App.js";ReactDOM.render(&lt;App /&gt;, document.getElementById("root")); ReactDOM.render这个函数告诉React渲染什么和在哪里渲染，这里渲染一个叫做App的组件，并且渲染在ID为root的DOM元素上。 接下来在src文件夹下创建一个App.js文件，这是一个React组件。 1234567891011121314import React, &#123; Component&#125; from "react";import "./App.css";class App extends Component&#123; render()&#123; return( &lt;div className="App"&gt; &lt;h1&gt; Hello, World! &lt;/h1&gt; &lt;/div&gt; ); &#125;&#125;export default App; 在src目录下创建一个App.css文件 1234.App &#123; margin: 1rem; font-family: Arial, Helvetica, sans-serif;&#125; 最终的项目结构如下: 123456789101112.+-- public| +-- index.html+-- src| +-- App.css| +-- App.js| +-- index.js+-- .babelrc+-- .gitignore+-- package-lock.json+-- package.json+-- webpack.config.js 在webpack的script中增加一个脚本命令，start 1start: webpack-dev-server --mode development 使用npm start命令即可启动 Finishing HMR这个时候修改文件内容，页面并不会自动更新，要增加热加载功能，需要另外一个软件包的支持 1npm install --save react-hot-loader@4.3.11 这个包可以安装在依赖中，而不是开发依赖，因为包会自动判断是否执行。 在App.js中导入react-hot-loader： 123456789101112131415import React, &#123; Component&#125; from "react";import &#123;hot&#125; from "react-hot-loader";import "./App.css";class App extends Component&#123; render()&#123; return( &lt;div className="App"&gt; &lt;h1&gt; Hello, World! &lt;/h1&gt; &lt;/div&gt; ); &#125;&#125;export default hot(module)(App); 这个时候修改文件的内容，页面就会即时刷新了。 Build最后，可以在package.json中增加一个build的脚本命令， 1build: webpack --mode production]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>React</tag>
+        <tag>webpack</tag>
+        <tag>脚手架</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ARTS-2019-January-Two]]></title>
     <url>%2F2019%2F01%2F21%2FARTS-2019-January-Two%2F</url>
     <content type="text"><![CDATA[ARTS-2019-01-TwoA(Algorithm):算法或者数据结构名称 空缺 R(Review):creating-a-react-app-from-scratch 从零开始搭建一个支持热加载和支持ES6+、JSX语法的基础开发环境。 T(Technique):CSS Grid布局方法 支持二维的布局，逐步会替换一些UI框架所支持的网格功能。 S(Share):CSS布局方案总结 最新的布局解决方案为CSS Grid和Flexbox，兼容旧浏览器的情况会使用到Floats。]]></content>
@@ -313,12 +327,12 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
+        <tag>html入门</tag>
+        <tag>html学习</tag>
         <tag>入门</tag>
         <tag>2018</tag>
         <tag>知乎专栏</tag>
         <tag>书格前端</tag>
-        <tag>html入门</tag>
-        <tag>html学习</tag>
       </tags>
   </entry>
   <entry>
@@ -330,8 +344,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>ag-grid</tag>
         <tag>前端开发</tag>
+        <tag>ag-grid</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -934,8 +948,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>前端开发</tag>
         <tag>url</tag>
+        <tag>前端开发</tag>
       </tags>
   </entry>
   <entry>

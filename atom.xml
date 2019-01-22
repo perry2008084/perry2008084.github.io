@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-01-21T13:41:56.241Z</updated>
+  <updated>2019-01-22T04:42:27.495Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>create-react-app-from-scratch</title>
+    <link href="http://www.bookcell.org/2019/01/22/create-react-app-from-scratch/"/>
+    <id>http://www.bookcell.org/2019/01/22/create-react-app-from-scratch/</id>
+    <published>2019-01-22T04:41:46.000Z</published>
+    <updated>2019-01-22T04:42:27.495Z</updated>
+    
+    <content type="html"><![CDATA[<p>React社区中提供了类似<code>create-react-app</code>这样的命令行工具，作为React项目的脚手架，这个工具提供了大而全的功能，直接拿过来使用，你可能不明白背后的原理，这里跟着<a href="https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658" target="_blank" rel="noopener">Creating a React App… From Scratch</a>这篇文章一起从零搭建一个React App，有条件的同学可以直接阅读英文版，这里实现的是一个最简单的功能，支持ES6+和JSX语法、热加载。</p>
+<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>创建一个目录并且通过<code>npm init</code>初始化一个项目，有需要也可以通过<code>git init</code>创建版本管理，新项目的文件结构如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- public</span><br><span class="line">+-- src</span><br></pre></td></tr></table></figure>
+<p>此时可以添加一个<code>.gitignore</code>文件，并把<code>node_modules</code>和<code>dist</code>目录排除在提交范围。</p>
+<p>在<code>public</code>目录中，将会存放一些静态的资产，最主要的是放置<code>index.html</code>文件，让react用来渲染app用。</p>
+<p><code>index.html</code>如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, shrink-to-fit=no"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>React Starter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    You need to enable JavaScript to run this app.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../dist/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里react通过<code>root</code>这个id进行关联渲染元素，我们后续打包的文件名称为<code>bundle.js</code>。</p>
+<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>接下来添加babel相关的软件包:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0</span><br></pre></td></tr></table></figure>
+<p><code>babel-core</code>是主要的babel包，用于转译代码。<code>babel-cli</code>用于在命令行中编译文件。<code>preset-react</code>和<code>preset-env</code>用于预先配置要转换的代码类型，<code>env</code>预置用以转换ES6+的代码到ES5的代码，<code>react</code>预置转换JSX的代码。</p>
+<p>接着在项目的根目录，创建一个文件<code>.babelrc</code>，用于告诉bebel我们要配置的预置项。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [<span class="string">"@babel/env"</span>, <span class="string">"@babel/preset-react"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Babel还有很多的插件值得研究。</p>
+<h2 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h2><p>接下来需要配置Webpack来打包和启用开发热加载等功能。</p>
+<p>安装开发依赖:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack@4.19.1 webpack-cli@3.1.1 webpack-dev-server@3.1.8 style-loader@0.23.0 css-loader@1.0.0 babel-loader@8.0.2</span><br></pre></td></tr></table></figure>
+<p>Webpack使用<code>loader</code>来处理不同类型的文件并进行打包，并提供一个开发服务器方便高效的进行开发。</p>
+<p>在项目根目录下创建一个新文件<code>webapck.config.js</code>，在这里导出一个包含webpack配置的对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">"./src/index.js"</span>,</span><br><span class="line">  mode: <span class="string">"development"</span>,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(js|jsx)$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">        loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">        options: &#123; <span class="attr">presets</span>: [<span class="string">"@babel/env"</span>] &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123; <span class="attr">extensions</span>: [<span class="string">"*"</span>, <span class="string">".js"</span>, <span class="string">".jsx"</span>] &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">"dist/"</span>),</span><br><span class="line">    publicPath: <span class="string">"/dist/"</span>,</span><br><span class="line">    filename: <span class="string">"bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: path.join(__dirname, <span class="string">"public/"</span>),</span><br><span class="line">    port: <span class="number">3000</span>,</span><br><span class="line">    publicPath: <span class="string">"http://localhost:3000/dist/"</span>,</span><br><span class="line">    hotOnly: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [<span class="keyword">new</span> webpack.HotModuleReplacementPlugin()]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里webpack的配置项暂时不解释，接下来进行React的配置。</p>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p>首先，我们要添加两个软件包: <a href="mailto:`react@16.5.2" target="_blank" rel="noopener">`react@16.5.2</a><code>和</code><a href="mailto:react-dom@16.5.2" target="_blank" rel="noopener">react-dom@16.5.2</a>`</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react@16.5.2 react-dom@16.5.2</span><br></pre></td></tr></table></figure>
+<p>接下来，要告诉React app在哪里关联DOM，在<code>src</code>文件夹中创建一个<code>index.js</code>文件：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./App.js"</span>;</span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span>, document.getElementById("root"));</span></span><br></pre></td></tr></table></figure>
+<p><code>ReactDOM.render</code>这个函数告诉React渲染什么和在哪里渲染，这里渲染一个叫做<code>App</code>的组件，并且渲染在ID为root的DOM元素上。</p>
+<p>接下来在<code>src</code>文件夹下创建一个<code>App.js</code>文件，这是一个React组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component&#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"./App.css"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">        &lt;h1&gt; Hello, World! <span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure>
+<p>在<code>src</code>目录下创建一个<code>App.css</code>文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.App</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: Arial, Helvetica, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终的项目结构如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- public</span><br><span class="line">| +-- index.html</span><br><span class="line">+-- src</span><br><span class="line">| +-- App.css</span><br><span class="line">| +-- App.js</span><br><span class="line">| +-- index.js</span><br><span class="line">+-- .babelrc</span><br><span class="line">+-- .gitignore</span><br><span class="line">+-- package-lock.json</span><br><span class="line">+-- package.json</span><br><span class="line">+-- webpack.config.js</span><br></pre></td></tr></table></figure>
+<p>在webpack的script中增加一个脚本命令，start</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start: webpack-dev-server --mode development</span><br></pre></td></tr></table></figure>
+<p>使用<code>npm start</code>命令即可启动</p>
+<h2 id="Finishing-HMR"><a href="#Finishing-HMR" class="headerlink" title="Finishing HMR"></a>Finishing HMR</h2><p>这个时候修改文件内容，页面并不会自动更新，要增加热加载功能，需要另外一个软件包的支持</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-hot-loader@4.3.11</span><br></pre></td></tr></table></figure>
+<p>这个包可以安装在依赖中，而不是开发依赖，因为包会自动判断是否执行。</p>
+<p>在<code>App.js</code>中导入<code>react-hot-loader</code>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component&#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;hot&#125; <span class="keyword">from</span> <span class="string">"react-hot-loader"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"./App.css"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">        &lt;h1&gt; Hello, World! <span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default hot(module)(App);</span></span><br></pre></td></tr></table></figure>
+<p>这个时候修改文件的内容，页面就会即时刷新了。</p>
+<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><p>最后，可以在package.json中增加一个build的脚本命令，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">build: webpack --mode production</span><br></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;React社区中提供了类似&lt;code&gt;create-react-app&lt;/code&gt;这样的命令行工具，作为React项目的脚手架，这个工具提供了大而全的功能，直接拿过来使用，你可能不明白背后的原理，这里跟着&lt;a href=&quot;https://blog.usejournal.c
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="React" scheme="http://www.bookcell.org/tags/React/"/>
+    
+      <category term="webpack" scheme="http://www.bookcell.org/tags/webpack/"/>
+    
+      <category term="脚手架" scheme="http://www.bookcell.org/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>ARTS-2019-January-Two</title>
@@ -1466,70 +1537,6 @@
 &lt;h3 id=&quot;ES6-是否必要&quot;&gt;&lt;a href=&quot;#ES6-是否必要&quot; class=&quot;headerlink&quot; title=&quot;ES6(+)是否必要&quot;&gt;&lt;/a&gt;ES6(+)是否必要&lt;/h3&gt;&lt;p&gt;不必要&lt;/p&gt;
 &lt;h3 id=&quot;如何在JSX中写注释&quot;&gt;&lt;a href=&quot;#如何在JSX中写注释&quot; class=&quot;headerlink&quot; title=&quot;如何在JSX中写注释&quot;&gt;&lt;/a&gt;如何在JSX中写注释&lt;/h3&gt;&lt;p&gt;支持多行注释&lt;/p&gt;
 &lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;span class=&quot;comment&quot;&gt;/* Comment goes here */&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Hello, &amp;#123;name&amp;#125;!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;regexp&quot;&gt;/div&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="HTTP" scheme="http://www.bookcell.org/tags/HTTP/"/>
-    
-      <category term="URL" scheme="http://www.bookcell.org/tags/URL/"/>
-    
-      <category term="WWW" scheme="http://www.bookcell.org/tags/WWW/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你是否应该在URL中使用www</title>
-    <link href="http://www.bookcell.org/2018/09/15/should-you-use-www-in-your-url-or-not/"/>
-    <id>http://www.bookcell.org/2018/09/15/should-you-use-www-in-your-url-or-not/</id>
-    <published>2018-09-15T08:50:59.000Z</published>
-    <updated>2018-09-15T09:50:04.791Z</updated>
-    
-    <content type="html"><![CDATA[<p>文章翻译自于<a href="http://www.themezilla.com/should-you-use-www-in-your-url-or-not/" target="_blank" rel="noopener">Should you use “www” in your URL or not?</a>，这篇文章是写于2016，该不该在你的网站URL中使用www? 现在来看对于网站的SEO而言，了解一下还是有帮助的，并且MDN上也链接了这篇文章。</p>
-<p>正文：</p>
-<p>这是一个有很长时间的问题： 使用www或者不使用www? 多年来，人们会被问到这两者的区别，哪个对SEO更好，或者是否有必要修改他们的网址。</p>
-<p>没有什么可惊讶的，网络上充满了关于这个话题的观点。一方面，支持www的人争论说“使用www能为超出一台服务器时网站扩展带来的挑战做好准备”；另一方面，支持无www的人坚称“使用www是冗余的并浪费时间”。</p>
-<p>然而我们可以两方都支持，我们的观点是<em>其实</em>这不是太影响(Google也同意!)。对于普通的博客或自由职业者或者甚至机构，使用www或者不使用，都是绝对零优势。也就是说，他们在技术上是有区别的，并且有一个非常好的理由说明你为什么不应该同时使用。</p>
-<a id="more"></a>
-<h2 id="外表具有欺骗性"><a href="#外表具有欺骗性" class="headerlink" title="外表具有欺骗性"></a>外表具有欺骗性</h2><p>当前能够通过www和无www的URL来访问一个网站都是很普遍的。如果你访问我们的网站，例如，你可以输入”<a href="http://www.themezilla.com&quot;，或者裸的版本,&quot;themezilla.com&quot;，不管哪一种，你都可以到达我们的主页。" target="_blank" rel="noopener">http://www.themezilla.com&quot;，或者裸的版本,&quot;themezilla.com&quot;，不管哪一种，你都可以到达我们的主页。</a></p>
-<p>现在，这些URL看起来可能相同，很多人会争论越相同越好，但他们不是的。事实上，他们是完全不同的网站，并且Google也是这么认为的。</p>
-<p>为了捕获URL格式上的差异，有些人会设立不同地址但是内容相同的网站，但这只会让搜索引擎判罚为重复内容。一个更好的办法，是创建一个URL版本的301永久性重定向到另一个，而不是让你自己来竞争网页排名。(我们重定向所有themezilla.com流量到<a href="http://www.themezilla.com" target="_blank" rel="noopener">http://www.themezilla.com</a>)</p>
-<h2 id="变得权威"><a href="#变得权威" class="headerlink" title="变得权威"></a>变得权威</h2><p>“标准化”是一个很大的词，可能是或不是Google发明了一个流程适用于”当有多个可选项时选择最好的URL”。不管你决定使用哪个格式，最重要的是始终如一并帮助搜索引擎决定”权威版本”(代表你整个网站的最好版本)。</p>
-<p>例如，不要让你的一半流量到<a href="http://www.yoursite.com和另一半到yoursite.com。相反，选择一个你喜欢的，并总是使用这个格式作为你的内部链接。这不仅仅是为了让搜索引擎保持简单，也会让Google认为这不是两个不同网站而形成网页排名和链接上的竞争。" target="_blank" rel="noopener">http://www.yoursite.com和另一半到yoursite.com。相反，选择一个你喜欢的，并总是使用这个格式作为你的内部链接。这不仅仅是为了让搜索引擎保持简单，也会让Google认为这不是两个不同网站而形成网页排名和链接上的竞争。</a></p>
-<h2 id="作出你的选择"><a href="#作出你的选择" class="headerlink" title="作出你的选择"></a>作出你的选择</h2><p>URL格式是个人的偏好，这里涉及我们前面间接提到的一些技术性差异，可能会影响到非常高流量的网站。</p>
-<p>简单的说，当你使用无www或者说裸的域名，并且你拥有多个子域名，这会让服务器或云服务更新DNS记录变得困难。另一个裸域名相关的问题是操作cookies：没有www，cookies会发送到所有的子域名，减慢访问静态内容和影响缓存。</p>
-<p>如果你完全听不懂，不用担心。这是针对每天百万页面访问量的极其大型网站相关的特定场景。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于我们的网站，我们默认使用www域名，因为我们对字母表末尾的字母情有独钟，并且这让我们自我感觉网站规模比目前更大。</p>
-<p>但是你可能讨厌字母”w”，或者你更喜欢裸URL。这都是可以的。没有一个选择是明确优于另一个的，我们鼓励你作为你自己的网站管理员，来决定哪个是最好的。</p>
-<hr>
-<p>这篇文章英文部分用词稍微有点晦涩，有翻译不到位的地方，可以结合原文进行理解。</p>
-<h2 id="英文原文"><a href="#英文原文" class="headerlink" title="英文原文"></a>英文原文</h2><p>Should you use “www” in your URL or not?</p>
-<p>It’s a question for the ages: to www or not to www? For years, people have been asking if there’s any difference between the two, which one (if any) is better for SEO, and whether or not they need to change their site address.</p>
-<p>Not surprisingly, the internet is full of opinions on the topic. On one side, you have the yes-www’ers who argue that using www “makes you more prepared to handle the challenges of a growing website beyond a single server.” On the other, you have the no-www’ers who insist that using www is “redundant and time-consuming.”</p>
-<p>While we can sympathize with both sides, our official opinion is that it doesn’t really matter (Google agrees!). For the average blogger or freelancer or even agency, there is absolutely zero advantage to using www or not. That said, there is a technical difference between the two, and there’s a very good reason why you shouldn’t be using both.</p>
-<h2 id="Appearances-can-be-deceiving"><a href="#Appearances-can-be-deceiving" class="headerlink" title="Appearances can be deceiving"></a>Appearances can be deceiving</h2><p>It’s pretty common these days to be able to access a website from both the www and non-www version of its URL. If you want to visit our website, for example, you can type in “<a href="http://www.themezilla.com”" target="_blank" rel="noopener">http://www.themezilla.com”</a> or the “naked” version, “themezilla.com”—either way, you’ll end up on our homepage.</p>
-<p>Now, these URLs may look similar—many would argue they’re as good as identical—but they’re not. In fact, they are completely separate sites, and Google treats them as such.</p>
-<p>To capture variations in URL formatting, some people set up their site at a handful of similar but different addresses, only to be penalized by search engines for duplicate content. Instead of competing against yourself for page rankings, a much better approach is to set up a 301 permanent redirection from one version of the URL to the other (we redirect all themezilla.com traffic to <a href="http://www.themezilla.com)" target="_blank" rel="noopener">http://www.themezilla.com)</a>.</p>
-<h2 id="Getting-canonical"><a href="#Getting-canonical" class="headerlink" title="Getting canonical"></a>Getting canonical</h2><p>“Canonicalization” is a big word that Google may or may not have made up to refer to “the process of picking the best URL when there are several choices.” No matter which format you decide to use, the important thing is to be consistent and help search engines determine the “canonical version” (ie. the version that best represents your entire site).</p>
-<p>For example, don’t send half your links to <a href="http://www.yoursite.com" target="_blank" rel="noopener">http://www.yoursite.com</a> and the other half to yoursite.com. Instead, pick the URL you prefer and always use that format for your internal links. Not only does it keep things simple for search engines, it stops the page rank and link juice from getting divided between what Google thinks are two separate sites.</p>
-<h2 id="Picking-your-poison"><a href="#Picking-your-poison" class="headerlink" title="Picking your poison"></a>Picking your poison</h2><p>While URL formatting is a matter of personal preference, there are a couple technical differences we alluded to earlier that might affect sites with very high traffic.</p>
-<p>Basically, when you use a non-www or naked domain, and you also have several subdomains, it can become difficult for servers and cloud services to update DNS records. The other issue that can occur with naked domains has to do with cookies: without the www, the cookies get sent to all subdomains, slowing down access to static content and tripping up caching.</p>
-<p>If this all sounds like Greek to you, don’t worry. These are highly specialized situations that really only affect extremely large websites receiving millions of page views per day. (We hear the chorus of yes-www’ers countering, “But who doesn’t want their site to get that large?”)</p>
-<h2 id="Summing-up"><a href="#Summing-up" class="headerlink" title="Summing up"></a>Summing up</h2><p>For our site, we default to the www domain because we have a soft spot for end-of-alphabet characters, and because it makes us feel like we’re a part of something bigger than ourselves.</p>
-<p>But you may hate the letter “w,” or you may just prefer your URL to be naked. And that’s okay! No one option is unequivocally better than the other, and we encourage you to be your own webmaster and decide which is best for you.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;文章翻译自于&lt;a href=&quot;http://www.themezilla.com/should-you-use-www-in-your-url-or-not/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Should you use “www” in your URL or not?&lt;/a&gt;，这篇文章是写于2016，该不该在你的网站URL中使用www? 现在来看对于网站的SEO而言，了解一下还是有帮助的，并且MDN上也链接了这篇文章。&lt;/p&gt;
-&lt;p&gt;正文：&lt;/p&gt;
-&lt;p&gt;这是一个有很长时间的问题： 使用www或者不使用www? 多年来，人们会被问到这两者的区别，哪个对SEO更好，或者是否有必要修改他们的网址。&lt;/p&gt;
-&lt;p&gt;没有什么可惊讶的，网络上充满了关于这个话题的观点。一方面，支持www的人争论说“使用www能为超出一台服务器时网站扩展带来的挑战做好准备”；另一方面，支持无www的人坚称“使用www是冗余的并浪费时间”。&lt;/p&gt;
-&lt;p&gt;然而我们可以两方都支持，我们的观点是&lt;em&gt;其实&lt;/em&gt;这不是太影响(Google也同意!)。对于普通的博客或自由职业者或者甚至机构，使用www或者不使用，都是绝对零优势。也就是说，他们在技术上是有区别的，并且有一个非常好的理由说明你为什么不应该同时使用。&lt;/p&gt;
     
     </summary>
     
