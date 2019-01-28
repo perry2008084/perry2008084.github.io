@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.bookcell.org/about/index.html</loc>
+    
+    <lastmod>2019-01-28T13:49:58.245Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.bookcell.org/2019/01/28/ARTS-2019-January-Three/</loc>
     
     <lastmod>2019-01-28T13:44:00.574Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>http://www.bookcell.org/2018/10/09/update-hexo-and-theme-v6/</loc>
     
     <lastmod>2018-10-14T14:35:53.292Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.bookcell.org/about/index.html</loc>
-    
-    <lastmod>2018-10-10T23:24:10.458Z</lastmod>
     
   </url>
   
