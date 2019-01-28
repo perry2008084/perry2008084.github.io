@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-01-22T04:42:27.495Z</updated>
+  <updated>2019-01-28T13:44:00.574Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ARTS-2019-January-Three</title>
+    <link href="http://www.bookcell.org/2019/01/28/ARTS-2019-January-Three/"/>
+    <id>http://www.bookcell.org/2019/01/28/ARTS-2019-January-Three/</id>
+    <published>2019-01-28T13:43:27.000Z</published>
+    <updated>2019-01-28T13:44:00.574Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ARTS-2019-01-Three"><a href="#ARTS-2019-01-Three" class="headerlink" title="ARTS-2019-01-Three"></a>ARTS-2019-01-Three</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>Binary Search</p>
+<blockquote>
+<p>通过一个给定值从中间开始查找，根据二分的方法依次缩小查找范围，直到找到。</p>
+</blockquote>
+<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://hackernoon.com/the-react-developer-tools-you-should-know-in-2019-e681dc4f4332" target="_blank" rel="noopener">React生态之2019</a></p>
+<ul>
+<li>组件管理: StoryBook</li>
+<li>组件库: Ant Design, React Material-UI, React Bootstrap</li>
+<li>CSS-in-JS: Sass, Less，CSS modules</li>
+<li>状态管理: Redux, Unstated, Mobx</li>
+<li>测试: Jest, Mocha, Karma</li>
+<li>脚手架: create-react-app 2.0, React-Boilerplate, React Slingshot</li>
+<li>新特性: Hooks，Context-API</li>
+<li>调试: React dev-tools</li>
+<li>静态站点生成: Gatsby, React static</li>
+</ul>
+<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p><a href="https://developer.qiniu.com/kodo/sdk/1289/nodejs" target="_blank" rel="noopener">七牛云Nodejs的SDK使用入门</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install qiniu</span><br></pre></td></tr></table></figure>
+<p>并且使用七牛提供的<code>Access Key</code>和<code>Secret Key</code>进行访问。</p>
+<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p>JavaScript基础类型</p>
+<blockquote>
+<p>算上ES6中加入的symbol类型，一共是7种，undefined、null、boolean、number、string、object、symbol。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ARTS-2019-01-Three&quot;&gt;&lt;a href=&quot;#ARTS-2019-01-Three&quot; class=&quot;headerlink&quot; title=&quot;ARTS-2019-01-Three&quot;&gt;&lt;/a&gt;ARTS-2019-01-Three&lt;/h1&gt;&lt;h2 id=&quot;A
+    
+    </summary>
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
+    
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
+    
+      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
+    
+      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
+    
+      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
+    
+      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
+    
+  </entry>
   
   <entry>
     <title>create-react-app-from-scratch</title>
@@ -1469,87 +1522,6 @@
       <category term="import" scheme="http://www.bookcell.org/tags/import/"/>
     
       <category term="export" scheme="http://www.bookcell.org/tags/export/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reactjs的常见问题</title>
-    <link href="http://www.bookcell.org/2018/09/19/react-faqs/"/>
-    <id>http://www.bookcell.org/2018/09/19/react-faqs/</id>
-    <published>2018-09-19T13:38:08.000Z</published>
-    <updated>2018-09-19T13:40:46.661Z</updated>
-    
-    <content type="html"><![CDATA[<p>React的FAQ，来自官网的FAQ，学习后做的笔记，顺带翻译(不完全翻译)</p>
-<h2 id="AJAX-and-APIs"><a href="#AJAX-and-APIs" class="headerlink" title="AJAX and APIs"></a>AJAX and APIs</h2><h3 id="libaraies"><a href="#libaraies" class="headerlink" title="libaraies"></a>libaraies</h3><p>你可以在React中使用任何你喜欢的AJAX库</p>
-<p>Axio, jQuery AJAX, window.fetch</p>
-<h3 id="where-did-ajax-call"><a href="#where-did-ajax-call" class="headerlink" title="where did ajax call"></a>where did ajax call</h3><p>componentDidMount</p>
-<h2 id="Babel-JSX-and-Build-Steps"><a href="#Babel-JSX-and-Build-Steps" class="headerlink" title="Babel, JSX, and Build Steps"></a>Babel, JSX, and Build Steps</h2><h3 id="JSX是否必要"><a href="#JSX是否必要" class="headerlink" title="JSX是否必要"></a>JSX是否必要</h3><p>不必要</p>
-<h3 id="ES6-是否必要"><a href="#ES6-是否必要" class="headerlink" title="ES6(+)是否必要"></a>ES6(+)是否必要</h3><p>不必要</p>
-<h3 id="如何在JSX中写注释"><a href="#如何在JSX中写注释" class="headerlink" title="如何在JSX中写注释"></a>如何在JSX中写注释</h3><p>支持多行注释</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;<span class="comment">/* Comment goes here */</span>&#125;</span><br><span class="line">    Hello, &#123;name&#125;!</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="Passing-Functions-to-Components"><a href="#Passing-Functions-to-Components" class="headerlink" title="Passing Functions to Components"></a>Passing Functions to Components</h2><h3 id="如何传递event-handler到一个组件"><a href="#如何传递event-handler到一个组件" class="headerlink" title="如何传递event handler到一个组件"></a>如何传递event handler到一个组件</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;<span class="keyword">this</span>.handleClick&#125;&gt;</span><br></pre></td></tr></table></figure>
-<p>如果在handler中要访问父组件，需要在组件实例中绑定函数</p>
-<h3 id="如何绑定函数到一个组件实例"><a href="#如何绑定函数到一个组件实例" class="headerlink" title="如何绑定函数到一个组件实例"></a>如何绑定函数到一个组件实例</h3><blockquote>
-<p>There are several ways to make sure functions have access to component attributes like this.props and this.state, depending on which syntax and build steps you are using.</p>
-</blockquote>
-<p>Bind in Constructor(ES2015)</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    handleClick() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Click happend'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>Click Me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Class Properties (Stage 3 Proposal)</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    handleClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Click happend'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>Click Me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Bind in Render</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    handleClick() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Click happend'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick.bind(this)&#125;</span>&gt;</span>Click Me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Arrow Function in Render</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    handleClick() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Click happened'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.handleClick()&#125;&gt;Click Me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Component-State"><a href="#Component-State" class="headerlink" title="Component State"></a>Component State</h2><h3 id="setState做什么用？"><a href="#setState做什么用？" class="headerlink" title="setState做什么用？"></a>setState做什么用？</h3><p><code>setState()</code>安排更新一个组件的<code>state</code>对象。当状态改变时，组件会响应并重新渲染。</p>
-<h3 id="state和props之间有什么区别？"><a href="#state和props之间有什么区别？" class="headerlink" title="state和props之间有什么区别？"></a>state和props之间有什么区别？</h3><p><code>props</code>(“properties”的缩写)和<code>state</code>均是纯粹的JavaScript对象。虽然都拥有可以影响渲染输出的信息，但有有一个非常重要的区别：<br><code>props</code>由外部传递到组件(类似函数参数)，而<code>state</code>是组件内部管理(类似函数内声明的变量)。</p>
-<p>深入阅读何时使用<code>props</code> vs <code>state</code>:</p>
-<ul>
-<li><a href="https://github.com/uberVU/react-guide/blob/master/props-vs-state.md" target="_blank" rel="noopener">Props vs State</a></li>
-<li><a href="http://lucybain.com/blog/2016/react-state-vs-pros/" target="_blank" rel="noopener">ReactJS: Props vs State</a></li>
-</ul>
-<h3 id="为什么setState给了错误的值？"><a href="#为什么setState给了错误的值？" class="headerlink" title="为什么setState给了错误的值？"></a>为什么setState给了错误的值？</h3><p>在React中，<code>this.props</code>和<code>this.state</code>代表<em>渲染值</em>，比如当前在屏幕中的内容。</p>
-<p>调用<code>setState</code>是异步的，调用<code>setState</code>后，不要依赖<code>this.state</code>立即反馈新的值。如果你需要基于当前的state来计算值，传递一个更新函数代替一个对象。</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">incrementCount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// Important read `state` instead of `this.state` when updating</span></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="attr">count</span>: state.count + <span class="number">1</span>&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleSomething() &#123;</span><br><span class="line">    <span class="comment">// Let's say `this.state.count` starts at 0.</span></span><br><span class="line">    <span class="keyword">this</span>.incrementCount();</span><br><span class="line">    <span class="keyword">this</span>.incrementCount();</span><br><span class="line">    <span class="keyword">this</span>.incrementCount();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// If you read `this.state.count` now, it would still be 0.</span></span><br><span class="line">    <span class="comment">// But when React re-renders the component, it will be 3.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Styling-and-CSS"><a href="#Styling-and-CSS" class="headerlink" title="Styling and CSS"></a>Styling and CSS</h2><h3 id="如何添加CSS类到组件中？"><a href="#如何添加CSS类到组件中？" class="headerlink" title="如何添加CSS类到组件中？"></a>如何添加CSS类到组件中？</h3><p>传递一个字符串到<code>className</code>属性中：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"menu navigation-menu"</span>&gt;</span>Menu<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>依赖于组件属性和状态的CSS类：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">let</span> className = <span class="string">'menu'</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.isActive) &#123;</span><br><span class="line">        className += <span class="string">' menu-active'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">&#123;className&#125;</span>&gt;</span>Menu<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>组装class可以使用包 <a href="https://www.npmjs.com/package/classnames" target="_blank" rel="noopener">classnames</a></p>
-<h2 id="File-Structure"><a href="#File-Structure" class="headerlink" title="File Structure"></a>File Structure</h2><ul>
-<li>按特性或者路由分组</li>
-<li>按文件类型分组</li>
-<li>避免太多嵌套</li>
-<li>不要过度考虑</li>
-</ul>
-<h2 id="Virtual-DOM-and-Internals"><a href="#Virtual-DOM-and-Internals" class="headerlink" title="Virtual DOM and Internals"></a>Virtual DOM and Internals</h2><p>虚拟DOM是一个编程概念，是一种保持在内存中的理想化的、虚拟的UI表示，并且通过类似ReactDOM的库来和真实的DOM同步。这个过程称作<code>reconciliation</code>（重新调解）。</p>
-<h3 id="Shadow-DOM和Virtual-DOM是否一样？"><a href="#Shadow-DOM和Virtual-DOM是否一样？" class="headerlink" title="Shadow DOM和Virtual DOM是否一样？"></a>Shadow DOM和Virtual DOM是否一样？</h3><p>不一样。Shadow DOM是一项浏览器技术，设计主要用于在web component中的局部变量和CSS。virtual DOM是一个使用基于浏览器API的JavaScript库实现的概念。</p>
-<h3 id="什么是”React-Fiber”？"><a href="#什么是”React-Fiber”？" class="headerlink" title="什么是”React Fiber”？"></a>什么是”React Fiber”？</h3><p>Fiber是在React 16中新的reconciliation的引擎。主要目标是使虚拟DOM的增量渲染变得可行。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;React的FAQ，来自官网的FAQ，学习后做的笔记，顺带翻译(不完全翻译)&lt;/p&gt;
-&lt;h2 id=&quot;AJAX-and-APIs&quot;&gt;&lt;a href=&quot;#AJAX-and-APIs&quot; class=&quot;headerlink&quot; title=&quot;AJAX and APIs&quot;&gt;&lt;/a&gt;AJAX and APIs&lt;/h2&gt;&lt;h3 id=&quot;libaraies&quot;&gt;&lt;a href=&quot;#libaraies&quot; class=&quot;headerlink&quot; title=&quot;libaraies&quot;&gt;&lt;/a&gt;libaraies&lt;/h3&gt;&lt;p&gt;你可以在React中使用任何你喜欢的AJAX库&lt;/p&gt;
-&lt;p&gt;Axio, jQuery AJAX, window.fetch&lt;/p&gt;
-&lt;h3 id=&quot;where-did-ajax-call&quot;&gt;&lt;a href=&quot;#where-did-ajax-call&quot; class=&quot;headerlink&quot; title=&quot;where did ajax call&quot;&gt;&lt;/a&gt;where did ajax call&lt;/h3&gt;&lt;p&gt;componentDidMount&lt;/p&gt;
-&lt;h2 id=&quot;Babel-JSX-and-Build-Steps&quot;&gt;&lt;a href=&quot;#Babel-JSX-and-Build-Steps&quot; class=&quot;headerlink&quot; title=&quot;Babel, JSX, and Build Steps&quot;&gt;&lt;/a&gt;Babel, JSX, and Build Steps&lt;/h2&gt;&lt;h3 id=&quot;JSX是否必要&quot;&gt;&lt;a href=&quot;#JSX是否必要&quot; class=&quot;headerlink&quot; title=&quot;JSX是否必要&quot;&gt;&lt;/a&gt;JSX是否必要&lt;/h3&gt;&lt;p&gt;不必要&lt;/p&gt;
-&lt;h3 id=&quot;ES6-是否必要&quot;&gt;&lt;a href=&quot;#ES6-是否必要&quot; class=&quot;headerlink&quot; title=&quot;ES6(+)是否必要&quot;&gt;&lt;/a&gt;ES6(+)是否必要&lt;/h3&gt;&lt;p&gt;不必要&lt;/p&gt;
-&lt;h3 id=&quot;如何在JSX中写注释&quot;&gt;&lt;a href=&quot;#如何在JSX中写注释&quot; class=&quot;headerlink&quot; title=&quot;如何在JSX中写注释&quot;&gt;&lt;/a&gt;如何在JSX中写注释&lt;/h3&gt;&lt;p&gt;支持多行注释&lt;/p&gt;
-&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;span class=&quot;comment&quot;&gt;/* Comment goes here */&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Hello, &amp;#123;name&amp;#125;!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;regexp&quot;&gt;/div&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="HTTP" scheme="http://www.bookcell.org/tags/HTTP/"/>
-    
-      <category term="URL" scheme="http://www.bookcell.org/tags/URL/"/>
-    
-      <category term="WWW" scheme="http://www.bookcell.org/tags/WWW/"/>
     
   </entry>
   
