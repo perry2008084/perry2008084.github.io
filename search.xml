@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ARTS相关内容更新到Github上]]></title>
+    <url>%2F2019%2F03%2F23%2FARTS-migarate-to-github%2F</url>
+    <content type="text"><![CDATA[由于ARTS的更新频率较高，个人感觉不太适合放在博客中更新，因此把ARTS放在Github上进行保存。更新的频率在1周或2周更新一个内容，根据内容选择的深度和量。 ARTS访问入口: https://github.com/perry2008084/ARTS 关于坚持ARTS的一些感悟，每周坚持ARTS，能够让自己保持对技术和英语的持续学习，也能够不断的积累,总之，好处多多。]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+        <tag>Algorithm</tag>
+        <tag>Review</tag>
+        <tag>Technique</tag>
+        <tag>Share</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ARTS-2019-January-Three]]></title>
     <url>%2F2019%2F01%2F28%2FARTS-2019-January-Three%2F</url>
     <content type="text"><![CDATA[ARTS-2019-01-ThreeA(Algorithm):Binary Search 通过一个给定值从中间开始查找，根据二分的方法依次缩小查找范围，直到找到。 R(Review):React生态之2019 组件管理: StoryBook 组件库: Ant Design, React Material-UI, React Bootstrap CSS-in-JS: Sass, Less，CSS modules 状态管理: Redux, Unstated, Mobx 测试: Jest, Mocha, Karma 脚手架: create-react-app 2.0, React-Boilerplate, React Slingshot 新特性: Hooks，Context-API 调试: React dev-tools 静态站点生成: Gatsby, React static T(Technique):七牛云Nodejs的SDK使用入门 1npm install qiniu 并且使用七牛提供的Access Key和Secret Key进行访问。 S(Share):JavaScript基础类型 算上ES6中加入的symbol类型，一共是7种，undefined、null、boolean、number、string、object、symbol。]]></content>

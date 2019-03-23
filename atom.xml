@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-01-28T13:44:00.574Z</updated>
+  <updated>2019-03-23T15:06:24.480Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ARTS相关内容更新到Github上</title>
+    <link href="http://www.bookcell.org/2019/03/23/ARTS-migarate-to-github/"/>
+    <id>http://www.bookcell.org/2019/03/23/ARTS-migarate-to-github/</id>
+    <published>2019-03-23T15:00:58.000Z</published>
+    <updated>2019-03-23T15:06:24.480Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于ARTS的更新频率较高，个人感觉不太适合放在博客中更新，因此把ARTS放在Github上进行<br>保存。更新的频率在1周或2周更新一个内容，根据内容选择的深度和量。</p>
+<p><a href="https://github.com/perry2008084/ARTS" target="_blank" rel="noopener">ARTS访问入口</a>: <a href="https://github.com/perry2008084/ARTS" target="_blank" rel="noopener">https://github.com/perry2008084/ARTS</a></p>
+<blockquote>
+<p>关于坚持ARTS的一些感悟，每周坚持ARTS，能够让自己保持对技术和英语的持续学习，也能<br>够不断的积累,总之，好处多多。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于ARTS的更新频率较高，个人感觉不太适合放在博客中更新，因此把ARTS放在Github上进行&lt;br&gt;保存。更新的频率在1周或2周更新一个内容，根据内容选择的深度和量。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/perry2008084/ART
+    
+    </summary>
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
+    
+    
+      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
+    
+      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
+    
+      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
+    
+      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
+    
+      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
+    
+  </entry>
   
   <entry>
     <title>ARTS-2019-January-Three</title>
@@ -1460,68 +1496,6 @@
       <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Kindle" scheme="http://www.bookcell.org/tags/Kindle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6中模块具名和默认导入导出</title>
-    <link href="http://www.bookcell.org/2018/09/28/es6-module-default-and-named/"/>
-    <id>http://www.bookcell.org/2018/09/28/es6-module-default-and-named/</id>
-    <published>2018-09-28T15:10:58.000Z</published>
-    <updated>2018-09-29T04:34:15.027Z</updated>
-    
-    <content type="html"><![CDATA[<p>ES6模块中有关默认和具名导出，是一个比较容易出错的地方。</p>
-<p>这里翻译了一下Stackoverflow上的一个<a href="https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281" target="_blank" rel="noopener">解答</a>，来自React社区的<code>Dan Abramov</code>的回答。</p>
-<a id="more"></a>
-<hr>
-<p>这是一个默认导入(default import):</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.js</span></span><br><span class="line"><span class="keyword">import</span> A <span class="keyword">from</span> <span class="string">'./A'</span></span><br></pre></td></tr></table></figure>
-<p>这只有在<code>A</code>中具有默认的导出(default export):</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">42</span></span><br></pre></td></tr></table></figure>
-<p>在这种情况下导入时不会在乎你使用什么名称：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.js</span></span><br><span class="line"><span class="keyword">import</span> A <span class="keyword">from</span> <span class="string">'./A'</span></span><br><span class="line"><span class="keyword">import</span> MyA <span class="keyword">from</span> <span class="string">'./A'</span></span><br><span class="line"><span class="keyword">import</span> Something <span class="keyword">from</span> <span class="string">'./A'</span></span><br></pre></td></tr></table></figure>
-<p>因为它总是会解析A的默认导出</p>
-<hr>
-<p>这是一个名称为<code>A</code>具名的导入:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; A &#125; <span class="keyword">from</span> <span class="string">'./A'</span></span><br></pre></td></tr></table></figure>
-<p>这只在<code>A</code>中包含一个叫做<code>A</code>具名的导出：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> A = <span class="number">42</span></span><br></pre></td></tr></table></figure>
-<p>在这种情况下，名称是有影响的，因为你通过导出名称来导入一个具体的内容：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; A &#125; <span class="keyword">from</span> <span class="string">'./A'</span></span><br><span class="line"><span class="keyword">import</span> &#123; myA &#125; <span class="keyword">from</span> <span class="string">'./A'</span> <span class="comment">// 无法工作</span></span><br><span class="line"><span class="keyword">import</span> &#123; Something &#125; <span class="keyword">from</span> <span class="string">'./A'</span> <span class="comment">// 无法工作</span></span><br></pre></td></tr></table></figure>
-<p>为了让这些能够工作，你需要添加对应的具名导出到<code>A</code>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> A = <span class="number">42</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> myA = <span class="number">43</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Something = <span class="number">44</span></span><br></pre></td></tr></table></figure>
-<p>一个模块只能拥有一个默认导出，但是可以有任意多个具名导出(零个，一个，两个或更多)。你可以一起导入他们：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">import A, &#123; myA, Something &#125; from &apos;./A&apos;</span><br></pre></td></tr></table></figure>
-<p>这里，我们导入了默认导出为<code>A</code>，与具名的导出<code>myA</code>和<code>Something</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">42</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> myA = <span class="number">43</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Something = <span class="number">44</span></span><br></pre></td></tr></table></figure>
-<p>我们可以在导入的时候赋给他们不同的名称：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.js</span></span><br><span class="line"><span class="keyword">import</span> X, &#123; myA <span class="keyword">as</span> myX, Something <span class="keyword">as</span> XSomething &#125; <span class="keyword">from</span> <span class="string">'./A'</span></span><br></pre></td></tr></table></figure>
-<p>默认导出倾向于用在任意你期望从模块中正常获取的内容。具名导出倾向于用在好用的地方，但不是必须的。然而，取决于你如何导出内容： 比如，一个模块可能完全没有默认导出。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ES6模块中有关默认和具名导出，是一个比较容易出错的地方。&lt;/p&gt;
-&lt;p&gt;这里翻译了一下Stackoverflow上的一个&lt;a href=&quot;https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;解答&lt;/a&gt;，来自React社区的&lt;code&gt;Dan Abramov&lt;/code&gt;的回答。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="es6" scheme="http://www.bookcell.org/tags/es6/"/>
-    
-      <category term="module" scheme="http://www.bookcell.org/tags/module/"/>
-    
-      <category term="default" scheme="http://www.bookcell.org/tags/default/"/>
-    
-      <category term="named" scheme="http://www.bookcell.org/tags/named/"/>
-    
-      <category term="import" scheme="http://www.bookcell.org/tags/import/"/>
-    
-      <category term="export" scheme="http://www.bookcell.org/tags/export/"/>
     
   </entry>
   
