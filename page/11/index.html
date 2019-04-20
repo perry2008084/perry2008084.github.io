@@ -365,6 +365,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/03/11/baidumap-get-view-area-and-event-callback-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/11/baidumap-get-view-area-and-event-callback-introduction/" itemprop="url">
+                  百度地图获取可视区域及回调事件的用法简介
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-03-11 15:00:39 / Modified: 15:02:11" itemprop="dateCreated datePublished" datetime="2017-03-11T15:00:39+08:00">2017-03-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/11/baidumap-get-view-area-and-event-callback-introduction/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/03/11/baidumap-get-view-area-and-event-callback-introduction/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>记录使用百度地图获取可视区域、回调事件的用法。</p>
+<h2 id="可视区域"><a href="#可视区域" class="headerlink" title="可视区域"></a>可视区域</h2><p>使用百度地图获取可视区域的坐标点的方法：</p>
+<p>原理：通过地图状态方法的接口getBounds()可获取到Bounds对象，包含东北和西南角的坐标点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 获取地图可视化区域的坐标点</span><br><span class="line">function getViewAreaPoint(map) &#123;</span><br><span class="line">  var bounds = map.getBounds();</span><br><span class="line">  console.log(bounds);</span><br><span class="line">  var swPoint = bounds.getSouthWest();</span><br><span class="line">  var nePoint = bounds.getNorthEast();</span><br><span class="line">  var nwPoint = new BMap.Point(swPoint.lng, nePoint.lat);</span><br><span class="line">  var sePoint = new BMap.Point(nePoint.lng, swPoint.lat);</span><br><span class="line">  console.log(swPoint);</span><br><span class="line">  console.log(nePoint);</span><br><span class="line">  console.log(nwPoint);</span><br><span class="line">  console.log(sePoint);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p>原理：定义事件回调函数，添加事件的监听。</p>
+<p>以click事件为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">map.addEventListener(&quot;click&quot;, showInfo);</span><br><span class="line"></span><br><span class="line">function showInfo(e) &#123;</span><br><span class="line">  console.debug(e);</span><br><span class="line">  console.debug(e.type);</span><br><span class="line">  console.debug(e.target);</span><br><span class="line">  console.debug(e.point);</span><br><span class="line">  console.debug(e.pixel);</span><br><span class="line">  console.debug(e.overlay);</span><br><span class="line">  // console.debug(e.point.lng + &quot;, &quot; + e.point.lat);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>百度地图的JavaScript类参考中列举click事件的说明：<br>事件: click<br>参数：(type, target, point, pixel, overlay)<br>描述：左键单击地图时触发此事件。</p>
+<p>参数的说明：<br>type: 事件类型(“onclick”)<br>target: 地图实例<br>point: 经纬度坐标点Point对象<br>pixel: 像素坐标<br>overlay: 覆盖物对象</p>
+<p>【以上】</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/03/08/disabled-hyperlink-style/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1067,190 +1244,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2017/02/07/opensource-license-series-mozila/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/07/opensource-license-series-mozila/" itemprop="url">
-                  开源协议系列之Mozila
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-02-07 17:01:52" itemprop="dateCreated datePublished" datetime="2017-02-07T17:01:52+08:00">2017-02-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2017-02-23 14:19:57" itemprop="dateModified" datetime="2017-02-23T14:19:57+08:00">2017-02-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/07/opensource-license-series-mozila/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/02/07/opensource-license-series-mozila/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Mozila协议。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/07/opensource-license-series-mozila/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1298,7 +1291,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-count">85</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1656,7 +1649,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">160</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">162</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
