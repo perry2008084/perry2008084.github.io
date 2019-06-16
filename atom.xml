@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-05-04T22:52:03.257Z</updated>
+  <updated>2019-06-16T14:29:24.752Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web Component入门</title>
+    <link href="http://www.bookcell.org/2019/06/16/web-component-in-a-nutshell/"/>
+    <id>http://www.bookcell.org/2019/06/16/web-component-in-a-nutshell/</id>
+    <published>2019-06-16T14:27:50.000Z</published>
+    <updated>2019-06-16T14:29:24.752Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>原文出自: <a href="https://levelup.gitconnected.com/web-components-in-a-nutshell-1e114aa971b9" target="_blank" rel="noopener">https://levelup.gitconnected.com/web-components-in-a-nutshell-1e114aa971b9</a></li>
+<li>原标题: Web Components in a Nutshell</li>
+<li>原副标题: 原生浏览器Web Component基础和如何创建</li>
+<li>翻译文章同步发表在团队的语雀上</li>
+</ul>
+<p>说明: 以下使用Web组件来表示Web Component</p>
+<p>正文:</p>
+<p>在web开发中，代码复用已成为一个聚焦重点。作为一名开发者，我们可能会遇到这样的场景，在多个地方使用一个代码片段来表示自定义的UI。如果我们不是很小心的写出，这可能会让整个代码结构变得不可管理。Web组件提供了一个原生的API来构建可复用的UI块。</p>
+<h2 id="什么是Web组件"><a href="#什么是Web组件" class="headerlink" title="什么是Web组件?"></a>什么是Web组件?</h2><p>Web组件是一系列用来帮助我们创建可复用、具备封装的自定义HTML UI元素的浏览器底层的API。Web组件被认为更加好，是因为他们可以用任意的库或者框架创建，而且你可以立马使用原生JavaScript开始创建你自己的Web组件。</p>
+<p>使用Web组件的一大优势在于他们已经在除了微软Edge外其他浏览器中可用，但是我们并不需要担心，因为已经有<a href="https://github.com/webcomponents/webcomponentsjs" target="_blank" rel="noopener">Polyfills</a>可以解决这个问题。</p>
+<p>Web组件由3个主要的技术组成，他们是主要支柱并作为API来构建Web组件。</p>
+<ul>
+<li>自定义元素(Custom Elements)</li>
+<li>模板(Templates)</li>
+<li>影子DOM(Shadow DOM)</li>
+</ul>
+<p>让我们来进一步了解这些技术。</p>
+<h3 id="1-自定义元素-Custom-Elements"><a href="#1-自定义元素-Custom-Elements" class="headerlink" title="1. 自定义元素(Custom Elements)"></a>1. 自定义元素(Custom Elements)</h3><p>这些是JavaScript API的集合，可以帮助你创建自己的HTML元素，并且控制你的DOM和行为。我们可以构建他们的层级和指示他们对行为变化做出的响应。例如，你可以创建一个元素像这样<code>&lt;my-element&gt;&lt;/my-element&gt;</code>。</p>
+<h3 id="2-模板-Templates"><a href="#2-模板-Templates" class="headerlink" title="2. 模板(Templates)"></a>2. 模板(Templates)</h3><p>模板是用户定义的模板在页面加载时并不渲染。之后可以通过创建一个组件实例来多次复用。</p>
+<h3 id="3-影子DOM-Shadow-DOM"><a href="#3-影子DOM-Shadow-DOM" class="headerlink" title="3. 影子DOM(Shadow DOM)"></a>3. 影子DOM(Shadow DOM)</h3><p>影子DOM是JavaScript API组合用以连接封装的DOM。这将会从主文档对象模型中独立渲染，并且他们的行为特性将会保持私有，因此代码片段就不会和代码结构中的其他部分冲突。使用影子DOM后CSS和JavaScript就会像<code>&lt;iframe&gt;</code>一样分离。</p>
+<h3 id="生命周期回调"><a href="#生命周期回调" class="headerlink" title="生命周期回调"></a>生命周期回调</h3><p>生命周期回调是定义在自定义元素类定义中的函数。他们有自己唯一的定义目的。他们用于操作我们自定义元素的行为。</p>
+<ul>
+<li><code>connectedCallback</code>: 这个特殊的函数会在我们的自定义元素初始连接到DOM时进行调用。</li>
+<li><code>adoptedCallback</code>: 这个函数会在我们的自定义函数移动到一个新的文档时调用。</li>
+<li><code>attributeChangedCallback</code>: 如果在我们的自定义元素中有属性变化，例如属性的变更、增加或者删掉，这个特殊的函数会被调用。</li>
+<li><code>disconnectedCallback</code>: 这个特殊的函数当我们的自定义元素从DOM中断开时调用。</li>
+</ul>
+<p>现在让我们来看看如何使用原生JavaScript来创建一个Web组件。通过做完这个教程，你可以了解Web组件。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="我们要构建什么？"><a href="#我们要构建什么？" class="headerlink" title="我们要构建什么？"></a>我们要构建什么？</h3><p>我们要构建一个显示一张当前热门图片的Web组件。我们会使用Giphy API来获取gif，你的代码结构在实现完成后会是如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--index.html</span><br><span class="line">--card.js</span><br><span class="line">--services.js</span><br></pre></td></tr></table></figure>
+<h3 id="构建教程"><a href="#构建教程" class="headerlink" title="构建教程"></a>构建教程</h3><p>首先，我们要创建一个类来包含我们想创建的Web组件的行为。创建一个<code>card.js</code>的文件，并创建一个如下的类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardComponent</span> <span class="keyword">extends</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> ()&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//Your implementaion goes here</span></span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在类的构造函数中，你需要通过<code>Element.attachShadow()</code>方法将影子DOM的影子根(shadow root)添加到文档的当前HTML元素中。接着使用<code>&lt;template&gt;</code>标签在<code>index.html</code>文件中创建HTML模板。这个模板如下:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"card-view"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Web Component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"card-title"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"gif-view"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在添加模板到我们的<code>index.html</code>文件中后，我们可以使用DOM方法来克隆上面的模板并添加到我们的影子DOM。这需要在构造函数中完成。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardComponent</span> <span class="keyword">extends</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> ()&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">const</span> shadow = <span class="keyword">this</span>.attachShadow(&#123;<span class="attr">mode</span>: <span class="string">'open'</span>&#125;);</span><br><span class="line">       </span><br><span class="line">        <span class="comment">// Clone the template so that it can be attched to the shadowroot                     </span></span><br><span class="line">        <span class="keyword">const</span> template = <span class="built_in">document</span>.getElementById(<span class="string">'card-view'</span>);</span><br><span class="line">        <span class="keyword">const</span> templateInstance = template.content.cloneNode(<span class="literal">true</span>);</span><br><span class="line">        shadow.appendChild(templateInstance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就像我之前提到的，我们应该再写一个函数来从Giphy API中获取gif。从API中我们将获取到当前热门的图片，以及这个图片上传者提供的标题。在我们开始写这个函数前，先创建一个单独的文件<code>services.js</code>用以放置URL和API key。创建文件并放置以下代码和你申请的API key。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> API_KEY = <span class="string">'*YOUR_API_KEY*'</span>;</span><br><span class="line"><span class="keyword">const</span> url = <span class="string">`http://api.giphy.com/v1/gifs/trending?api_key=`</span> + API_KEY + <span class="string">`&amp;limit=1`</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;API_KEY, url&#125;; <span class="comment">// export the url so that i can be used extrnally.</span></span><br></pre></td></tr></table></figure>
+<p>创建<code>services.js</code>文件后，添加以下的代码到你的<code>card.js</code>文件顶部，这样你就可以使用URL来获取gif图片了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; url &#125; <span class="keyword">from</span> <span class="string">'./services.js'</span>;</span><br></pre></td></tr></table></figure>
+<p>你可以从这个链接获取你自己的API key: <a href="https://developers.giphy.com/" target="_blank" rel="noopener">https://developers.giphy.com/</a></p>
+<p>跳回到<code>card.js</code>文件，并添加以下函数:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">render(shadowElem, data)&#123;</span><br><span class="line">    <span class="keyword">const</span> shadowRoot = shadowElem.shadowRoot;</span><br><span class="line">    shadowRoot.getElementById(<span class="string">'card-title'</span>).innerHTML = data.name;</span><br><span class="line">    shadowRoot.getElementById(<span class="string">'gif-view'</span>).src = data.url;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> fetchFromGiphy ()&#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(url);</span><br><span class="line">  <span class="keyword">const</span> json = <span class="keyword">await</span> res.json();</span><br><span class="line">  <span class="keyword">const</span> gifUrl = json[<span class="string">'data'</span>][<span class="string">'0'</span>].images[<span class="string">'fixed_height_small'</span>].url;</span><br><span class="line">  <span class="keyword">const</span> gifName = json[<span class="string">'data'</span>][<span class="string">'0'</span>].title;</span><br><span class="line">  <span class="keyword">const</span> gifObject = &#123;</span><br><span class="line">     name: gifName,</span><br><span class="line">     url: gifUrl</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> gifObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>让我来解释一下这些函数。</p>
+<p><code>fetchFromGiphy()</code>: 这个函数使用async/await获取热门的gif和这个gif的标题，并作为对象进行返回。</p>
+<p><code>render()</code>: 这个函数用于注入值到影子DOM的元素中。</p>
+<p>接着，让这些函数在生命周期回调中被调用。实际上，我们需要当我们的自定义元素连接到DOM时调用这两个函数。我们有<code>connectedCallback()</code>函数来实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> connectedCallback() &#123;</span><br><span class="line">    <span class="keyword">this</span>.gifObj = <span class="keyword">await</span> <span class="keyword">this</span>.fetchFromGiphy();</span><br><span class="line">    <span class="keyword">this</span>.render(<span class="keyword">this</span>, <span class="keyword">this</span>.gifObj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，使用<code>customElements.define()</code>函数来定义我们的自定义元素。当定义一个自定义元素时，有一些基本原则需要记在心里。<code>define()</code>函数的第一个参数应该是代码自定义元素名称的字符串。他们不能是一个单独的单词，而是由<code>-</code>字符在中间。第二个参数我们的定义元素行为的类对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">customElements.define(‘card-component’, CardComponent);</span><br></pre></td></tr></table></figure>
+<p>现在你已经定义了你的组件，添加<code>card.js</code>文件到你的<code>index.html</code>文件中。你可以在HTML文档的任意地方使用<code>&lt;card-component&gt;</code>元素。最后的<code>index.html</code>如下:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Web Component<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"card-view"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Web Component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"card-title"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"gif-view"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">card-component</span>&gt;</span><span class="tag">&lt;/<span class="name">card-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./card.js"</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>为了运行，你需要一个服务器。从命令行中全局安装<code>static-server</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g static-server</span><br></pre></td></tr></table></figure>
+<p>从你的Web组件项目目录下运行<code>static-server</code>命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static-server</span><br></pre></td></tr></table></figure>
+<p>好了，恭喜！你现在已经拥有你自己的组件。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>这篇文章总结了Web组件的基础。这是Web组件的理论和实现。Web组件在帮助代码复用上很有用。你可以从这个<a href="https://github.com/thivatm/web-comp" target="_blank" rel="noopener">项目</a>中检出所有代码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;原文出自: &lt;a href=&quot;https://levelup.gitconnected.com/web-components-in-a-nutshell-1e114aa971b9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://l
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="web组件" scheme="http://www.bookcell.org/tags/web%E7%BB%84%E4%BB%B6/"/>
+    
+      <category term="web component" scheme="http://www.bookcell.org/tags/web-component/"/>
+    
+      <category term="组件" scheme="http://www.bookcell.org/tags/%E7%BB%84%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>ES6模块-团队分享</title>
@@ -1592,45 +1680,6 @@
       <category term="笔记" scheme="http://www.bookcell.org/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="HTTP" scheme="http://www.bookcell.org/tags/HTTP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>升级博客的Hexo和Next主题版本</title>
-    <link href="http://www.bookcell.org/2018/10/09/update-hexo-and-theme-v6/"/>
-    <id>http://www.bookcell.org/2018/10/09/update-hexo-and-theme-v6/</id>
-    <published>2018-10-09T15:43:31.000Z</published>
-    <updated>2018-10-14T14:35:53.292Z</updated>
-    
-    <content type="html"><![CDATA[<p>本次升级更新了如下内容：</p>
-<p>Hexo的版本,从3.3.8升级到3.7.1版本，没有重大的破坏性变更。</p>
-<p>主题Next版本，从5.1升级到v6.4.2版本，两者间有不兼容的地方，配置需要重新配；另外，新版本的主题支持更多的特性。</p>
-<p>有关Next主题的升级文档，这里给一下官方的指南，希望帮助有需要的朋友</p>
-<p><a href="https://github.com/theme-next/hexo-theme-next/tree/master/docs/zh-CN" target="_blank" rel="noopener">hexo-theme-next中文文档</a></p>
-<p><a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md" target="_blank" rel="noopener">从 NexT v5.1.x 更新</a></p>
-<p>升级过程中需要注意的是，v6和v5重大的变更之一是，插件依赖需要自己手动安装。</p>
-<p>例如，假设你想要在你的站点中使用 fancybox 插件，请进入 NexT 配置文件，你会看到如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Fancybox</span><br><span class="line"># Dependencies: https://github.com/theme-next/theme-next-fancybox</span><br><span class="line">fancybox: false</span><br></pre></td></tr></table></figure>
-<p>升级愉快！感谢next团队的贡献，v6带来了很多很棒的特性。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本次升级更新了如下内容：&lt;/p&gt;
-&lt;p&gt;Hexo的版本,从3.3.8升级到3.7.1版本，没有重大的破坏性变更。&lt;/p&gt;
-&lt;p&gt;主题Next版本，从5.1升级到v6.4.2版本，两者间有不兼容的地方，配置需要重新配；另外，新版本的主题支持更多的特性。&lt;/p&gt;
-&lt;p&gt;有关Ne
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="工具" scheme="http://www.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="博客" scheme="http://www.bookcell.org/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="升级" scheme="http://www.bookcell.org/tags/%E5%8D%87%E7%BA%A7/"/>
     
   </entry>
   
