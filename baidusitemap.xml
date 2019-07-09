@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/07/09/understanding-the-virtual-dom/</loc>
+    <lastmod>2019-07-09T08:31:44.843Z</lastmod>
+    <data>
+        <display>
+        <title>理解虚拟DOM</title>
+        <pubTime>2019-07-09T08:30:48.000Z</pubTime>
+        
+        <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
+         
+        <tag>虚拟DOM</tag>
+         
+        <tag>Virtual DOM</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/06/16/web-component-in-a-nutshell/</loc>
     <lastmod>2019-06-16T14:29:24.752Z</lastmod>
     <data>
@@ -774,9 +800,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>ag-grid</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>ag-grid</tag>
          
         <tag>表格</tag>
          
@@ -1949,9 +1975,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据</tag>
-         
         <tag>数据可视化</tag>
+         
+        <tag>数据</tag>
          
         <tag>概念</tag>
          
