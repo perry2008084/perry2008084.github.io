@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-07-13T04:37:05.425Z</updated>
+  <updated>2019-07-13T04:41:27.723Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>/[深入JavaScript系列/]new背后的原理及实现</title>
+    <title>(深入JavaScript系列)new背后的原理及实现</title>
     <link href="http://www.bookcell.org/2019/07/13/understanding-new-operator-in-js/"/>
     <id>http://www.bookcell.org/2019/07/13/understanding-new-operator-in-js/</id>
     <published>2019-07-13T04:22:40.000Z</published>
-    <updated>2019-07-13T04:37:05.425Z</updated>
+    <updated>2019-07-13T04:41:27.723Z</updated>
     
     <content type="html"><![CDATA[<p>面试中遇到关于JavaScript中new关键字背后的实现原理，了解大概的原理，但是表达出来不是很清楚，表示掌握得不够完全，这里查了一些资料，做一下整理。</p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>例如我们做了new的调用操作，</p>
