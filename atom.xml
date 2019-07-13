@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-07-09T08:31:44.843Z</updated>
+  <updated>2019-07-13T04:37:05.425Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>/[深入JavaScript系列/]new背后的原理及实现</title>
+    <link href="http://www.bookcell.org/2019/07/13/understanding-new-operator-in-js/"/>
+    <id>http://www.bookcell.org/2019/07/13/understanding-new-operator-in-js/</id>
+    <published>2019-07-13T04:22:40.000Z</published>
+    <updated>2019-07-13T04:37:05.425Z</updated>
+    
+    <content type="html"><![CDATA[<p>面试中遇到关于JavaScript中new关键字背后的实现原理，了解大概的原理，但是表达出来不是很清楚，表示掌握得不够完全，这里查了一些资料，做一下整理。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>例如我们做了new的调用操作，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> ConstructorFunction(arg1, arg2);</span><br></pre></td></tr></table></figure>
+<h3 id="new操作"><a href="#new操作" class="headerlink" title="new操作"></a>new操作</h3><p>背后实际上发生了这些步骤:</p>
+<ol>
+<li>创建一个新的空对象，对象类型为简单的object</li>
+<li>设置这个空对象的实例原型(内部的、不可访问的[[prototype]]属性，部分浏览器可通过<code>__proto__</code>进行访问，ES5开始可通过<code>Object.getPrototypeOf(obj)</code>取得)为构造函数的<code>prototype</code>属性（每个函数对象都拥有一个<code>prototype</code>属性）</li>
+<li>让<code>this</code>变量指向这个新创建的对象</li>
+<li>以这个新创建的对象为上下文执行构造函数</li>
+<li>如果构造函数有返回非空的对象，则返回该对象，否则返回第一步中创建的对象。</li>
+</ol>
+<h3 id="原型的几个概念"><a href="#原型的几个概念" class="headerlink" title="原型的几个概念"></a>原型的几个概念</h3><p>这里涉及到几个概念：</p>
+<ol>
+<li>构造函数，配合使用new关键字的函数可称为构造函数</li>
+<li>实例原型对象，在Ecma标准中，通过<code>[[prototype]]</code>表示，在部分浏览器中使用<code>__proto__</code>(非标准的，不建议使用)来表示，ES5开始可使用<code>Object.getPrototypeOf()</code>读取，ES6开始可使用<code>Object.setPrototypeOf()</code>方法进行设置(仅支持完全替换对象或者设为null)</li>
+<li>原型对象，构造函数的<code>prototype</code>属性</li>
+</ol>
+<p>比较难理解的是<code>[[prototype]]</code>这个属性，每个对象都拥有一个内部的<code>[[prototype]]</code>属性。这个对象是创建对象的时候设置的，创建包括<code>new</code>、通过<code>Object.create()</code>或者用文本字面量，并且只能通过<code>Object.getPrototypeOf()</code>和<code>Object.setPrototypeOf()</code>方法进行操作。</p>
+<h3 id="原型链和继承"><a href="#原型链和继承" class="headerlink" title="原型链和继承"></a>原型链和继承</h3><p><strong>说明</strong></p>
+<p>一旦通过new操作实例化一个对象后，如果这个实例上查找某个属性并不存在，脚本会通过<code>[[prototype]]</code>对象向上一级继续查找，也就是通过原型链的方式进行往上查找。这种方式和在传统的类继承方式是类似的，在JavaScript中通过原型链的形式来继承父类的属性和方法。</p>
+<p>函数中，除了拥有隐藏的<code>[[prototype]]</code>属性，还有一个<code>prototype</code>属性，这个属性可以访问、修改和添加希望给实例继承的属性和方法。</p>
+<p><strong>原型链实例</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ObjMaker = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.a = <span class="string">'first'</span>; &#125;</span><br><span class="line"><span class="comment">// ObjMaker是一个普通函数，并且可以作为一个构造函数使用</span></span><br><span class="line"></span><br><span class="line">ObjMaker.prototype.b = <span class="string">'second'</span>;</span><br><span class="line"><span class="comment">// 像其他函数一样，ObjMaker拥有一个可访问的属性prototype可以被修改，这里增加了一个属性b。</span></span><br><span class="line"><span class="comment">// objMaker还有一个内部的属性[[prototype]]，可以通过上述的两个方法进行访问和修改，</span></span><br><span class="line"><span class="comment">// 修改的话仅直接替换为其他对象或者设置为null</span></span><br><span class="line"></span><br><span class="line">obj1 = <span class="keyword">new</span> ObjMaker();</span><br><span class="line"><span class="comment">// 这里会发生前面所说的几件事情</span></span><br><span class="line"><span class="comment">// 首先创建一个空的对象obj1</span></span><br><span class="line"><span class="comment">// 然后将obj1的内部实例对象[[prototype]]设置为ObjMaker的prototype值，</span></span><br><span class="line"><span class="comment">// 并且设置this上下文为obj1，执行构造函数。因此obj1.a可以拿到first值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1.a);</span><br><span class="line"><span class="comment">// 输出first</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1.b);</span><br><span class="line"><span class="comment">// 输出second，解释: obj1并没有属性b，因此会去obj1的内部实例对象属性[[prototype]]上查找，也就是ObjMaker的prototype对象，找到b之后返回对应的值</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>继承实例</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">SubObjMaker = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">SubObjMaker.prototype = <span class="keyword">new</span> ObjMaker(); <span class="comment">// 这种继承模式已经废弃</span></span><br><span class="line"><span class="comment">// 因为使用了new，SubObjMaker.prototype的内部实例对象属性[[prototype]]</span></span><br><span class="line"><span class="comment">// 会被设置为ObjMaker.prototype属性。</span></span><br><span class="line"><span class="comment">// 现在通常会使用ES5中的Object.create()方法来实现。</span></span><br><span class="line"><span class="comment">// SubObjMaker.prototype = Object.create(ObjMaker.prototype);</span></span><br><span class="line"></span><br><span class="line">SubObjMaker.prototype.c = <span class="string">'third'</span>;</span><br><span class="line">obj2 = <span class="keyword">new</span> SubObjectMaker();</span><br><span class="line"><span class="comment">// obj2的实例原型对象[[prototype]]被设置为SubObjectMaker.prototype属性，</span></span><br><span class="line"><span class="comment">// SubObjectMaker.prototype的[[prototype]]属性为ObjMaker.prototype</span></span><br><span class="line"><span class="comment">// 形成了一条如下的原型链</span></span><br><span class="line"><span class="comment">// ojb2 -&gt; SubObjMaker.prototype -&gt; ObjMaker.prototype</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj2.c);</span><br><span class="line"><span class="comment">// 输出third，通过原型链查找，在SubObjMaker.prototype上找到</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj2.b);</span><br><span class="line"><span class="comment">// 输出second, 通过原型链查找，在ObjMaker.prototype上找到</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj2.a);</span><br><span class="line"><span class="comment">// 输出first, 通过原型链查找，在SubObjMaker.prototype上找到，</span></span><br><span class="line"><span class="comment">// 因为SubObjMaker.prototype是由ObjMaker构造生成的，因此脚本会自动赋值</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newOperator</span>(<span class="params">ConStr, args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> thisValue = <span class="built_in">Object</span>.create(ConStr.prototype);</span><br><span class="line">    <span class="comment">// 构建一个空对象并实现继承</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> result = ConStr.apply(thisValue, args);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> result === <span class="string">'object'</span> &amp;&amp; result != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 构造函数可能会返回对象，这里要增加判断，并且要排除null，因为null的类型检测为object</span></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> thisValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>欢迎访问我的<a href="https://blog.bookcell.org" target="_blank" rel="noopener">博客</a> <a href="https://blog.bookcell.org" target="_blank" rel="noopener">https://blog.bookcell.org</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript" target="_blank" rel="noopener">What is the new keyword in javascript</a></li>
+<li><a href="https://zeekat.nl/articles/constructors-considered-mildly-confusing.html" target="_blank" rel="noopener">Contructors Considered Mildly Confusing</a></li>
+<li><a href="https://2ality.com/2014/01/new-operator.html" target="_blank" rel="noopener">The new operator implemented in JavaScript</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;面试中遇到关于JavaScript中new关键字背后的实现原理，了解大概的原理，但是表达出来不是很清楚，表示掌握得不够完全，这里查了一些资料，做一下整理。&lt;/p&gt;
+&lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="JavaScript" scheme="http://www.bookcell.org/tags/JavaScript/"/>
+    
+      <category term="原理" scheme="http://www.bookcell.org/tags/%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="new" scheme="http://www.bookcell.org/tags/new/"/>
+    
+      <category term="关键字" scheme="http://www.bookcell.org/tags/%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    
+      <category term="原型" scheme="http://www.bookcell.org/tags/%E5%8E%9F%E5%9E%8B/"/>
+    
+      <category term="原型链" scheme="http://www.bookcell.org/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    
+      <category term="继承" scheme="http://www.bookcell.org/tags/%E7%BB%A7%E6%89%BF/"/>
+    
+  </entry>
   
   <entry>
     <title>理解虚拟DOM</title>
@@ -1435,55 +1502,6 @@
       &lt;h2 id=&quot;A-Algorithm&quot;&gt;&lt;a href=&quot;#A-Algorithm&quot; class=&quot;headerlink&quot; title=&quot;A(Algorithm):&quot;&gt;&lt;/a&gt;A(Algorithm):&lt;/h2&gt;&lt;p&gt;哈希表/hashtable&lt;/p&gt;
 &lt;p&gt;复杂度:&lt;/p&gt;
 
-    
-    </summary>
-    
-      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
-    
-    
-      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
-    
-      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
-    
-      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
-    
-      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
-    
-      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>arts-2018-11-one</title>
-    <link href="http://www.bookcell.org/2018/11/19/arts-2018-11-one/"/>
-    <id>http://www.bookcell.org/2018/11/19/arts-2018-11-one/</id>
-    <published>2018-11-19T01:20:35.000Z</published>
-    <updated>2018-11-26T04:47:43.910Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="arts-2018-11-one"><a href="#arts-2018-11-one" class="headerlink" title="arts-2018-11-one"></a>arts-2018-11-one</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>快速排序</p>
-<p>算法复杂度: O(nlog(n))</p>
-<p>原理:</p>
-<p>通过分治的方法实现排序。</p>
-<ol>
-<li>取中间位置为一个支点</li>
-<li>根据支点的大小，划分大于、小于和等于支点值的数据部分</li>
-<li>针对大于和小于的数据，重复步骤1和步骤2，直到剩余的数据为1个</li>
-<li>拼接各数据成完整的数据</li>
-</ol>
-<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://medium.com/swlh/how-google-is-slowing-innovation-d53161108ea2" target="_blank" rel="noopener">https://medium.com/swlh/how-google-is-slowing-innovation-d53161108ea2</a></p>
-<blockquote>
-<p>本文的主要观点是，拥抱、扩展和差异化来模仿和打败竞争对手。</p>
-</blockquote>
-<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p><a href="https://blog.teamtreehouse.com/the-beginners-guide-to-three-js" target="_blank" rel="noopener">https://blog.teamtreehouse.com/the-beginners-guide-to-three-js</a></p>
-<blockquote>
-<p>本文讲解了使用three.js实现一个简单的3D的logo实例。</p>
-</blockquote>
-<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p>Mac下清理的工具，推荐一下CleanMyMac(收费)和Onyx(免费)，近期清理出了100多个G的空间。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;arts-2018-11-one&quot;&gt;&lt;a href=&quot;#arts-2018-11-one&quot; class=&quot;headerlink&quot; title=&quot;arts-2018-11-one&quot;&gt;&lt;/a&gt;arts-2018-11-one&lt;/h1&gt;&lt;h2 id=&quot;A-Algorit
     
     </summary>
     

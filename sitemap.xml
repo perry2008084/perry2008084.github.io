@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.bookcell.org/2019/07/13/understanding-new-operator-in-js/</loc>
+    
+    <lastmod>2019-07-13T04:37:05.425Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.bookcell.org/2019/07/09/understanding-the-virtual-dom/</loc>
     
     <lastmod>2019-07-09T08:31:44.843Z</lastmod>

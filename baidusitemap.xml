@@ -4,6 +4,40 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/07/13/understanding-new-operator-in-js/</loc>
+    <lastmod>2019-07-13T04:37:05.425Z</lastmod>
+    <data>
+        <display>
+        <title>/[深入JavaScript系列/]new背后的原理及实现</title>
+        <pubTime>2019-07-13T04:22:40.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>原理</tag>
+         
+        <tag>new</tag>
+         
+        <tag>关键字</tag>
+         
+        <tag>原型</tag>
+         
+        <tag>原型链</tag>
+         
+        <tag>继承</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/07/09/understanding-the-virtual-dom/</loc>
     <lastmod>2019-07-09T08:31:44.843Z</lastmod>
     <data>
