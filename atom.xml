@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>书格前端</title>
-  
+  <subtitle>潘绳杰的博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
@@ -80,9 +80,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
-    
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
     
       <category term="虚拟DOM" scheme="http://www.bookcell.org/tags/%E8%99%9A%E6%8B%9FDOM/"/>
     
