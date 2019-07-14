@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS三栏布局方案]]></title>
+    <url>%2F2019%2F07%2F14%2Fthree-columns-layout-solutions%2F</url>
+    <content type="text"><![CDATA[平时开发或者面试的时候，经常会遇到这样的场景，实现一个三栏布局，具体要求如下： 高度为100px，左右栏宽度固定为300px，中间栏宽度自适应。 有多种布局方案可以实现，这里一一探索。 浮动布局方案实现思路： 通过让左右两栏固定宽度和浮动，并设置中间栏的左右外边距实现三栏自适应 这里还有一种实现思路，中间栏创建一个BFC同样可以实现自适应，原理是浮动不会影响BFC内的内容 123456789101112131415161718192021222324252627282930313233343536&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;title&gt;三栏布局-浮动布局方案&lt;/title&gt; &lt;style&gt; .left, .right, .main &#123; height: 100px; &#125; .left &#123; width: 300px; float: left; background: red; &#125; .right &#123; width: 300px; float: right; background: blue; &#125; .main &#123; margin-left: 300px; margin-right: 300px; background: yellow; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;article&gt; &lt;aside class="left"&gt;left&lt;/aside&gt; &lt;aside class="right"&gt;right&lt;/aside&gt; &lt;main class="main"&gt;main&lt;/main&gt; &lt;/article&gt;&lt;/body&gt;&lt;/html&gt; 缺点： 内容展现顺序与DOM结构不一致，主体内容后加载，一定程度影响用户体验 当宽度缩小到不足以显示三栏时，右侧栏会被挤到下方 兼容性： PC端支持IE6+, Firefox 2+, Chrome 1+ 移动端支持iOS Safari 1.0，Android browser 1.0 绝对定位布局方案实现思路: 容器设置为相对定位，左右两栏分别用绝对定位，中间栏增加左右外边距实现自适应 还有一种思路， 左右两栏分别绝对定位在两侧，中间栏同样使用绝对定位，并设置左右的距离为300px 12345678910111213141516171819202122232425262728293031323334353637383940414243&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;title&gt;三栏布局-绝对定位方案&lt;/title&gt; &lt;style&gt; .container &#123; position: relative; &#125; .main, .left, .right &#123; height: 100px; &#125; .main &#123; margin-left: 300px; margin-right: 300px; background: yellow; &#125; .left &#123; position: absolute; top: 0; left: 0; width: 300px; background: red; &#125; .right &#123; position: absolute; top: 0; right: 0; width: 300px; background: blue; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;article class="container"&gt; &lt;main class="main"&gt;main&lt;/main&gt; &lt;aside class="left"&gt;left&lt;/aside&gt; &lt;aside class="right"&gt;right&lt;/aside&gt; &lt;/article&gt;&lt;/body&gt;&lt;/html&gt; 缺点： 父元素必须要定位（使用非static的定位方式） 宽度缩小到无法显示主体内容时，主体内容会被覆盖无法显示 优点： 内容可以优先加载 兼容性： PC端支持IE6+, Firefox 2+, Chrome 1+ 移动端未知 Flex布局方案实现思路： 设置容器为flex，然后左右栏设置固定宽度不可伸缩，中间栏设置为自动伸缩 123456789101112131415161718192021222324252627282930313233343536&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;title&gt;三栏布局-弹性盒布局方案&lt;/title&gt; &lt;style&gt; .container &#123; display: flex; &#125; .left, .main, .right &#123; height: 100px; &#125; .left &#123; flex: 0 0 300px; background: red; &#125; .main &#123; flex: 1 1 auto; background: yellow; &#125; .right &#123; flex: 0 0 300px; background: blue; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;article class="container"&gt; &lt;aside class="left"&gt;left&lt;/aside&gt; &lt;main class="main"&gt;main&lt;/main&gt; &lt;aside class="right"&gt;right&lt;/aside&gt; &lt;/article&gt;&lt;/body&gt;&lt;/html&gt; 缺点： 无法兼容低版本的浏览器 优点： 代码简洁，DOM结构清晰 主流的实现方式 兼容性： PC端支持IE10及以上、Edge 12,chrome 21,firefox 28,safari 6.1（IE10为部分支持，其他浏览器版本为完全支持） 移动端支持iOS Safari 7, android browser 4.4 兼容性详情 网格布局方案实现思路： 设置容器为grid，然后设置行高度为100px，设置三栏的宽度 1234567891011121314151617181920212223242526272829303132&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;title&gt;三栏布局-网格布局方案&lt;/title&gt; &lt;style&gt; .container &#123; display: grid; grid-template-rows: 100px; grid-template-columns: 300px 1fr 300px; &#125; .left &#123; background: red; &#125; .main &#123; background: yellow; &#125; .right &#123; background: blue; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;article class="container"&gt; &lt;aside class="left"&gt;left&lt;/aside&gt; &lt;main class="main"&gt;main&lt;/main&gt; &lt;aside class="right"&gt;right&lt;/aside&gt; &lt;/article&gt;&lt;/body&gt;&lt;/html&gt; 缺点： 兼容性相对弹性盒要差，不过目前绝大部分浏览器较新的版本已经支持 优点: 代码简洁，DOM结构清晰 兼容性: PC端支持IE10及以上、Edge 16,chrome 57,firefox 52,safari 10.1（IE10为部分支持，其他浏览器为完全支持的起始版本） 移动端支持iOS Safari 10.3, android browser 67 兼容性详情 表格布局方案实现思路: 设置容器为table且宽度为100%，并设置子元素为table-cell 12345678910111213141516171819202122232425262728293031323334353637&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;title&gt;三栏布局-表格布局方案&lt;/title&gt; &lt;style&gt; .container &#123; display: table; width: 100%; &#125; .left, .main, .right &#123; display: table-cell; height: 100px; &#125; .left &#123; width: 300px; background: red; &#125; .main &#123; background: yellow; &#125; .right &#123; width: 300px; background: blue; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;article class="container"&gt; &lt;aside class="left"&gt;left&lt;/aside&gt; &lt;main class="main"&gt;main&lt;/main&gt; &lt;aside class="right"&gt;right&lt;/aside&gt; &lt;/article&gt;&lt;/body&gt;&lt;/html&gt; 缺点: 非语义化 优点: 兼容浏览器版低 兼容性: PC支持IE8+, Firefox 3+, Chrome 4+, Safari 3.1+ 移动端支持 iOS Safari 3.2, android browser 2.1 兼容性详情 圣杯布局实现思路: 通过将左右两栏挂在容器的两侧，从而实现三栏布局，形状类似圣杯 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;title&gt;三栏布局-圣杯布局方案&lt;/title&gt; &lt;style&gt; .container &#123; margin-left: 300px; margin-right: 300px; overflow: hidden; &#125; .main, .left, .right &#123; height: 100px; &#125; .main &#123; float: left; width: 100%; background: yellow; &#125; .left &#123; float: left; margin-left: -100%; width: 300px; position: relative; left: -300px; background: red; &#125; .right &#123; float: left; margin-left: -300px; width: 300px; position: relative; left: 300px; background: blue; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;article class="container"&gt; &lt;main class="main"&gt;main&lt;/main&gt; &lt;aside class="left"&gt;left&lt;/aside&gt; &lt;aside class="right"&gt;right&lt;/aside&gt; &lt;/article&gt;&lt;/body&gt;&lt;/html&gt; 缺点: 当中间栏宽度比左栏宽度小时，布局会发生混乱 优点: 支持内容优先加载 兼容性: 参考浮动布局方案 双飞翼布局方案实现思路: 基于圣杯布局，引入一个容器来放置中间栏，并且设置中间栏的外边距，不需要使用相对定位 1234567891011121314151617181920212223242526272829303132333435363738394041424344&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt; &lt;title&gt;三栏布局-双飞翼布局方案&lt;/title&gt; &lt;style&gt; .main .in, .left, .right &#123; height: 100px; &#125; .main &#123; float: left; width: 100%; &#125; .main .in &#123; margin-left: 300px; margin-right: 300px; background: yellow; &#125; .left &#123; float: left; width: 300px; margin-left: -100%; background: red; &#125; .right &#123; float: right; width: 300px; margin-left: -300px; background: blue; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt; &lt;article class="container"&gt; &lt;main class="main"&gt; &lt;div class="in"&gt;main&lt;/div&gt; &lt;/main&gt; &lt;aside class="left"&gt;left&lt;/aside&gt; &lt;aside class="right"&gt;right&lt;/aside&gt; &lt;/article&gt;&lt;/body&gt;&lt;/html&gt; 缺点: DOM结构较复杂 优点: 支持内容优先加载 相对圣杯布局，宽度缩小，布局不会发生混乱 兼容性: 参考浮动布局方案 参考 CSS布局知识 搞定css三栏布局（六种方法） 详解 CSS 七种三栏布局技巧 聊聊为什么淘宝要提出「双飞翼」布局]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>flexbox</tag>
+        <tag>弹性盒</tag>
+        <tag>CSS</tag>
+        <tag>布局</tag>
+        <tag>三栏</tag>
+        <tag>浮动</tag>
+        <tag>float</tag>
+        <tag>绝对定位</tag>
+        <tag>absolute</tag>
+        <tag>网格</tag>
+        <tag>grid</tag>
+        <tag>圣杯</tag>
+        <tag>双飞翼</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[(深入JavaScript系列)new背后的原理及实现]]></title>
     <url>%2F2019%2F07%2F13%2Funderstanding-new-operator-in-js%2F</url>
     <content type="text"><![CDATA[面试中遇到关于JavaScript中new关键字背后的实现原理，了解大概的原理，但是表达出来不是很清楚，表示掌握得不够完全，这里查了一些资料，做一下整理。 原理例如我们做了new的调用操作， 1new ConstructorFunction(arg1, arg2); new操作背后实际上发生了这些步骤: 创建一个新的空对象，对象类型为简单的object 设置这个空对象的实例原型(内部的、不可访问的[[prototype]]属性，部分浏览器可通过__proto__进行访问，ES5开始可通过Object.getPrototypeOf(obj)取得)为构造函数的prototype属性（每个函数对象都拥有一个prototype属性） 让this变量指向这个新创建的对象 以这个新创建的对象为上下文执行构造函数 如果构造函数有返回非空的对象，则返回该对象，否则返回第一步中创建的对象。 原型的几个概念这里涉及到几个概念： 构造函数，配合使用new关键字的函数可称为构造函数 实例原型对象，在Ecma标准中，通过[[prototype]]表示，在部分浏览器中使用__proto__(非标准的，不建议使用)来表示，ES5开始可使用Object.getPrototypeOf()读取，ES6开始可使用Object.setPrototypeOf()方法进行设置(仅支持完全替换对象或者设为null) 原型对象，构造函数的prototype属性 比较难理解的是[[prototype]]这个属性，每个对象都拥有一个内部的[[prototype]]属性。这个对象是创建对象的时候设置的，创建包括new、通过Object.create()或者用文本字面量，并且只能通过Object.getPrototypeOf()和Object.setPrototypeOf()方法进行操作。 原型链和继承说明 一旦通过new操作实例化一个对象后，如果这个实例上查找某个属性并不存在，脚本会通过[[prototype]]对象向上一级继续查找，也就是通过原型链的方式进行往上查找。这种方式和在传统的类继承方式是类似的，在JavaScript中通过原型链的形式来继承父类的属性和方法。 函数中，除了拥有隐藏的[[prototype]]属性，还有一个prototype属性，这个属性可以访问、修改和添加希望给实例继承的属性和方法。 原型链实例12345678910111213141516171819ObjMaker = function() &#123; this.a = 'first'; &#125;// ObjMaker是一个普通函数，并且可以作为一个构造函数使用ObjMaker.prototype.b = 'second';// 像其他函数一样，ObjMaker拥有一个可访问的属性prototype可以被修改，这里增加了一个属性b。// objMaker还有一个内部的属性[[prototype]]，可以通过上述的两个方法进行访问和修改，// 修改的话仅直接替换为其他对象或者设置为nullobj1 = new ObjMaker();// 这里会发生前面所说的几件事情// 首先创建一个空的对象obj1// 然后将obj1的内部实例对象[[prototype]]设置为ObjMaker的prototype值，// 并且设置this上下文为obj1，执行构造函数。因此obj1.a可以拿到first值console.log(obj1.a);// 输出firstconsole.log(obj1.b);// 输出second，解释: obj1并没有属性b，因此会去obj1的内部实例对象属性[[prototype]]上查找，也就是ObjMaker的prototype对象，找到b之后返回对应的值 继承实例1234567891011121314151617181920212223SubObjMaker = function() &#123;&#125;;SubObjMaker.prototype = new ObjMaker(); // 这种继承模式已经废弃// 因为使用了new，SubObjMaker.prototype的内部实例对象属性[[prototype]]// 会被设置为ObjMaker.prototype属性。// 现在通常会使用ES5中的Object.create()方法来实现。// SubObjMaker.prototype = Object.create(ObjMaker.prototype);SubObjMaker.prototype.c = 'third';obj2 = new SubObjectMaker();// obj2的实例原型对象[[prototype]]被设置为SubObjectMaker.prototype属性，// SubObjectMaker.prototype的[[prototype]]属性为ObjMaker.prototype// 形成了一条如下的原型链// ojb2 -&gt; SubObjMaker.prototype -&gt; ObjMaker.prototypeconsole.log(obj2.c);// 输出third，通过原型链查找，在SubObjMaker.prototype上找到console.log(obj2.b);// 输出second, 通过原型链查找，在ObjMaker.prototype上找到console.log(obj2.a);// 输出first, 通过原型链查找，在SubObjMaker.prototype上找到，// 因为SubObjMaker.prototype是由ObjMaker构造生成的，因此脚本会自动赋值 实现1234567891011function newOperator(ConStr, args) &#123; var thisValue = Object.create(ConStr.prototype); // 构建一个空对象并实现继承 var result = ConStr.apply(thisValue, args); if (typeof result === 'object' &amp;&amp; result != null) &#123; // 构造函数可能会返回对象，这里要增加判断，并且要排除null，因为null的类型检测为object return ret; &#125; return thisValue;&#125; 欢迎访问我的博客 https://blog.bookcell.org 参考 What is the new keyword in javascript Contructors Considered Mildly Confusing The new operator implemented in JavaScript]]></content>
@@ -432,12 +456,12 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
+        <tag>html入门</tag>
+        <tag>html学习</tag>
         <tag>入门</tag>
         <tag>2018</tag>
         <tag>知乎专栏</tag>
         <tag>书格前端</tag>
-        <tag>html入门</tag>
-        <tag>html学习</tag>
       </tags>
   </entry>
   <entry>
@@ -449,8 +473,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>前端开发</tag>
         <tag>ag-grid</tag>
+        <tag>前端开发</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -734,9 +758,9 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
+        <tag>jquery</tag>
         <tag>i18next</tag>
         <tag>国际化</tag>
-        <tag>jquery</tag>
       </tags>
   </entry>
   <entry>
@@ -980,8 +1004,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>数据</tag>
         <tag>数据可视化</tag>
+        <tag>数据</tag>
         <tag>概念</tag>
         <tag>data</tag>
         <tag>visualization</tag>
@@ -1053,8 +1077,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>url</tag>
         <tag>前端开发</tag>
+        <tag>url</tag>
       </tags>
   </entry>
   <entry>

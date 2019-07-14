@@ -369,6 +369,257 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/04/20/es6-modules/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/20/es6-modules/" itemprop="url">
+                  ES6中的模块化
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-20 09:22:01 / Modified: 09:24:18" itemprop="dateCreated datePublished" datetime="2019-04-20T09:22:01+08:00">2019-04-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/20/es6-modules/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/20/es6-modules/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这里主要是针对ES6 Module技术出现的讨论，对比历史的一些模块化解决方案。</p>
+<h2 id="背景、初衷、目标"><a href="#背景、初衷、目标" class="headerlink" title="背景、初衷、目标"></a>背景、初衷、目标</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>简单的讲，随着前端应用的日益庞大和复杂，对于代码的拆分复用要求更高，也就出现了对代码模块化的需求。</p>
+<p>在ES6 Module出现前，社区中出现的两个方案CommonJS和AMD：</p>
+<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><p>在Node.js中的主要实现方式，特性如下:</p>
+<ul>
+<li>紧凑的语法</li>
+<li>同步加载</li>
+<li>主要使用: 服务端</li>
+</ul>
+<h4 id="Asynchronous-Module-Definition-AMD"><a href="#Asynchronous-Module-Definition-AMD" class="headerlink" title="Asynchronous Module Definition(AMD)"></a>Asynchronous Module Definition(AMD)</h4><p>主要的实现是<a href="http://requirejs.org/" target="_blank" rel="noopener"><code>RequireJS</code></a>，特性如下:</p>
+<ul>
+<li>稍微复杂的语法</li>
+<li>异步加载</li>
+<li>主要使用: 浏览器</li>
+</ul>
+<p>这里提一句，ES6 Module的主要设计者Dave Herman 和 Sam Tobin Hochstadt。</p>
+<h3 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h3><p>这里讲的ES6 Module的设计初衷，在ES6 Module出现前社区已经在模块化上有一些令人印象深刻的变通方案，以CommonJS和AMD为代表，这两者各有优缺点并且不兼容，因此ES6 Module的设计初衷是为了吸取这两者的优点实现ECMAScript的标准。</p>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>ES6 Module的目标是出一个让CommonJS和AMD社区都能接受的方案：</p>
+<ul>
+<li>偏爱默认导出</li>
+<li>静态模块结构</li>
+<li>支持同步和异步加载</li>
+<li>支持模块间的循环依赖</li>
+</ul>
+<h2 id="优势和劣势-trade-off"><a href="#优势和劣势-trade-off" class="headerlink" title="优势和劣势(trade-off)"></a>优势和劣势(trade-off)</h2><p>ES6 Module实际达成的方案特性如下:</p>
+<ul>
+<li>比CommonJS更紧凑的语法</li>
+<li>结构可以被静态分析(静态检测、优化等)</li>
+<li>对循环引用比CommonJS更好</li>
+<li>支持异步加载</li>
+</ul>
+<h2 id="适用的场景-业务场景、技术场景"><a href="#适用的场景-业务场景、技术场景" class="headerlink" title="适用的场景(业务场景、技术场景)"></a>适用的场景(业务场景、技术场景)</h2><p>适用于浏览器端和服务端(Nodejs)，目前(2019年)主流的浏览器大部分都不支持ES6 Module的特性，因此使用的话还得使用Babel来转译。</p>
+<h2 id="组成部分和关键点"><a href="#组成部分和关键点" class="headerlink" title="组成部分和关键点"></a>组成部分和关键点</h2><p>ES6 Module分两部分:</p>
+<ul>
+<li>声明式语法(import和export)</li>
+<li>编程式加载API: 支持配置如何加载模块以及条件加载</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><h3 id="在浏览器侧的使用"><a href="#在浏览器侧的使用" class="headerlink" title="在浏览器侧的使用"></a>在浏览器侧的使用</h3><h4 id="使用-lt-script-gt-进行加载"><a href="#使用-lt-script-gt-进行加载" class="headerlink" title="使用&lt;script&gt;进行加载"></a>使用<code>&lt;script&gt;</code>进行加载</h4><p>通过<code>type</code>属性值为<code>module</code>来标识模块进行加载，支持外部文件和内联的方式，默认使用<code>defer</code>的行为，也可以指定<code>async</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- load a module JavaScript file --&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;module.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- include a module inline --&gt;</span><br><span class="line">&lt;script type=&quot;module&quot;&gt;</span><br><span class="line"></span><br><span class="line">import &#123; sum &#125; from &quot;./example.js&quot;;</span><br><span class="line"></span><br><span class="line">let result = sum(1, 2);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="通过Worker进行加载"><a href="#通过Worker进行加载" class="headerlink" title="通过Worker进行加载"></a>通过<code>Worker</code>进行加载</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// load module.js as a module</span></span><br><span class="line"><span class="keyword">let</span> worker = <span class="keyword">new</span> Worker(<span class="string">"module.js"</span>, &#123; <span class="attr">type</span>: <span class="string">"module"</span> &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="通过打包工具进行打包"><a href="#通过打包工具进行打包" class="headerlink" title="通过打包工具进行打包"></a>通过打包工具进行打包</h4><p>使用<code>webpack</code>或者<code>browserify</code>等打包工具进行打包后使用。</p>
+<h3 id="声明式语法"><a href="#声明式语法" class="headerlink" title="声明式语法"></a>声明式语法</h3><p>声明式语法分为两种类型：具名导出(每个模块有多个)和默认导出(每个模块一个)。</p>
+<h4 id="具名导出-named-exports"><a href="#具名导出-named-exports" class="headerlink" title="具名导出(named exports)"></a>具名导出(named exports)</h4><p>通过关键字<code>export</code>前缀可以导出多个内容，并有名称来进行区分。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------ lib.js ------</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sqrt = <span class="built_in">Math</span>.sqrt;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">diag</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> sqrt(square(x) + square(y));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------ main.js ------</span></span><br><span class="line"><span class="keyword">import</span> &#123; square, diag &#125; <span class="keyword">from</span> <span class="string">'lib'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(square(<span class="number">11</span>)); <span class="comment">// 121</span></span><br><span class="line"><span class="built_in">console</span>.log(diag(<span class="number">4</span>, <span class="number">3</span>)); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<h4 id="默认导出-default-exports"><a href="#默认导出-default-exports" class="headerlink" title="默认导出(default exports)"></a>默认导出(default exports)</h4><p>一个模块只有一个默认导出，并且默认导出尤其容易进行导入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------ myFunc.js ------</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------ main1.js ------</span></span><br><span class="line"><span class="keyword">import</span> myFunc <span class="keyword">from</span> <span class="string">'myFunc'</span>;</span><br><span class="line">myFunc();</span><br></pre></td></tr></table></figure>
+<p>对于class的使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------ MyClass.js ------</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> </span>&#123; ... &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------ main2.js ------</span></span><br><span class="line"><span class="keyword">import</span> MyClass <span class="keyword">from</span> <span class="string">'MyClass'</span>;</span><br><span class="line"><span class="keyword">let</span> inst = <span class="keyword">new</span> MyClass();</span><br></pre></td></tr></table></figure>
+<p>默认导出其实可以理解为特殊的具名导出</p>
+<p>导入:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> foo &#125; <span class="keyword">from</span> <span class="string">'lib'</span>;</span><br><span class="line"><span class="keyword">import</span> foo <span class="keyword">from</span> <span class="string">'lib'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>导出:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------ module1.js ------</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------ module2.js ------</span></span><br><span class="line"><span class="keyword">const</span> D = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; D <span class="keyword">as</span> <span class="keyword">default</span> &#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="答疑"><a href="#答疑" class="headerlink" title="答疑"></a>答疑</h4><ul>
+<li>为什么我们需要具名导出(named exports)?</li>
+</ul>
+<blockquote>
+<p>The answer is that you can’t enforce a static structure via objects and lose all of the associated advantages (described in the next section).</p>
+</blockquote>
+<blockquote>
+<p>如果通过对象进行导出会丢失静态结构，从而失去原先的优势。</p>
+</blockquote>
+<ul>
+<li>ES6 Module输出的是值的引用，并且是在编译时输出接口。</li>
+</ul>
+<h3 id="编程式语法"><a href="#编程式语法" class="headerlink" title="编程式语法"></a>编程式语法</h3><p>针对ES6 Module的编程式实现，目前规范处于stage 3。</p>
+<p>使用编程式语法，可以做到:</p>
+<ul>
+<li>对模块和脚本进行编程操作</li>
+<li>配置模块的加载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;nav&gt;</span><br><span class="line">  &lt;a href=&quot;books.html&quot; data-entry-module=&quot;books&quot;&gt;Books&lt;/a&gt;</span><br><span class="line">  &lt;a href=&quot;movies.html&quot; data-entry-module=&quot;movies&quot;&gt;Movies&lt;/a&gt;</span><br><span class="line">  &lt;a href=&quot;video-games.html&quot; data-entry-module=&quot;video-games&quot;&gt;Video Games&lt;/a&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line"></span><br><span class="line">&lt;main&gt;Content will load here!&lt;/main&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  const main = document.querySelector(&quot;main&quot;);</span><br><span class="line">  for (const link of document.querySelectorAll(&quot;nav &gt; a&quot;)) &#123;</span><br><span class="line">    link.addEventListener(&quot;click&quot;, e =&gt; &#123;</span><br><span class="line">      e.preventDefault();</span><br><span class="line"></span><br><span class="line">      import(`./section-modules/$&#123;link.dataset.entryModule&#125;.js`)</span><br><span class="line">        .then(module =&gt; &#123;</span><br><span class="line">          module.loadPageInto(main);</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(err =&gt; &#123;</span><br><span class="line">          main.textContent = err.message;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="已有的实现和它之间的对比"><a href="#已有的实现和它之间的对比" class="headerlink" title="已有的实现和它之间的对比"></a>已有的实现和它之间的对比</h2><p>有关模块化的进程，<a href="https://juejin.im/post/5c17ad756fb9a049ff4e0a62" target="_blank" rel="noopener">前端模块化详解</a>一句讲解得比较详细了，可以参考。</p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><a href="https://juejin.im/post/5c82323ce51d453a5f22b281" target="_blank" rel="noopener">从前端模块化编程切入项聊聊前端的未来</a></li>
+<li><a href="https://github.com/seajs/seajs/issues/588" target="_blank" rel="noopener">前端模块化开发那点历史</a></li>
+<li><a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc" target="_blank" rel="noopener">JavaScript Modules: A Beginner’s Guide</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/primers/modules" target="_blank" rel="noopener">Using JavaScript modules on the web</a></li>
+<li><a href="https://eloquentjavascript.net/10_modules.html" target="_blank" rel="noopener">Modules in eloquent javascript</a></li>
+<li><a href="http://exploringjs.com/es6/ch_modules.html" target="_blank" rel="noopener">Modules in exploringjs</a></li>
+<li><a href="https://jsmodules.io/" target="_blank" rel="noopener">jsmodules</a></li>
+<li><a href="https://addyosmani.com/writing-modular-js/" target="_blank" rel="noopener">writing modular js</a></li>
+<li><a href="http://2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="noopener">ECMAScript 6 modules: the final syntax</a></li>
+<li><a href="https://hacks.mozilla.org/2015/08/es6-in-depth-modules/" target="_blank" rel="noopener">ES6 in depth: modules</a></li>
+<li><a href="https://github.com/tc39/proposal-dynamic-import" target="_blank" rel="noopener">proposal-dynamic-import</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/03/23/ARTS-migarate-to-github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1109,189 +1360,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/01/08/ARTS-2019-January-One/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/08/ARTS-2019-January-One/" itemprop="url">
-                  ARTS-2019-January-One
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-08 22:19:28 / Modified: 22:20:07" itemprop="dateCreated datePublished" datetime="2019-01-08T22:19:28+08:00">2019-01-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ARTS/" itemprop="url" rel="index"><span itemprop="name">ARTS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/08/ARTS-2019-January-One/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/08/ARTS-2019-January-One/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="ARTS-2019-January-One"><a href="#ARTS-2019-January-One" class="headerlink" title="ARTS-2019-January-One"></a>ARTS-2019-January-One</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>The definite of Algorithm:</p>
-<blockquote>
-<p>“a set of rules that precisely defines a sequence of operations.”</p>
-</blockquote>
-<p>这个是维基百科上给出的一个非正式的定义，精确定义一系列操作的一个规则集合。</p>
-<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://overreacted.io/the-elements-of-ui-engineering" target="_blank" rel="noopener">The Elements of UI Engineering</a></p>
-<blockquote>
-<p>Dan在这篇文章中提到了UI工程相关的挑战，并希望读者能够在不使用任何库或者框架的情况下去实现，了解不同的实现方式和折中的方案，从而提高自己。</p>
-</blockquote>
-<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p><a href="https://tylermcginnis.com/react-router-programmatically-navigate/" target="_blank" rel="noopener">react-router 手动控制导航</a></p>
-<blockquote>
-<p>在React-router v4中两种实现跳转的方式，<code>&lt;Redirect&gt;</code>组件(优先推荐)和<code>history.push</code></p>
-</blockquote>
-<h3 id="Redirect方式"><a href="#Redirect方式" class="headerlink" title="Redirect方式"></a>Redirect方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Register extends React.Component &#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    toDashboard: false,</span><br><span class="line">  &#125;</span><br><span class="line">  handleSubmit = (user) =&gt; &#123;</span><br><span class="line">    saveUser(user)</span><br><span class="line">      .then(() =&gt; this.setState(() =&gt; (&#123;</span><br><span class="line">        toDashboard: true</span><br><span class="line">      &#125;)))</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    if (this.state.toDashboard === true) &#123;</span><br><span class="line">      return &lt;Redirect to=&apos;/dashboard&apos; /&gt;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Register&lt;/h1&gt;</span><br><span class="line">        &lt;Form onSubmit=&#123;this.handleSubmit&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="history方式"><a href="#history方式" class="headerlink" title="history方式"></a>history方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Register extends React.Component &#123;</span><br><span class="line">  handleSubmit = (user) =&gt; &#123;</span><br><span class="line">    saveUser(user).then(() =&gt;</span><br><span class="line">      this.props.history.push(&apos;/dashboard&apos;)</span><br><span class="line">    ))</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Register&lt;/h1&gt;</span><br><span class="line">        &lt;Form onSubmit=&#123;this.handleSubmit&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p><a href="https://blog.bookcell.org/2019/01/06/2019-d2-and-seeconf/" target="_blank" rel="noopener">SEE Conf和D2参会感想</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1339,7 +1407,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-count">90</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1725,7 +1793,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">174</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">185</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

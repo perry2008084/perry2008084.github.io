@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/07/14/three-columns-layout-solutions/</loc>
+    <lastmod>2019-07-14T10:09:21.268Z</lastmod>
+    <data>
+        <display>
+        <title>CSS三栏布局方案</title>
+        <pubTime>2019-07-14T10:06:52.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>flexbox</tag>
+         
+        <tag>弹性盒</tag>
+         
+        <tag>CSS</tag>
+         
+        <tag>布局</tag>
+         
+        <tag>三栏</tag>
+         
+        <tag>浮动</tag>
+         
+        <tag>float</tag>
+         
+        <tag>绝对定位</tag>
+         
+        <tag>absolute</tag>
+         
+        <tag>网格</tag>
+         
+        <tag>grid</tag>
+         
+        <tag>圣杯</tag>
+         
+        <tag>双飞翼</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/07/13/understanding-new-operator-in-js/</loc>
     <lastmod>2019-07-13T04:41:27.723Z</lastmod>
     <data>
@@ -802,6 +848,10 @@
         
         <tag>前端开发</tag>
          
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
+         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -809,10 +859,6 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
-         
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
          
          
            
@@ -834,9 +880,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>前端开发</tag>
-         
         <tag>ag-grid</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>表格</tag>
          
@@ -1438,11 +1484,11 @@
         
         <tag>前端开发</tag>
          
+        <tag>jquery</tag>
+         
         <tag>i18next</tag>
          
         <tag>国际化</tag>
-         
-        <tag>jquery</tag>
          
          
            
@@ -2009,9 +2055,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据</tag>
-         
         <tag>数据可视化</tag>
+         
+        <tag>数据</tag>
          
         <tag>概念</tag>
          
@@ -2204,9 +2250,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>url</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>url</tag>
          
          
            
