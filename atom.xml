@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-07-16T09:56:40.774Z</updated>
+  <updated>2019-07-16T12:00:33.859Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://www.bookcell.org/2019/07/16/project-common-configs/"/>
     <id>http://www.bookcell.org/2019/07/16/project-common-configs/</id>
     <published>2019-07-16T09:55:09.000Z</published>
-    <updated>2019-07-16T09:56:40.774Z</updated>
+    <updated>2019-07-16T12:00:33.859Z</updated>
     
     <content type="html"><![CDATA[<p>项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范</p>
+<p>欢迎访问<a href="https://blog.bookcell.org/2019/07/16/project-common-configs/" target="_blank" rel="noopener">个人博客-项目开发中团队规范的那些事</a></p>
 <ul>
 <li>editorconfig的使用</li>
 <li>jsdoc的使用</li>
@@ -145,12 +146,7 @@
     <summary type="html">
     
       &lt;p&gt;项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;editorconfig的使用&lt;/li&gt;
-&lt;li&gt;jsdoc的使用&lt;/li&gt;
-&lt;li&gt;.gitignore的使用&lt;/li&gt;
-&lt;li&gt;eslint的使用&lt;/li&gt;
-&lt;li&gt;pr
+&lt;p&gt;欢迎访问&lt;a href=&quot;https://blog.bookcell.org/2019/07/16/project-common-configs/&quot; target=&quot;_blank&quot; re
     
     </summary>
     
@@ -487,9 +483,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
-    
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
     
       <category term="虚拟DOM" scheme="http://www.bookcell.org/tags/%E8%99%9A%E6%8B%9FDOM/"/>
     

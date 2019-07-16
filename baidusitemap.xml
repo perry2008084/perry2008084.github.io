@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://www.bookcell.org/2019/07/16/project-common-configs/</loc>
-    <lastmod>2019-07-16T09:56:40.774Z</lastmod>
+    <lastmod>2019-07-16T12:00:33.859Z</lastmod>
     <data>
         <display>
         <title>项目开发中团队规范的那些事</title>
@@ -127,9 +127,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>DOM</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>DOM</tag>
          
         <tag>虚拟DOM</tag>
          
@@ -2091,9 +2091,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据</tag>
-         
         <tag>数据可视化</tag>
+         
+        <tag>数据</tag>
          
         <tag>概念</tag>
          
