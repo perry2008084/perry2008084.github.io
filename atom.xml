@@ -487,9 +487,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="虚拟DOM" scheme="http://www.bookcell.org/tags/%E8%99%9A%E6%8B%9FDOM/"/>
     

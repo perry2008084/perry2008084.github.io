@@ -120,7 +120,7 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="书格前端">
-<meta property="og:url" content="http://www.bookcell.org/tags/linux/index.html">
+<meta property="og:url" content="http://www.bookcell.org/tags/Linux/index.html">
 <meta property="og:site_name" content="书格前端">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://www.bookcell.org/tags/linux/"/>
+  <link rel="canonical" href="http://www.bookcell.org/tags/Linux/"/>
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>Tag: linux | 书格前端</title>
+  <title>Tag: Linux | 书格前端</title>
   
 
 
@@ -381,7 +381,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h2>linux<small>Tag</small>
+        <h2>Linux<small>Tag</small>
         </h2>
       </div>
 
@@ -393,37 +393,9 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/2017/08/02/nginx-page-forbidden/" itemprop="url">
+            <a class="post-title-link" href="/2017/03/18/linux-learning-base-knowledge/" itemprop="url">
               
-                <span itemprop="name">nginx访问页面报403的解决方法</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-02T09:30:42+08:00"
-              content="2017-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/29/ssh-key-configuration/" itemprop="url">
-              
-                <span itemprop="name">ssh密钥登录配置</span>
+                <span itemprop="name">Linux学习-基础知识部分</span>
               
             </a>
         
@@ -431,65 +403,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-29T14:19:42+08:00"
-              content="2017-07-29" >
-          07-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/28/linux-cli-search-commands/" itemprop="url">
-              
-                <span itemprop="name">Linux下搜索查找命令</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-28T16:27:45+08:00"
-              content="2017-04-28" >
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/06/mac-use-pem-file-ssh-to-server/" itemprop="url">
-              
-                <span itemprop="name">MAC下通过ssh使用PEM文件认证登录AWS的虚拟机</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-06T19:31:10+08:00"
-              content="2016-12-06" >
-          12-06
+              datetime="2017-03-18T14:09:20+08:00"
+              content="2017-03-18" >
+          03-18
         </time>
       </div>
 
@@ -1639,6 +1555,87 @@
     
   
   <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
+  <script type="text/javascript">
+  
+    bookmark.loadBookmark();
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+"https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
   <script type="text/javascript">
   
     bookmark.loadBookmark();
