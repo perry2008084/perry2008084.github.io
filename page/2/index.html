@@ -369,6 +369,333 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/05/05/es6-module-share/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/05/es6-module-share/" itemprop="url">
+                  ES6模块-团队分享
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-05 06:50:56 / Modified: 06:52:03" itemprop="dateCreated datePublished" datetime="2019-05-05T06:50:56+08:00">2019-05-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/05/es6-module-share/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/05/05/es6-module-share/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><ul>
+<li>前端模块化的历史</li>
+<li>ES6模块的使用</li>
+<li>ES6模块背后的思考</li>
+<li>组件和模块</li>
+<li>参考文章</li>
+</ul>
+<h2 id="前端模块化的历史"><a href="#前端模块化的历史" class="headerlink" title="前端模块化的历史"></a>前端模块化的历史</h2><p><a href="https://juejin.im/post/5c82323ce51d453a5f22b281" target="_blank" rel="noopener">前端模块化的历史</a></p>
+<ul>
+<li>全局Function模式</li>
+<li>命名空间模式</li>
+<li>IIFE模式</li>
+<li>IIFE模式(引入依赖)</li>
+<li>CommonJS</li>
+<li>AMD</li>
+<li>CMD</li>
+<li>ES6 模块</li>
+</ul>
+<h2 id="ES6模块的使用"><a href="#ES6模块的使用" class="headerlink" title="ES6模块的使用"></a>ES6模块的使用</h2><h3 id="什么是模块"><a href="#什么是模块" class="headerlink" title="什么是模块?"></a>什么是模块?</h3><p>模块是通过不同于脚本的形式进行加载的JavaScript文件。区别在于:</p>
+<ol>
+<li>模块代码自动运行在严格模式，并无法退出</li>
+<li>模块中定义的变量只在模块的作用域中存在，不会自动添加到全局的作用域</li>
+<li>模块中的<code>this</code>是<code>undefined</code></li>
+<li>模块中不支持HTML风格的注释<code>&lt;!-- comments --&gt;</code></li>
+<li><strong>模块必须要导出任何可以在模块外可用的一切</strong></li>
+<li>模块可以从其他模块导入内容</li>
+</ol>
+<h3 id="基本导出"><a href="#基本导出" class="headerlink" title="基本导出"></a>基本导出</h3><p>使用<code>export</code>关键字可以从模块中导出变量、函数和类:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// export data</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> color = <span class="string">"red"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> name = <span class="string">"Nicholas"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> magicNumber = <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// export function</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// export class</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(length, width) &#123;</span><br><span class="line">        <span class="keyword">this</span>.length = length;</span><br><span class="line">        <span class="keyword">this</span>.width = width;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// this function is private to the module</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">subtract</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 - num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// define a function...</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 * num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...and then export it later</span></span><br><span class="line"><span class="keyword">export</span> &#123; multiply &#125;;</span><br></pre></td></tr></table></figure>
+<p>导出说明:</p>
+<ol>
+<li>每个导出的函数和类都有一个名字，除了使用<code>default</code>关键字外无法使用上面的语法导出匿名函数和类</li>
+<li>查看<code>multiply()</code>函数，你可以不导出声明，支持导出引用</li>
+<li>查看<code>substract()</code>函数，外部不可访问，没有显式导出的变量、函数和类对于模块是私有的</li>
+</ol>
+<h3 id="基本导入"><a href="#基本导入" class="headerlink" title="基本导入"></a>基本导入</h3><p>基本格式:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; identifier1, identifier2 &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br></pre></td></tr></table></figure>
+<p>说明: 从一个模块中导入一个绑定，就类似定义一个<code>const</code>的内容，也就是无法定义重名变量、导入前使用和修改值。</p>
+<h4 id="导入一个单一绑定"><a href="#导入一个单一绑定" class="headerlink" title="导入一个单一绑定"></a>导入一个单一绑定</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import just one</span></span><br><span class="line"><span class="keyword">import</span> &#123; sum &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>));     <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">sum = <span class="number">1</span>;        <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+<p>尽管<code>example.js</code>中定义了多个导出，你可以只导入其中一个；为了在浏览器和Node.js中保持兼容性，尽量在文件名前使用相对路径。</p>
+<h4 id="导入多个绑定"><a href="#导入多个绑定" class="headerlink" title="导入多个绑定"></a>导入多个绑定</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import multiple</span></span><br><span class="line"><span class="keyword">import</span> &#123; sum, multiply, magicNumber &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, magicNumber));   <span class="comment">// 8</span></span><br><span class="line"><span class="built_in">console</span>.log(multiply(<span class="number">1</span>, <span class="number">2</span>));        <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h4 id="全部导入"><a href="#全部导入" class="headerlink" title="全部导入"></a>全部导入</h4><p>特殊的应用场景支持导入整个模块作为一个对象，类似导入一个库文件，所有的模块导出均作为对象属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import everything</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> example <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(example.sum(<span class="number">1</span>,</span><br><span class="line">        example.magicNumber));          <span class="comment">// 8</span></span><br><span class="line"><span class="built_in">console</span>.log(example.multiply(<span class="number">1</span>, <span class="number">2</span>));    <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>不管多少次使用<code>import</code>对一个模块进行导入操作，模块只会执行一次；在导入模块的代码执行后，实例化的模块在保存在内存中并在其他<code>import</code>语句使用时复用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; sum &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; multiply &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; magicNumber &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br></pre></td></tr></table></figure>
+<p>代码中<code>example.js</code>只会执行一次.</p>
+<p>模块语法不支持在语句或者函数中使用，也就是说不支持动态的导入和导出。<a href="https://github.com/tc39/proposal-dynamic-import" target="_blank" rel="noopener">ECMAScript dynamic-import Stage3 </a></p>
+<h4 id="导入绑定的修改"><a href="#导入绑定的修改" class="headerlink" title="导入绑定的修改"></a>导入绑定的修改</h4><p>对导入的内容是无法修改的，但是在模块内部可以。</p>
+<p>模块导出:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> name = <span class="string">"Nicholas"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">newName</span>) </span>&#123;</span><br><span class="line">    name = newName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>模块导入:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; name, setName &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name);       <span class="comment">// "Nicholas"</span></span><br><span class="line">setName(<span class="string">"Greg"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(name);       <span class="comment">// "Greg"</span></span><br><span class="line"></span><br><span class="line">name = <span class="string">"Nicholas"</span>;       <span class="comment">// error</span></span><br></pre></td></tr></table></figure></p>
+<p><code>setName</code>函数回到模块内执行并修改变量<code>name</code>的内容，随后这个修改会反映到导入的<code>name</code>这个绑定。</p>
+<h3 id="重命名导出和导入"><a href="#重命名导出和导入" class="headerlink" title="重命名导出和导入"></a>重命名导出和导入</h3><p>有时候，你可能不想使用变量、函数、类在模块中的原始名字，你可以在导入和导出的时候使用<code>as</code>关键字来指定新的名字</p>
+<p>导出时重命名<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; sum <span class="keyword">as</span> add &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>导入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; add &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>导入时重命名<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; add <span class="keyword">as</span> sum &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> add);            <span class="comment">// "undefined"</span></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>));             <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="模块中的默认值"><a href="#模块中的默认值" class="headerlink" title="模块中的默认值"></a>模块中的默认值</h3><p>模块中的默认值是指使用<code>default</code>指定的一个单独变量、函数或者类，每个模块中只能设定一个默认导出，指定多个默认导出会报语法错误。</p>
+<h4 id="导出默认值"><a href="#导出默认值" class="headerlink" title="导出默认值"></a>导出默认值</h4><p><strong>直接导出</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>函数可以不写名字，因为模块本身代表这个函数。</p>
+<p><strong>导出引用</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> sum;</span><br></pre></td></tr></table></figure></p>
+<p><strong>重命名导出</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; sum <span class="keyword">as</span> <span class="keyword">default</span> &#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="导入默认值"><a href="#导入默认值" class="headerlink" title="导入默认值"></a>导入默认值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// import the default</span><br><span class="line">import sum from &quot;./example.js&quot;;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2));     // 3</span><br></pre></td></tr></table></figure>
+<ol>
+<li>默认导入不需要大括号</li>
+<li>名称可以代表任意模块中的默认函数</li>
+<li>默认导入的语法是最精简的，ES6模块规范制定者希望默认值作为主流的使用场景</li>
+</ol>
+<p><strong>具名和默认混合</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> color = <span class="string">"red"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sum, &#123; color &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>));     <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(color);         <span class="comment">// "red"</span></span><br></pre></td></tr></table></figure>
+<p>默认值要在非默认值前面导入。</p>
+<p><strong>重命名默认值</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// equivalent to previous example</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> sum, color &#125; <span class="keyword">from</span> <span class="string">"example"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>));     <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(color);         <span class="comment">// "red"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="重新导出一个绑定"><a href="#重新导出一个绑定" class="headerlink" title="重新导出一个绑定"></a>重新导出一个绑定</h3><p>几种重新导出的方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; sum &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; sum &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; sum &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; sum <span class="keyword">as</span> add &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br></pre></td></tr></table></figure>
+<p>全部导出<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>这里只能导出所有的具名导出，不包括默认导出。如果要处理默认导出，你需要显式的导入后再导出。</p>
+<h3 id="没有绑定的导入"><a href="#没有绑定的导入" class="headerlink" title="没有绑定的导入"></a>没有绑定的导入</h3><p>有些模块并没有导出任何内容，仅仅是在全局作用域中做了些修改；虽然模块无法直接修改全局作用域的变量、函数和类，但是对于內建对象的修改可以反映到其他模块中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module code without exports or imports</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.pushAll = <span class="function"><span class="keyword">function</span>(<span class="params">items</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// items must be an array</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(items)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Argument must be an array."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// use built-in push() and spread operator</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.push(...items);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个模块对<code>Array</code>原型增加一个<code>pushAll</code>方法.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./example.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> colors = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>];</span><br><span class="line"><span class="keyword">let</span> items = [];</span><br><span class="line"></span><br><span class="line">items.pushAll(colors);</span><br></pre></td></tr></table></figure>
+<p>这段代码导入和执行模块代码，添加<code>pushAll</code>方法到array原型中。</p>
+<p>没有绑定的导入通常用于创建polyfill或者shim。</p>
+<h3 id="加载ES6-模块"><a href="#加载ES6-模块" class="headerlink" title="加载ES6 模块"></a>加载ES6 模块</h3><ul>
+<li><p>使用打包工具和Babel转译为ES5</p>
+</li>
+<li><p>使用<code>script</code>标签，并设置<code>type</code>为<code>module</code>(IE11不兼容，使用前查看<a href="https://caniuse.com/#search=script%20module" target="_blank" rel="noopener">兼容性</a>)</p>
+</li>
+</ul>
+<p>默认使用<code>defer</code>属性，按照代码出现的顺序进行加载，执行需要在文档解析完成后，执行顺序也是按照代码出现的顺序。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="keyword">this</span> will execute first --&gt;</span><br><span class="line">&lt;script type=<span class="string">"module"</span> src=<span class="string">"module1.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!-- <span class="keyword">this</span> will execute second --&gt;</span><br><span class="line">&lt;script type=<span class="string">"module"</span>&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; sum &#125; <span class="keyword">from</span> <span class="string">"./example.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = sum(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;!-- this will execute third --&gt;</span></span><br><span class="line"><span class="regexp">&lt;script type="module" src="module2.js"&gt;&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<p>如果模块代码中又引入其他的模块，执行的顺序会变得复杂一些:</p>
+<p><strong>加载顺序</strong>:</p>
+<ol>
+<li>Download and parse module1.js.</li>
+<li>Recursively download and parse import resources in module1.js.</li>
+<li>Parse the inline module.</li>
+<li>Recursively download and parse import resources in the inline module.</li>
+<li>Download and parse module2.js.</li>
+<li>Recursively download and parse import resources in module2.js</li>
+</ol>
+<p><strong>执行顺序</strong>:</p>
+<ol>
+<li>Recursively execute import resources for module1.js.</li>
+<li>Execute module1.js.</li>
+<li>Recursively execute import resources for the inline module.</li>
+<li>Execute the inline module.</li>
+<li>Recursively execute import resources for module2.js.</li>
+<li>Execute module2.js.</li>
+</ol>
+<ul>
+<li>web worker</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// load module.js as a module</span></span><br><span class="line"><span class="keyword">let</span> worker = <span class="keyword">new</span> Worker(<span class="string">"module.js"</span>, &#123; <span class="attr">type</span>: <span class="string">"module"</span> &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="ES6模块背后的思考"><a href="#ES6模块背后的思考" class="headerlink" title="ES6模块背后的思考"></a>ES6模块背后的思考</h2><p>对比CommonJS和AMD</p>
+<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>在Node.js中的主要实现方式，特性如下:</p>
+<ul>
+<li>紧凑的语法</li>
+<li>同步加载</li>
+<li>主要使用: 服务端</li>
+</ul>
+<h3 id="Asynchronous-Module-Definition-AMD"><a href="#Asynchronous-Module-Definition-AMD" class="headerlink" title="Asynchronous Module Definition(AMD)"></a>Asynchronous Module Definition(AMD)</h3><p>主要的实现是<a href="http://requirejs.org/" target="_blank" rel="noopener"><code>RequireJS</code></a>，特性如下:</p>
+<ul>
+<li>稍微复杂的语法</li>
+<li>异步加载</li>
+<li>主要使用: 浏览器</li>
+</ul>
+<h3 id="ES6模块"><a href="#ES6模块" class="headerlink" title="ES6模块"></a>ES6模块</h3><p><strong>目标</strong>:</p>
+<ul>
+<li>偏爱默认导出</li>
+<li>静态模块结构</li>
+<li>支持同步和异步加载</li>
+<li>支持模块间的循环依赖</li>
+</ul>
+<p><strong>优势</strong>:</p>
+<ul>
+<li>比CommonJS更紧凑的语法</li>
+<li>结构可以被静态分析(静态检测、优化等)</li>
+<li>对循环引用比CommonJS更好</li>
+<li>支持异步加载</li>
+</ul>
+<p>八卦: ES6 Module的主要设计者Dave Herman和Sam Tobin Hochstadt。</p>
+<h2 id="组件和模块"><a href="#组件和模块" class="headerlink" title="组件和模块"></a>组件和模块</h2><ul>
+<li>模块为基础，组件基于模块</li>
+<li>组件侧重UI封装，针对，包括html,css,js和image；模块侧重数据、功能封装</li>
+</ul>
+<p>组件化参考<a href="https://github.com/fouber/blog/issues/10" target="_blank" rel="noopener">张云龙-前端工程</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://juejin.im/post/5c82323ce51d453a5f22b281" target="_blank" rel="noopener">从前端模块化编程切入项聊聊前端的未来</a></li>
+<li><a href="https://github.com/seajs/seajs/issues/588" target="_blank" rel="noopener">前端模块化开发那点历史</a></li>
+<li><a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc" target="_blank" rel="noopener">JavaScript Modules: A Beginner’s Guide</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/primers/modules" target="_blank" rel="noopener">Using JavaScript modules on the web</a></li>
+<li><a href="https://eloquentjavascript.net/10_modules.html" target="_blank" rel="noopener">Modules in eloquent javascript</a></li>
+<li><a href="http://exploringjs.com/es6/ch_modules.html" target="_blank" rel="noopener">Modules in exploringjs</a></li>
+<li><a href="https://jsmodules.io/" target="_blank" rel="noopener">jsmodules</a></li>
+<li><a href="https://addyosmani.com/writing-modular-js/" target="_blank" rel="noopener">writing modular js</a></li>
+<li><a href="http://2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="noopener">ECMAScript 6 modules: the final syntax</a></li>
+<li><a href="https://hacks.mozilla.org/2015/08/es6-in-depth-modules/" target="_blank" rel="noopener">ES6 in depth: modules</a></li>
+<li><a href="https://github.com/tc39/proposal-dynamic-import" target="_blank" rel="noopener">proposal-dynamic-import</a></li>
+<li><a href="https://github.com/nzakas/understandinges6/blob/master/manuscript/13-Modules.md" target="_blank" rel="noopener">understandinges6-Modules</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/04/20/es6-modules/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1177,194 +1504,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/01/21/ARTS-2019-January-Two/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/21/ARTS-2019-January-Two/" itemprop="url">
-                  ARTS-2019-January-Two
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-21 21:41:36 / Modified: 21:41:56" itemprop="dateCreated datePublished" datetime="2019-01-21T21:41:36+08:00">2019-01-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ARTS/" itemprop="url" rel="index"><span itemprop="name">ARTS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/21/ARTS-2019-January-Two/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/21/ARTS-2019-January-Two/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="ARTS-2019-01-Two"><a href="#ARTS-2019-01-Two" class="headerlink" title="ARTS-2019-01-Two"></a>ARTS-2019-01-Two</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>算法或者数据结构名称</p>
-<blockquote>
-<p>空缺</p>
-</blockquote>
-<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658" target="_blank" rel="noopener">creating-a-react-app-from-scratch</a></p>
-<blockquote>
-<p>从零开始搭建一个支持热加载和支持ES6+、JSX语法的基础开发环境。</p>
-</blockquote>
-<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p>CSS Grid布局方法</p>
-<blockquote>
-<p>支持二维的布局，逐步会替换一些UI框架所支持的网格功能。</p>
-</blockquote>
-<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p>CSS布局方案总结</p>
-<blockquote>
-<p>最新的布局解决方案为CSS Grid和Flexbox，兼容旧浏览器的情况会使用到Floats。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1407,7 +1551,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1815,7 +1959,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">185</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">192</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/07/16/project-common-configs/</loc>
+    <lastmod>2019-07-16T09:56:40.774Z</lastmod>
+    <data>
+        <display>
+        <title>项目开发中团队规范的那些事</title>
+        <pubTime>2019-07-16T09:55:09.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>项目</tag>
+         
+        <tag>团队</tag>
+         
+        <tag>规范</tag>
+         
+        <tag>editorconfig</tag>
+         
+        <tag>jsdoc</tag>
+         
+        <tag>gitignore</tag>
+         
+        <tag>eslint</tag>
+         
+        <tag>prettier</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/07/14/three-columns-layout-solutions/</loc>
     <lastmod>2019-07-14T10:09:21.268Z</lastmod>
     <data>
@@ -848,10 +884,6 @@
         
         <tag>前端开发</tag>
          
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
-         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -859,6 +891,10 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
+         
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
          
          
            
@@ -880,9 +916,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>ag-grid</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>ag-grid</tag>
          
         <tag>表格</tag>
          
@@ -1166,9 +1202,9 @@
         
         <tag>sublime</tag>
          
-        <tag>sublime Text 3</tag>
-         
         <tag>eslint</tag>
+         
+        <tag>sublime Text 3</tag>
          
         <tag>es5</tag>
          
@@ -1484,11 +1520,11 @@
         
         <tag>前端开发</tag>
          
-        <tag>jquery</tag>
-         
         <tag>i18next</tag>
          
         <tag>国际化</tag>
+         
+        <tag>jquery</tag>
          
          
            
@@ -1938,11 +1974,11 @@
         <title>hexo-theme-use-series-2</title>
         <pubTime>2016-12-11T09:27:28.000Z</pubTime>
         
-        <tag>工具</tag>
-         
         <tag>hexo</tag>
          
         <tag>Next</tag>
+         
+        <tag>工具</tag>
          
          
            
@@ -1964,9 +2000,9 @@
         
         <tag>hexo</tag>
          
-        <tag>Next</tag>
-         
         <tag>theme</tag>
+         
+        <tag>Next</tag>
          
         <tag>简介</tag>
          
@@ -2055,9 +2091,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据可视化</tag>
-         
         <tag>数据</tag>
+         
+        <tag>数据可视化</tag>
          
         <tag>概念</tag>
          
@@ -2250,9 +2286,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>前端开发</tag>
-         
         <tag>url</tag>
+         
+        <tag>前端开发</tag>
          
          
            

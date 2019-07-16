@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/npm/han-css@3.3.0/dist/han.min.css">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-totoro.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-totoro.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-totoro.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/totoro.jpg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'F5K4LBFFAQ',
+      apiKey: '7fae5b582054f18d3b464608d432831f',
+      indexName: 'title_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范  editorconfig的使用 jsdoc的使用 .gitignore的使用 eslint的使用 prettier的使用  editorconfig的使用你是否有遇到过多人协作的项目中，大家的缩进风格不一样，有人用两个空格，有人用4个空格，也有人用tab缩进，而感到烦恼的。editorconfig这个开源项目就是为此而生的">
+<meta name="keywords" content="前端开发,项目,团队,规范,editorconfig,jsdoc,gitignore,eslint,prettier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目开发中团队规范的那些事">
+<meta property="og:url" content="http://www.bookcell.org/2019/07/16/project-common-configs/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范  editorconfig的使用 jsdoc的使用 .gitignore的使用 eslint的使用 prettier的使用  editorconfig的使用你是否有遇到过多人协作的项目中，大家的缩进风格不一样，有人用两个空格，有人用4个空格，也有人用tab缩进，而感到烦恼的。editorconfig这个开源项目就是为此而生的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-16T09:56:40.774Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目开发中团队规范的那些事">
+<meta name="twitter:description" content="项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范  editorconfig的使用 jsdoc的使用 .gitignore的使用 eslint的使用 prettier的使用  editorconfig的使用你是否有遇到过多人协作的项目中，大家的缩进风格不一样，有人用两个空格，有人用4个空格，也有人用tab缩进，而感到烦恼的。editorconfig这个开源项目就是为此而生的">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://www.bookcell.org/2019/07/16/project-common-configs/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>项目开发中团队规范的那些事 | 书格前端</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a08469fe69bde20163091cead076f58a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">书格前端</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">潘绳杰的博客</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/perry2008084" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/07/16/project-common-configs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">项目开发中团队规范的那些事
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-16 17:55:09 / Modified: 17:56:40" itemprop="dateCreated datePublished" datetime="2019-07-16T17:55:09+08:00">2019-07-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/16/project-common-configs/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/07/16/project-common-configs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范</p>
+<ul>
+<li>editorconfig的使用</li>
+<li>jsdoc的使用</li>
+<li>.gitignore的使用</li>
+<li>eslint的使用</li>
+<li>prettier的使用</li>
+</ul>
+<h2 id="editorconfig的使用"><a href="#editorconfig的使用" class="headerlink" title="editorconfig的使用"></a>editorconfig的使用</h2><p>你是否有遇到过多人协作的项目中，大家的缩进风格不一样，有人用两个空格，有人用4个空格，也有人用tab缩进，而感到烦恼的。<a href="https://editorconfig.org/" target="_blank" rel="noopener">editorconfig</a>这个开源项目就是为此而生的。</p>
+<p>官方的介绍如下：</p>
+<blockquote>
+<p>EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily readable and they work nicely with version control systems.</p>
+</blockquote>
+<p>使用思路：</p>
+<p>通过一个配置文件，让不同的编辑器或者IDE自动识别缩进、字符编码格式等风格并保持统一。目前市面上绝大部分的编辑器和IDE都已经支持了，你使用的编辑器是否原生支持还是要安装插件，可以去官网上看一眼。</p>
+<p><code>.edittorconfig</code>文件配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 表明是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件，否则会往上一层目录继续查找</span><br><span class="line">root = true</span><br><span class="line"></span><br><span class="line"># 对所有文件生效</span><br><span class="line">[*]</span><br><span class="line"># 编码格式，支持latin1、utf-8、utf-8-bom、utf-16be和utf-16le，通常使用utf-8</span><br><span class="line">charset = utf-8</span><br><span class="line"># 缩进类型, 支持space 空格, tab 制表符</span><br><span class="line">indent_style = space</span><br><span class="line"># 缩进长度，支持整数 - 缩进的长度, tab - 使用tab_width指定的值</span><br><span class="line">indent_size = 2</span><br><span class="line"># 换行符，支持 lf - (常用,*nux系统), crlf - windows, cr - &lt;=MacOS9</span><br><span class="line">end_of_line = lf</span><br><span class="line"># 保存文件时是否在文件最后插入一个空行, 支持 true - 是, false - 否</span><br><span class="line">insert_final_newline = true</span><br><span class="line"># 是否去除行尾的空格, 支持 true - 是, false - 否</span><br><span class="line">trim_trailing_whitespace = true</span><br><span class="line"></span><br><span class="line"># 对后缀名为 md 的文件生效</span><br><span class="line">[*.md]</span><br><span class="line">trim_trailing_whitespace = false</span><br></pre></td></tr></table></figure>
+<h2 id="jsdoc的使用"><a href="#jsdoc的使用" class="headerlink" title="jsdoc的使用"></a>jsdoc的使用</h2><p>平时写js代码的时候，你是否只是随意写个<code>// xxxx</code>就完事了，对于不需要输出文档的代码也许还好，如果有输出文档的需求，那就头大了。不过团队中拥有一套一致的注释规范，并且在必要的时候还可以输出作为文档，不管是对于后续的新人以及维护都是有益的。</p>
+<p>这里要使用的<a href="https://jsdoc.app/" target="_blank" rel="noopener">jsdoc</a>文档工具就是这样的一个存在，既有一套注释的规范，又可以支持输出为静态页面的文档。</p>
+<p>使用思路:</p>
+<p>在函数、类、模块等代码前使用<code>/** */</code>这样格式的注释，注释中支持描述、标签等内容，通过jsdoc提供的工具可以方便的将注释内容作为文档导出为html格式的文件。</p>
+<h2 id="jsdoc注释规范"><a href="#jsdoc注释规范" class="headerlink" title="jsdoc注释规范"></a>jsdoc注释规范</h2><p>常用的注释格式如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Represents a book.</span></span><br><span class="line"><span class="comment"> * @constructor</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; title - The title of the book.</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; author - The author of the book.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Book</span>(<span class="params">title, author</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Class representing a point. */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a point.</span></span><br><span class="line"><span class="comment">     * @param &#123;number&#125; x - The x value.</span></span><br><span class="line"><span class="comment">     * @param &#123;number&#125; y - The y value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">constructor</span>(x, y) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the x value.</span></span><br><span class="line"><span class="comment">     * @return &#123;number&#125; The x value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    getX() &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the y value.</span></span><br><span class="line"><span class="comment">     * @return &#123;number&#125; The y value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    getY() &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Convert a string containing two comma-separated numbers into a point.</span></span><br><span class="line"><span class="comment">     * @param &#123;string&#125; str - The string containing two comma-separated numbers.</span></span><br><span class="line"><span class="comment">     * @return &#123;Point&#125; A Point object.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> fromString(str) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注释中支持块级标签和行内标签，行内标签是指包含在块级标签内的标签内容，常用的块级标签如下:</p>
+<ul>
+<li>@author 该类/方法的作者。</li>
+<li>@class 表示这是一个类。</li>
+<li>@function/@method 表示这是一个函数/方法(这是同义词)。</li>
+<li>@private 表示该类/方法是私有的，JSDOC 不会为其生成文档。</li>
+<li>@name 该类/方法的名字。</li>
+<li>@description 该类/方法的描述，可省略直接在开头写描述内容</li>
+<li>@param 该类/方法的参数，可重复定义。</li>
+<li>@return 该类/方法的返回类型。</li>
+<li>@link 行内标签，创建超链接，生成文档时可以为其链接到其他部分。</li>
+<li>@example 创建例子。</li>
+</ul>
+<h2 id="jsdoc文档输出"><a href="#jsdoc文档输出" class="headerlink" title="jsdoc文档输出"></a>jsdoc文档输出</h2><p>使用npm安装对应的jsdoc工具，可以全局安装或者局部安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i jsodc -g</span><br></pre></td></tr></table></figure>
+<p>在项目根目录下创建一个配置文件<code>conf.json</code>:</p>
+<p>默认的配置如下:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugins"</span>: [],</span><br><span class="line">    <span class="attr">"recurseDepth"</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="attr">"source"</span>: &#123;</span><br><span class="line">        <span class="attr">"includePattern"</span>: <span class="string">".+\\.js(doc|x)?$"</span>,</span><br><span class="line">        <span class="attr">"excludePattern"</span>: <span class="string">"(^|\\/|\\\\)_"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"sourceType"</span>: <span class="string">"module"</span>,</span><br><span class="line">    <span class="attr">"tags"</span>: &#123;</span><br><span class="line">        <span class="attr">"allowUnknownTags"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">"dictionaries"</span>: [<span class="string">"jsdoc"</span>,<span class="string">"closure"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"templates"</span>: &#123;</span><br><span class="line">        <span class="attr">"cleverLinks"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">"monospaceLinks"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>常用的配置如下:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"source"</span>: &#123;</span><br><span class="line">    <span class="attr">"include"</span>: [ <span class="string">"src/"</span> ],</span><br><span class="line">    <span class="attr">"exclude"</span>: [ <span class="string">"src/libs"</span> ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"opts"</span>: &#123;</span><br><span class="line">    <span class="attr">"template"</span>: <span class="string">"node_modules/docdash"</span>,</span><br><span class="line">    <span class="attr">"encoding"</span>: <span class="string">"utf8"</span>,</span><br><span class="line">    <span class="attr">"destination"</span>: <span class="string">"./docs/"</span>,</span><br><span class="line">    <span class="attr">"recurse"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"verbose"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>source 表示传递给 JSDOC 的文件</li>
+<li>source.include 表示 JSDOC 需要扫描哪些文件</li>
+<li>source.exclude 表示 JSDOC 需要排除哪些文件</li>
+<li>opts 表示传递给 JSDOC 的选项</li>
+<li>opts.template 生成文档的模板，默认是 templates/default</li>
+<li>opts.encoding 读取文件的编码，默认是 utf8</li>
+<li>opts.destination 生成文档的路径，默认是 ./out/</li>
+<li>opts.recurse 运行时是否递归子目录</li>
+<li>opts.verbose 运行时是否输出详细信息，默认是 false</li>
+</ul>
+<p>然后在命令行中执行 <code>jsdoc -c /path/to/conf.json</code> 即可在根目录下生成一个包含html的文档目录。</p>
+<h2 id="gitignore的使用"><a href="#gitignore的使用" class="headerlink" title=".gitignore的使用"></a>.gitignore的使用</h2><p>在使用Git作为项目的版本管理已经很普遍了，使用的过程中是否有遇到某些配置、编译的临时文件或者依赖目录等不需要进行版本的内容，可以通过<code>.gitignore</code>进行忽略，将对应的目录或文件写入配置文件后，git就不会将对应的内容纳入版本管理。</p>
+<p>需要注意的是，已经被纳入版本管理的内容，不受这个配置的影响。</p>
+<p>使用思路:</p>
+<p>在项目根目录下创建一个<code>.gitignore</code>文件，并将要忽略纳入版本管理的内容写入即可，每一行内容支持模式匹配。</p>
+<p>create-react-app中使用的配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.idea/</span><br><span class="line">.vscode/</span><br><span class="line">node_modules/</span><br><span class="line">build</span><br><span class="line">.DS_Store</span><br><span class="line">*.tgz</span><br><span class="line">my-app*</span><br><span class="line">template/src/__tests__/__snapshots__/</span><br><span class="line">lerna-debug.log</span><br><span class="line">npm-debug.log*</span><br><span class="line">yarn-debug.log*</span><br><span class="line">yarn-error.log*</span><br><span class="line">/.changelog</span><br><span class="line">.npm/</span><br></pre></td></tr></table></figure>
+<p>vue-cli中使用的配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">.DS_Store</span><br><span class="line">design</span><br><span class="line">*.log</span><br><span class="line">packages/test</span><br><span class="line">dist</span><br><span class="line">temp</span><br><span class="line">.vuerc</span><br><span class="line">.version</span><br><span class="line">.versions</span><br><span class="line">.changelog</span><br></pre></td></tr></table></figure>
+<h2 id="eslint的使用"><a href="#eslint的使用" class="headerlink" title="eslint的使用"></a>eslint的使用</h2><p>每个团队会维护一套自己的代码规范，也有使用社区里最佳实践的代码规范，如何做到可以让工具自动帮你检测团队中的代码是否符合代码规范，lint工具就可以帮你做到，社区里有jslint,eslint等工具，这里主要介绍近期使用比较多的ESLint。</p>
+<p><a href="https://eslint.org/" target="_blank" rel="noopener">ESLint</a>是一个静态代码检测工具，是对JavaScript和JSX可插拔的检测工具，由Nicholas C. Zakas开发。</p>
+<p>使用思路:</p>
+<p>创建一个配置文件，通过编辑器插件或者eslint工具对代码进行静态检测并提示错误。</p>
+<h3 id="安装eslint"><a href="#安装eslint" class="headerlink" title="安装eslint"></a>安装eslint</h3><p>可以全局安装或者项目中安装使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i eslint -g</span><br></pre></td></tr></table></figure>
+<p>然后生成配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint --init</span><br></pre></td></tr></table></figure></p>
+<p>会在相应目录下生成一个eslint默认配置文件</p>
+<p>最后，运行lint<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint /path/to/file.js</span><br></pre></td></tr></table></figure></p>
+<p>通常可以<code>package.json</code>的脚本中进行配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "lint": "eslint src --fix",</span><br><span class="line">    "lint:create": "eslint --init"</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>日常可以通过<code>npm run lint</code>来进行使用。</p>
+<p>另外，也可以通过git的hook在代码提交前自动运行lint，这里不做说明，具体配置可以搜索相应文章。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>常用配置文件如下:</p>
+<p>配置文件支持js, json, yaml格式，这里以<code>.eslintrc.js</code>为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// .eslintrc.js </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  &quot;extends&quot;: &quot;eslint:recommended&quot;,</span><br><span class="line">  &quot;env&quot;: &#123;</span><br><span class="line">    &quot;browser&quot;: true,</span><br><span class="line">    &quot;commonjs&quot;: true,</span><br><span class="line">    &quot;node&quot;: true,</span><br><span class="line">    &quot;es6&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;parserOptions&quot;: &#123;</span><br><span class="line">    &quot;ecmaVersion&quot;: 2018</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;rules&quot;: &#123;</span><br><span class="line">    &quot;no-console&quot;: &quot;off&quot;,</span><br><span class="line">    &quot;strict&quot;: [&quot;error&quot;, &quot;global&quot;],</span><br><span class="line">    &quot;curly&quot;: &quot;warn&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>具体的配置说明，<a href="https://www.jianshu.com/p/ad1e46faaea2" target="_blank" rel="noopener">这篇文章</a>讲得很清楚，有兴趣可以查看，这里主要是extends的使用，可以使用官方推荐的规则配置，也可以使用第三方的比如airbnb等，或者团队自己积累的代码规范。</p>
+<h2 id="prettier的使用"><a href="#prettier的使用" class="headerlink" title="prettier的使用"></a>prettier的使用</h2><p>Prettier是一款对代码格式进行美化的工具，让你在代码评审时减少对代码格式排版上的时间浪费。</p>
+<p>官方的示例了解一下:</p>
+<p>原始代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(reallyLongArg(), omgSoManyParameters(), IShouldRefactorThis(), isThereSeriouslyAnotherOne());</span><br></pre></td></tr></table></figure></p>
+<p>经过Prettier格式化后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">foo(</span><br><span class="line">  reallyLongArg(),</span><br><span class="line">  omgSoManyParameters(),</span><br><span class="line">  IShouldRefactorThis(),</span><br><span class="line">  isThereSeriouslyAnotherOne()</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>使用思路:</p>
+<p>通过编辑器插件或者git hook来实现对代码的自动格式化，从而让代码排版变得整齐。</p>
+<h2 id="安装及使用"><a href="#安装及使用" class="headerlink" title="安装及使用"></a>安装及使用</h2><p>将prettier添加到项目中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install prettier --save-dev --save-exact</span><br></pre></td></tr></table></figure></p>
+<p>直接使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx prettier --write src/index.js</span><br></pre></td></tr></table></figure>
+<p>增加git hook</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pretty-quick husky --save-dev</span><br></pre></td></tr></table></figure>
+<p>在<code>package.json</code>文件中增加以下配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;husky&quot;: &#123; &quot;hooks&quot;: &#123; &quot;pre-commit&quot;: &quot;pretty-quick --staged&quot; &#125; &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><p>在项目根目录下创建一个<code>.prettierrc</code>配置文件即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;trailingComma&quot;: &quot;es5&quot;,</span><br><span class="line">  &quot;singleQuote&quot;: true,</span><br><span class="line">  &quot;semi&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果要配合编辑器进行使用，可以查找对应编辑的插件并进行配置。</p>
+<p>需要说明的是prettier和editorconfig其实有重复的，两者可以选一个使用。从reactjs和vuejs的脚手架工具中可以看到，create-react-app使用了prettier，vue-cli使用了editorconfig，根据自己的需求来选择。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://editorconfig.org/" target="_blank" rel="noopener">editorconfig官网</a></li>
+<li><a href="https://github.com/iuap-design/blog/issues/189" target="_blank" rel="noopener">使用editorconfig配置你的编辑器</a></li>
+<li><a href="http://www.alloyteam.com/2014/12/editor-config/" target="_blank" rel="noopener">(译)EditorConfig介绍</a></li>
+<li><a href="https://www.jianshu.com/p/712cea0ef70e" target="_blank" rel="noopener">EditorConfig介绍</a></li>
+<li><a href="https://jsdoc.app/" target="_blank" rel="noopener">jsdoc官网</a></li>
+<li><a href="https://github.com/jsdoc/jsdoc" target="_blank" rel="noopener">jsdoc github仓库</a></li>
+<li><a href="https://www.jianshu.com/p/d7819c519a47" target="_blank" rel="noopener">jsdoc的使用</a></li>
+<li><a href="https://scarletsky.github.io/2017/12/23/write-javascript-document-by-jsdoc/" target="_blank" rel="noopener">用 JSDOC 编写 JavaScript 文档</a></li>
+<li><a href="https://git-scm.com/docs/gitignore" target="_blank" rel="noopener">gitignore文档</a></li>
+<li><a href="https://github.com/facebook/create-react-app/blob/master/.gitignore" target="_blank" rel="noopener">create-react-app的gitignore配置</a></li>
+<li><a href="https://github.com/github/gitignore" target="_blank" rel="noopener">A collection of useful .gitignore templates</a></li>
+<li><a href="https://eslint.org/" target="_blank" rel="noopener">ESLint官网</a></li>
+<li><a href="https://github.com/eslint/eslint" target="_blank" rel="noopener">ESLint github仓库</a></li>
+<li><a href="https://www.jianshu.com/p/ad1e46faaea2" target="_blank" rel="noopener">Eslint 超简单入门教程</a></li>
+<li><a href="https://segmentfault.com/a/1190000009077086" target="_blank" rel="noopener">使用 VSCode + ESLint 实践前端编码规范</a></li>
+<li><a href="https://segmentfault.com/a/1190000011470316" target="_blank" rel="noopener">eslint 常用配置</a></li>
+<li><a href="https://prettier.io/" target="_blank" rel="noopener">prettier官网</a></li>
+<li><a href="https://github.com/prettier/prettier" target="_blank" rel="noopener">prettier github仓库</a></li>
+<li><a href="https://juejin.im/post/5a791d566fb9a0634853400e" target="_blank" rel="noopener">vscode + prettier 专治代码洁癖</a></li>
+<li><a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli github仓库</a></li>
+<li><a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener">create-react-app github仓库</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/image/wechat-reward-img.png" alt="Perry WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Perry</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://www.bookcell.org/2019/07/16/project-common-configs/" title="项目开发中团队规范的那些事">http://www.bookcell.org/2019/07/16/project-common-configs/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端开发/" rel="tag"># 前端开发</a>
+          
+            <a href="/tags/项目/" rel="tag"># 项目</a>
+          
+            <a href="/tags/团队/" rel="tag"># 团队</a>
+          
+            <a href="/tags/规范/" rel="tag"># 规范</a>
+          
+            <a href="/tags/editorconfig/" rel="tag"># editorconfig</a>
+          
+            <a href="/tags/jsdoc/" rel="tag"># jsdoc</a>
+          
+            <a href="/tags/gitignore/" rel="tag"># gitignore</a>
+          
+            <a href="/tags/eslint/" rel="tag"># eslint</a>
+          
+            <a href="/tags/prettier/" rel="tag"># prettier</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/14/three-columns-layout-solutions/" rel="next" title="CSS三栏布局方案">
+                <i class="fa fa-chevron-left"></i> CSS三栏布局方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Perry</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">91</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">192</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/perry2008084" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/users/4180883/perry2008084" target="_blank" title="StackOverflow" rel="external nofollow"><i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.linkedin.com/in/%E7%BB%B3%E6%9D%B0-%E6%BD%98-b6796793/" target="_blank" title="Linkedin" rel="external nofollow"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#editorconfig的使用"><span class="nav-number">1.</span> <span class="nav-text">editorconfig的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsdoc的使用"><span class="nav-number">2.</span> <span class="nav-text">jsdoc的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsdoc注释规范"><span class="nav-number">3.</span> <span class="nav-text">jsdoc注释规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsdoc文档输出"><span class="nav-number">4.</span> <span class="nav-text">jsdoc文档输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore的使用"><span class="nav-number">5.</span> <span class="nav-text">.gitignore的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eslint的使用"><span class="nav-number">6.</span> <span class="nav-text">eslint的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装eslint"><span class="nav-number">6.1.</span> <span class="nav-text">安装eslint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">6.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prettier的使用"><span class="nav-number">7.</span> <span class="nav-text">prettier的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装及使用"><span class="nav-number">8.</span> <span class="nav-text">安装及使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-1"><span class="nav-number">9.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">10.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.3.3/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+        appKey: 'KBj7yrnCGk3P6V9byKOaITFx',
+        placeholder: '欢迎交流',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('auto', "#more");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

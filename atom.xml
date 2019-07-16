@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-07-14T10:09:21.268Z</updated>
+  <updated>2019-07-16T09:56:40.774Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,168 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>项目开发中团队规范的那些事</title>
+    <link href="http://www.bookcell.org/2019/07/16/project-common-configs/"/>
+    <id>http://www.bookcell.org/2019/07/16/project-common-configs/</id>
+    <published>2019-07-16T09:55:09.000Z</published>
+    <updated>2019-07-16T09:56:40.774Z</updated>
+    
+    <content type="html"><![CDATA[<p>项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范</p>
+<ul>
+<li>editorconfig的使用</li>
+<li>jsdoc的使用</li>
+<li>.gitignore的使用</li>
+<li>eslint的使用</li>
+<li>prettier的使用</li>
+</ul>
+<h2 id="editorconfig的使用"><a href="#editorconfig的使用" class="headerlink" title="editorconfig的使用"></a>editorconfig的使用</h2><p>你是否有遇到过多人协作的项目中，大家的缩进风格不一样，有人用两个空格，有人用4个空格，也有人用tab缩进，而感到烦恼的。<a href="https://editorconfig.org/" target="_blank" rel="noopener">editorconfig</a>这个开源项目就是为此而生的。</p>
+<p>官方的介绍如下：</p>
+<blockquote>
+<p>EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily readable and they work nicely with version control systems.</p>
+</blockquote>
+<p>使用思路：</p>
+<p>通过一个配置文件，让不同的编辑器或者IDE自动识别缩进、字符编码格式等风格并保持统一。目前市面上绝大部分的编辑器和IDE都已经支持了，你使用的编辑器是否原生支持还是要安装插件，可以去官网上看一眼。</p>
+<p><code>.edittorconfig</code>文件配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 表明是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件，否则会往上一层目录继续查找</span><br><span class="line">root = true</span><br><span class="line"></span><br><span class="line"># 对所有文件生效</span><br><span class="line">[*]</span><br><span class="line"># 编码格式，支持latin1、utf-8、utf-8-bom、utf-16be和utf-16le，通常使用utf-8</span><br><span class="line">charset = utf-8</span><br><span class="line"># 缩进类型, 支持space 空格, tab 制表符</span><br><span class="line">indent_style = space</span><br><span class="line"># 缩进长度，支持整数 - 缩进的长度, tab - 使用tab_width指定的值</span><br><span class="line">indent_size = 2</span><br><span class="line"># 换行符，支持 lf - (常用,*nux系统), crlf - windows, cr - &lt;=MacOS9</span><br><span class="line">end_of_line = lf</span><br><span class="line"># 保存文件时是否在文件最后插入一个空行, 支持 true - 是, false - 否</span><br><span class="line">insert_final_newline = true</span><br><span class="line"># 是否去除行尾的空格, 支持 true - 是, false - 否</span><br><span class="line">trim_trailing_whitespace = true</span><br><span class="line"></span><br><span class="line"># 对后缀名为 md 的文件生效</span><br><span class="line">[*.md]</span><br><span class="line">trim_trailing_whitespace = false</span><br></pre></td></tr></table></figure>
+<h2 id="jsdoc的使用"><a href="#jsdoc的使用" class="headerlink" title="jsdoc的使用"></a>jsdoc的使用</h2><p>平时写js代码的时候，你是否只是随意写个<code>// xxxx</code>就完事了，对于不需要输出文档的代码也许还好，如果有输出文档的需求，那就头大了。不过团队中拥有一套一致的注释规范，并且在必要的时候还可以输出作为文档，不管是对于后续的新人以及维护都是有益的。</p>
+<p>这里要使用的<a href="https://jsdoc.app/" target="_blank" rel="noopener">jsdoc</a>文档工具就是这样的一个存在，既有一套注释的规范，又可以支持输出为静态页面的文档。</p>
+<p>使用思路:</p>
+<p>在函数、类、模块等代码前使用<code>/** */</code>这样格式的注释，注释中支持描述、标签等内容，通过jsdoc提供的工具可以方便的将注释内容作为文档导出为html格式的文件。</p>
+<h2 id="jsdoc注释规范"><a href="#jsdoc注释规范" class="headerlink" title="jsdoc注释规范"></a>jsdoc注释规范</h2><p>常用的注释格式如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Represents a book.</span></span><br><span class="line"><span class="comment"> * @constructor</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; title - The title of the book.</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; author - The author of the book.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Book</span>(<span class="params">title, author</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Class representing a point. */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a point.</span></span><br><span class="line"><span class="comment">     * @param &#123;number&#125; x - The x value.</span></span><br><span class="line"><span class="comment">     * @param &#123;number&#125; y - The y value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">constructor</span>(x, y) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the x value.</span></span><br><span class="line"><span class="comment">     * @return &#123;number&#125; The x value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    getX() &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the y value.</span></span><br><span class="line"><span class="comment">     * @return &#123;number&#125; The y value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    getY() &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Convert a string containing two comma-separated numbers into a point.</span></span><br><span class="line"><span class="comment">     * @param &#123;string&#125; str - The string containing two comma-separated numbers.</span></span><br><span class="line"><span class="comment">     * @return &#123;Point&#125; A Point object.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> fromString(str) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注释中支持块级标签和行内标签，行内标签是指包含在块级标签内的标签内容，常用的块级标签如下:</p>
+<ul>
+<li>@author 该类/方法的作者。</li>
+<li>@class 表示这是一个类。</li>
+<li>@function/@method 表示这是一个函数/方法(这是同义词)。</li>
+<li>@private 表示该类/方法是私有的，JSDOC 不会为其生成文档。</li>
+<li>@name 该类/方法的名字。</li>
+<li>@description 该类/方法的描述，可省略直接在开头写描述内容</li>
+<li>@param 该类/方法的参数，可重复定义。</li>
+<li>@return 该类/方法的返回类型。</li>
+<li>@link 行内标签，创建超链接，生成文档时可以为其链接到其他部分。</li>
+<li>@example 创建例子。</li>
+</ul>
+<h2 id="jsdoc文档输出"><a href="#jsdoc文档输出" class="headerlink" title="jsdoc文档输出"></a>jsdoc文档输出</h2><p>使用npm安装对应的jsdoc工具，可以全局安装或者局部安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i jsodc -g</span><br></pre></td></tr></table></figure>
+<p>在项目根目录下创建一个配置文件<code>conf.json</code>:</p>
+<p>默认的配置如下:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugins"</span>: [],</span><br><span class="line">    <span class="attr">"recurseDepth"</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="attr">"source"</span>: &#123;</span><br><span class="line">        <span class="attr">"includePattern"</span>: <span class="string">".+\\.js(doc|x)?$"</span>,</span><br><span class="line">        <span class="attr">"excludePattern"</span>: <span class="string">"(^|\\/|\\\\)_"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"sourceType"</span>: <span class="string">"module"</span>,</span><br><span class="line">    <span class="attr">"tags"</span>: &#123;</span><br><span class="line">        <span class="attr">"allowUnknownTags"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">"dictionaries"</span>: [<span class="string">"jsdoc"</span>,<span class="string">"closure"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"templates"</span>: &#123;</span><br><span class="line">        <span class="attr">"cleverLinks"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">"monospaceLinks"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>常用的配置如下:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"source"</span>: &#123;</span><br><span class="line">    <span class="attr">"include"</span>: [ <span class="string">"src/"</span> ],</span><br><span class="line">    <span class="attr">"exclude"</span>: [ <span class="string">"src/libs"</span> ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"opts"</span>: &#123;</span><br><span class="line">    <span class="attr">"template"</span>: <span class="string">"node_modules/docdash"</span>,</span><br><span class="line">    <span class="attr">"encoding"</span>: <span class="string">"utf8"</span>,</span><br><span class="line">    <span class="attr">"destination"</span>: <span class="string">"./docs/"</span>,</span><br><span class="line">    <span class="attr">"recurse"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"verbose"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>source 表示传递给 JSDOC 的文件</li>
+<li>source.include 表示 JSDOC 需要扫描哪些文件</li>
+<li>source.exclude 表示 JSDOC 需要排除哪些文件</li>
+<li>opts 表示传递给 JSDOC 的选项</li>
+<li>opts.template 生成文档的模板，默认是 templates/default</li>
+<li>opts.encoding 读取文件的编码，默认是 utf8</li>
+<li>opts.destination 生成文档的路径，默认是 ./out/</li>
+<li>opts.recurse 运行时是否递归子目录</li>
+<li>opts.verbose 运行时是否输出详细信息，默认是 false</li>
+</ul>
+<p>然后在命令行中执行 <code>jsdoc -c /path/to/conf.json</code> 即可在根目录下生成一个包含html的文档目录。</p>
+<h2 id="gitignore的使用"><a href="#gitignore的使用" class="headerlink" title=".gitignore的使用"></a>.gitignore的使用</h2><p>在使用Git作为项目的版本管理已经很普遍了，使用的过程中是否有遇到某些配置、编译的临时文件或者依赖目录等不需要进行版本的内容，可以通过<code>.gitignore</code>进行忽略，将对应的目录或文件写入配置文件后，git就不会将对应的内容纳入版本管理。</p>
+<p>需要注意的是，已经被纳入版本管理的内容，不受这个配置的影响。</p>
+<p>使用思路:</p>
+<p>在项目根目录下创建一个<code>.gitignore</code>文件，并将要忽略纳入版本管理的内容写入即可，每一行内容支持模式匹配。</p>
+<p>create-react-app中使用的配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.idea/</span><br><span class="line">.vscode/</span><br><span class="line">node_modules/</span><br><span class="line">build</span><br><span class="line">.DS_Store</span><br><span class="line">*.tgz</span><br><span class="line">my-app*</span><br><span class="line">template/src/__tests__/__snapshots__/</span><br><span class="line">lerna-debug.log</span><br><span class="line">npm-debug.log*</span><br><span class="line">yarn-debug.log*</span><br><span class="line">yarn-error.log*</span><br><span class="line">/.changelog</span><br><span class="line">.npm/</span><br></pre></td></tr></table></figure>
+<p>vue-cli中使用的配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">.DS_Store</span><br><span class="line">design</span><br><span class="line">*.log</span><br><span class="line">packages/test</span><br><span class="line">dist</span><br><span class="line">temp</span><br><span class="line">.vuerc</span><br><span class="line">.version</span><br><span class="line">.versions</span><br><span class="line">.changelog</span><br></pre></td></tr></table></figure>
+<h2 id="eslint的使用"><a href="#eslint的使用" class="headerlink" title="eslint的使用"></a>eslint的使用</h2><p>每个团队会维护一套自己的代码规范，也有使用社区里最佳实践的代码规范，如何做到可以让工具自动帮你检测团队中的代码是否符合代码规范，lint工具就可以帮你做到，社区里有jslint,eslint等工具，这里主要介绍近期使用比较多的ESLint。</p>
+<p><a href="https://eslint.org/" target="_blank" rel="noopener">ESLint</a>是一个静态代码检测工具，是对JavaScript和JSX可插拔的检测工具，由Nicholas C. Zakas开发。</p>
+<p>使用思路:</p>
+<p>创建一个配置文件，通过编辑器插件或者eslint工具对代码进行静态检测并提示错误。</p>
+<h3 id="安装eslint"><a href="#安装eslint" class="headerlink" title="安装eslint"></a>安装eslint</h3><p>可以全局安装或者项目中安装使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i eslint -g</span><br></pre></td></tr></table></figure>
+<p>然后生成配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint --init</span><br></pre></td></tr></table></figure></p>
+<p>会在相应目录下生成一个eslint默认配置文件</p>
+<p>最后，运行lint<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint /path/to/file.js</span><br></pre></td></tr></table></figure></p>
+<p>通常可以<code>package.json</code>的脚本中进行配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "lint": "eslint src --fix",</span><br><span class="line">    "lint:create": "eslint --init"</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>日常可以通过<code>npm run lint</code>来进行使用。</p>
+<p>另外，也可以通过git的hook在代码提交前自动运行lint，这里不做说明，具体配置可以搜索相应文章。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>常用配置文件如下:</p>
+<p>配置文件支持js, json, yaml格式，这里以<code>.eslintrc.js</code>为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// .eslintrc.js </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  &quot;extends&quot;: &quot;eslint:recommended&quot;,</span><br><span class="line">  &quot;env&quot;: &#123;</span><br><span class="line">    &quot;browser&quot;: true,</span><br><span class="line">    &quot;commonjs&quot;: true,</span><br><span class="line">    &quot;node&quot;: true,</span><br><span class="line">    &quot;es6&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;parserOptions&quot;: &#123;</span><br><span class="line">    &quot;ecmaVersion&quot;: 2018</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;rules&quot;: &#123;</span><br><span class="line">    &quot;no-console&quot;: &quot;off&quot;,</span><br><span class="line">    &quot;strict&quot;: [&quot;error&quot;, &quot;global&quot;],</span><br><span class="line">    &quot;curly&quot;: &quot;warn&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>具体的配置说明，<a href="https://www.jianshu.com/p/ad1e46faaea2" target="_blank" rel="noopener">这篇文章</a>讲得很清楚，有兴趣可以查看，这里主要是extends的使用，可以使用官方推荐的规则配置，也可以使用第三方的比如airbnb等，或者团队自己积累的代码规范。</p>
+<h2 id="prettier的使用"><a href="#prettier的使用" class="headerlink" title="prettier的使用"></a>prettier的使用</h2><p>Prettier是一款对代码格式进行美化的工具，让你在代码评审时减少对代码格式排版上的时间浪费。</p>
+<p>官方的示例了解一下:</p>
+<p>原始代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(reallyLongArg(), omgSoManyParameters(), IShouldRefactorThis(), isThereSeriouslyAnotherOne());</span><br></pre></td></tr></table></figure></p>
+<p>经过Prettier格式化后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">foo(</span><br><span class="line">  reallyLongArg(),</span><br><span class="line">  omgSoManyParameters(),</span><br><span class="line">  IShouldRefactorThis(),</span><br><span class="line">  isThereSeriouslyAnotherOne()</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>使用思路:</p>
+<p>通过编辑器插件或者git hook来实现对代码的自动格式化，从而让代码排版变得整齐。</p>
+<h2 id="安装及使用"><a href="#安装及使用" class="headerlink" title="安装及使用"></a>安装及使用</h2><p>将prettier添加到项目中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install prettier --save-dev --save-exact</span><br></pre></td></tr></table></figure></p>
+<p>直接使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx prettier --write src/index.js</span><br></pre></td></tr></table></figure>
+<p>增加git hook</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pretty-quick husky --save-dev</span><br></pre></td></tr></table></figure>
+<p>在<code>package.json</code>文件中增加以下配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;husky&quot;: &#123; &quot;hooks&quot;: &#123; &quot;pre-commit&quot;: &quot;pretty-quick --staged&quot; &#125; &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><p>在项目根目录下创建一个<code>.prettierrc</code>配置文件即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;trailingComma&quot;: &quot;es5&quot;,</span><br><span class="line">  &quot;singleQuote&quot;: true,</span><br><span class="line">  &quot;semi&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果要配合编辑器进行使用，可以查找对应编辑的插件并进行配置。</p>
+<p>需要说明的是prettier和editorconfig其实有重复的，两者可以选一个使用。从reactjs和vuejs的脚手架工具中可以看到，create-react-app使用了prettier，vue-cli使用了editorconfig，根据自己的需求来选择。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://editorconfig.org/" target="_blank" rel="noopener">editorconfig官网</a></li>
+<li><a href="https://github.com/iuap-design/blog/issues/189" target="_blank" rel="noopener">使用editorconfig配置你的编辑器</a></li>
+<li><a href="http://www.alloyteam.com/2014/12/editor-config/" target="_blank" rel="noopener">(译)EditorConfig介绍</a></li>
+<li><a href="https://www.jianshu.com/p/712cea0ef70e" target="_blank" rel="noopener">EditorConfig介绍</a></li>
+<li><a href="https://jsdoc.app/" target="_blank" rel="noopener">jsdoc官网</a></li>
+<li><a href="https://github.com/jsdoc/jsdoc" target="_blank" rel="noopener">jsdoc github仓库</a></li>
+<li><a href="https://www.jianshu.com/p/d7819c519a47" target="_blank" rel="noopener">jsdoc的使用</a></li>
+<li><a href="https://scarletsky.github.io/2017/12/23/write-javascript-document-by-jsdoc/" target="_blank" rel="noopener">用 JSDOC 编写 JavaScript 文档</a></li>
+<li><a href="https://git-scm.com/docs/gitignore" target="_blank" rel="noopener">gitignore文档</a></li>
+<li><a href="https://github.com/facebook/create-react-app/blob/master/.gitignore" target="_blank" rel="noopener">create-react-app的gitignore配置</a></li>
+<li><a href="https://github.com/github/gitignore" target="_blank" rel="noopener">A collection of useful .gitignore templates</a></li>
+<li><a href="https://eslint.org/" target="_blank" rel="noopener">ESLint官网</a></li>
+<li><a href="https://github.com/eslint/eslint" target="_blank" rel="noopener">ESLint github仓库</a></li>
+<li><a href="https://www.jianshu.com/p/ad1e46faaea2" target="_blank" rel="noopener">Eslint 超简单入门教程</a></li>
+<li><a href="https://segmentfault.com/a/1190000009077086" target="_blank" rel="noopener">使用 VSCode + ESLint 实践前端编码规范</a></li>
+<li><a href="https://segmentfault.com/a/1190000011470316" target="_blank" rel="noopener">eslint 常用配置</a></li>
+<li><a href="https://prettier.io/" target="_blank" rel="noopener">prettier官网</a></li>
+<li><a href="https://github.com/prettier/prettier" target="_blank" rel="noopener">prettier github仓库</a></li>
+<li><a href="https://juejin.im/post/5a791d566fb9a0634853400e" target="_blank" rel="noopener">vscode + prettier 专治代码洁癖</a></li>
+<li><a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli github仓库</a></li>
+<li><a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener">create-react-app github仓库</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;editorconfig的使用&lt;/li&gt;
+&lt;li&gt;jsdoc的使用&lt;/li&gt;
+&lt;li&gt;.gitignore的使用&lt;/li&gt;
+&lt;li&gt;eslint的使用&lt;/li&gt;
+&lt;li&gt;pr
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="项目" scheme="http://www.bookcell.org/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="团队" scheme="http://www.bookcell.org/tags/%E5%9B%A2%E9%98%9F/"/>
+    
+      <category term="规范" scheme="http://www.bookcell.org/tags/%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="editorconfig" scheme="http://www.bookcell.org/tags/editorconfig/"/>
+    
+      <category term="jsdoc" scheme="http://www.bookcell.org/tags/jsdoc/"/>
+    
+      <category term="gitignore" scheme="http://www.bookcell.org/tags/gitignore/"/>
+    
+      <category term="eslint" scheme="http://www.bookcell.org/tags/eslint/"/>
+    
+      <category term="prettier" scheme="http://www.bookcell.org/tags/prettier/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS三栏布局方案</title>
@@ -1581,59 +1743,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;arts-2018-12-one&quot;&gt;&lt;a href=&quot;#arts-2018-12-one&quot; class=&quot;headerlink&quot; title=&quot;arts-2018-12-one&quot;&gt;&lt;/a&gt;arts-2018-12-one&lt;/h1&gt;&lt;h2 id=&quot;A-Algorit
-    
-    </summary>
-    
-      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
-    
-    
-      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
-    
-      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
-    
-      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
-    
-      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
-    
-      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>arts-2018-11-three</title>
-    <link href="http://www.bookcell.org/2018/12/05/arts-2018-11-three/"/>
-    <id>http://www.bookcell.org/2018/12/05/arts-2018-11-three/</id>
-    <published>2018-12-05T06:18:56.000Z</published>
-    <updated>2018-12-05T06:19:42.417Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="arts-2018-11-three"><a href="#arts-2018-11-three" class="headerlink" title="arts-2018-11-three"></a>arts-2018-11-three</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>Graph</p>
-<p>复杂度: O(顶点数+边数)</p>
-<p>使用广度优先搜索进行查找，应用在寻找最短路径方面的搜索查找。</p>
-<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work" target="_blank" rel="noopener">https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work</a></p>
-<blockquote>
-<p>讲解了SSH背后的加密原理，涉及到对称、非对称、哈希的加密方法。</p>
-</blockquote>
-<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p>Css Selector分为4大类：</p>
-<ol>
-<li>元素选择器</li>
-<li>ID、Class选择器</li>
-<li>属性选择器</li>
-<li>伪元素和伪类</li>
-</ol>
-<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p>敏捷开发的方法论:</p>
-<p>敏捷目的：以缩短周期，提高质量用户满意度为主</p>
-<p>敏捷软件开发宣言:</p>
-<ol>
-<li>个体和互动高于流程和工具</li>
-<li>工作的软件高于详尽的文档</li>
-<li>客户合作高于合同谈判</li>
-<li>响应变化高于遵循计划</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;arts-2018-11-three&quot;&gt;&lt;a href=&quot;#arts-2018-11-three&quot; class=&quot;headerlink&quot; title=&quot;arts-2018-11-three&quot;&gt;&lt;/a&gt;arts-2018-11-three&lt;/h1&gt;&lt;h2 id=&quot;A
     
     </summary>
     

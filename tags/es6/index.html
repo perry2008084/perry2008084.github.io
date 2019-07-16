@@ -120,7 +120,7 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="书格前端">
-<meta property="og:url" content="http://www.bookcell.org/tags/ES6/index.html">
+<meta property="og:url" content="http://www.bookcell.org/tags/es6/index.html">
 <meta property="og:site_name" content="书格前端">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://www.bookcell.org/tags/ES6/"/>
+  <link rel="canonical" href="http://www.bookcell.org/tags/es6/"/>
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>Tag: ES6 | 书格前端</title>
+  <title>Tag: es6 | 书格前端</title>
   
 
 
@@ -381,7 +381,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h2>ES6<small>Tag</small>
+        <h2>es6<small>Tag</small>
         </h2>
       </div>
 
@@ -393,37 +393,9 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/2019/05/05/es6-module-share/" itemprop="url">
+            <a class="post-title-link" href="/2018/09/28/es6-module-default-and-named/" itemprop="url">
               
-                <span itemprop="name">ES6模块-团队分享</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-05T06:50:56+08:00"
-              content="2019-05-05" >
-          05-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/20/es6-modules/" itemprop="url">
-              
-                <span itemprop="name">ES6中的模块化</span>
+                <span itemprop="name">ES6中模块具名和默认导入导出</span>
               
             </a>
         
@@ -431,9 +403,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-20T09:22:01+08:00"
-              content="2019-04-20" >
-          04-20
+              datetime="2018-09-28T23:10:58+08:00"
+              content="2018-09-28" >
+          09-28
         </time>
       </div>
 
@@ -490,7 +462,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -898,7 +870,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">185</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">192</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1624,6 +1610,32 @@
         }).toArray().join('\n')
         var ta = document.createElement('textarea')
         document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+ment.body.appendChild(ta)
         ta.style.position = 'absolute'
         ta.style.top = '0px'
         ta.style.left = '0px'
