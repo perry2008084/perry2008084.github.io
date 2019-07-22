@@ -369,6 +369,232 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/06/16/web-component-in-a-nutshell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/16/web-component-in-a-nutshell/" itemprop="url">
+                  Web Component入门
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-16 22:27:50 / Modified: 22:29:24" itemprop="dateCreated datePublished" datetime="2019-06-16T22:27:50+08:00">2019-06-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/16/web-component-in-a-nutshell/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/06/16/web-component-in-a-nutshell/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>原文出自: <a href="https://levelup.gitconnected.com/web-components-in-a-nutshell-1e114aa971b9" target="_blank" rel="noopener">https://levelup.gitconnected.com/web-components-in-a-nutshell-1e114aa971b9</a></li>
+<li>原标题: Web Components in a Nutshell</li>
+<li>原副标题: 原生浏览器Web Component基础和如何创建</li>
+<li>翻译文章同步发表在团队的语雀上</li>
+</ul>
+<p>说明: 以下使用Web组件来表示Web Component</p>
+<p>正文:</p>
+<p>在web开发中，代码复用已成为一个聚焦重点。作为一名开发者，我们可能会遇到这样的场景，在多个地方使用一个代码片段来表示自定义的UI。如果我们不是很小心的写出，这可能会让整个代码结构变得不可管理。Web组件提供了一个原生的API来构建可复用的UI块。</p>
+<h2 id="什么是Web组件"><a href="#什么是Web组件" class="headerlink" title="什么是Web组件?"></a>什么是Web组件?</h2><p>Web组件是一系列用来帮助我们创建可复用、具备封装的自定义HTML UI元素的浏览器底层的API。Web组件被认为更加好，是因为他们可以用任意的库或者框架创建，而且你可以立马使用原生JavaScript开始创建你自己的Web组件。</p>
+<p>使用Web组件的一大优势在于他们已经在除了微软Edge外其他浏览器中可用，但是我们并不需要担心，因为已经有<a href="https://github.com/webcomponents/webcomponentsjs" target="_blank" rel="noopener">Polyfills</a>可以解决这个问题。</p>
+<p>Web组件由3个主要的技术组成，他们是主要支柱并作为API来构建Web组件。</p>
+<ul>
+<li>自定义元素(Custom Elements)</li>
+<li>模板(Templates)</li>
+<li>影子DOM(Shadow DOM)</li>
+</ul>
+<p>让我们来进一步了解这些技术。</p>
+<h3 id="1-自定义元素-Custom-Elements"><a href="#1-自定义元素-Custom-Elements" class="headerlink" title="1. 自定义元素(Custom Elements)"></a>1. 自定义元素(Custom Elements)</h3><p>这些是JavaScript API的集合，可以帮助你创建自己的HTML元素，并且控制你的DOM和行为。我们可以构建他们的层级和指示他们对行为变化做出的响应。例如，你可以创建一个元素像这样<code>&lt;my-element&gt;&lt;/my-element&gt;</code>。</p>
+<h3 id="2-模板-Templates"><a href="#2-模板-Templates" class="headerlink" title="2. 模板(Templates)"></a>2. 模板(Templates)</h3><p>模板是用户定义的模板在页面加载时并不渲染。之后可以通过创建一个组件实例来多次复用。</p>
+<h3 id="3-影子DOM-Shadow-DOM"><a href="#3-影子DOM-Shadow-DOM" class="headerlink" title="3. 影子DOM(Shadow DOM)"></a>3. 影子DOM(Shadow DOM)</h3><p>影子DOM是JavaScript API组合用以连接封装的DOM。这将会从主文档对象模型中独立渲染，并且他们的行为特性将会保持私有，因此代码片段就不会和代码结构中的其他部分冲突。使用影子DOM后CSS和JavaScript就会像<code>&lt;iframe&gt;</code>一样分离。</p>
+<h3 id="生命周期回调"><a href="#生命周期回调" class="headerlink" title="生命周期回调"></a>生命周期回调</h3><p>生命周期回调是定义在自定义元素类定义中的函数。他们有自己唯一的定义目的。他们用于操作我们自定义元素的行为。</p>
+<ul>
+<li><code>connectedCallback</code>: 这个特殊的函数会在我们的自定义元素初始连接到DOM时进行调用。</li>
+<li><code>adoptedCallback</code>: 这个函数会在我们的自定义函数移动到一个新的文档时调用。</li>
+<li><code>attributeChangedCallback</code>: 如果在我们的自定义元素中有属性变化，例如属性的变更、增加或者删掉，这个特殊的函数会被调用。</li>
+<li><code>disconnectedCallback</code>: 这个特殊的函数当我们的自定义元素从DOM中断开时调用。</li>
+</ul>
+<p>现在让我们来看看如何使用原生JavaScript来创建一个Web组件。通过做完这个教程，你可以了解Web组件。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="我们要构建什么？"><a href="#我们要构建什么？" class="headerlink" title="我们要构建什么？"></a>我们要构建什么？</h3><p>我们要构建一个显示一张当前热门图片的Web组件。我们会使用Giphy API来获取gif，你的代码结构在实现完成后会是如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--index.html</span><br><span class="line">--card.js</span><br><span class="line">--services.js</span><br></pre></td></tr></table></figure>
+<h3 id="构建教程"><a href="#构建教程" class="headerlink" title="构建教程"></a>构建教程</h3><p>首先，我们要创建一个类来包含我们想创建的Web组件的行为。创建一个<code>card.js</code>的文件，并创建一个如下的类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardComponent</span> <span class="keyword">extends</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> ()&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//Your implementaion goes here</span></span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在类的构造函数中，你需要通过<code>Element.attachShadow()</code>方法将影子DOM的影子根(shadow root)添加到文档的当前HTML元素中。接着使用<code>&lt;template&gt;</code>标签在<code>index.html</code>文件中创建HTML模板。这个模板如下:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"card-view"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Web Component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"card-title"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"gif-view"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在添加模板到我们的<code>index.html</code>文件中后，我们可以使用DOM方法来克隆上面的模板并添加到我们的影子DOM。这需要在构造函数中完成。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardComponent</span> <span class="keyword">extends</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> ()&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">const</span> shadow = <span class="keyword">this</span>.attachShadow(&#123;<span class="attr">mode</span>: <span class="string">'open'</span>&#125;);</span><br><span class="line">       </span><br><span class="line">        <span class="comment">// Clone the template so that it can be attched to the shadowroot                     </span></span><br><span class="line">        <span class="keyword">const</span> template = <span class="built_in">document</span>.getElementById(<span class="string">'card-view'</span>);</span><br><span class="line">        <span class="keyword">const</span> templateInstance = template.content.cloneNode(<span class="literal">true</span>);</span><br><span class="line">        shadow.appendChild(templateInstance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就像我之前提到的，我们应该再写一个函数来从Giphy API中获取gif。从API中我们将获取到当前热门的图片，以及这个图片上传者提供的标题。在我们开始写这个函数前，先创建一个单独的文件<code>services.js</code>用以放置URL和API key。创建文件并放置以下代码和你申请的API key。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> API_KEY = <span class="string">'*YOUR_API_KEY*'</span>;</span><br><span class="line"><span class="keyword">const</span> url = <span class="string">`http://api.giphy.com/v1/gifs/trending?api_key=`</span> + API_KEY + <span class="string">`&amp;limit=1`</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;API_KEY, url&#125;; <span class="comment">// export the url so that i can be used extrnally.</span></span><br></pre></td></tr></table></figure>
+<p>创建<code>services.js</code>文件后，添加以下的代码到你的<code>card.js</code>文件顶部，这样你就可以使用URL来获取gif图片了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; url &#125; <span class="keyword">from</span> <span class="string">'./services.js'</span>;</span><br></pre></td></tr></table></figure>
+<p>你可以从这个链接获取你自己的API key: <a href="https://developers.giphy.com/" target="_blank" rel="noopener">https://developers.giphy.com/</a></p>
+<p>跳回到<code>card.js</code>文件，并添加以下函数:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">render(shadowElem, data)&#123;</span><br><span class="line">    <span class="keyword">const</span> shadowRoot = shadowElem.shadowRoot;</span><br><span class="line">    shadowRoot.getElementById(<span class="string">'card-title'</span>).innerHTML = data.name;</span><br><span class="line">    shadowRoot.getElementById(<span class="string">'gif-view'</span>).src = data.url;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> fetchFromGiphy ()&#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(url);</span><br><span class="line">  <span class="keyword">const</span> json = <span class="keyword">await</span> res.json();</span><br><span class="line">  <span class="keyword">const</span> gifUrl = json[<span class="string">'data'</span>][<span class="string">'0'</span>].images[<span class="string">'fixed_height_small'</span>].url;</span><br><span class="line">  <span class="keyword">const</span> gifName = json[<span class="string">'data'</span>][<span class="string">'0'</span>].title;</span><br><span class="line">  <span class="keyword">const</span> gifObject = &#123;</span><br><span class="line">     name: gifName,</span><br><span class="line">     url: gifUrl</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> gifObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>让我来解释一下这些函数。</p>
+<p><code>fetchFromGiphy()</code>: 这个函数使用async/await获取热门的gif和这个gif的标题，并作为对象进行返回。</p>
+<p><code>render()</code>: 这个函数用于注入值到影子DOM的元素中。</p>
+<p>接着，让这些函数在生命周期回调中被调用。实际上，我们需要当我们的自定义元素连接到DOM时调用这两个函数。我们有<code>connectedCallback()</code>函数来实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> connectedCallback() &#123;</span><br><span class="line">    <span class="keyword">this</span>.gifObj = <span class="keyword">await</span> <span class="keyword">this</span>.fetchFromGiphy();</span><br><span class="line">    <span class="keyword">this</span>.render(<span class="keyword">this</span>, <span class="keyword">this</span>.gifObj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，使用<code>customElements.define()</code>函数来定义我们的自定义元素。当定义一个自定义元素时，有一些基本原则需要记在心里。<code>define()</code>函数的第一个参数应该是代码自定义元素名称的字符串。他们不能是一个单独的单词，而是由<code>-</code>字符在中间。第二个参数我们的定义元素行为的类对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">customElements.define(‘card-component’, CardComponent);</span><br></pre></td></tr></table></figure>
+<p>现在你已经定义了你的组件，添加<code>card.js</code>文件到你的<code>index.html</code>文件中。你可以在HTML文档的任意地方使用<code>&lt;card-component&gt;</code>元素。最后的<code>index.html</code>如下:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Web Component<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"card-view"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Web Component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"card-title"</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"gif-view"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">card-component</span>&gt;</span><span class="tag">&lt;/<span class="name">card-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./card.js"</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>为了运行，你需要一个服务器。从命令行中全局安装<code>static-server</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g static-server</span><br></pre></td></tr></table></figure>
+<p>从你的Web组件项目目录下运行<code>static-server</code>命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static-server</span><br></pre></td></tr></table></figure>
+<p>好了，恭喜！你现在已经拥有你自己的组件。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>这篇文章总结了Web组件的基础。这是Web组件的理论和实现。Web组件在帮助代码复用上很有用。你可以从这个<a href="https://github.com/thivatm/web-comp" target="_blank" rel="noopener">项目</a>中检出所有代码。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/05/05/es6-module-share/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1294,216 +1520,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/01/22/create-react-app-from-scratch/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/22/create-react-app-from-scratch/" itemprop="url">
-                  create-react-app-from-scratch
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-22 12:41:46 / Modified: 12:42:27" itemprop="dateCreated datePublished" datetime="2019-01-22T12:41:46+08:00">2019-01-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/22/create-react-app-from-scratch/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/22/create-react-app-from-scratch/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>React社区中提供了类似<code>create-react-app</code>这样的命令行工具，作为React项目的脚手架，这个工具提供了大而全的功能，直接拿过来使用，你可能不明白背后的原理，这里跟着<a href="https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658" target="_blank" rel="noopener">Creating a React App… From Scratch</a>这篇文章一起从零搭建一个React App，有条件的同学可以直接阅读英文版，这里实现的是一个最简单的功能，支持ES6+和JSX语法、热加载。</p>
-<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>创建一个目录并且通过<code>npm init</code>初始化一个项目，有需要也可以通过<code>git init</code>创建版本管理，新项目的文件结构如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- public</span><br><span class="line">+-- src</span><br></pre></td></tr></table></figure>
-<p>此时可以添加一个<code>.gitignore</code>文件，并把<code>node_modules</code>和<code>dist</code>目录排除在提交范围。</p>
-<p>在<code>public</code>目录中，将会存放一些静态的资产，最主要的是放置<code>index.html</code>文件，让react用来渲染app用。</p>
-<p><code>index.html</code>如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, shrink-to-fit=no"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>React Starter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    You need to enable JavaScript to run this app.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../dist/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这里react通过<code>root</code>这个id进行关联渲染元素，我们后续打包的文件名称为<code>bundle.js</code>。</p>
-<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>接下来添加babel相关的软件包:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0</span><br></pre></td></tr></table></figure>
-<p><code>babel-core</code>是主要的babel包，用于转译代码。<code>babel-cli</code>用于在命令行中编译文件。<code>preset-react</code>和<code>preset-env</code>用于预先配置要转换的代码类型，<code>env</code>预置用以转换ES6+的代码到ES5的代码，<code>react</code>预置转换JSX的代码。</p>
-<p>接着在项目的根目录，创建一个文件<code>.babelrc</code>，用于告诉bebel我们要配置的预置项。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [<span class="string">"@babel/env"</span>, <span class="string">"@babel/preset-react"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Babel还有很多的插件值得研究。</p>
-<h2 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h2><p>接下来需要配置Webpack来打包和启用开发热加载等功能。</p>
-<p>安装开发依赖:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack@4.19.1 webpack-cli@3.1.1 webpack-dev-server@3.1.8 style-loader@0.23.0 css-loader@1.0.0 babel-loader@8.0.2</span><br></pre></td></tr></table></figure>
-<p>Webpack使用<code>loader</code>来处理不同类型的文件并进行打包，并提供一个开发服务器方便高效的进行开发。</p>
-<p>在项目根目录下创建一个新文件<code>webapck.config.js</code>，在这里导出一个包含webpack配置的对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">"./src/index.js"</span>,</span><br><span class="line">  mode: <span class="string">"development"</span>,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(js|jsx)$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">        loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">        options: &#123; <span class="attr">presets</span>: [<span class="string">"@babel/env"</span>] &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123; <span class="attr">extensions</span>: [<span class="string">"*"</span>, <span class="string">".js"</span>, <span class="string">".jsx"</span>] &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">"dist/"</span>),</span><br><span class="line">    publicPath: <span class="string">"/dist/"</span>,</span><br><span class="line">    filename: <span class="string">"bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: path.join(__dirname, <span class="string">"public/"</span>),</span><br><span class="line">    port: <span class="number">3000</span>,</span><br><span class="line">    publicPath: <span class="string">"http://localhost:3000/dist/"</span>,</span><br><span class="line">    hotOnly: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [<span class="keyword">new</span> webpack.HotModuleReplacementPlugin()]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这里webpack的配置项暂时不解释，接下来进行React的配置。</p>
-<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p>首先，我们要添加两个软件包: <a href="mailto:`react@16.5.2" target="_blank" rel="noopener">`react@16.5.2</a><code>和</code><a href="mailto:react-dom@16.5.2" target="_blank" rel="noopener">react-dom@16.5.2</a>`</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react@16.5.2 react-dom@16.5.2</span><br></pre></td></tr></table></figure>
-<p>接下来，要告诉React app在哪里关联DOM，在<code>src</code>文件夹中创建一个<code>index.js</code>文件：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./App.js"</span>;</span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span>, document.getElementById("root"));</span></span><br></pre></td></tr></table></figure>
-<p><code>ReactDOM.render</code>这个函数告诉React渲染什么和在哪里渲染，这里渲染一个叫做<code>App</code>的组件，并且渲染在ID为root的DOM元素上。</p>
-<p>接下来在<code>src</code>文件夹下创建一个<code>App.js</code>文件，这是一个React组件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component&#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"./App.css"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">        &lt;h1&gt; Hello, World! <span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure>
-<p>在<code>src</code>目录下创建一个<code>App.css</code>文件</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.App</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: Arial, Helvetica, sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最终的项目结构如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">+-- public</span><br><span class="line">| +-- index.html</span><br><span class="line">+-- src</span><br><span class="line">| +-- App.css</span><br><span class="line">| +-- App.js</span><br><span class="line">| +-- index.js</span><br><span class="line">+-- .babelrc</span><br><span class="line">+-- .gitignore</span><br><span class="line">+-- package-lock.json</span><br><span class="line">+-- package.json</span><br><span class="line">+-- webpack.config.js</span><br></pre></td></tr></table></figure>
-<p>在webpack的script中增加一个脚本命令，start</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start: webpack-dev-server --mode development</span><br></pre></td></tr></table></figure>
-<p>使用<code>npm start</code>命令即可启动</p>
-<h2 id="Finishing-HMR"><a href="#Finishing-HMR" class="headerlink" title="Finishing HMR"></a>Finishing HMR</h2><p>这个时候修改文件内容，页面并不会自动更新，要增加热加载功能，需要另外一个软件包的支持</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-hot-loader@4.3.11</span><br></pre></td></tr></table></figure>
-<p>这个包可以安装在依赖中，而不是开发依赖，因为包会自动判断是否执行。</p>
-<p>在<code>App.js</code>中导入<code>react-hot-loader</code>：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component&#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;hot&#125; <span class="keyword">from</span> <span class="string">"react-hot-loader"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"./App.css"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">        &lt;h1&gt; Hello, World! <span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default hot(module)(App);</span></span><br></pre></td></tr></table></figure>
-<p>这个时候修改文件的内容，页面就会即时刷新了。</p>
-<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><p>最后，可以在package.json中增加一个build的脚本命令，</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">build: webpack --mode production</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1551,7 +1567,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">91</span>
+                    <span class="site-state-item-count">92</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1973,7 +1989,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">192</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">194</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

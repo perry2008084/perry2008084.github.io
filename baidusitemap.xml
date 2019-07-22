@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/07/22/dom-in-action/</loc>
+    <lastmod>2019-07-22T14:22:35.792Z</lastmod>
+    <data>
+        <display>
+        <title>DOM实战基础</title>
+        <pubTime>2019-07-22T14:21:21.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>DOM</tag>
+         
+        <tag>实战</tag>
+         
+        <tag>API</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/07/16/project-common-configs/</loc>
     <lastmod>2019-07-16T12:00:33.859Z</lastmod>
     <data>
@@ -2000,9 +2026,9 @@
         
         <tag>hexo</tag>
          
-        <tag>Next</tag>
-         
         <tag>theme</tag>
+         
+        <tag>Next</tag>
          
         <tag>简介</tag>
          
@@ -2193,11 +2219,11 @@
         <title>百度地图显示位置错误</title>
         <pubTime>2016-12-07T15:27:23.000Z</pubTime>
         
+        <tag>前端</tag>
+         
         <tag>baidumap</tag>
          
         <tag>map</tag>
-         
-        <tag>前端</tag>
          
          
            
