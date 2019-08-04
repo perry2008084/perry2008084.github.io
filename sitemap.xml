@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.bookcell.org/2019/08/04/learn-redux-by-build-a-redux/</loc>
+    
+    <lastmod>2019-08-04T15:09:42.901Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.bookcell.org/2019/07/22/dom-in-action/</loc>
     
     <lastmod>2019-07-22T14:22:35.792Z</lastmod>

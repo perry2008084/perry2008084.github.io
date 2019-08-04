@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[通过从零实现redux来学习redux的原理]]></title>
+    <url>%2F2019%2F08%2F04%2Flearn-redux-by-build-a-redux%2F</url>
+    <content type="text"><![CDATA[理解Redux的原理，一个比较好的方式就是自己实现一个Redux，这样便知道它背后的原理以及对应的API。 这里主要是参考Learn Redux by Building Redux from Scratch这篇文章，并且使用意译，并非完全按照原文翻译，不过不影响对redux原理的理解，跟着文章的思路实现一遍redux就能了解背后的基本思路。 欢迎访问博客原文通过从零实现redux来学习redux 概念Redux的核心概念: Redux is a predictable state container for JavaScript apps. 也就是说Redux是JavaScript应用中作为一个可预测的状态容器的存在。 Redux通常用于保存应用状态，应用状态由两部分输入组成: 从服务端异步请求的数据 用户在UI上的交互 Redux在store（仓库）中管理应用状态。状态本身只是一个纯粹的JavaScript对象。仓库另外提供方法来更新状态和读取状态。 Redux的核心在于基于观察者模式下的发布订阅模式，有点类似在JS中的事件驱动架构。在Redux中，当用户和UI交互时，会派发（dispatch）一个action（也就是发布）。action的概念不需要过度考虑，它仅仅只是一个纯JS对象，包含一个type作为唯一键值和一个payload负载数据。 使用action，状态可以根据接收到的type和payload进行更新。组件可以订阅状态的变化，并基于新的状态树更新UI。 一个数据流的简单表示如下: 用户交互发布一个action -&gt; reducer更新状态 -&gt; 订阅组件基于新状态更新UI 基于这个概念，Redux有3个核心的原则: 单一数据源。整个UI的状态只有一个对象驱动。 状态是只读的。视图和异步回调均不能直接改写状态。状态只有在触发一个纯JS对象的action作为reducer的参数来进行修改。 改动是有纯函数执行的。reducer函数接收前一个状态（也是纯对象），并基于前一个状态和action创建一个新的状态。你只能返回一个新的对象，永远不要修改当前的状态。 实现Redux是围绕着store为核心的。store是一个包含状态、更新方法(dispatch())和读取方法(subscribe()/getState())的JavaScript对象。还有listeners（监听器）用于组件订阅状态变化执行的函数。 store形式如下: 1234567const store = &#123; state: &#123;&#125;, // 状态是一个对象 listners: [], // 监听器是一个函数数组 dispatch: () =&gt; &#123;&#125;, // dispatch是一个函数 subscribe: () =&gt; &#123;&#125;, // subscribe是一个函数 getState: () =&gt; &#123;&#125;, // getState是一个函数&#125;; 为了使用这个仓库对象来管理状态，我们要够一个createStore()函数，代码如下: 123456789101112131415161718const createStore = (reducer, initialState) =&gt; &#123; const store = &#123;&#125;; store.state = initialState; store.listners = []; store.getState = () =&gt; store.state; store.subscribe = (listner) =&gt; &#123; store.listners.push(listener); &#125;; store.dispatch = (action) =&gt; &#123; store.state = reducer(store.state, action); store.listeners.forEach(listener =&gt; listener()); &#125;; return store;&#125;; createStore函数接收两个参数，一个是reducer和一个initialState。reducer函数会在后续详细介绍，现在只要知道这是一个指示状态应该如何更新的函数。 createStore函数开始于创建一个store对象。然后通过store.state = initialState进行初始化，如果开发者没有提供则值会是undefined。state.listeners会被初始化为空数组。 store中定义的第一个函数是getState()。当调用时只是返回状态，store.getState = () =&gt; store.state。 我们允许UI订阅(subscribe)状态的变化。订阅实际上是传递一个函数给subscribe方法，并且这个函数作为监听器会被添加到监听器数组中。typeof listener === &#39;function&#39;的结果是true。 在每一个状态变化的时候，我们会遍历所有的监听器函数数组，并逐个执行。 1store.listeners.forEach(listener =&gt; listener()); 接下来，定义了dispatch函数。dispatch函数是当用户和UI交互时，组件进行调用的。dispatch接收一个单一的action对象参数。这个action应该要完全描述用户接收到的交互。action和当前状态一起，会被传递到reducer函数，并且返回一个新的状态。 在新的状态被reducer创建后，监听器数组会被遍历，并且每个函数会执行。通常，getState函数在监听器函数内部会被调用，因为监听的目的是响应状态变化。 注意到数据流向是一个非常线性和同步的过程。监听器函数添加到一个单独的监听器数组中。当用户和应用交互时，会产生一个用于dispatch的action。这个action会创建一个可预测和独立的状态改变。接着这个监听器数组被遍历，让每个监听器函数被调用。 这个过程是一个单向的数据流。只有一个途径在应用中创建和响应数据变化。没有什么特别的技巧发生，只是一步一步针对交互并遵循明确统一模式的路径。 Reducer函数reducer是一个接收state和action的函数，并返回新的状态。形式如下: 123456789const reducer = (prevState, action) =&gt; &#123; let nextState = &#123;&#125;; // 一个表示新状态的对象 // ... // 使用前一个状态和action创建新状态的代码 // ... return nextState;&#125;; 这里的prevState, nextState和action都是JavaScript对象。 让我们详细看一下action对象来理解它是如何用于更新状态的。我们知道一个action会包含一个唯一的字符串type来标识由用户触发的交互。 例如，假设你使用Redux来创建一个简单的todo list应用。当用户点击提交按钮来添加项目到列表中时，将会触发一个带有ADD_TODO类型的action。这是一个既对人类可读和理解，并且对Redux关于aciton目的也是清晰的指示。当添加一个项目时，它将会包含一个text的todo内容作为负载(payload)。因此，添加一个todo到列表中，可以通过以下的action对象来完全表示: 1234const todoAction = &#123; type: 'ADD_TODO', text: 'Get milk from the store',&#125;; 现在我们可以构建一个reducer来支撑一个todo应用。 12345678910111213141516171819202122232425262728const getInitialState = () =&gt; (&#123; todoList: []&#125;);const reducer = (prevState = getInitialState(), action) =&gt; &#123; switch (action.type) &#123; case 'ADD_TODO': const nextState = &#123; todoList: [ ...prevState.todoList, action.text, ], &#125;; return nextState; default: return prevState; &#125;;&#125;;// console.log(store.getState()) = &#123; todoList: [] &#125;;//// store.dispatch(&#123;// type: 'ADD_TODO',// text: 'Get milk from the store',//&#125;);//// console.log(store.getState()) =&gt; &#123; todoList: ['Get milk from the store'] &#125; 注意每次reducer被调用的时候我们都会创建一个新的对象。我们使用前一次的状态，但是创建了一个完整全新的状态。这是另一个非常重要的原则能够让redux可预测。通过将状态分割成离散的，开发者可以精确的指导应用中会发生什么。这里只要了解根据状态的变化来重新渲染UI的特定部分即可。 你通常会看到在Redux中使用switch语句。这是匹配字符串比较方便的一个方法，在我们的例子中，action的type为例，对应更新状态的代码块。这个使用if...else语句来写没有差别，如下: 123456789if (action.type === 'ADD_TODO') &#123; const nextState = &#123; todoList: [...prevState.todoList, action.text], &#125; return nextState;&#125; else &#123; return prevState;&#125; Redux对于reducer中的内容实际上是无感知的。这是一个开发者定义的函数，用来创建一个新的状态。实际上，用户控制了几乎所有——reducer，被使用的action，通过订阅被执行的监听器函数。Redux就像一个夹层将这些内容进行联系起来，并提供一个通用的接口来和状态进行交互。 如果你之前了解过combineReducers函数，这个只是一个用来允许你在state对象中创建隔离的键值。主要为了让代码更整洁。详细的内容可以查看官方的资料。 构建一个简单应用上面已经讲了redux的全部核心内容，接下来可以用前面的实现来构建一个简单的计数器应用。 我们会创建一个HTML文档，并用给一个&lt;div&gt;来包含从我们的redux仓库中的count值。并且放置一个script标签，并获取id=&quot;count&quot;的DOM节点。 123456789101112&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;head&gt;&lt;meta charset="utf-8"&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt; &lt;body&gt; &lt;div&gt; Random Count: &lt;span id="count"&gt;&lt;/span&gt; &lt;/div&gt; &lt;/body&gt; &lt;script&gt; const counterNode = document.getElementById('count'); &lt;/script&gt;&lt;/html&gt; 在&lt;script&gt;的计数器下方，我们要把createStore函数贴进来。在这个函数下面，我们会创建reducer。这个reducer将会查找一个type为&#39;COUNT&#39;的action，并将action的负载中的count添加到原先保存在仓库中的count。 123456789101112131415161718const getInitialState = () =&gt; &#123; return &#123; count: 0, &#125;;&#125;;const reducer = (state = getInitialState(), action) =&gt; &#123; switch (action.type) &#123; case 'COUNT': const nextState = &#123; count: state.count + action.payload.count, &#125;; return nextState; default: return state; &#125;&#125;; 现在我们拥有一个reducer，我们可以创建仓库。使用这个新创建的仓库，我们可以订阅仓库中的变化。每一次状态变化，我们可以从状态中读取count并写到DOM中。 1234567const store = crateStore(reducer);store.subscribe(() =&gt; &#123; const state = store.getState(); const count = state.count; counterNode.innerHTML = count;&#125;); 现在我们的应用正在监听状态的变化，让我们创建一个简单的事件监听器，来增加count。事件监听器将会dispatch一个action，用于发送一个1-10的随机数作为count到reducer中去相加。 12345678document.addEventListener('click', () =&gt; &#123; store.dispatch(&#123; type: 'COUNT', payload: &#123; count: Math.ceil(Math.random() * 10), &#125;, &#125;);&#125;); 最终，我们会dispatch一个空的action来初始化状态。由于没有action的类型，将会执行default代码块，并从getInittialState()中返回的值来生成一个状态对象。 1store.dispatch(&#123;&#125;); // 设置初始状态 将所有的代码放在一起，就有了以下的应用。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset="utf-u"&gt; &lt;title&gt;&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div&gt;Random Count: &lt;span id="count"&gt;&lt;/span&gt;&lt;/div&gt; &lt;script&gt; const counterNode = document.getElementById('count'); const createStore = (reducer, initialState) =&gt; &#123; const store = &#123;&#125;; store.state = initialState; store.listeners = []; store.getState = () =&gt; store.state; store.subscribe = listener =&gt; &#123; store.listeners.push(listener); &#125;; store.dispatch = action =&gt; &#123; console.log('&gt; Action', action); store.state = reducer(store.state, action); store.listeners.forEach(listener =&gt; listener()); &#125;; return store; &#125;; const getInitialState = () =&gt; &#123; return &#123; count: 0, &#125;; &#125;; const reducer = (state = getInitialState(), action) =&gt; &#123; switch (action.type) &#123; case 'COUNT': const nextState = &#123; count: state.count + action.payload.count, &#125;; return nextState; default: return state; &#125; &#125;; const store = createStore(reducer); store.subscribe(() =&gt; &#123; const state = store.getState(); const count = state.count; counterNode.innerHTML = count; &#125;); // 一个简单的事件用来dispatch变化 document.addEventListener('click', () =&gt; &#123; console.log('---- Previous state', store.getState()); store.dispatch(&#123; type: 'COUNT', payload: &#123; count: Math.ceil(Math.random() * 10), &#125;, &#125;); console.log('++++ New State', store.getState()); &#125;); store.dispatch(&#123;&#125;); // 设置初始化状态 &lt;/script&gt; &lt;/body&gt;&lt;/html&gt; 最终代码可以从我的代码仓库下载，建议个人自己手动敲一遍，实践一遍加深理解。 代码运行后，通过每次点击页面，你可以看到页面上的count会增加一个随机数，并且在控制台会打印状态的变化。 总结通过上述的一个过程，你可以理解Redux的实现，并且将Redux使用在一个应用中。当然，上述的这个实现还不能用在生产上，因为缺少边界考虑和优化。 如果看了一遍没有理解，也没有关系，重新从发布订阅开始看，结合实践，终会理解。 其他的材料可以参考redux作者Dan Abramov的视频教程。关于什么时候和为什么要使用redux进行状态管理，可以看Dan的这篇文章，比较redux和React内部的状态管理。 参考 Learn Redux by Building Redux from Scratch]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>React</tag>
+        <tag>Redux</tag>
+        <tag>原理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[DOM实战基础]]></title>
     <url>%2F2019%2F07%2F22%2Fdom-in-action%2F</url>
     <content type="text"><![CDATA[DOM的概念 Document object model Tree of nodes/elements created by the browser JavaScript can be used to read/write/manipulate to the DOM Object Oriented Representation 文档对象模型 由浏览器创建的节点或者元素的一颗树结构 JavaScript可以对DOM进行读写操作 基于对象的表示 DOM常用的API和属性DOM的基础属性 document.title: 标题 document.head: head节点 document.body: body节点 document.all: 所有节点的集合 document.forms: 所有表单节点集合 document.links: 所有链接节点集合 document.images: 所有图片节点集合 document.getElementById(): 通过id获取元素 document.getElementsByClassName(): 通过类名获取元素集合 document.getElementsByTagName(): 通过标签名获取元素集合 document.querySelector(): 类似于jQuery的$选择器函数，可以支持id、类名、标签名等，仅支持选择第一个匹配的元素 document.querySelectorAll(): 支持选择一个集合 DOM的遍历 Element.parentNode: 父节点 Element.parentElement: 父元素，这个属性与parentNode大多数情况是相同的，除了父元素为Document或者DocumentFragment的情况 Element.childNodes: 子节点集合 Element.firstChild: 第一个子节点 Element.firstElementChild: 第一个元素子节点，这个与firstChild节点的区别在于会过滤空格、换行符等造成的节点 Element.lastChild: 最后一个子节点 Element.lastElementChild: 最后一个元素子节点，同样是过滤空格、换行符等造成的节点 Element.nextSibling: 下一个兄弟节点 Element.nextElementSibling: 下一个元素兄弟节点，同样是过滤空格、换行符等造成的节点 Element.previousSibling: 上一个兄弟节点 Element.previousElementSibling: 上一个元素兄弟节点，同样是过滤空格、换行符等造成的节点 DOM元素的创建 document.createElement(): 创建元素 Element.className: 设置类属性 Element.id: 设置id属性 Element.setAttribute(): 设置属性 document.createTextNode(): 创建文本节点 Element.appendChild(): 追加子节点 Element.insertBefore(newNode, referenceNode): 在引用节点前添加新的节点 DOM事件 Element.addEventListener(): 添加事件添加 Event.target: 事件目标 Event.target.id, Event.target.className, Event.target.classList: 事件目标的id, class, class列表 Event.type: 事件类型 Event.clientX: 点击位置距离视口的横坐标 Event.clientY: 点击位置距离视口的纵坐标 Event.offsetX: 点击位置距离元素的横坐标 Event.offsetY: 点击位置距离元素的纵坐标 Event.altKey: 触发事件时是否按下Alt键 Event.ctrlKey: 触发事件时是否按下Ctrl键 Event.shiftKey: 触发事件时是否按下Shift键 DOM事件类型 click: 点击事件 dbclick: 双击事件 mousedown: 鼠标按下 mouseup: 鼠标松开 mouseenter: 鼠标进入目标区域，不会冒泡并且，在后代元素上移动到当前元素不会触发(MDN参考:Similar to mouseover, it differs in that it doesn’t bubble and that it isn’t sent when the pointer is moved from one of its descendants’ physical space to its own physical space.) mouseleave: 鼠标离开目标区域并包括所有子元素，不会冒泡(MDN参考: Similar to mouseout, it differs in that it doesn’t bubble and that it isn’t sent until the pointer has moved from its physical space and the one of all its descendants.) mouseover: 鼠标经过目标区域，会冒泡 mouseout: 鼠标离开目标区域或其中的子元素 mousemove: 鼠标移动 keydown: 键盘按键按下 keyup: 键盘按键抬起 keypress: 键盘按键按下后触发 focus: 获得焦点触发 blur: 丢失焦点触发 cut: 剪切时触发 paste: 粘贴时触发 input: 输入时触发 change: 内容改变时触发]]></content>
@@ -8,8 +22,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>前端开发</tag>
         <tag>DOM</tag>
+        <tag>前端开发</tag>
         <tag>实战</tag>
         <tag>API</tag>
       </tags>
@@ -83,8 +97,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>前端开发</tag>
         <tag>DOM</tag>
+        <tag>前端开发</tag>
         <tag>虚拟DOM</tag>
         <tag>Virtual DOM</tag>
       </tags>
@@ -506,8 +520,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>ag-grid</tag>
         <tag>前端开发</tag>
+        <tag>ag-grid</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -1110,8 +1124,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>前端开发</tag>
         <tag>url</tag>
+        <tag>前端开发</tag>
       </tags>
   </entry>
   <entry>
@@ -1176,9 +1190,9 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>baidumap</tag>
         <tag>map</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -1210,8 +1224,8 @@
     <content type="text"><![CDATA[安装及开始使用 使用Git拉取主题代码 修改站点配置文件，修改主题 选择主题外观 设置主题语言 设置菜单 设置头像 集成多说评论 集成百度统计 遇到的问题 页面显示大片空白？ 参考Next的issue 如果没有解决，可尝试主题配置文件中的use_motion配置项改为false。 主页底部显示一串乱码？ 解决方法：修改主题配置文件中的fancybox配置项为false。 参考 参考官网的说明]]></content>
       <tags>
         <tag>hexo</tag>
-        <tag>theme</tag>
         <tag>Next</tag>
+        <tag>theme</tag>
         <tag>简介</tag>
       </tags>
   </entry>

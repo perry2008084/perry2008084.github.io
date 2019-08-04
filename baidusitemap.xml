@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/08/04/learn-redux-by-build-a-redux/</loc>
+    <lastmod>2019-08-04T15:09:42.901Z</lastmod>
+    <data>
+        <display>
+        <title>通过从零实现redux来学习redux的原理</title>
+        <pubTime>2019-08-04T14:47:26.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>React</tag>
+         
+        <tag>Redux</tag>
+         
+        <tag>原理</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/07/22/dom-in-action/</loc>
     <lastmod>2019-07-22T14:22:35.792Z</lastmod>
     <data>
@@ -11,9 +37,9 @@
         <title>DOM实战基础</title>
         <pubTime>2019-07-22T14:21:21.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>实战</tag>
          
@@ -153,9 +179,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>虚拟DOM</tag>
          
@@ -942,9 +968,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>ag-grid</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>ag-grid</tag>
          
         <tag>表格</tag>
          
@@ -2026,9 +2052,9 @@
         
         <tag>hexo</tag>
          
-        <tag>theme</tag>
-         
         <tag>Next</tag>
+         
+        <tag>theme</tag>
          
         <tag>简介</tag>
          
@@ -2219,11 +2245,11 @@
         <title>百度地图显示位置错误</title>
         <pubTime>2016-12-07T15:27:23.000Z</pubTime>
         
-        <tag>前端</tag>
-         
         <tag>baidumap</tag>
          
         <tag>map</tag>
+         
+        <tag>前端</tag>
          
          
            
@@ -2312,9 +2338,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>前端开发</tag>
-         
         <tag>url</tag>
+         
+        <tag>前端开发</tag>
          
          
            
