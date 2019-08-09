@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/08/08/2019-japan-kyoto-nari-osaka-travel/</loc>
+    <lastmod>2019-08-09T09:27:42.207Z</lastmod>
+    <data>
+        <display>
+        <title>2019日本京都奈良大阪自由行游记</title>
+        <pubTime>2019-08-08T08:06:54.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+        <tag>旅游</tag>
+         
+        <tag>日本</tag>
+         
+        <tag>2019</tag>
+         
+        <tag>游记</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="http://www.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/08/04/learn-redux-by-build-a-redux/</loc>
     <lastmod>2019-08-04T15:09:42.901Z</lastmod>
     <data>
@@ -37,9 +65,9 @@
         <title>DOM实战基础</title>
         <pubTime>2019-07-22T14:21:21.000Z</pubTime>
         
-        <tag>DOM</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>DOM</tag>
          
         <tag>实战</tag>
          
@@ -179,9 +207,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>DOM</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>DOM</tag>
          
         <tag>虚拟DOM</tag>
          
@@ -452,13 +480,13 @@
         <title>2019年D2和SEE Conf的参会感想</title>
         <pubTime>2019-01-06T12:08:03.000Z</pubTime>
         
+        <tag>2019</tag>
+         
         <tag>D2</tag>
          
         <tag>SEE Conf</tag>
          
         <tag>会议</tag>
-         
-        <tag>2019</tag>
          
         <tag>感想</tag>
          
@@ -774,9 +802,9 @@
         <title>如何找到生活的目标并高效的生活</title>
         <pubTime>2018-10-05T03:41:28.000Z</pubTime>
         
-        <tag>指南</tag>
-         
         <tag>生活</tag>
+         
+        <tag>指南</tag>
          
         <tag>目标</tag>
          
@@ -2143,9 +2171,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据可视化</tag>
-         
         <tag>数据</tag>
+         
+        <tag>数据可视化</tag>
          
         <tag>概念</tag>
          
