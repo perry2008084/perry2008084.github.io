@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/</loc>
+    <lastmod>2019-08-17T09:41:00.559Z</lastmod>
+    <data>
+        <display>
+        <title>实现一个简单版React Router v4理解其原理</title>
+        <pubTime>2019-08-17T07:33:31.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>React</tag>
+         
+        <tag>原理</tag>
+         
+        <tag>React Router</tag>
+         
+        <tag>路由</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/08/08/2019-japan-kyoto-nari-osaka-travel/</loc>
     <lastmod>2019-08-09T14:54:12.761Z</lastmod>
     <data>
@@ -65,9 +93,9 @@
         <title>DOM实战基础</title>
         <pubTime>2019-07-22T14:21:21.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>实战</tag>
          
@@ -207,9 +235,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>虚拟DOM</tag>
          
@@ -2080,9 +2108,9 @@
         
         <tag>hexo</tag>
          
-        <tag>Next</tag>
-         
         <tag>theme</tag>
+         
+        <tag>Next</tag>
          
         <tag>简介</tag>
          
@@ -2171,9 +2199,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据</tag>
-         
         <tag>数据可视化</tag>
+         
+        <tag>数据</tag>
          
         <tag>概念</tag>
          

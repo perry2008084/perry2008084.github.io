@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/npm/han-css@3.3.0/dist/han.min.css">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-totoro.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-totoro.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-totoro.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/totoro.jpg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'F5K4LBFFAQ',
+      apiKey: '7fae5b582054f18d3b464608d432831f',
+      indexName: 'title_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="对于React-Router的实现原理，参考自Build your own React Router v4这篇英文原文，另外，React-Router底层库history的源码也值得一读。 欢迎访问博客文章 接下来是关于React-Router v4的一个简单版实现，通过这个实现来理解路由的原理，这里可能不会完全按照英文原文翻译，会有些意译或者省略的地方。 在单页应用中，应用代码和路由代码是极其重">
+<meta name="keywords" content="前端开发,React,原理,React Router,路由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现一个简单版React Router v4理解其原理">
+<meta property="og:url" content="http://www.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="对于React-Router的实现原理，参考自Build your own React Router v4这篇英文原文，另外，React-Router底层库history的源码也值得一读。 欢迎访问博客文章 接下来是关于React-Router v4的一个简单版实现，通过这个实现来理解路由的原理，这里可能不会完全按照英文原文翻译，会有些意译或者省略的地方。 在单页应用中，应用代码和路由代码是极其重">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-17T09:41:00.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现一个简单版React Router v4理解其原理">
+<meta name="twitter:description" content="对于React-Router的实现原理，参考自Build your own React Router v4这篇英文原文，另外，React-Router底层库history的源码也值得一读。 欢迎访问博客文章 接下来是关于React-Router v4的一个简单版实现，通过这个实现来理解路由的原理，这里可能不会完全按照英文原文翻译，会有些意译或者省略的地方。 在单页应用中，应用代码和路由代码是极其重">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://www.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>实现一个简单版React Router v4理解其原理 | 书格前端</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a08469fe69bde20163091cead076f58a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">书格前端</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">潘绳杰的博客</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/perry2008084" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">实现一个简单版React Router v4理解其原理
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-17 15:33:31 / Modified: 17:41:00" itemprop="dateCreated datePublished" datetime="2019-08-17T15:33:31+08:00">2019-08-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于React-Router的实现原理，参考自<a href="https://tylermcginnis.com/build-your-own-react-router-v4/" target="_blank" rel="noopener">Build your own React Router v4</a>这篇英文原文，另外，React-Router底层库<a href="https://github.com/ReactTraining/history" target="_blank" rel="noopener">history</a>的源码也值得一读。</p>
+<p>欢迎访问<a href="https://blog.bookcell.org/" target="_blank" rel="noopener">博客文章</a></p>
+<p>接下来是关于React-Router v4的一个简单版实现，通过这个实现来理解路由的原理，这里可能不会完全按照英文原文翻译，会有些意译或者省略的地方。</p>
+<p>在单页应用中，应用代码和路由代码是极其重要的两部分，两者是相辅相成的，你是否对这两者有一些困惑。</p>
+<p>关于路由的一些疑问点:</p>
+<ol>
+<li>路由通常是相对比较复杂的，这让很多库的作者，在如何找到合适的路由抽象变得更加复杂。</li>
+<li>因为这些复杂的原因，路由库的使用者倾向于盲目的相信库本身的抽象，而不是去理解背后的原理。</li>
+</ol>
+<p>本文会通过实现一个简易版的React Router v4版本来点亮前一个问题的灯塔，并且让你了解背后的原理后去判断这样的抽象是否合适。</p>
+<a id="more"></a>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>下面是用于测试React Router实现的业务代码，你也可以访问线上的<a href="https://codepen.io/anon/pen/MpexLL" target="_blank" rel="noopener">最终版代码</a>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">    &lt;h2&gt;Home&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const About = () =&gt; (</span></span><br><span class="line"><span class="regexp">    &lt;h2&gt;About&lt;/</span>h2&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Topic = <span class="function">(<span class="params">&#123; topicId &#125;</span>) =&gt;</span> (</span><br><span class="line">    &lt;h3&gt;&#123;topicId&#125;&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const Topics = (&#123; match &#125;) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">    const items = [</span></span><br><span class="line"><span class="regexp">        &#123; name: 'Rendering with React', slug: 'rendering' &#125;,</span></span><br><span class="line"><span class="regexp">        &#123; name: 'Components', slug: 'components' &#125;,</span></span><br><span class="line"><span class="regexp">        &#123; name: 'Props v. State', slug: 'props-v-state' &#125;,</span></span><br><span class="line"><span class="regexp">    ]</span></span><br><span class="line"><span class="regexp">    </span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;h2&gt;Topics&lt;/</span>h2&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &#123;items.map(<span class="function">(<span class="params">&#123; name, slug &#125;</span>) =&gt;</span> (</span><br><span class="line">                    &lt;li key=&#123;name&#125;&gt;</span><br><span class="line">                        &lt;Link to=&#123;<span class="string">`<span class="subst">$&#123;match.url&#125;</span>/<span class="subst">$&#123;slug&#125;</span>`</span>&#125;&gt;&#123;name&#125;&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">                    &lt;/</span>li&gt;</span><br><span class="line">                ))&#125;</span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">            &#123;items.map((&#123; name, slug &#125;) =&gt; (</span></span><br><span class="line"><span class="regexp">                &lt;Route key=&#123;name&#125; path=&#123;`$&#123;match.path&#125;/</span>$&#123;slug&#125;<span class="string">`&#125; render=&#123;() =&gt; (</span></span><br><span class="line"><span class="string">                    &lt;Topic topicId=&#123;name&#125; /&gt;</span></span><br><span class="line"><span class="string">                )&#125; /&gt;</span></span><br><span class="line"><span class="string">            ))&#125;</span></span><br><span class="line"><span class="string">            &lt;Route exact path=&#123;match.url&#125; render=&#123;() =&gt; (</span></span><br><span class="line"><span class="string">                &lt;h3&gt;Please select a topic.&lt;/h3&gt;</span></span><br><span class="line"><span class="string">            )&#125;/&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    )</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">const App = () =&gt; (</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">        &lt;ul&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;Link to="/"&gt;Home&lt;/Link&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;Link to="/about"&gt;About&lt;/Link&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;Link to="/topics"&gt;Topics&lt;/Link&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        &lt;hr /&gt;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        &lt;Route exact path="/" component=&#123;Home&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Route path="/about" component=&#123;About&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Route path="/topics" component=&#123;Topics&#125; /&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">)</span></span><br></pre></td></tr></table></figure>
+<p>关于这段代码，简单解释一下。<code>Route</code>组件是在当一个URL匹配Route中的<code>path</code>属性时渲染对应的组件UI,<code>Link</code>组件是一个声明式的应用内导航。换句话说，<code>Link</code>组件可以用来更新URL，<code>Route</code>组件基于新的URL来改变UI。如果关于React Router v4的使用上有疑问，建议去官方的文档了解后再继续阅读。</p>
+<p>在React Router v4中API仅仅只是组件。这表示如果已经熟悉React，那么你对组件及关于组合的想法，同样应用在路由的代码中。而且，由于你熟悉如何创建组件，那么创建React Router也就是你所熟悉的，创建更多的组件而已。</p>
+<h2 id="Route组件"><a href="#Route组件" class="headerlink" title="Route组件"></a>Route组件</h2><p>我们要开始创建<code>Route</code>组件。在开始之前，先检查一下API（看看有哪些props）。</p>
+<p>在上面的例子中，<code>&lt;Route&gt;</code>接收了3个props。<code>exact</code>，<code>path</code>和<code>component</code>。这表示<code>Route</code>组件的<code>propTypes</code>现在看起来是这样的，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    exact: PropTypes.bool,</span><br><span class="line">    path: PropTypes.string,</span><br><span class="line">    component: PropTypes.func,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里面有些微妙之处。首先，<code>path</code>没有申明必填是因为如果一个<code>Route</code>没有提供<code>path</code>，那么它会被自动渲染。其次，<code>component</code>也没有申明必填是因为有多个不同的方法告诉React Router在路径匹配时你要渲染的UI，一个没有在上述例子中的方法是通过<code>render</code>属性。例如，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&apos;/settings&apos; render=&#123;(&#123; match &#125;) =&gt; &#123;</span><br><span class="line">    return &lt;Settings authed=&#123;isAuthed&#125; match=&#123;match&#125; /&gt;</span><br><span class="line">&#125;&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p><code>render</code>允许我们方便的提供一个内联函数来返回一些UI而不用创建一个单独的组件。因此我们也要添加到propTypes中，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    exact: PropTypes.bool,</span><br><span class="line">    path: PropTypes.string,</span><br><span class="line">    component: PropTypes.func,</span><br><span class="line">    render: PropTypes.func,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在我们知道<code>Route</code>接收哪些props，让我们再谈谈它实际上做了什么。<code>Route</code>根据在<code>path</code>属性中指定的位置与URL进行匹配并渲染对应的UI。基于此定义，我们知道<code>&lt;Route&gt;</code>需要一些功能来检查当前URL是否匹配组件的<code>path</code>属性。如果匹配，则渲染一些UI。如果不匹配，就仅仅返回null不做任何渲染。</p>
+<p>让我们看一下代码的实现，关于匹配的函数<code>matchPath</code>会在后续完成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Route extends Component &#123;</span><br><span class="line">    static propTypes = &#123;</span><br><span class="line">        exact: PropTypes.bool,</span><br><span class="line">        path: PropTypes.string,</span><br><span class="line">        component: PropTypes.func,</span><br><span class="line">        render: PropTypres.func,</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123;</span><br><span class="line">            path,</span><br><span class="line">            exact,</span><br><span class="line">            component,</span><br><span class="line">            render,</span><br><span class="line">        &#125; = this.props;</span><br><span class="line">        </span><br><span class="line">        const match = matchPath(</span><br><span class="line">            location.pathname,</span><br><span class="line">            &#123; path, exact &#125;</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        if (!match) &#123;</span><br><span class="line">            // 由于当前位置不匹配path属性，不做任何事</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if (component) &#123;</span><br><span class="line">            // component属性优先级比render函数高</span><br><span class="line">            // 如果当前位置匹配path属性，创建一个元素并传递match作为属性</span><br><span class="line">            </span><br><span class="line">            return React.createElement(component, &#123; match &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if (render) &#123;</span><br><span class="line">            // 如果匹配路径但是component没有定义，调用render属性并传递match作为参数</span><br><span class="line">            </span><br><span class="line">            return render(&#123; match &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在<code>Route</code>看起来比较可靠了。如果当前位置匹配传递进来的<code>path</code>属性，则渲染一些UI，否则什么都不做。</p>
+<p>让我们暂停一下，谈谈通常路由的实现方法。在一个客户端应用中，一般只有两种方法能让用户更新URL。第一个是用户点击一个超链接标签，另一个是点击后退和前进按钮。基本上，我们的路由需要注意当前的URL并基于此进行渲染UI。也就是说，我们的路由需要注意URL的变化，并基于新的URL确定哪个新的UI需要显示。如果我们知道只有通过超链接标签和后退/前进按钮可以更新URL，那么我们就可以规划和响应这些变化。我们会在后续构建我们的<code>&lt;Link&gt;</code>组件时接触超链接标签，现在先聚焦在后退/前进按钮上。React Router使用<a href="https://github.com/ReactTraining/history" target="_blank" rel="noopener">History</a>的<code>.listen</code>方法来监听当前的URL，但是为了避免引入其他的库，我们使用HTML5的<code>popstate</code>事件。<code>popstate</code>，会在用户点击后退或前进按钮时被触发，这就是我们想要的。由于<code>Route</code>需要基于当前的URL进行UI渲染，这让<code>Route</code>有能力在<code>popstate</code>事件发生时进行监听并重新渲染。通过重新渲染，每个<code>Route</code>可以重新检查他们是否匹配新的URL，如果匹配，则渲染UI，否则不做任何事。让我们看一下代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Route extends Component &#123;</span><br><span class="line">    static propTypes: &#123;</span><br><span class="line">        path: PropTypes.string,</span><br><span class="line">        exact: PropTypes.bool,</span><br><span class="line">        component: PropTypes.func,</span><br><span class="line">        render: PropTypes.func,</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    componentWillMount() &#123;</span><br><span class="line">        addEventListener(&quot;popstate&quot;, this.handlePop);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    componentWillUnmount() &#123;</span><br><span class="line">        removeEventListener(&quot;popstate&quot;, this.handlePop);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    handlePop = () =&gt; &#123;</span><br><span class="line">        this.forceUpdate();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123;</span><br><span class="line">            path, </span><br><span class="line">            exact,</span><br><span class="line">            component,</span><br><span class="line">            render,</span><br><span class="line">        &#125; = this.props;</span><br><span class="line">    </span><br><span class="line">        const match = matchPath(location.pathname, &#123; path, exact &#125;);</span><br><span class="line">        </span><br><span class="line">        if (!match)</span><br><span class="line">            return null;</span><br><span class="line">        </span><br><span class="line">        if (component)</span><br><span class="line">            return React.createElement(component, &#123; match &#125;);</span><br><span class="line">            </span><br><span class="line">        if (render) </span><br><span class="line">            return render(&#123; match &#125;);</span><br><span class="line">            </span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你会注意到我们做的就是当组件挂载时添加<code>popstate</code>事件监听，当<code>popstate</code>事件触发时，我们会调用<code>forceUpdate</code>并开始重新渲染。</p>
+<p>现在，不管有多少<code>&lt;Route&gt;</code>渲染，每个组件都会基于后退/前进按钮进行监听，重新匹配，和重新渲染。</p>
+<p>还有一件事情直到还没有做的是<code>matchPath</code>函数。这个函数是我们路由的关键，因为这个函数用来决定当前的URL是否和<code>&lt;Route&gt;</code>组件匹配。对于<code>matchPath</code>的一个细微点是，我们要考虑<code>&lt;Route&gt;</code>的<code>exact</code>属性。如果你不熟悉<code>exact</code>是什么，这里有个根据文档的直接解释。</p>
+<blockquote>
+<p>当为<code>true</code>时，只会当路径和<code>location.pathname</code>完全匹配时匹配。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>path</th>
+<th>location.pathname</th>
+<th>exact</th>
+<th>matches?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/one</td>
+<td>/one/two</td>
+<td>true</td>
+<td>no</td>
+</tr>
+<tr>
+<td>/one</td>
+<td>/one/two</td>
+<td>false</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>现在，让我们开始<code>matchPath</code>函数的实现。如果回头看<code>Route</code>组件，你会发现<code>matchPath</code>函数的声明看起来是这样的，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const match = matchPath(location.pathname, &#123; path, exact &#125;);</span><br></pre></td></tr></table></figure>
+<p>这里的<code>match</code>是一个对象或者null，基于是否有匹配结果。根据这个函数签名，我们可以构建<code>matchPath</code>的第一部分,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const matchPath = (pathname, options) =&gt; &#123;</span><br><span class="line">    const &#123; exact = false, path &#125; = options;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我们使用一些ES6的语法。创建一个exact变量并且等于options.exact，如果这个值没有定义，则默认设置为false。另外，创建一个path变量等于options.path。</p>
+<p>之前有提到“<code>path</code>不要求必填的原因是，如果一个<code>Route</code>没有path，那么它会被自动渲染”。这是间接的决定<code>matchPath</code>函数是否渲染，让现在我们添加这个功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const matchPath = (pathname, options) =&gt; &#123;</span><br><span class="line">    const &#123; exact = false, path &#125; = options;</span><br><span class="line">    </span><br><span class="line">    if (!path) &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            path: null,</span><br><span class="line">            url: pathname,</span><br><span class="line">            isExact: true,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在到了匹配的部分。React Router使用<a href="https://github.com/pillarjs/path-to-regexp" target="_blank" rel="noopener">pathToRegex</a>，我们这里简化一下，就使用一个简单的正则表达式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const matchPath = (pathname, options) =&gt; &#123;</span><br><span class="line">    const &#123; exact = false, path &#125; = options;</span><br><span class="line">    </span><br><span class="line">    if (!path) &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            path: null,</span><br><span class="line">            url: pathname,</span><br><span class="line">            isExact: true,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    const match = new RegExp(`^$&#123;path&#125;`).exec(pathname);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你不熟悉<code>.exec</code>，它的逻辑是这样的，如果找到匹配返回一个包含匹配结果文本的数组，否则返回null。</p>
+<p>这里是当我们的实例app路由到<code>/topics/components</code>时每个<code>match</code>的结果，</p>
+<table>
+<thead>
+<tr>
+<th>path</th>
+<th>location.pathname</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>/topics/components</td>
+<td>[‘/‘]</td>
+</tr>
+<tr>
+<td>/about</td>
+<td>/topics/components</td>
+<td>null</td>
+</tr>
+<tr>
+<td>/topics</td>
+<td>/topics/components</td>
+<td>[‘/topics’]</td>
+</tr>
+<tr>
+<td>/topics/rendering</td>
+<td>/topics/components</td>
+<td>null</td>
+</tr>
+<tr>
+<td>/topics/components</td>
+<td>/topics/components</td>
+<td>[‘/topics/components’]</td>
+</tr>
+<tr>
+<td>/topics/props-v-state</td>
+<td>/topics/components</td>
+<td>null</td>
+</tr>
+<tr>
+<td>/topics</td>
+<td>/topics/components</td>
+<td>[‘/topics’]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意在我们的app中会获取每一个<code>&lt;Route&gt;</code>的<code>match</code>。因为，每个<code>&lt;Route&gt;</code>都会在它的渲染函数中调用<code>matchPath</code></p>
+</blockquote>
+<p>现在我们知道<code>.exec</code>返回的<code>match</code>是什么了，我们需要做的就是找出是否有匹配结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">const matchPath = (pathname, options) =&gt; &#123;</span><br><span class="line">    const &#123; exact = false, path &#125; = options;</span><br><span class="line">    </span><br><span class="line">    if (!path) &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            path: null,</span><br><span class="line">            url: pathname,</span><br><span class="line">            isExact: true,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    const match = new RegExp(`^$&#123;path&#125;`).exec(pathname);</span><br><span class="line">    </span><br><span class="line">    if (!match) &#123;</span><br><span class="line">        // 没有匹配结果</span><br><span class="line">        </span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    const url = match[0];</span><br><span class="line">    const isExact = pathname === url;</span><br><span class="line">    </span><br><span class="line">    if (exact &amp;&amp; !isExact) &#123;</span><br><span class="line">        // 如果有一个匹配结果，并且不是在exact属性中指定的结果</span><br><span class="line">        </span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return &#123;</span><br><span class="line">        path,</span><br><span class="line">        url,</span><br><span class="line">        isExact,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Link组件"><a href="#Link组件" class="headerlink" title="Link组件"></a>Link组件</h2><p>之前有谈到用户只有两种方法可以更新URL，一种是通过后退/前进按钮，另一种是点击一个超链接标签。我们在<code>Route</code>中通过监听<code>popstate</code>事件关注了点击后退/前进按钮进行重新渲染，现在通过构建<code>Link</code>组件来关注一下超链接标签。</p>
+<p><code>Link</code>的API看起来像这样,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&apos;/some-path&apos; replace=&#123;false&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的<code>to</code>是一个字符串，表示要链接的位置；<code>replace</code>是一个布尔值，如果是true，点击链接后会在history栈中替换当前的入口记录，而不会添加一个新的记录。</p>
+<p>添加propType到我们的Link组件中，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Link extends Component &#123;</span><br><span class="line">    static propTypes = &#123;</span><br><span class="line">        to: PropTypes.string.isRequired,</span><br><span class="line">        replace: PropTypes.bool,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在我们知道在<code>Link</code>组件的渲染方法中需要返回一个超链接标签，但是显示我们不能在每次切换路由的时候引起页面的全量刷新，因此我们要添加一个<code>onClick</code>处理函数来劫持超链接的默认跳转。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Link extends Component &#123;</span><br><span class="line">    static propTypes = &#123;</span><br><span class="line">        to: PropTypes.string.isRequired,</span><br><span class="line">        replace: PropTypes.bool,</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    handleClick = (event) =&gt; &#123;</span><br><span class="line">        const &#123; replace, to &#125; = this.props;</span><br><span class="line">        event.preventDefault();</span><br><span class="line">        </span><br><span class="line">        // 这里是路由</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123; to, children &#125; = this.props;</span><br><span class="line">        </span><br><span class="line">        return (</span><br><span class="line">            &lt;a href=&#123;to&#125; onClick=&#123;this.handleClick&#125;&gt;</span><br><span class="line">                &#123;children&#125;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在缺少的就是真正的改变当前位置。React Router是使用<a href="https://github.com/reacttraining/history" target="_blank" rel="noopener">History</a>的<code>push</code>和<code>replace</code>方法，但是我们这里为了避免引入一个依赖，使用HTML5的<a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState(" target="_blank" rel="noopener">pushState</a>_method)和<a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState(" target="_blank" rel="noopener">replaceState</a>_method)。</p>
+<blockquote>
+<p>我们在文章里忽略了History这个库是为了避免外部的依赖，但是对于真正的React Router是很关键的，用于处理在不同浏览器环境管理会话历史的差异。</p>
+</blockquote>
+<p><code>pushState</code>和<code>replaceState</code>同时都接收三个参数。第一个是一个关联新的历史入口的对象，我们不需要这个功能所以传一个空对象。第二个是标题，我们也不需要传一个null。第三个，我们实际要使用的，是一个相对的URL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const historyPush = (path) =&gt; &#123;</span><br><span class="line">    history.pushState(&#123;&#125;, null, path);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const historyReplace = (path) =&gt; &#123;</span><br><span class="line">    history.replaceState(&#123;&#125;, null, paht);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>Link</code>组件内部，我们要根据<code>replace</code>属性来调用<code>historyPush</code>或者<code>historyReplace</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Link extends Component &#123;</span><br><span class="line">    static propTypes = &#123;</span><br><span class="line">        to: PropTypes.string.isRequired,</span><br><span class="line">        replace: PropTypes.bool,</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    handleClick = (event) =&gt; &#123;</span><br><span class="line">        const &#123; replace, to &#125; = this.props;</span><br><span class="line">        event.preventDefault();</span><br><span class="line">        </span><br><span class="line">        replace ? historyReplace(to) : historyPush(to);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123; to, children &#125; = this.props;</span><br><span class="line">        </span><br><span class="line">        return (</span><br><span class="line">            &lt;a href=&#123;to&#125; onClick=&#123;this.handleClick&#125;&gt;</span><br><span class="line">                &#123;children&#125;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>现在只有一个最重要的内容要添加。如果使用当前的路由代码来配合一开始的场景，会发现一个大的问题。使用导航的时候，URL会更新，但是UI会一直保持不变。这是因为我们即使通过<code>historyRepalce</code>或<code>historyPush</code>函数改变位置，我们的<code>&lt;Route&gt;</code>并不知道改变，并且也不知道要重新匹配和重新渲染。为了解决这个问题，我们要跟踪<code>&lt;Route&gt;</code>是否已渲染，并且在任何路由改变时调用<code>forceUpdate</code>。</p>
+<blockquote>
+<p>React Router是通过结合你包裹在一个Router组件代码里相关的setState, context和history.listen来解决这个问题的。</p>
+</blockquote>
+<p>为了保持我们的路由简单，我们通过维护一个他们的实例在一个数组中来跟踪哪些<code>&lt;Route&gt;</code>被渲染，然后任何时候一个位置的改变发生时，我们就可以遍历数组并调用所有实例上的forceUpdate方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let instances = [];</span><br><span class="line"></span><br><span class="line">const register = (comp) =&gt; instances.push(comp);</span><br><span class="line">const unregister = (comp) =&gt; instances.splice(instances.indexOf(comp), 1);</span><br></pre></td></tr></table></figure>
+<p>这里我们创建了两个函数。<code>register</code>是在任何时候一个<code>&lt;Router&gt;</code>挂载时调用，当组件卸载时调用<code>unregister</code>。然后，不管何时我们调用<code>historyPush</code>或<code>historyReplace</code>（每次用户点击<code>&lt;Link&gt;时</code>），我们会遍历所有的实例并调用<code>forceUpdate</code>。</p>
+<p>让我们更新<code>&lt;Route&gt;</code>组件先，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Route extends Component &#123;</span><br><span class="line">    statc propTypes: &#123;</span><br><span class="line">        path: PropTypes.string,</span><br><span class="line">        exact: PropTypes.bool,</span><br><span class="line">        component: PropTypes.func,</span><br><span class="line">        render: PropTypes.func,</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    componentWillMount() &#123;</span><br><span class="line">        addEventListener(&quot;popstate&quot;, this.handlePop);</span><br><span class="line">        register(this);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    componentWillUnmount() &#123;</span><br><span class="line">        unregister(this);</span><br><span class="line">        removeEventListener(&quot;popstate&quot;, this.handlePop);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，让我们更新<code>historyPush</code>和<code>historyReplace</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const historyPush = (path) =&gt; &#123;</span><br><span class="line">    history.pushState(&#123;&#125;, null, path);</span><br><span class="line">    instances.forEach(instance =&gt; instance.forceUpdate());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const historyReplace = (path) =&gt; &#123;</span><br><span class="line">    history.replaceState(&#123;&#125;, null, path);</span><br><span class="line">    instances.forEach(instance =&gt; instance.forceUpdate());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在任何时候一个<code>&lt;Link&gt;</code>被点击时位置会改变，每个<code>&lt;Route&gt;</code>将会注意到并重新匹配和渲染。</p>
+<p>我们完整的路由代码就如下所示，示例的场景app可以完美的工作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; PropTypes, Component &#125; from &apos;react&apos;</span><br><span class="line"></span><br><span class="line">let instances = []</span><br><span class="line"></span><br><span class="line">const register = (comp) =&gt; instances.push(comp)</span><br><span class="line">const unregister = (comp) =&gt; instances.splice(instances.indexOf(comp), 1)</span><br><span class="line"></span><br><span class="line">const historyPush = (path) =&gt; &#123;</span><br><span class="line">  history.pushState(&#123;&#125;, null, path)</span><br><span class="line">  instances.forEach(instance =&gt; instance.forceUpdate())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const historyReplace = (path) =&gt; &#123;</span><br><span class="line">  history.replaceState(&#123;&#125;, null, path)</span><br><span class="line">  instances.forEach(instance =&gt; instance.forceUpdate())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const matchPath = (pathname, options) =&gt; &#123;</span><br><span class="line">  const &#123; exact = false, path &#125; = options</span><br><span class="line"></span><br><span class="line">  if (!path) &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      path: null,</span><br><span class="line">      url: pathname,</span><br><span class="line">      isExact: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  const match = new RegExp(`^$&#123;path&#125;`).exec(pathname)</span><br><span class="line"></span><br><span class="line">  if (!match)</span><br><span class="line">    return null</span><br><span class="line"></span><br><span class="line">  const url = match[0]</span><br><span class="line">  const isExact = pathname === url</span><br><span class="line"></span><br><span class="line">  if (exact &amp;&amp; !isExact)</span><br><span class="line">    return null</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    path,</span><br><span class="line">    url,</span><br><span class="line">    isExact,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Route extends Component &#123;</span><br><span class="line">  static propTypes: &#123;</span><br><span class="line">    path: PropTypes.string,</span><br><span class="line">    exact: PropTypes.bool,</span><br><span class="line">    component: PropTypes.func,</span><br><span class="line">    render: PropTypes.func,</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line">    addEventListener(&quot;popstate&quot;, this.handlePop)</span><br><span class="line">    register(this)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    unregister(this)</span><br><span class="line">    removeEventListener(&quot;popstate&quot;, this.handlePop)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handlePop = () =&gt; &#123;</span><br><span class="line">    this.forceUpdate()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123;</span><br><span class="line">      path,</span><br><span class="line">      exact,</span><br><span class="line">      component,</span><br><span class="line">      render,</span><br><span class="line">    &#125; = this.props</span><br><span class="line"></span><br><span class="line">    const match = matchPath(location.pathname, &#123; path, exact &#125;)</span><br><span class="line"></span><br><span class="line">    if (!match)</span><br><span class="line">      return null</span><br><span class="line"></span><br><span class="line">    if (component)</span><br><span class="line">      return React.createElement(component, &#123; match &#125;)</span><br><span class="line"></span><br><span class="line">    if (render)</span><br><span class="line">      return render(&#123; match &#125;)</span><br><span class="line"></span><br><span class="line">    return null</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Link extends Component &#123;</span><br><span class="line">  static propTypes = &#123;</span><br><span class="line">    to: PropTypes.string.isRequired,</span><br><span class="line">    replace: PropTypes.bool,</span><br><span class="line">  &#125;</span><br><span class="line">  handleClick = (event) =&gt; &#123;</span><br><span class="line">    const &#123; replace, to &#125; = this.props</span><br><span class="line"></span><br><span class="line">    event.preventDefault()</span><br><span class="line">    replace ? historyReplace(to) : historyPush(to)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; to, children&#125; = this.props</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">      &lt;a href=&#123;to&#125; onClick=&#123;this.handleClick&#125;&gt;</span><br><span class="line">        &#123;children&#125;</span><br><span class="line">      &lt;/a&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>红利: React Router API中同样提供了<code>&lt;Redirect&gt;</code>组件。使用前面写的代码，可以直接创建这样的组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Redirect extends Component &#123;</span><br><span class="line">    static defaultProps = &#123;</span><br><span class="line">        push: false</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static propTypes = &#123;</span><br><span class="line">        to: PropTypes.string.isRequired,</span><br><span class="line">        push: PropTypes.bool.isRequired</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line">        const &#123; to, push &#125; = this.props;</span><br><span class="line">        </span><br><span class="line">        push ? historyPush(to) : historyReplace(to);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    render() &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意这个组件实际上没有渲染任何UI，只是一个纯粹的路由跳转。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>希望这篇文章能帮助你创建一个关于在React Router中发生了什么的模型，同时能帮助你欣赏React Router的优雅和“只有组件”的API。我总是说，React会让你成为一个更好的JavaScript开发者，我也同样相信React Router可以让你成为一个更好的React开发者。因为一切都是组件，如果你了解React，那么你也同样了解React Router。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>示例代码是以react v15.4.2版本演示</li>
+<li>示例代码中可以忽略类型校验</li>
+<li><a href="https://github.com/perry2008084/knowledge/blob/master/React/react-router/reactrouter.html" target="_blank" rel="noopener">个人参考代码</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/image/wechat-reward-img.png" alt="Perry WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Perry</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://www.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/" title="实现一个简单版React Router v4理解其原理">http://www.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端开发/" rel="tag"># 前端开发</a>
+          
+            <a href="/tags/React/" rel="tag"># React</a>
+          
+            <a href="/tags/原理/" rel="tag"># 原理</a>
+          
+            <a href="/tags/React-Router/" rel="tag"># React Router</a>
+          
+            <a href="/tags/路由/" rel="tag"># 路由</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/08/2019-japan-kyoto-nari-osaka-travel/" rel="next" title="2019日本京都奈良大阪自由行游记">
+                <i class="fa fa-chevron-left"></i> 2019日本京都奈良大阪自由行游记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Perry</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">95</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">200</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/perry2008084" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/users/4180883/perry2008084" target="_blank" title="StackOverflow" rel="external nofollow"><i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.linkedin.com/in/%E7%BB%B3%E6%9D%B0-%E6%BD%98-b6796793/" target="_blank" title="Linkedin" rel="external nofollow"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#场景"><span class="nav-number">1.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Route组件"><span class="nav-number">2.</span> <span class="nav-text">Route组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Link组件"><span class="nav-number">3.</span> <span class="nav-text">Link组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合"><span class="nav-number">4.</span> <span class="nav-text">组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">6.</span> <span class="nav-text">注意</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.3.3/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+        appKey: 'KBj7yrnCGk3P6V9byKOaITFx',
+        placeholder: '欢迎交流',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('auto', "#more");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
