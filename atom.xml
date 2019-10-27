@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-08-17T09:41:00.559Z</updated>
+  <updated>2019-10-27T09:46:46.035Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSConf China 2019</title>
+    <link href="http://www.bookcell.org/2019/10/25/jsconf-china-2019/"/>
+    <id>http://www.bookcell.org/2019/10/25/jsconf-china-2019/</id>
+    <published>2019-10-25T15:36:26.000Z</published>
+    <updated>2019-10-27T09:46:46.035Z</updated>
+    
+    <content type="html"><![CDATA[<p>上周末刚参加JSconf China 2019, 在这里聊聊记录一下感受。</p>
+<h2 id="大会简介"><a href="#大会简介" class="headerlink" title="大会简介"></a>大会简介</h2><p>本次在上海举办的<a href="https://2019.jsconfchina.com/" target="_blank" rel="noopener">第7届JSConf China大会</a>，也是我第一次参加JSConf China，参加完这次会议，也完成了年初给自己定下来的一个目标，一年参加两次技术会议，上一次会议是D2（其实也顺带参加了SEE Conf，蚂蚁金服举办的，同一个周末）。</p>
+<h2 id="几个主题"><a href="#几个主题" class="headerlink" title="几个主题"></a>几个主题</h2><p>具体聊一下印象比较深刻的几个主题演讲：</p>
+<p><a href="https://www.zhihu.com/question/351434550/answer/862423530" target="_blank" rel="noopener">The Beauty of TypeScript</a>，这个主题由微软中国的工程师韩骏分享的，介绍了TS的优点，主要是解决JS开发时的痛点，引入类型，支持编译并兼容JS，适用于多人大型的项目开发。介绍了@ts-check、@ts-uncheck、@ts-ignore和any作为从JS迁移TS的一些辅助手段。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/87940654" target="_blank" rel="noopener">面向传统，Serverless 进化之路</a>，这个主题由阿里的大佬陈仲寅分享淘系前端在Serverless的探索和落地经验，从他们的实践上看，上了Serverless之后相对原来的资源消耗，在双十一的情况节约30%左右，平时可节约40%，还是一个不错的表现。另外，好处有几个方面，降低运维的难度，自动扩容和监控，方便发布，集成特定的环境不用浪费时间在安装组件和兼容性方面；另一个方面，服务由函数来实现，原服务端的功能由前端来实现，也就加重了前端的工作量，这一点不能说是坏事，前端的工程领域更加扩大，其实在nodejs做bff的场景下，前端已经往后端走了一小步。</p>
+<p>中间一个小插曲，腾讯云来做了一波推广，用他们的服务做了一个现场演示，FaaS支持比较方便的编写和发布，现场险些翻车，演示了一个圣诞帽戴在头像上方。</p>
+<p><code>write code to refactor code</code>, 这是一个妹纸介绍了使用AST（抽象语法树）的方法，来进行代码重构。通过写一些脚本，分析出代码结构，从而进行一些重构的工作，比如替换等。另外，使用AST还可以做很多有趣的事情，转译、Lint等等。</p>
+<p><code>去除迷雾，漫谈WebAssembly</code>， 一个小哥讲述了WebAssembly的运行过程，以及介绍了相关的使用资源，<code>https://wapm.io/</code>是一个WebAssembly的包管理器，类似于NPM的角色。介绍了Rust与WebAssembly的关联，可比较方便的从Rust转换代码到Wasm。</p>
+<h2 id="会上的前端趋势"><a href="#会上的前端趋势" class="headerlink" title="会上的前端趋势"></a>会上的前端趋势</h2><p>从这次大会上看前端的一些趋势，其实几个热门主题这几年一直都比较火，很多大会都有安排相应的演讲:</p>
+<ul>
+<li>TypeScript和Vs Code编辑器很火，用得人也很多，从现场的提问来看，大家普遍对TS比较关心</li>
+<li>GraphQL很香，但是用的人并不多，或许上的成本比较高，而且有坑</li>
+<li>Serverless前景还不错，提高生产力和降低成本，但是路还很漫长，感觉适合小型团队或者个人</li>
+<li>WebAssembly正在逐步被接受和落地</li>
+</ul>
+<h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>大会的整体感受，内容比较偏入门，深度和可欣赏性不够，干货不多，与门票的价格不相符。其中有两场Nike的演讲，与前端貌似没有多大关联。下一届应该不会参加了。具体的吐槽可以看看<a href="https://www.zhihu.com/question/351434550" target="_blank" rel="noopener">知乎上的回答</a>。</p>
+<p>接下来就看12月份D2的表现了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上周末刚参加JSconf China 2019, 在这里聊聊记录一下感受。&lt;/p&gt;
+&lt;h2 id=&quot;大会简介&quot;&gt;&lt;a href=&quot;#大会简介&quot; class=&quot;headerlink&quot; title=&quot;大会简介&quot;&gt;&lt;/a&gt;大会简介&lt;/h2&gt;&lt;p&gt;本次在上海举办的&lt;a href=&quot;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://www.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
+    
+      <category term="会议" scheme="http://www.bookcell.org/tags/%E4%BC%9A%E8%AE%AE/"/>
+    
+      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="jsconf" scheme="http://www.bookcell.org/tags/jsconf/"/>
+    
+      <category term="js" scheme="http://www.bookcell.org/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>实现一个简单版React Router v4理解其原理</title>
@@ -530,9 +578,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
-    
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
     
       <category term="实战" scheme="http://www.bookcell.org/tags/%E5%AE%9E%E6%88%98/"/>
     
@@ -1008,9 +1056,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
-    
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
     
       <category term="虚拟DOM" scheme="http://www.bookcell.org/tags/%E8%99%9A%E6%8B%9FDOM/"/>
     
@@ -1961,54 +2009,6 @@
       <category term="2018" scheme="http://www.bookcell.org/tags/2018/"/>
     
       <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>arts-2018-four</title>
-    <link href="http://www.bookcell.org/2018/12/31/arts-2018-12-four/"/>
-    <id>http://www.bookcell.org/2018/12/31/arts-2018-12-four/</id>
-    <published>2018-12-31T05:22:40.000Z</published>
-    <updated>2019-01-08T14:18:16.502Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="arts-2018-four"><a href="#arts-2018-four" class="headerlink" title="arts-2018-four"></a>arts-2018-four</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><blockquote>
-<p>开始阅读《算法》第4版，陆续更新学到的算法</p>
-</blockquote>
-<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285" target="_blank" rel="noopener">Regex Tutorial</a></p>
-<blockquote>
-<p>简单讲解了正则表达式的用法，包括简单的语法和高阶的前向查找等。</p>
-</blockquote>
-<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p><a href="https://blog.bookcell.org/2018/12/26/ssh-usage-guide/" target="_blank" rel="noopener">SSH使用指南</a></p>
-<blockquote>
-<p>总结的SSH使用指南，应对平时开发中的使用场景，配置一个SSH key能提高部署的效率。</p>
-</blockquote>
-<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p><a href="https://mp.weixin.qq.com/s/p1Ne488ZUTc8fm4k_j8tuA" target="_blank" rel="noopener">Things I Don’t know as of 2018 - by  Dan</a></p>
-<blockquote>
-<p>有关React社区核心开发Dan的技术观点，提到了很多技术知识他也不会或者没有接触过。技术点很多，面面俱到都掌握，恐怕精力是不够的，这里他提到用到的技术，他会去学好掌握，不会的技术很多也要坦然面对，值得学习。</p>
-</blockquote>
-<blockquote>
-<p>针对这一点，个人的观点，广度和深度要做到折中。前端这块，深度方面可以涉及HTML,CSS,JavaScript以及各类前端框架、组件化、SEO、性能等，广度方面则是操作系统、算法、网络这几个方面，广度和深度相辅相成。</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;arts-2018-four&quot;&gt;&lt;a href=&quot;#arts-2018-four&quot; class=&quot;headerlink&quot; title=&quot;arts-2018-four&quot;&gt;&lt;/a&gt;arts-2018-four&lt;/h1&gt;&lt;h2 id=&quot;A-Algorithm&quot;&gt;&lt;a h
-    
-    </summary>
-    
-      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
-    
-    
-      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
-    
-      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
-    
-      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
-    
-      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
-    
-      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
     
   </entry>
   

@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/10/25/jsconf-china-2019/</loc>
+    <lastmod>2019-10-27T09:46:46.035Z</lastmod>
+    <data>
+        <display>
+        <title>JSConf China 2019</title>
+        <pubTime>2019-10-25T15:36:26.000Z</pubTime>
+        
+        <tag>2019</tag>
+         
+        <tag>会议</tag>
+         
+        <tag>前端</tag>
+         
+        <tag>jsconf</tag>
+         
+        <tag>js</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://www.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/</loc>
     <lastmod>2019-08-17T09:41:00.559Z</lastmod>
     <data>
@@ -93,9 +121,9 @@
         <title>DOM实战基础</title>
         <pubTime>2019-07-22T14:21:21.000Z</pubTime>
         
-        <tag>DOM</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>DOM</tag>
          
         <tag>实战</tag>
          
@@ -235,9 +263,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>DOM</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>DOM</tag>
          
         <tag>虚拟DOM</tag>
          
@@ -1024,9 +1052,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>前端开发</tag>
-         
         <tag>ag-grid</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>表格</tag>
          
@@ -2082,11 +2110,11 @@
         <title>hexo-theme-use-series-2</title>
         <pubTime>2016-12-11T09:27:28.000Z</pubTime>
         
-        <tag>工具</tag>
-         
         <tag>hexo</tag>
          
         <tag>Next</tag>
+         
+        <tag>工具</tag>
          
          
            
@@ -2394,9 +2422,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>url</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>url</tag>
          
          
            
