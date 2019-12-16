@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/12/16/2019-d2-forum-14th/</loc>
+    <lastmod>2019-12-16T15:20:26.665Z</lastmod>
+    <data>
+        <display>
+        <title>2019-d2-forum-14th</title>
+        <pubTime>2019-12-16T15:19:23.000Z</pubTime>
+        
+        <tag>会议</tag>
+         
+        <tag>2019</tag>
+         
+        <tag>前端</tag>
+         
+        <tag>d2</tag>
+         
+        <tag>论坛</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://www.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2019/10/25/jsconf-china-2019/</loc>
     <lastmod>2019-10-27T09:46:46.035Z</lastmod>
     <data>
@@ -11,9 +39,9 @@
         <title>JSConf China 2019</title>
         <pubTime>2019-10-25T15:36:26.000Z</pubTime>
         
-        <tag>2019</tag>
-         
         <tag>会议</tag>
+         
+        <tag>2019</tag>
          
         <tag>前端</tag>
          
@@ -67,13 +95,13 @@
         <title>2019日本京都奈良大阪自由行游记</title>
         <pubTime>2019-08-08T08:06:54.000Z</pubTime>
         
+        <tag>2019</tag>
+         
         <tag>生活</tag>
          
         <tag>旅游</tag>
          
         <tag>日本</tag>
-         
-        <tag>2019</tag>
          
         <tag>游记</tag>
          
@@ -536,13 +564,13 @@
         <title>2019年D2和SEE Conf的参会感想</title>
         <pubTime>2019-01-06T12:08:03.000Z</pubTime>
         
-        <tag>2019</tag>
-         
         <tag>D2</tag>
          
         <tag>SEE Conf</tag>
          
         <tag>会议</tag>
+         
+        <tag>2019</tag>
          
         <tag>感想</tag>
          
@@ -1052,9 +1080,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>ag-grid</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>ag-grid</tag>
          
         <tag>表格</tag>
          
@@ -2110,11 +2138,11 @@
         <title>hexo-theme-use-series-2</title>
         <pubTime>2016-12-11T09:27:28.000Z</pubTime>
         
+        <tag>工具</tag>
+         
         <tag>hexo</tag>
          
         <tag>Next</tag>
-         
-        <tag>工具</tag>
          
          
            
@@ -2136,9 +2164,9 @@
         
         <tag>hexo</tag>
          
-        <tag>theme</tag>
-         
         <tag>Next</tag>
+         
+        <tag>theme</tag>
          
         <tag>简介</tag>
          
@@ -2329,11 +2357,11 @@
         <title>百度地图显示位置错误</title>
         <pubTime>2016-12-07T15:27:23.000Z</pubTime>
         
+        <tag>前端</tag>
+         
         <tag>baidumap</tag>
          
         <tag>map</tag>
-         
-        <tag>前端</tag>
          
          
            
@@ -2422,9 +2450,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>前端开发</tag>
-         
         <tag>url</tag>
+         
+        <tag>前端开发</tag>
          
          
            

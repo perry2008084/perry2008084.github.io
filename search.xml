@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019-d2-forum-14th]]></title>
+    <url>%2F2019%2F12%2F16%2F2019-d2-forum-14th%2F</url>
+    <content type="text"><![CDATA[一年一度的D2论坛，今年第14届依然和上一届一样，在同一个酒店-杭州和达希尔顿逸林酒店，这次和两个小伙伴一起同行，早上5点半起床赶高铁，正好9点左右到会场，赶上圆心的开场演讲。 2019年，对于前端来讲，有很多大的变化，serverless的逐步流行，TypeScript逐渐成为前端项目开发的首选，微前端的落地等等，这些趋势在会上的主题演讲中也有体现。 六大主题本次大会安排了6个专场： 语言框架 智能化 微前端 Serverless 工程化 多样化领域 这些主题的选取也体现阿里前端技术委员会对前端趋势的理解，几个方向的演讲都有小伙伴们在探索实践，就如圆心在开场所讲，前端在垂直领域以及深度方面有更多可以探索的内容。具体的演讲主题可参考D2官网 听讲主题圆心 - 开场演讲圆心，作为阿里前端委员会的老板，每届会议的Keynote主持人。本次开场，讲到了这几个方面： 前端领域在扩大 2C -&gt; 2B在慢慢增长，垂直领域出现更多机会 云端机会，业务和稳定性的要求提高 智能化，减少重复劳动，投入到业务及深度的探索 关注语言的底层，寻找参与制定标准的机会 多端一体化，wasm、IDE等 克军 - 微前端架构体系久闻克军大佬之名，这次终于见到真容。讲得是云时代的前端架构，微前端架构体系，这是一个体系，并不单单指某一个微前端的框架或者库，包含了从前到后的几大方面。 从前端架构历史演进着手，逐步说明了微前端带来的变化，我的个人理解，微前端主要在中大型项目中为项目的灵活维护和部署提供了一个手段，并且可以将不同技术栈的前端应用集成在一起。 克军提出的微前端体系，包括了这几个部分: 微前端基础设施 微前端配置中心（版本管理、发布策略、动态构建） 微前端观察工具（运维职责：可见、可控性） 微前端的主要原理，通过一个主应用来协调各应用之间的切换，实现协同工作。 甄子 - 前端智能化实践这个主题演讲是关于智能化的，对应的开源项目是阿里imgcook，利用Tensorflow.js机器学习实现自动切图，由设计稿到逻辑代码。介绍了背后实现的思路，整体下来听着比较枯燥，表示没太明白。 其中提到了一个阿里近期开源的项目pipcook。 陈垒 - fibjs 模块重构 - 从回调到协程这个主题主要讲后端nodejs相关的开发，通过对比nodejs回调和fibjs库中同步调用的性能对比，讲解重构和推广fibjs，没有听完。 张伟、马航 - 前端工程下一站：IDEIDE最近也是一个很热门的方向，有很多公司都在做，不管是云端的WebIDE还是桌面端，通过Electron技术可以将web技术栈的实现转为桌面端。由于这几年VSCode编辑器大火，很多项目基于VSCode开发了自己的IDE，服务于他们的配套产品，例如小程序等等。 这里介绍的是阿里开天的项目，兼容VSCode的一个IDE。 Nicolò Ribaudo - Babel: Under the Hood一个意大利大学数学系的小哥来讲了Babel背后的原理，主要介绍了一下Babel的主要工作流程以及涉及到哪些核心的库。 Babel主要是基于AST来对代码进行解析和转译。 玄寂 - 基于浏览器的实时构建探索之路这个主题介绍了在浏览器上的构建方式，比较熟悉的产品有CodeSandbox和Stackblitz。 从这几个方面介绍了如何实现浏览器的构建: 加载器 文件系统 编译系统 包管理 Ahmad Amireh - Distributed Front-End Architecture这是HappyPack的作者，分布式前端架构，其实概念上和微前端的类似的，不过演讲中提到他们的实践中用了例如consul的服务发现工具，以及如何去实现应用的切换，还是蛮精彩的一个演讲。 前端未来对前端的未来做一下展望，有很多新的技术有望落地发展壮大， ES2020有望新增几个实用的特性 智能切图的准确率提高，这一点我还是有点抱怀疑态度，实用性和准确性达到的程度 微前端逐步标准化，成为大型单页应用的开发模式 Serverless的推广，提高前端的地位，往后再走一步，并且关注运维而不用被运维拖累 WebIDE让编码构建更美好 多领域开花 关于前端2019年的总结和未来展望，这里有一篇文章不错，有原文和译文，值得一读。 2019年前端大事件回顾：流年笑掷，未来可期 A Recap of Frontend Development in 2019]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>会议</tag>
+        <tag>2019</tag>
+        <tag>前端</tag>
+        <tag>d2</tag>
+        <tag>论坛</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JSConf China 2019]]></title>
     <url>%2F2019%2F10%2F25%2Fjsconf-china-2019%2F</url>
     <content type="text"><![CDATA[上周末刚参加JSconf China 2019, 在这里聊聊记录一下感受。 大会简介本次在上海举办的第7届JSConf China大会，也是我第一次参加JSConf China，参加完这次会议，也完成了年初给自己定下来的一个目标，一年参加两次技术会议，上一次会议是D2（其实也顺带参加了SEE Conf，蚂蚁金服举办的，同一个周末）。 几个主题具体聊一下印象比较深刻的几个主题演讲： The Beauty of TypeScript，这个主题由微软中国的工程师韩骏分享的，介绍了TS的优点，主要是解决JS开发时的痛点，引入类型，支持编译并兼容JS，适用于多人大型的项目开发。介绍了@ts-check、@ts-uncheck、@ts-ignore和any作为从JS迁移TS的一些辅助手段。 面向传统，Serverless 进化之路，这个主题由阿里的大佬陈仲寅分享淘系前端在Serverless的探索和落地经验，从他们的实践上看，上了Serverless之后相对原来的资源消耗，在双十一的情况节约30%左右，平时可节约40%，还是一个不错的表现。另外，好处有几个方面，降低运维的难度，自动扩容和监控，方便发布，集成特定的环境不用浪费时间在安装组件和兼容性方面；另一个方面，服务由函数来实现，原服务端的功能由前端来实现，也就加重了前端的工作量，这一点不能说是坏事，前端的工程领域更加扩大，其实在nodejs做bff的场景下，前端已经往后端走了一小步。 中间一个小插曲，腾讯云来做了一波推广，用他们的服务做了一个现场演示，FaaS支持比较方便的编写和发布，现场险些翻车，演示了一个圣诞帽戴在头像上方。 write code to refactor code, 这是一个妹纸介绍了使用AST（抽象语法树）的方法，来进行代码重构。通过写一些脚本，分析出代码结构，从而进行一些重构的工作，比如替换等。另外，使用AST还可以做很多有趣的事情，转译、Lint等等。 去除迷雾，漫谈WebAssembly， 一个小哥讲述了WebAssembly的运行过程，以及介绍了相关的使用资源，https://wapm.io/是一个WebAssembly的包管理器，类似于NPM的角色。介绍了Rust与WebAssembly的关联，可比较方便的从Rust转换代码到Wasm。 会上的前端趋势从这次大会上看前端的一些趋势，其实几个热门主题这几年一直都比较火，很多大会都有安排相应的演讲: TypeScript和Vs Code编辑器很火，用得人也很多，从现场的提问来看，大家普遍对TS比较关心 GraphQL很香，但是用的人并不多，或许上的成本比较高，而且有坑 Serverless前景还不错，提高生产力和降低成本，但是路还很漫长，感觉适合小型团队或者个人 WebAssembly正在逐步被接受和落地 感受大会的整体感受，内容比较偏入门，深度和可欣赏性不够，干货不多，与门票的价格不相符。其中有两场Nike的演讲，与前端貌似没有多大关联。下一届应该不会参加了。具体的吐槽可以看看知乎上的回答。 接下来就看12月份D2的表现了。]]></content>
@@ -8,8 +23,8 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>2019</tag>
         <tag>会议</tag>
+        <tag>2019</tag>
         <tag>前端</tag>
         <tag>jsconf</tag>
         <tag>js</tag>
@@ -38,10 +53,10 @@
         <category>生活</category>
       </categories>
       <tags>
+        <tag>2019</tag>
         <tag>生活</tag>
         <tag>旅游</tag>
         <tag>日本</tag>
-        <tag>2019</tag>
         <tag>游记</tag>
       </tags>
   </entry>
@@ -273,10 +288,10 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>2019</tag>
         <tag>D2</tag>
         <tag>SEE Conf</tag>
         <tag>会议</tag>
+        <tag>2019</tag>
         <tag>感想</tag>
       </tags>
   </entry>
@@ -565,8 +580,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>ag-grid</tag>
         <tag>前端开发</tag>
+        <tag>ag-grid</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -1169,8 +1184,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>前端开发</tag>
         <tag>url</tag>
+        <tag>前端开发</tag>
       </tags>
   </entry>
   <entry>
@@ -1222,9 +1237,9 @@
         <category>工具</category>
       </categories>
       <tags>
+        <tag>工具</tag>
         <tag>hexo</tag>
         <tag>Next</tag>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1235,9 +1250,9 @@
         <category>前端开发</category>
       </categories>
       <tags>
+        <tag>前端</tag>
         <tag>baidumap</tag>
         <tag>map</tag>
-        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -1269,8 +1284,8 @@
     <content type="text"><![CDATA[安装及开始使用 使用Git拉取主题代码 修改站点配置文件，修改主题 选择主题外观 设置主题语言 设置菜单 设置头像 集成多说评论 集成百度统计 遇到的问题 页面显示大片空白？ 参考Next的issue 如果没有解决，可尝试主题配置文件中的use_motion配置项改为false。 主页底部显示一串乱码？ 解决方法：修改主题配置文件中的fancybox配置项为false。 参考 参考官网的说明]]></content>
       <tags>
         <tag>hexo</tag>
-        <tag>theme</tag>
         <tag>Next</tag>
+        <tag>theme</tag>
         <tag>简介</tag>
       </tags>
   </entry>

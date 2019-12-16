@@ -369,6 +369,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2016/12/19/angularjs-production-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/19/angularjs-production-config/" itemprop="url">
+                  AngularJS生产环境下的一些配置
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-12-19 12:18:19" itemprop="dateCreated datePublished" datetime="2016-12-19T12:18:19+08:00">2016-12-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2017-01-11 12:37:32" itemprop="dateModified" datetime="2017-01-11T12:37:32+08:00">2017-01-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/19/angularjs-production-config/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2016/12/19/angularjs-production-config/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>记录AngularJS在生产环境下的一些配置，针对性能上的优化有帮助。</p>
+<h3 id="关闭调试数据"><a href="#关闭调试数据" class="headerlink" title="关闭调试数据"></a>关闭调试数据</h3><p>AngularJS默认会添加一些关于绑定、作用域到DOM节点，以及添加CSS类到数据绑定的元素。这些<br>信息主要是用于一些类似<a href="https://github.com/angular/protractor" target="_blank" rel="noopener">Protractor</a>和<br><a href="https://github.com/angular/angularjs-batarang" target="_blank" rel="noopener">Batarang</a>的工具使用。</p>
+<p>生产环境下可关闭这些调试数据，以优化项目的性能，配置方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myApp.config([&apos;$compileProvider&apos;, function ($compileProvider) &#123;</span><br><span class="line">  $compileProvider.debugInfoEnabled(false);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>如果有需要调试，可以再浏览器的控制台中运行以下语句来打开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">angular.reloadWithDebugInfo();</span><br></pre></td></tr></table></figure>
+<h3 id="关闭控制台的debug信息"><a href="#关闭控制台的debug信息" class="headerlink" title="关闭控制台的debug信息"></a>关闭控制台的debug信息</h3><p>一般我们会在代码中使用$log.debug()来添加控制台的调试信息，方便调试。一旦项目在生产环境下，这些<br>信息就不需要留给最终用户，因此可以选择关闭。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myApp.config([&apos;$logProvider&apos;, function ($logProvider) &#123;</span><br><span class="line">  $$logProvider.debugEnabled(false);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>该配置只是关闭debug级别的信息，debug以上的级别还是会在控制台输出，包括info,warn,error这些。</p>
+<p>【全文完】</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2016/12/18/data-visualization-js-library-compare/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1116,196 +1306,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2016/12/13/image-place-website/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/12/13/image-place-website/" itemprop="url">
-                  占位图片生成网站推荐
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-12-13 21:40:39" itemprop="dateCreated datePublished" datetime="2016-12-13T21:40:39+08:00">2016-12-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2017-01-11 12:38:55" itemprop="dateModified" datetime="2017-01-11T12:38:55+08:00">2017-01-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/12/13/image-place-website/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2016/12/13/image-place-website/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天遇到一个很有趣的网站，关于生成任意尺寸的占位图片，并且支持添加文字。</p>
-<p>官网地址：<a href="http://fpoimg.com/" target="_blank" rel="noopener">http://fpoimg.com/</a></p>
-<p>demo:</p>
-<p><img src="http://fpoimg.com/300x250?text=image" alt="demo"></p>
-<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><p>简单使用可直接修改以下url中的尺寸并放入页面中即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fpoimg.com/300x250</span><br></pre></td></tr></table></figure>
-<h3 id="定制图片"><a href="#定制图片" class="headerlink" title="定制图片"></a>定制图片</h3><p>定制图片，支持修改图片尺寸、添加文字、修改背景和文字颜色。</p>
-<p>通过以下页面进行定制，支持表单控件操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fpoimg.com/generator</span><br></pre></td></tr></table></figure>
-<h3 id="其他示例"><a href="#其他示例" class="headerlink" title="其他示例"></a>其他示例</h3><p><a href="http://fpoimg.com/examples" target="_blank" rel="noopener">部分示例</a></p>
-<p>【全文完】</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1353,7 +1353,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">96</span>
+                    <span class="site-state-item-count">97</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1795,7 +1795,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">202</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">204</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
