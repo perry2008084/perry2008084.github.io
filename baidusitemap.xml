@@ -4,8 +4,36 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2019/12/29/reading-2019-summary/</loc>
+    <lastmod>2019-12-29T08:16:31.235Z</lastmod>
+    <data>
+        <display>
+        <title>reading-2019-summary</title>
+        <pubTime>2019-12-29T07:39:11.000Z</pubTime>
+        
+        <tag>2019</tag>
+         
+        <tag>阅读</tag>
+         
+        <tag>读书</tag>
+         
+        <tag>书单</tag>
+         
+        <tag>总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="读书" url="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2018/12/31/reading-list-2019/</loc>
-    <lastmod>2019-12-29T06:10:00.785Z</lastmod>
+    <lastmod>2019-12-29T06:38:22.983Z</lastmod>
     <data>
         <display>
         <title>2019年阅读计划</title>
@@ -175,9 +203,9 @@
         <title>DOM实战基础</title>
         <pubTime>2019-07-22T14:21:21.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>实战</tag>
          
@@ -317,9 +345,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>虚拟DOM</tag>
          

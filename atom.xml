@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2019-12-16T15:20:26.665Z</updated>
+  <updated>2019-12-29T08:16:31.235Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,157 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>reading-2019-summary</title>
+    <link href="http://www.bookcell.org/2019/12/29/reading-2019-summary/"/>
+    <id>http://www.bookcell.org/2019/12/29/reading-2019-summary/</id>
+    <published>2019-12-29T07:39:11.000Z</published>
+    <updated>2019-12-29T08:16:31.235Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://picbed.bookcell.cn/picgo/IMG_2732.jpg" alt=""></p>
+<p><em>这是下半年去的培荣书屋，汪涵给他父亲开的一家书店</em></p>
+<p>2019年共阅读了23本书，年初计划的24本书中，尚有13本未读完，期间也读了一些非计划内的书。因此2020年准备计划阅读的书单会减少一些数量，并且会更注重精读的质量。</p>
+<p>个人比较推荐的有弗兰克尔的《活出生命的意义》、乔治奥威尔的《1984》和《动物农场》、还有吴军的《见识》。</p>
+<h2 id="书籍短评"><a href="#书籍短评" class="headerlink" title="书籍短评"></a>书籍短评</h2><p>下面是阅读过的书籍短评：</p>
+<p><code>《Web前端开发修炼之道》</code></p>
+<ul>
+<li>阅读时间 2018.12.15～2019.1.3</li>
+<li>心得: 前端前辈的心得，部分技术已经过时，有一些思想还可借鉴。前端已经从jQuery时代，进入React/Vue/Angular时代。</li>
+</ul>
+<p><code>《异类-不一样的成功启示录》</code>by 马尔科姆·格拉德威尔</p>
+<ul>
+<li>阅读时间 2018.12.20～2019.1.4</li>
+<li>心得: 书中提到成功有几方面的因素，10000小时的练习、机遇、文化背景，其中机遇是影响最重大的一个因素，所谓时势造英雄。</li>
+</ul>
+<p><code>《失控》</code>by KK</p>
+<ul>
+<li>阅读时间 2018~2019.1.16</li>
+<li>心得： 一本巨大的作品，涉及的知识面很广，富有前瞻性，谈到了许多人类的未来可能。其中有两点，我觉得比较有意思，一个是构建生态系统；另一个是生物特性和人工智能的结合。</li>
+</ul>
+<p><code>《CSS禅意花园》</code>by Shea Dove</p>
+<ul>
+<li>阅读时间 2018.12 ~.2019.1.28</li>
+<li>心得：大概的翻了一遍，书中罗列了几十种实现禅意花园的CSS方案，点出其中的设计思路和难点、注意点，面向的读者更偏向设计人员。</li>
+</ul>
+<p><code>《生命之书》</code></p>
+<ul>
+<li>阅读时间 2018.12～2019.1.30</li>
+<li>心得: 有关人生哲学的一本书，比较深奥，有点佛学的味道。</li>
+</ul>
+<p><code>《未来世界的幸存者》</code>阮一峰</p>
+<ul>
+<li>阅读时间 2019.2.11~2019.1.13</li>
+<li>心得: 讲述技术带来的冲击以及有关职业人生的未来思考，值得一看。</li>
+</ul>
+<p><code>《活出生命的意义》</code>弗兰克尔</p>
+<ul>
+<li>阅读时间: 2019.3.6～2019.3.8</li>
+<li>心得: 从二战德国集中营幸存下来的心理医生弗兰克尔讲述自身经历，并提出心理学“意义疗法”，寻找到生命的意义是活下去的根本。</li>
+</ul>
+<p><code>《穷查理宝典》</code>查理芒格</p>
+<ul>
+<li>阅读时间: 2019.2.1～2019.3.12</li>
+<li>心得: 收录查理芒格的演讲稿及他的一些思考，印象深刻的是他对终身学习重要性的强调，以及对普世智慧的见解。</li>
+</ul>
+<p><code>《JavaScript语言精粹》</code>道格拉斯·克劳福德</p>
+<ul>
+<li>阅读时间: 2019.2.15～2019.3.17</li>
+<li>心得: 大师利用浓缩式的方式讲述JS语言的知识点，并列举了语言的精华和糟粕，主要针对ES3标准。</li>
+</ul>
+<p><code>《你不知道的JavaScript 上卷和中卷》</code></p>
+<ul>
+<li>阅读时间: 2019.3.18~2019.4.18</li>
+<li>心得: 深度讲解作用域、this、继承、原型链，值得再细读一遍。讲解比较深入，但是个人感觉，没有红宝书的作者扎卡斯写的容易理解。</li>
+</ul>
+<p><code>《1984》</code>乔治奥威尔</p>
+<ul>
+<li>阅读时间: 2019.4.10~2019.4.20</li>
+<li>心得:<br>奥威尔在1948年描绘1984年未来世界中极权主义下的生活，发人深省，以及对于自由的追求。</li>
+</ul>
+<p><code>《动物农场》</code>乔治奥威尔</p>
+<ul>
+<li>心得: 讲述一个关于极权统治的童话故事</li>
+</ul>
+<p><code>《如何不为钱发愁》</code></p>
+<ul>
+<li>时间：2019.5.15-2019.6.2</li>
+<li>心得: 干货不多，主要从哲学角度分析财务问题，主要的理解在于欲望与实际需求的一种平衡。</li>
+</ul>
+<p><code>《如何用一年的时间获得10年的经验》</code>郝培强</p>
+<ul>
+<li>时间: 2019.6.10-2019.7.12</li>
+<li>心得: 主要是作者的一些思考，关键的一些观点，多读书，注意做事的方法，大神其实没有什么特殊的只是比你多做了一点努力，执行力要强。</li>
+</ul>
+<p><code>《软技能》</code></p>
+<ul>
+<li>时间：2019.6～2019.7.22</li>
+<li>心得: 作者讲述了包括自我营销、学习方法、工作方法、健身、理财、调整心态等各方面的知识，更像是一个过来人给你传授经验，有一些方法是值得学习的。</li>
+</ul>
+<p><code>《Web前端开发最佳实践》</code></p>
+<ul>
+<li>时间：2019.5.15-2019.7.22</li>
+<li>心得: 主要是前端开发中的一下经验之谈，有一些方法可以参考，也有一些技术已经过时了，参考价值不是很大。</li>
+</ul>
+<p><code>《清醒思考的艺术》</code>罗尔夫•多贝里</p>
+<ul>
+<li>时间：2019.7.5~2019.8.10</li>
+<li>心得: 作者提出了日常生活中多个方面存在的思维误区，不时的回顾一下这些思维误区，能够让我们少犯错误。</li>
+</ul>
+<p><code>《哲学简史》</code>冯友兰</p>
+<ul>
+<li>时间：2019.6.16~2019.8.20</li>
+<li>心得: 讲述先秦时期的哲学各家，涉及儒家、佛家、道家、法家、阴阳家等，以及近现代的理学、心学等，是了解中国哲学史的一本好书，概览全貌。</li>
+</ul>
+<p><code>《下一个倒下的会不会是华为》</code></p>
+<ul>
+<li>时间：2019.8.24-2019.8.31</li>
+<li>心得: 讲述了华为的核心价值观，华为成长起来过程中遭遇的变革和突破，以及任正非的思考和决策。从赞许和批判的角度均有涉及，相对比较客观。华为核心价值观，以客户为中心，以奋斗者为本，长期坚持艰苦奋斗。</li>
+</ul>
+<p><code>《价值为纲》</code></p>
+<ul>
+<li>时间：2019.8.30~2019.8.31</li>
+<li>心得: 主要讲述华为的财务政策。</li>
+</ul>
+<p><code>《见识》</code>吴军</p>
+<ul>
+<li>时间: 2019.9.6~2019.10.6</li>
+<li>心得: 讲述作者对于人生各方面的经验和看法，对于年轻人有一定的参考意义，值得多看几遍。</li>
+</ul>
+<p><code>《论语今读》</code>李泽厚</p>
+<ul>
+<li>时间:2019.1.1~2019.12.9</li>
+<li>心得: 对论语的解读，包括翻译和注解，有引经据典的说明，也有个人的见解，帮助理解论语。论语是孔子及弟子的言语记录，表达对于为人处事的方法，从现在看来，依然值得一读，根据这次的阅读体验，阅读古文经典，还是应该找一本名家注解版阅读比较好理解，最好是大家认可度比较高的注解版本。</li>
+</ul>
+<p><code>《习惯的力量》</code></p>
+<ul>
+<li>时间: 2019.12.1~2019.12.29</li>
+<li>心得: 通过许多实例讲述习惯的形成和改变，主要涉及一个循环，惯常行为-暗示-奖励，学会习惯背后的规律，有助于改善旧的习惯，养成新的好习惯。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://picbed.bookcell.cn/picgo/IMG_2732.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;这是下半年去的培荣书屋，汪涵给他父亲开的一家书店&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;2019年共阅读了23本书，年初计划的24本书中，
+    
+    </summary>
+    
+      <category term="读书" scheme="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
+    
+      <category term="阅读" scheme="http://www.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+      <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+      <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
+    
+      <category term="总结" scheme="http://www.bookcell.org/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>2019-d2-forum-14th</title>
@@ -668,9 +819,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="实战" scheme="http://www.bookcell.org/tags/%E5%AE%9E%E6%88%98/"/>
     
@@ -1146,9 +1297,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="虚拟DOM" scheme="http://www.bookcell.org/tags/%E8%99%9A%E6%8B%9FDOM/"/>
     
@@ -1859,81 +2010,6 @@
       <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
     
       <category term="感想" scheme="http://www.bookcell.org/tags/%E6%84%9F%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019年阅读计划</title>
-    <link href="http://www.bookcell.org/2018/12/31/reading-list-2019/"/>
-    <id>http://www.bookcell.org/2018/12/31/reading-list-2019/</id>
-    <published>2018-12-31T06:44:29.000Z</published>
-    <updated>2019-12-29T06:10:00.785Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="2019年阅读计划"><a href="#2019年阅读计划" class="headerlink" title="2019年阅读计划"></a>2019年阅读计划</h1><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
-<li>【精读】</li>
-<li>【略读】</li>
-<li>【主题阅读】</li>
-</ul>
-<p>2019年计划阅读共32本，每个季度8本</p>
-<h2 id="类别"><a href="#类别" class="headerlink" title="类别"></a>类别</h2><h3 id="技术类："><a href="#技术类：" class="headerlink" title="技术类："></a>技术类：</h3><ul>
-<li>[ ] 【精度】《Linux: 鸟哥的私房菜》</li>
-<li>[x] 【精读】《JavaScript:The Good Parts》</li>
-<li>[x] 【精读】《You Don’t Know JS - this &amp; Object Prototype》</li>
-<li>[x] 【精读】《You Don’t Know JS - scope &amp; closures》</li>
-<li>[x] 【精读】《You Don’t Know JS - Async &amp; Performance》</li>
-<li>[x] 【精读】《You Don’t Know JS - Types &amp; Grammer》</li>
-<li>[ ] 【精读】《You Don’t Know JS - ES6 &amp;Beyond》</li>
-<li>[x] 【精读】《You Don’t Know JS - Up &amp; Going》</li>
-<li>[ ] 【主题阅读】《JavaScript权威指南》</li>
-<li>[ ] 【精读】《Python编程快速上手》</li>
-<li>[ ] 【精读】《计算机程序的构造和解释》</li>
-<li>[x] 【略读】《软技能》</li>
-<li>[ ] 【精读】《精通CSS: 高级Web标准解决方案》Andy budd,《CSS Mastery-Advanced Web Standards Solutions》</li>
-<li>[ ] 【精读】《算法》第4版</li>
-<li>[ ] 【精读】《计算机网络》Andrew S.Tanenbaum 著 潘爱民 译</li>
-</ul>
-<h3 id="人文类："><a href="#人文类：" class="headerlink" title="人文类："></a>人文类：</h3><ul>
-<li>[x] 【略读】《失控》</li>
-<li>[x] 【精读】《论语今读》</li>
-<li>[x] 【略读】《Animal Farm》by George Orwell</li>
-<li>[x] 【略读】《1984》by George Orwell</li>
-<li>[ ] 【略读】《三体》刘慈欣</li>
-<li>[ ] 【略读】《哥德尔、艾舍尔、巴赫》侯世达 商务印书馆</li>
-</ul>
-<h3 id="经济类"><a href="#经济类" class="headerlink" title="经济类:"></a>经济类:</h3><ul>
-<li>[x] 【略读】《穷查理宝典》</li>
-<li>[x] 【略读】《How to Worry Less About Money》By John Armstrong</li>
-</ul>
-<h3 id="其他类："><a href="#其他类：" class="headerlink" title="其他类："></a>其他类：</h3><ul>
-<li>[x] 【略读】《清醒思考的艺术》罗尔夫•多贝里</li>
-<li>[x] 【略读】《结网@改变世界的互联网产品经理》 王坚 编著</li>
-<li>[ ] 【略读】《你的灯亮着吗——发现问题所在》 康纳德.高斯 杰拉尔德.温伯格 著 俞月圆 译</li>
-<li>[x] 【略读】《见识-商业的本质和人生的智慧》吴军</li>
-<li>[ ] 【略读】《Thinking, Fast and Slow》 by Daniel Kahneman</li>
-<li>[ ] 【略读】《Getting Real》by 37Sigal</li>
-<li>[ ] 【略读】《习惯的力量》（The Power of Habit）</li>
-<li>[x] 【略读】《活出生命的意义》弗兰克尔</li>
-<li>[x] 【略读】《技巧：如何用一年时间获得十年的经验》</li>
-</ul>
-<p>更新于2019.12.29</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;2019年阅读计划&quot;&gt;&lt;a href=&quot;#2019年阅读计划&quot; class=&quot;headerlink&quot; title=&quot;2019年阅读计划&quot;&gt;&lt;/a&gt;2019年阅读计划&lt;/h1&gt;&lt;h2 id=&quot;方法&quot;&gt;&lt;a href=&quot;#方法&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="读书" scheme="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
-    
-      <category term="阅读" scheme="http://www.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
-    
-      <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
-    
-      <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
     
   </entry>
   
