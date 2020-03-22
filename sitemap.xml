@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.bookcell.org/2020/03/22/the-10-react-component-best-practice/</loc>
+    
+    <lastmod>2020-03-22T12:55:24.247Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.bookcell.org/2020/01/30/how-to-read-a-book-notes/</loc>
     
     <lastmod>2020-01-30T08:30:48.835Z</lastmod>
@@ -380,13 +387,6 @@
   </url>
   
   <url>
-    <loc>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</loc>
-    
-    <lastmod>2017-11-28T07:34:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.bookcell.org/2017/09/01/javascript-create-object/</loc>
     
     <lastmod>2017-11-16T14:11:56.000Z</lastmod>
@@ -397,6 +397,13 @@
     <loc>http://www.bookcell.org/2017/11/07/use-smart-critera-set-goal/</loc>
     
     <lastmod>2017-11-16T14:11:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</loc>
+    
+    <lastmod>2017-11-16T14:10:59.000Z</lastmod>
     
   </url>
   
@@ -508,7 +515,7 @@
   <url>
     <loc>http://www.bookcell.org/2017/02/07/opensource-license-series-mozila/</loc>
     
-    <lastmod>2017-02-23T06:19:57.000Z</lastmod>
+    <lastmod>2017-02-23T06:19:42.000Z</lastmod>
     
   </url>
   
@@ -725,7 +732,7 @@
   <url>
     <loc>http://www.bookcell.org/tags/index.html</loc>
     
-    <lastmod>2017-01-10T08:01:42.000Z</lastmod>
+    <lastmod>2017-01-10T08:01:32.000Z</lastmod>
     
   </url>
   

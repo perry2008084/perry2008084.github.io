@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2020/03/22/the-10-react-component-best-practice/</loc>
+    <lastmod>2020-03-22T12:55:24.247Z</lastmod>
+    <data>
+        <display>
+        <title>React组件开发的十条最佳实践</title>
+        <pubTime>2020-03-22T12:50:27.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>Reactjs</tag>
+         
+        <tag>最佳实践</tag>
+         
+        <tag>组件</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2020/01/30/how-to-read-a-book-notes/</loc>
     <lastmod>2020-01-30T08:30:48.835Z</lastmod>
     <data>
@@ -275,9 +301,9 @@
         <title>DOM实战基础</title>
         <pubTime>2019-07-22T14:21:21.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>实战</tag>
          
@@ -417,9 +443,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>虚拟DOM</tag>
          
@@ -445,11 +471,11 @@
         
         <tag>前端开发</tag>
          
+        <tag>组件</tag>
+         
         <tag>web组件</tag>
          
         <tag>web component</tag>
-         
-        <tag>组件</tag>
          
          
            
@@ -1438,9 +1464,9 @@
         
         <tag>读书</tag>
          
-        <tag>效率</tag>
-         
         <tag>方法</tag>
+         
+        <tag>效率</tag>
          
         <tag>少即是多</tag>
          
@@ -1450,34 +1476,6 @@
            
              
               <breadCrumb title="读书" url="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</loc>
-    <lastmod>2017-11-28T07:34:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>Sublime Text 3 安装eslint的JavaScript ES5版本插件总结</title>
-        <pubTime>2017-11-16T13:59:41.000Z</pubTime>
-        
-        <tag>sublime</tag>
-         
-        <tag>eslint</tag>
-         
-        <tag>sublime Text 3</tag>
-         
-        <tag>es5</tag>
-         
-        <tag>SublimeLInter</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>
@@ -1516,11 +1514,39 @@
         <title>设定目标-使用SMART法则</title>
         <pubTime>2017-11-07T05:02:17.000Z</pubTime>
         
-        <tag>目标</tag>
-         
         <tag>方法</tag>
          
+        <tag>目标</tag>
+         
         <tag>SMART法则</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://www.bookcell.org/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.bookcell.org/2017/11/16/sublime-install-plugin-eslint-es5/</loc>
+    <lastmod>2017-11-16T14:10:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>Sublime Text 3 安装eslint的JavaScript ES5版本插件总结</title>
+        <pubTime>2017-11-16T13:59:41.000Z</pubTime>
+        
+        <tag>sublime</tag>
+         
+        <tag>eslint</tag>
+         
+        <tag>sublime Text 3</tag>
+         
+        <tag>es5</tag>
+         
+        <tag>SublimeLInter</tag>
          
          
            
@@ -1892,7 +1918,7 @@
     
   <url>
     <loc>http://www.bookcell.org/2017/02/07/opensource-license-series-mozila/</loc>
-    <lastmod>2017-02-23T06:19:57.000Z</lastmod>
+    <lastmod>2017-02-23T06:19:42.000Z</lastmod>
     <data>
         <display>
         <title>开源协议系列之Mozila</title>
@@ -2238,11 +2264,11 @@
         <title>hexo-theme-use-series-2</title>
         <pubTime>2016-12-11T09:27:28.000Z</pubTime>
         
-        <tag>工具</tag>
-         
         <tag>hexo</tag>
          
         <tag>Next</tag>
+         
+        <tag>工具</tag>
          
          
            
@@ -2355,9 +2381,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据可视化</tag>
-         
         <tag>数据</tag>
+         
+        <tag>数据可视化</tag>
          
         <tag>概念</tag>
          
