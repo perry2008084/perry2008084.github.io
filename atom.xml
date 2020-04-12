@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2020-03-22T12:55:24.247Z</updated>
+  <updated>2020-04-12T13:56:39.267Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ECMAScript 2020新增特性</title>
+    <link href="http://www.bookcell.org/2020/04/12/ecmascript-2020-new-feature/"/>
+    <id>http://www.bookcell.org/2020/04/12/ecmascript-2020-new-feature/</id>
+    <published>2020-04-12T13:55:25.000Z</published>
+    <updated>2020-04-12T13:56:39.267Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ECMAScript-2020新特性"><a href="#ECMAScript-2020新特性" class="headerlink" title="ECMAScript 2020新特性"></a>ECMAScript 2020新特性</h2><ul>
+<li><a href="http://2ality.com/2018/02/string-prototype-matchall.html" target="_blank" rel="noopener">String.prototype.matchAll by Jordan Harband</a></li>
+<li><a href="http://2ality.com/2018/02/string-prototype-matchall.html" target="_blank" rel="noopener">import() by Domenic Denicola</a></li>
+<li><a href="http://2ality.com/2017/03/es-integer.html" target="_blank" rel="noopener">BigInt – arbitrary precision integers by Daniel Ehrenberg</a></li>
+<li><a href="https://2ality.com/2019/08/promise-combinators.html" target="_blank" rel="noopener">Promise.allSettled by Jason Williams, Robert Pamely and Mathias Bynens</a></li>
+<li><a href="https://exploringjs.com/impatient-js/ch_variables-assignment.html#globalThis" target="_blank" rel="noopener">globalThis by Jordan Harband</a></li>
+<li><a href="https://github.com/bakkot/for-in-exploration" target="_blank" rel="noopener">for-in mechanics by Kevin Gibbons</a></li>
+<li><a href="https://2ality.com/2019/07/optional-chaining.html" target="_blank" rel="noopener">Optional chaining by Gabriel Isenberg, Claude Pache, Dustin Savery</a></li>
+<li><a href="https://2ality.com/2019/08/nullish-coalescing.html" target="_blank" rel="noopener">Nullish coalescing Operator by Gabriel Isenberg</a></li>
+<li><a href="https://exploringjs.com/impatient-js/ch_modules.html#preview-import.meta.url" target="_blank" rel="noopener">import.meta by Domenic Denicola</a></li>
+<li><a href="https://github.com/tc39/ecma262/pull/1174" target="_blank" rel="noopener">export * as ns from “mod”</a></li>
+</ul>
+<h2 id="Jordan-Harband提出的String-prototype-matchAll"><a href="#Jordan-Harband提出的String-prototype-matchAll" class="headerlink" title="Jordan Harband提出的String.prototype.matchAll"></a>Jordan Harband提出的String.prototype.matchAll</h2><p><code>String.prototype</code>上的<code>match()</code>方法仅返回完全匹配，但是没有返回关于特定正则组的任意信息。感谢<a href="https://twitter.com/ljharb" target="_blank" rel="noopener">Jordan Harband</a>关于<a href="https://github.com/tc39/proposal-string-matchall" target="_blank" rel="noopener"><code>String.prototype.matchAll</code></a>的提案，可以返回比<code>match()</code>多很多的信息。返回的迭代器除了精确匹配外还给了我们访问所有的正则匹配捕获组。你还记得Gorkem Yakin和Daniel Ehrenberg添加到ECMAScript 2018的具名捕获组吗？<code>matchAll()</code>方法和此能很好的协调。通过下面例子来解释一下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> text = <span class="string">"From 2019.01.29 to 2019.01.30"</span>;</span><br><span class="line"><span class="keyword">const</span> regexp = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;).(?&lt;month&gt;\d&#123;2&#125;).(?&lt;day&gt;\d&#123;2&#125;)/gu</span>;</span><br><span class="line"><span class="keyword">const</span> results = text.match(regexp);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(results);</span><br><span class="line"><span class="comment">// [ '2019.01.29', '2019.01.30' ]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> text = <span class="string">"From 2019.01.29 to 2019.01.30"</span>;</span><br><span class="line"><span class="keyword">const</span> regexp = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;).(?&lt;month&gt;\d&#123;2&#125;).(?&lt;day&gt;\d&#123;2&#125;)/gu</span>;</span><br><span class="line"><span class="keyword">const</span> results = <span class="built_in">Array</span>.from(text.matchAll(regexp));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(results);</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   [</span></span><br><span class="line"><span class="comment">//     '2019.01.29',</span></span><br><span class="line"><span class="comment">//     '2019',</span></span><br><span class="line"><span class="comment">//     '01',</span></span><br><span class="line"><span class="comment">//     '29',</span></span><br><span class="line"><span class="comment">//     index: 5,</span></span><br><span class="line"><span class="comment">//     input: 'From 2019.01.29 to 2019.01.30',</span></span><br><span class="line"><span class="comment">//     groups: [Object: null prototype] &#123; year: '2019', month: '01', day: '29' &#125;</span></span><br><span class="line"><span class="comment">//   ],</span></span><br><span class="line"><span class="comment">//   [</span></span><br><span class="line"><span class="comment">//     '2019.01.30',</span></span><br><span class="line"><span class="comment">//     '2019',</span></span><br><span class="line"><span class="comment">//     '01',</span></span><br><span class="line"><span class="comment">//     '30',</span></span><br><span class="line"><span class="comment">//     index: 19,</span></span><br><span class="line"><span class="comment">//     input: 'From 2019.01.29 to 2019.01.30',</span></span><br><span class="line"><span class="comment">//     groups: [Object: null prototype] &#123; year: '2019', month: '01', day: '30' &#125;</span></span><br><span class="line"><span class="comment">//   ]</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Domenic-Denicola提出的import"><a href="#Domenic-Denicola提出的import" class="headerlink" title="Domenic Denicola提出的import()"></a>Domenic Denicola提出的import()</h2><p>不同于ECMAScript 2015中介绍的静态模块，Domenic Denicola提案的<a href="https://github.com/tc39/proposal-dynamic-import" target="_blank" rel="noopener"><code>动态导入</code></a>可以实现按需加载。这个类似函数的格式（不是继承自<code>Function .prototype</code>）返回一个很强大的promise。使用场景比如: 按需导入，在一个脚本中计算模块名并加载执行变得可能。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> modulePage = <span class="string">'page.js'</span>;</span><br><span class="line"><span class="keyword">import</span>(modulePage)</span><br><span class="line">    .then(<span class="function">(<span class="params"><span class="built_in">module</span></span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">module</span>.default();</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> helpersModule = <span class="string">'helpers.js'</span>;</span><br><span class="line">  <span class="keyword">const</span> <span class="built_in">module</span> = <span class="keyword">await</span> <span class="keyword">import</span>(helpersModule)</span><br><span class="line">  <span class="keyword">const</span> total = <span class="built_in">module</span>.sum(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h2 id="Daniel-Ehrenberg提出的BigInt-任意精度整数"><a href="#Daniel-Ehrenberg提出的BigInt-任意精度整数" class="headerlink" title="Daniel Ehrenberg提出的BigInt-任意精度整数"></a>Daniel Ehrenberg提出的BigInt-任意精度整数</h2><p>感谢<a href="https://twitter.com/littledan" target="_blank" rel="noopener">Daniel Ehrenberg</a>, <code>Number.MAX_SAFE_INTEGER</code>不再是JavaScript中的一个限制。<a href="https://github.com/tc39/proposal-bigint" target="_blank" rel="noopener"><code>BigInt</code></a>是一个能表示任意精度整数的新基础类型。你可以通过使用<code>BigInt</code>方法或者在一个数字后添加<code>n</code>后缀来把一个数字转换为一个新的<code>bigint</code>类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTERGER</span><br><span class="line"><span class="comment">// 9007199254740991</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTEGER + <span class="number">10</span> <span class="number">-10</span></span><br><span class="line"><span class="comment">// 9007199254740990 👎</span></span><br><span class="line"></span><br><span class="line">BigInt(<span class="built_in">Number</span>.MAX_SAFE_INTEGER) + <span class="number">10</span>n <span class="number">-10</span>n</span><br><span class="line"><span class="comment">// 9007199254740991n 👍</span></span><br></pre></td></tr></table></figure>
+<h2 id="Jason-Williams-Robert-Pamely-and-Mathias-Bynens提出的Promise-allSettled"><a href="#Jason-Williams-Robert-Pamely-and-Mathias-Bynens提出的Promise-allSettled" class="headerlink" title="Jason Williams, Robert Pamely and Mathias Bynens提出的Promise.allSettled"></a>Jason Williams, Robert Pamely and Mathias Bynens提出的Promise.allSettled</h2><p>自从ECMAScript 2015以来，JavaScript仅支持两种promise组合: <code>Promise.all()</code>和<code>Promise.race()</code>。感谢Jason Williams, Robert Pamely and Mathias Bynens，现在我们可以使用<code>Promise.allSettled()</code>。用这个方法来处理所有promise都解决时的场景（不管成功或失败）。看看下面的例子，并没有使用catch捕获异常！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Promise.allSettled([</span><br><span class="line">  fetch(&quot;https://api.github.com/users/pawelgrzybek&quot;).then(data =&gt; data.json()),</span><br><span class="line">  fetch(&quot;https://api.github.com/users/danjordan&quot;).then(data =&gt; data.json())</span><br><span class="line">])</span><br><span class="line">  .then(result =&gt; console.log(`All profile settled`));</span><br></pre></td></tr></table></figure>
+<p>还有<code>Promise.any()</code>有潜力很快进入ECMAScript规范中，在文章<a href="https://pawelgrzybek.com/promise-combinators-explained/" target="_blank" rel="noopener">“Promise组合解释”</a>中介绍了相关内容。</p>
+<h2 id="Jordan-Harband提出的globalThis"><a href="#Jordan-Harband提出的globalThis" class="headerlink" title="Jordan Harband提出的globalThis"></a>Jordan Harband提出的globalThis</h2><p>那么在JavaScript中什么是全局的<code>this</code>?是在浏览器中的<code>window</code>，在worker中的<code>self</code>，在Nodejs中的<code>global</code>或者其他… 这种混乱结束了！感谢Jordan Harband，我们现在可以使用<a href="https://github.com/tc39/proposal-global" target="_blank" rel="noopener"><code>globalThis</code></a>关键字了。</p>
+<h2 id="Kevin-Gibbons提出的for-in机制"><a href="#Kevin-Gibbons提出的for-in机制" class="headerlink" title="Kevin Gibbons提出的for-in机制"></a>Kevin Gibbons提出的for-in机制</h2><p>ECMAScript遗留了一个关于for-in循环顺序的详细描述。感谢<a href="https://twitter.com/bakkoting" target="_blank" rel="noopener">Kevin Gibbons</a>所付出的努力，为for-in机制定义了一系列规则。(原文: Thanks to Kevin Gibbons who finally put some TLC and defined a set in stone set of rules for for-in mechanics.)</p>
+<h2 id="Gabriel-Isenberg-Claude-Pache-and-Dustin-Savery提出的optional-chaining"><a href="#Gabriel-Isenberg-Claude-Pache-and-Dustin-Savery提出的optional-chaining" class="headerlink" title="Gabriel Isenberg, Claude Pache and Dustin Savery提出的optional chaining"></a>Gabriel Isenberg, Claude Pache and Dustin Savery提出的optional chaining</h2><p>读取层次很深的对象属性时通常是容易出错并且对应代码也不易阅读。感谢Gabriel Isenberg, Claude Pache and Dustin Savery，这件事情现在变得简单了。如果你是一个TypeScript用户，那么你不会发现什么新的特性，因为在3.7版本中TypeScript已经实现了这个特性。喜欢！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line"><span class="keyword">const</span> title = data &amp;&amp; data.article &amp;&amp; data.article.title</span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在</span></span><br><span class="line"><span class="keyword">const</span> title = data?.article?.title</span><br></pre></td></tr></table></figure>
+<h2 id="Gabriel-Isenberg-提出的空值联合"><a href="#Gabriel-Isenberg-提出的空值联合" class="headerlink" title="Gabriel Isenberg 提出的空值联合"></a>Gabriel Isenberg 提出的空值联合</h2><p><a href="https://github.com/tc39/proposal-nullish-coalescing" target="_blank" rel="noopener">空值联合</a>添加了一个新的短路原则操作符来处理默认值。<a href="https://twitter.com/the_gisenberg" target="_blank" rel="noopener">Gabriel Isenberg</a>做了很棒的工作。这个特性结合optional chanining特性使用。不同于<code>||</code>操作符，空值联合操作符<code>??</code>仅在左边的值为严格的<code>null</code>或<code>undefined</code>时起左右。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span> || <span class="string">"default value"</span></span><br><span class="line"><span class="comment">// default value</span></span><br><span class="line"></span><br><span class="line"><span class="string">""</span> ?? <span class="string">"default value"</span></span><br><span class="line"><span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> title = data?.article?.title ?? <span class="string">"What's new in ECMAScript 2020"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Domenic-Denicola提出的import-meta"><a href="#Domenic-Denicola提出的import-meta" class="headerlink" title="Domenic Denicola提出的import.meta"></a>Domenic Denicola提出的import.meta</h2><p><a href="https://twitter.com/domenic" target="_blank" rel="noopener">Domenic Denicola</a>提出的<a href="https://github.com/tc39/proposal-import-meta" target="_blank" rel="noopener">import.meta</a>提案添加一个host相关的元数据对象到当前执行的模块中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">import</span>.meta.url)</span><br><span class="line"><span class="comment">// file:///Users/pawelgrzybek/main.js</span></span><br></pre></td></tr></table></figure>
+<h2 id="EXPORT-AS-NS-FROM-“MOD”"><a href="#EXPORT-AS-NS-FROM-“MOD”" class="headerlink" title="EXPORT * AS NS FROM “MOD”"></a>EXPORT * AS NS FROM “MOD”</h2><p>这是一个添加到规范中的<a href="https://spectranaut.github.io/proposal-export-ns-from/" target="_blank" rel="noopener">有用特性</a>，可以让开发者导出其他模块命名空间下的对象到一个新的名称下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> * <span class="keyword">as</span> ns <span class="keyword">from</span> <span class="string">"mod"</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://pawelgrzybek.com/whats-new-in-ecmascript-2020/" target="_blank" rel="noopener">WHAT’S NEW IN ECMASCRIPT 2020</a></li>
+<li><a href="https://2ality.com/2019/12/ecmascript-2020.html" target="_blank" rel="noopener">ECMAScript 2020: the final feature set</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;ECMAScript-2020新特性&quot;&gt;&lt;a href=&quot;#ECMAScript-2020新特性&quot; class=&quot;headerlink&quot; title=&quot;ECMAScript 2020新特性&quot;&gt;&lt;/a&gt;ECMAScript 2020新特性&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="JavaScript" scheme="http://www.bookcell.org/tags/JavaScript/"/>
+    
+      <category term="ECMAScript" scheme="http://www.bookcell.org/tags/ECMAScript/"/>
+    
+      <category term="2020" scheme="http://www.bookcell.org/tags/2020/"/>
+    
+      <category term="规范" scheme="http://www.bookcell.org/tags/%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="Spec" scheme="http://www.bookcell.org/tags/Spec/"/>
+    
+  </entry>
   
   <entry>
     <title>React组件开发的十条最佳实践</title>
@@ -366,13 +437,13 @@
       <category term="读书" scheme="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
     
     
+      <category term="2020" scheme="http://www.bookcell.org/tags/2020/"/>
+    
       <category term="阅读" scheme="http://www.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
     
       <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
     
       <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
-    
-      <category term="2020" scheme="http://www.bookcell.org/tags/2020/"/>
     
   </entry>
   
@@ -605,11 +676,11 @@
       <category term="随笔" scheme="http://www.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
+      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
+    
       <category term="会议" scheme="http://www.bookcell.org/tags/%E4%BC%9A%E8%AE%AE/"/>
     
       <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
-    
-      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="d2" scheme="http://www.bookcell.org/tags/d2/"/>
     
@@ -653,11 +724,11 @@
       <category term="随笔" scheme="http://www.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
+      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
+    
       <category term="会议" scheme="http://www.bookcell.org/tags/%E4%BC%9A%E8%AE%AE/"/>
     
       <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
-    
-      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="jsconf" scheme="http://www.bookcell.org/tags/jsconf/"/>
     
@@ -1180,9 +1251,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
-    
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
     
       <category term="实战" scheme="http://www.bookcell.org/tags/%E5%AE%9E%E6%88%98/"/>
     
@@ -1330,11 +1401,11 @@
     
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
+      <category term="规范" scheme="http://www.bookcell.org/tags/%E8%A7%84%E8%8C%83/"/>
+    
       <category term="项目" scheme="http://www.bookcell.org/tags/%E9%A1%B9%E7%9B%AE/"/>
     
       <category term="团队" scheme="http://www.bookcell.org/tags/%E5%9B%A2%E9%98%9F/"/>
-    
-      <category term="规范" scheme="http://www.bookcell.org/tags/%E8%A7%84%E8%8C%83/"/>
     
       <category term="editorconfig" scheme="http://www.bookcell.org/tags/editorconfig/"/>
     
@@ -1658,9 +1729,9 @@
       <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
-    
       <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
     
       <category term="虚拟DOM" scheme="http://www.bookcell.org/tags/%E8%99%9A%E6%8B%9FDOM/"/>
     
@@ -2081,59 +2152,6 @@
     
       &lt;p&gt;由于ARTS的更新频率较高，个人感觉不太适合放在博客中更新，因此把ARTS放在Github上进行&lt;br&gt;保存。更新的频率在1周或2周更新一个内容，根据内容选择的深度和量。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/perry2008084/ART
-    
-    </summary>
-    
-      <category term="ARTS" scheme="http://www.bookcell.org/categories/ARTS/"/>
-    
-    
-      <category term="ARTS" scheme="http://www.bookcell.org/tags/ARTS/"/>
-    
-      <category term="Algorithm" scheme="http://www.bookcell.org/tags/Algorithm/"/>
-    
-      <category term="Review" scheme="http://www.bookcell.org/tags/Review/"/>
-    
-      <category term="Technique" scheme="http://www.bookcell.org/tags/Technique/"/>
-    
-      <category term="Share" scheme="http://www.bookcell.org/tags/Share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ARTS-2019-January-Three</title>
-    <link href="http://www.bookcell.org/2019/01/28/ARTS-2019-January-Three/"/>
-    <id>http://www.bookcell.org/2019/01/28/ARTS-2019-January-Three/</id>
-    <published>2019-01-28T13:43:27.000Z</published>
-    <updated>2019-01-28T13:44:00.574Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ARTS-2019-01-Three"><a href="#ARTS-2019-01-Three" class="headerlink" title="ARTS-2019-01-Three"></a>ARTS-2019-01-Three</h1><h2 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A(Algorithm):"></a>A(Algorithm):</h2><p>Binary Search</p>
-<blockquote>
-<p>通过一个给定值从中间开始查找，根据二分的方法依次缩小查找范围，直到找到。</p>
-</blockquote>
-<h2 id="R-Review"><a href="#R-Review" class="headerlink" title="R(Review):"></a>R(Review):</h2><p><a href="https://hackernoon.com/the-react-developer-tools-you-should-know-in-2019-e681dc4f4332" target="_blank" rel="noopener">React生态之2019</a></p>
-<ul>
-<li>组件管理: StoryBook</li>
-<li>组件库: Ant Design, React Material-UI, React Bootstrap</li>
-<li>CSS-in-JS: Sass, Less，CSS modules</li>
-<li>状态管理: Redux, Unstated, Mobx</li>
-<li>测试: Jest, Mocha, Karma</li>
-<li>脚手架: create-react-app 2.0, React-Boilerplate, React Slingshot</li>
-<li>新特性: Hooks，Context-API</li>
-<li>调试: React dev-tools</li>
-<li>静态站点生成: Gatsby, React static</li>
-</ul>
-<h2 id="T-Technique"><a href="#T-Technique" class="headerlink" title="T(Technique):"></a>T(Technique):</h2><p><a href="https://developer.qiniu.com/kodo/sdk/1289/nodejs" target="_blank" rel="noopener">七牛云Nodejs的SDK使用入门</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install qiniu</span><br></pre></td></tr></table></figure>
-<p>并且使用七牛提供的<code>Access Key</code>和<code>Secret Key</code>进行访问。</p>
-<h2 id="S-Share"><a href="#S-Share" class="headerlink" title="S(Share):"></a>S(Share):</h2><p>JavaScript基础类型</p>
-<blockquote>
-<p>算上ES6中加入的symbol类型，一共是7种，undefined、null、boolean、number、string、object、symbol。</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;ARTS-2019-01-Three&quot;&gt;&lt;a href=&quot;#ARTS-2019-01-Three&quot; class=&quot;headerlink&quot; title=&quot;ARTS-2019-01-Three&quot;&gt;&lt;/a&gt;ARTS-2019-01-Three&lt;/h1&gt;&lt;h2 id=&quot;A
     
     </summary>
     

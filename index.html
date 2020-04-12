@@ -369,6 +369,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2020/04/12/ecmascript-2020-new-feature/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/12/ecmascript-2020-new-feature/" itemprop="url">
+                  ECMAScript 2020新增特性
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-04-12 21:55:25 / Modified: 21:56:39" itemprop="dateCreated datePublished" datetime="2020-04-12T21:55:25+08:00">2020-04-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/12/ecmascript-2020-new-feature/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2020/04/12/ecmascript-2020-new-feature/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="ECMAScript-2020新特性"><a href="#ECMAScript-2020新特性" class="headerlink" title="ECMAScript 2020新特性"></a>ECMAScript 2020新特性</h2><ul>
+<li><a href="http://2ality.com/2018/02/string-prototype-matchall.html" target="_blank" rel="noopener">String.prototype.matchAll by Jordan Harband</a></li>
+<li><a href="http://2ality.com/2018/02/string-prototype-matchall.html" target="_blank" rel="noopener">import() by Domenic Denicola</a></li>
+<li><a href="http://2ality.com/2017/03/es-integer.html" target="_blank" rel="noopener">BigInt – arbitrary precision integers by Daniel Ehrenberg</a></li>
+<li><a href="https://2ality.com/2019/08/promise-combinators.html" target="_blank" rel="noopener">Promise.allSettled by Jason Williams, Robert Pamely and Mathias Bynens</a></li>
+<li><a href="https://exploringjs.com/impatient-js/ch_variables-assignment.html#globalThis" target="_blank" rel="noopener">globalThis by Jordan Harband</a></li>
+<li><a href="https://github.com/bakkot/for-in-exploration" target="_blank" rel="noopener">for-in mechanics by Kevin Gibbons</a></li>
+<li><a href="https://2ality.com/2019/07/optional-chaining.html" target="_blank" rel="noopener">Optional chaining by Gabriel Isenberg, Claude Pache, Dustin Savery</a></li>
+<li><a href="https://2ality.com/2019/08/nullish-coalescing.html" target="_blank" rel="noopener">Nullish coalescing Operator by Gabriel Isenberg</a></li>
+<li><a href="https://exploringjs.com/impatient-js/ch_modules.html#preview-import.meta.url" target="_blank" rel="noopener">import.meta by Domenic Denicola</a></li>
+<li><a href="https://github.com/tc39/ecma262/pull/1174" target="_blank" rel="noopener">export * as ns from “mod”</a></li>
+</ul>
+<h2 id="Jordan-Harband提出的String-prototype-matchAll"><a href="#Jordan-Harband提出的String-prototype-matchAll" class="headerlink" title="Jordan Harband提出的String.prototype.matchAll"></a>Jordan Harband提出的String.prototype.matchAll</h2><p><code>String.prototype</code>上的<code>match()</code>方法仅返回完全匹配，但是没有返回关于特定正则组的任意信息。感谢<a href="https://twitter.com/ljharb" target="_blank" rel="noopener">Jordan Harband</a>关于<a href="https://github.com/tc39/proposal-string-matchall" target="_blank" rel="noopener"><code>String.prototype.matchAll</code></a>的提案，可以返回比<code>match()</code>多很多的信息。返回的迭代器除了精确匹配外还给了我们访问所有的正则匹配捕获组。你还记得Gorkem Yakin和Daniel Ehrenberg添加到ECMAScript 2018的具名捕获组吗？<code>matchAll()</code>方法和此能很好的协调。通过下面例子来解释一下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> text = <span class="string">"From 2019.01.29 to 2019.01.30"</span>;</span><br><span class="line"><span class="keyword">const</span> regexp = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;).(?&lt;month&gt;\d&#123;2&#125;).(?&lt;day&gt;\d&#123;2&#125;)/gu</span>;</span><br><span class="line"><span class="keyword">const</span> results = text.match(regexp);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(results);</span><br><span class="line"><span class="comment">// [ '2019.01.29', '2019.01.30' ]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> text = <span class="string">"From 2019.01.29 to 2019.01.30"</span>;</span><br><span class="line"><span class="keyword">const</span> regexp = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;).(?&lt;month&gt;\d&#123;2&#125;).(?&lt;day&gt;\d&#123;2&#125;)/gu</span>;</span><br><span class="line"><span class="keyword">const</span> results = <span class="built_in">Array</span>.from(text.matchAll(regexp));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(results);</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   [</span></span><br><span class="line"><span class="comment">//     '2019.01.29',</span></span><br><span class="line"><span class="comment">//     '2019',</span></span><br><span class="line"><span class="comment">//     '01',</span></span><br><span class="line"><span class="comment">//     '29',</span></span><br><span class="line"><span class="comment">//     index: 5,</span></span><br><span class="line"><span class="comment">//     input: 'From 2019.01.29 to 2019.01.30',</span></span><br><span class="line"><span class="comment">//     groups: [Object: null prototype] &#123; year: '2019', month: '01', day: '29' &#125;</span></span><br><span class="line"><span class="comment">//   ],</span></span><br><span class="line"><span class="comment">//   [</span></span><br><span class="line"><span class="comment">//     '2019.01.30',</span></span><br><span class="line"><span class="comment">//     '2019',</span></span><br><span class="line"><span class="comment">//     '01',</span></span><br><span class="line"><span class="comment">//     '30',</span></span><br><span class="line"><span class="comment">//     index: 19,</span></span><br><span class="line"><span class="comment">//     input: 'From 2019.01.29 to 2019.01.30',</span></span><br><span class="line"><span class="comment">//     groups: [Object: null prototype] &#123; year: '2019', month: '01', day: '30' &#125;</span></span><br><span class="line"><span class="comment">//   ]</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Domenic-Denicola提出的import"><a href="#Domenic-Denicola提出的import" class="headerlink" title="Domenic Denicola提出的import()"></a>Domenic Denicola提出的import()</h2><p>不同于ECMAScript 2015中介绍的静态模块，Domenic Denicola提案的<a href="https://github.com/tc39/proposal-dynamic-import" target="_blank" rel="noopener"><code>动态导入</code></a>可以实现按需加载。这个类似函数的格式（不是继承自<code>Function .prototype</code>）返回一个很强大的promise。使用场景比如: 按需导入，在一个脚本中计算模块名并加载执行变得可能。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> modulePage = <span class="string">'page.js'</span>;</span><br><span class="line"><span class="keyword">import</span>(modulePage)</span><br><span class="line">    .then(<span class="function">(<span class="params"><span class="built_in">module</span></span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">module</span>.default();</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> helpersModule = <span class="string">'helpers.js'</span>;</span><br><span class="line">  <span class="keyword">const</span> <span class="built_in">module</span> = <span class="keyword">await</span> <span class="keyword">import</span>(helpersModule)</span><br><span class="line">  <span class="keyword">const</span> total = <span class="built_in">module</span>.sum(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h2 id="Daniel-Ehrenberg提出的BigInt-任意精度整数"><a href="#Daniel-Ehrenberg提出的BigInt-任意精度整数" class="headerlink" title="Daniel Ehrenberg提出的BigInt-任意精度整数"></a>Daniel Ehrenberg提出的BigInt-任意精度整数</h2><p>感谢<a href="https://twitter.com/littledan" target="_blank" rel="noopener">Daniel Ehrenberg</a>, <code>Number.MAX_SAFE_INTEGER</code>不再是JavaScript中的一个限制。<a href="https://github.com/tc39/proposal-bigint" target="_blank" rel="noopener"><code>BigInt</code></a>是一个能表示任意精度整数的新基础类型。你可以通过使用<code>BigInt</code>方法或者在一个数字后添加<code>n</code>后缀来把一个数字转换为一个新的<code>bigint</code>类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTERGER</span><br><span class="line"><span class="comment">// 9007199254740991</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTEGER + <span class="number">10</span> <span class="number">-10</span></span><br><span class="line"><span class="comment">// 9007199254740990 👎</span></span><br><span class="line"></span><br><span class="line">BigInt(<span class="built_in">Number</span>.MAX_SAFE_INTEGER) + <span class="number">10</span>n <span class="number">-10</span>n</span><br><span class="line"><span class="comment">// 9007199254740991n 👍</span></span><br></pre></td></tr></table></figure>
+<h2 id="Jason-Williams-Robert-Pamely-and-Mathias-Bynens提出的Promise-allSettled"><a href="#Jason-Williams-Robert-Pamely-and-Mathias-Bynens提出的Promise-allSettled" class="headerlink" title="Jason Williams, Robert Pamely and Mathias Bynens提出的Promise.allSettled"></a>Jason Williams, Robert Pamely and Mathias Bynens提出的Promise.allSettled</h2><p>自从ECMAScript 2015以来，JavaScript仅支持两种promise组合: <code>Promise.all()</code>和<code>Promise.race()</code>。感谢Jason Williams, Robert Pamely and Mathias Bynens，现在我们可以使用<code>Promise.allSettled()</code>。用这个方法来处理所有promise都解决时的场景（不管成功或失败）。看看下面的例子，并没有使用catch捕获异常！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Promise.allSettled([</span><br><span class="line">  fetch(&quot;https://api.github.com/users/pawelgrzybek&quot;).then(data =&gt; data.json()),</span><br><span class="line">  fetch(&quot;https://api.github.com/users/danjordan&quot;).then(data =&gt; data.json())</span><br><span class="line">])</span><br><span class="line">  .then(result =&gt; console.log(`All profile settled`));</span><br></pre></td></tr></table></figure>
+<p>还有<code>Promise.any()</code>有潜力很快进入ECMAScript规范中，在文章<a href="https://pawelgrzybek.com/promise-combinators-explained/" target="_blank" rel="noopener">“Promise组合解释”</a>中介绍了相关内容。</p>
+<h2 id="Jordan-Harband提出的globalThis"><a href="#Jordan-Harband提出的globalThis" class="headerlink" title="Jordan Harband提出的globalThis"></a>Jordan Harband提出的globalThis</h2><p>那么在JavaScript中什么是全局的<code>this</code>?是在浏览器中的<code>window</code>，在worker中的<code>self</code>，在Nodejs中的<code>global</code>或者其他… 这种混乱结束了！感谢Jordan Harband，我们现在可以使用<a href="https://github.com/tc39/proposal-global" target="_blank" rel="noopener"><code>globalThis</code></a>关键字了。</p>
+<h2 id="Kevin-Gibbons提出的for-in机制"><a href="#Kevin-Gibbons提出的for-in机制" class="headerlink" title="Kevin Gibbons提出的for-in机制"></a>Kevin Gibbons提出的for-in机制</h2><p>ECMAScript遗留了一个关于for-in循环顺序的详细描述。感谢<a href="https://twitter.com/bakkoting" target="_blank" rel="noopener">Kevin Gibbons</a>所付出的努力，为for-in机制定义了一系列规则。(原文: Thanks to Kevin Gibbons who finally put some TLC and defined a set in stone set of rules for for-in mechanics.)</p>
+<h2 id="Gabriel-Isenberg-Claude-Pache-and-Dustin-Savery提出的optional-chaining"><a href="#Gabriel-Isenberg-Claude-Pache-and-Dustin-Savery提出的optional-chaining" class="headerlink" title="Gabriel Isenberg, Claude Pache and Dustin Savery提出的optional chaining"></a>Gabriel Isenberg, Claude Pache and Dustin Savery提出的optional chaining</h2><p>读取层次很深的对象属性时通常是容易出错并且对应代码也不易阅读。感谢Gabriel Isenberg, Claude Pache and Dustin Savery，这件事情现在变得简单了。如果你是一个TypeScript用户，那么你不会发现什么新的特性，因为在3.7版本中TypeScript已经实现了这个特性。喜欢！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line"><span class="keyword">const</span> title = data &amp;&amp; data.article &amp;&amp; data.article.title</span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在</span></span><br><span class="line"><span class="keyword">const</span> title = data?.article?.title</span><br></pre></td></tr></table></figure>
+<h2 id="Gabriel-Isenberg-提出的空值联合"><a href="#Gabriel-Isenberg-提出的空值联合" class="headerlink" title="Gabriel Isenberg 提出的空值联合"></a>Gabriel Isenberg 提出的空值联合</h2><p><a href="https://github.com/tc39/proposal-nullish-coalescing" target="_blank" rel="noopener">空值联合</a>添加了一个新的短路原则操作符来处理默认值。<a href="https://twitter.com/the_gisenberg" target="_blank" rel="noopener">Gabriel Isenberg</a>做了很棒的工作。这个特性结合optional chanining特性使用。不同于<code>||</code>操作符，空值联合操作符<code>??</code>仅在左边的值为严格的<code>null</code>或<code>undefined</code>时起左右。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span> || <span class="string">"default value"</span></span><br><span class="line"><span class="comment">// default value</span></span><br><span class="line"></span><br><span class="line"><span class="string">""</span> ?? <span class="string">"default value"</span></span><br><span class="line"><span class="comment">// ""</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> title = data?.article?.title ?? <span class="string">"What's new in ECMAScript 2020"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Domenic-Denicola提出的import-meta"><a href="#Domenic-Denicola提出的import-meta" class="headerlink" title="Domenic Denicola提出的import.meta"></a>Domenic Denicola提出的import.meta</h2><p><a href="https://twitter.com/domenic" target="_blank" rel="noopener">Domenic Denicola</a>提出的<a href="https://github.com/tc39/proposal-import-meta" target="_blank" rel="noopener">import.meta</a>提案添加一个host相关的元数据对象到当前执行的模块中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">import</span>.meta.url)</span><br><span class="line"><span class="comment">// file:///Users/pawelgrzybek/main.js</span></span><br></pre></td></tr></table></figure>
+<h2 id="EXPORT-AS-NS-FROM-“MOD”"><a href="#EXPORT-AS-NS-FROM-“MOD”" class="headerlink" title="EXPORT * AS NS FROM “MOD”"></a>EXPORT * AS NS FROM “MOD”</h2><p>这是一个添加到规范中的<a href="https://spectranaut.github.io/proposal-export-ns-from/" target="_blank" rel="noopener">有用特性</a>，可以让开发者导出其他模块命名空间下的对象到一个新的名称下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> * <span class="keyword">as</span> ns <span class="keyword">from</span> <span class="string">"mod"</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://pawelgrzybek.com/whats-new-in-ecmascript-2020/" target="_blank" rel="noopener">WHAT’S NEW IN ECMASCRIPT 2020</a></li>
+<li><a href="https://2ality.com/2019/12/ecmascript-2020.html" target="_blank" rel="noopener">ECMAScript 2020: the final feature set</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2020/03/22/the-10-react-component-best-practice/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1274,292 +1479,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/12/29/reading-2019-summary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/29/reading-2019-summary/" itemprop="url">
-                  2019年的阅读总结
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-12-29 15:39:11 / Modified: 16:47:32" itemprop="dateCreated datePublished" datetime="2019-12-29T15:39:11+08:00">2019-12-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书/" itemprop="url" rel="index"><span itemprop="name">读书</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/29/reading-2019-summary/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/12/29/reading-2019-summary/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://picbed.bookcell.cn/picgo/IMG_2732.jpg" alt=""></p>
-<p><sub>这是下半年去的培荣书屋，汪涵给他父亲开的一家书店</sub></p>
-<p>2019年共阅读了23本书，年初计划的24本书中，尚有13本未读完，期间也读了一些非计划内的书。因此2020年准备计划阅读的书单会减少一些数量，并且会更注重精读的质量。</p>
-<p>个人比较推荐的有弗兰克尔的《活出生命的意义》、乔治奥威尔的《1984》和《动物农场》、还有吴军的《见识》。</p>
-<h2 id="书籍短评"><a href="#书籍短评" class="headerlink" title="书籍短评"></a>书籍短评</h2><p>下面是阅读过的书籍短评：</p>
-<p><code>《Web前端开发修炼之道》</code></p>
-<ul>
-<li>阅读时间 2018.12.15～2019.1.3</li>
-<li>心得: 前端前辈的心得，部分技术已经过时，有一些思想还可借鉴。前端已经从jQuery时代，进入React/Vue/Angular时代。</li>
-</ul>
-<p><code>《异类-不一样的成功启示录》</code>by 马尔科姆·格拉德威尔</p>
-<ul>
-<li>阅读时间 2018.12.20～2019.1.4</li>
-<li>心得: 书中提到成功有几方面的因素，10000小时的练习、机遇、文化背景，其中机遇是影响最重大的一个因素，所谓时势造英雄。</li>
-</ul>
-<p><code>《失控》</code>by KK</p>
-<ul>
-<li>阅读时间 2018~2019.1.16</li>
-<li>心得： 一本巨大的作品，涉及的知识面很广，富有前瞻性，谈到了许多人类的未来可能。其中有两点，我觉得比较有意思，一个是构建生态系统；另一个是生物特性和人工智能的结合。</li>
-</ul>
-<p><code>《CSS禅意花园》</code>by Shea Dove</p>
-<ul>
-<li>阅读时间 2018.12 ~.2019.1.28</li>
-<li>心得：大概的翻了一遍，书中罗列了几十种实现禅意花园的CSS方案，点出其中的设计思路和难点、注意点，面向的读者更偏向设计人员。</li>
-</ul>
-<p><code>《生命之书》</code></p>
-<ul>
-<li>阅读时间 2018.12～2019.1.30</li>
-<li>心得: 有关人生哲学的一本书，比较深奥，有点佛学的味道。</li>
-</ul>
-<p><code>《未来世界的幸存者》</code>阮一峰</p>
-<ul>
-<li>阅读时间 2019.2.11~2019.1.13</li>
-<li>心得: 讲述技术带来的冲击以及有关职业人生的未来思考，值得一看。</li>
-</ul>
-<p><code>《活出生命的意义》</code>弗兰克尔</p>
-<ul>
-<li>阅读时间: 2019.3.6～2019.3.8</li>
-<li>心得: 从二战德国集中营幸存下来的心理医生弗兰克尔讲述自身经历，并提出心理学“意义疗法”，寻找到生命的意义是活下去的根本。</li>
-</ul>
-<p><code>《穷查理宝典》</code>查理芒格</p>
-<ul>
-<li>阅读时间: 2019.2.1～2019.3.12</li>
-<li>心得: 收录查理芒格的演讲稿及他的一些思考，印象深刻的是他对终身学习重要性的强调，以及对普世智慧的见解。</li>
-</ul>
-<p><code>《JavaScript语言精粹》</code>道格拉斯·克劳福德</p>
-<ul>
-<li>阅读时间: 2019.2.15～2019.3.17</li>
-<li>心得: 大师利用浓缩式的方式讲述JS语言的知识点，并列举了语言的精华和糟粕，主要针对ES3标准。</li>
-</ul>
-<p><code>《你不知道的JavaScript 上卷和中卷》</code></p>
-<ul>
-<li>阅读时间: 2019.3.18~2019.4.18</li>
-<li>心得: 深度讲解作用域、this、继承、原型链，值得再细读一遍。讲解比较深入，但是个人感觉，没有红宝书的作者扎卡斯写的容易理解。</li>
-</ul>
-<p><code>《1984》</code>乔治奥威尔</p>
-<ul>
-<li>阅读时间: 2019.4.10~2019.4.20</li>
-<li>心得:<br>奥威尔在1948年描绘1984年未来世界中极权主义下的生活，发人深省，以及对于自由的追求。</li>
-</ul>
-<p><code>《动物农场》</code>乔治奥威尔</p>
-<ul>
-<li>心得: 讲述一个关于极权统治的童话故事</li>
-</ul>
-<p><code>《如何不为钱发愁》</code></p>
-<ul>
-<li>时间：2019.5.15-2019.6.2</li>
-<li>心得: 干货不多，主要从哲学角度分析财务问题，主要的理解在于欲望与实际需求的一种平衡。</li>
-</ul>
-<p><code>《如何用一年的时间获得10年的经验》</code>郝培强</p>
-<ul>
-<li>时间: 2019.6.10-2019.7.12</li>
-<li>心得: 主要是作者的一些思考，关键的一些观点，多读书，注意做事的方法，大神其实没有什么特殊的只是比你多做了一点努力，执行力要强。</li>
-</ul>
-<p><code>《软技能》</code></p>
-<ul>
-<li>时间：2019.6～2019.7.22</li>
-<li>心得: 作者讲述了包括自我营销、学习方法、工作方法、健身、理财、调整心态等各方面的知识，更像是一个过来人给你传授经验，有一些方法是值得学习的。</li>
-</ul>
-<p><code>《Web前端开发最佳实践》</code></p>
-<ul>
-<li>时间：2019.5.15-2019.7.22</li>
-<li>心得: 主要是前端开发中的一下经验之谈，有一些方法可以参考，也有一些技术已经过时了，参考价值不是很大。</li>
-</ul>
-<p><code>《清醒思考的艺术》</code>罗尔夫•多贝里</p>
-<ul>
-<li>时间：2019.7.5~2019.8.10</li>
-<li>心得: 作者提出了日常生活中多个方面存在的思维误区，不时的回顾一下这些思维误区，能够让我们少犯错误。</li>
-</ul>
-<p><code>《哲学简史》</code>冯友兰</p>
-<ul>
-<li>时间：2019.6.16~2019.8.20</li>
-<li>心得: 讲述先秦时期的哲学各家，涉及儒家、佛家、道家、法家、阴阳家等，以及近现代的理学、心学等，是了解中国哲学史的一本好书，概览全貌。</li>
-</ul>
-<p><code>《下一个倒下的会不会是华为》</code></p>
-<ul>
-<li>时间：2019.8.24-2019.8.31</li>
-<li>心得: 讲述了华为的核心价值观，华为成长起来过程中遭遇的变革和突破，以及任正非的思考和决策。从赞许和批判的角度均有涉及，相对比较客观。华为核心价值观，以客户为中心，以奋斗者为本，长期坚持艰苦奋斗。</li>
-</ul>
-<p><code>《价值为纲》</code></p>
-<ul>
-<li>时间：2019.8.30~2019.8.31</li>
-<li>心得: 主要讲述华为的财务政策。</li>
-</ul>
-<p><code>《见识》</code>吴军</p>
-<ul>
-<li>时间: 2019.9.6~2019.10.6</li>
-<li>心得: 讲述作者对于人生各方面的经验和看法，对于年轻人有一定的参考意义，值得多看几遍。</li>
-</ul>
-<p><code>《论语今读》</code>李泽厚</p>
-<ul>
-<li>时间:2019.1.1~2019.12.9</li>
-<li>心得: 对论语的解读，包括翻译和注解，有引经据典的说明，也有个人的见解，帮助理解论语。论语是孔子及弟子的言语记录，表达对于为人处事的方法，从现在看来，依然值得一读，根据这次的阅读体验，阅读古文经典，还是应该找一本名家注解版阅读比较好理解，最好是大家认可度比较高的注解版本。</li>
-</ul>
-<p><code>《习惯的力量》</code></p>
-<ul>
-<li>时间: 2019.12.1~2019.12.29</li>
-<li>心得: 通过许多实例讲述习惯的形成和改变，主要涉及一个循环，惯常行为-暗示-奖励，学会习惯背后的规律，有助于改善旧的习惯，养成新的好习惯。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1607,7 +1526,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">102</span>
+                    <span class="site-state-item-count">103</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2061,7 +1980,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">208</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">210</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
