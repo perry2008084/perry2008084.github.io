@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.bookcell.org/about/index.html</loc>
+    
+    <lastmod>2020-04-12T14:11:57.402Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.bookcell.org/2020/04/12/ecmascript-2020-new-feature/</loc>
     
     <lastmod>2020-04-12T13:56:39.267Z</lastmod>
@@ -145,13 +152,6 @@
     <loc>http://www.bookcell.org/2019/03/23/ARTS-migarate-to-github/</loc>
     
     <lastmod>2019-03-23T15:06:24.480Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.bookcell.org/about/index.html</loc>
-    
-    <lastmod>2019-01-28T13:49:58.245Z</lastmod>
     
   </url>
   
