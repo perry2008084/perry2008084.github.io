@@ -3,6 +3,36 @@
 
 
     
+  <url>
+    <loc>http://www.bookcell.org/2020/05/31/ecmascript-2019-new-feature/</loc>
+    <lastmod>2020-05-31T14:01:18.298Z</lastmod>
+    <data>
+        <display>
+        <title>ecmascript-2019-new-feature</title>
+        <pubTime>2020-05-31T14:00:24.000Z</pubTime>
+        
+        <tag>2019</tag>
+         
+        <tag>前端开发</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>ECMAScript</tag>
+         
+        <tag>规范</tag>
+         
+        <tag>Spec</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://www.bookcell.org/2020/04/12/ecmascript-2020-new-feature/</loc>
@@ -18,11 +48,11 @@
          
         <tag>ECMAScript</tag>
          
-        <tag>2020</tag>
-         
         <tag>规范</tag>
          
         <tag>Spec</tag>
+         
+        <tag>2020</tag>
          
          
            
@@ -114,11 +144,11 @@
         <title>2019年第14届D2参会记录</title>
         <pubTime>2019-12-16T15:19:23.000Z</pubTime>
         
-        <tag>前端</tag>
-         
         <tag>会议</tag>
          
         <tag>2019</tag>
+         
+        <tag>前端</tag>
          
         <tag>d2</tag>
          
@@ -170,11 +200,11 @@
         <title>2020年的计划阅读书单</title>
         <pubTime>2019-12-29T08:37:47.000Z</pubTime>
         
-        <tag>2020</tag>
-         
         <tag>阅读</tag>
          
         <tag>读书</tag>
+         
+        <tag>2020</tag>
          
         <tag>书单</tag>
          
@@ -222,11 +252,11 @@
         <title>JSConf China 2019</title>
         <pubTime>2019-10-25T15:36:26.000Z</pubTime>
         
-        <tag>前端</tag>
-         
         <tag>会议</tag>
          
         <tag>2019</tag>
+         
+        <tag>前端</tag>
          
         <tag>jsconf</tag>
          
@@ -332,9 +362,9 @@
         <title>DOM实战基础</title>
         <pubTime>2019-07-22T14:21:21.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>实战</tag>
          
@@ -474,9 +504,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>前端开发</tag>
-         
         <tag>DOM</tag>
+         
+        <tag>前端开发</tag>
          
         <tag>虚拟DOM</tag>
          
@@ -746,13 +776,13 @@
         <title>2019年D2和SEE Conf的参会感想</title>
         <pubTime>2019-01-06T12:08:03.000Z</pubTime>
         
-        <tag>会议</tag>
-         
-        <tag>2019</tag>
-         
         <tag>D2</tag>
          
         <tag>SEE Conf</tag>
+         
+        <tag>会议</tag>
+         
+        <tag>2019</tag>
          
         <tag>感想</tag>
          
@@ -1236,9 +1266,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>ag-grid</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>ag-grid</tag>
          
         <tag>表格</tag>
          
@@ -1494,9 +1524,9 @@
         
         <tag>读书</tag>
          
-        <tag>效率</tag>
-         
         <tag>方法</tag>
+         
+        <tag>效率</tag>
          
         <tag>少即是多</tag>
          
@@ -1544,9 +1574,9 @@
         <title>设定目标-使用SMART法则</title>
         <pubTime>2017-11-07T05:02:17.000Z</pubTime>
         
-        <tag>目标</tag>
-         
         <tag>方法</tag>
+         
+        <tag>目标</tag>
          
         <tag>SMART法则</tag>
          
@@ -1840,11 +1870,11 @@
         
         <tag>前端开发</tag>
          
+        <tag>jquery</tag>
+         
         <tag>i18next</tag>
          
         <tag>国际化</tag>
-         
-        <tag>jquery</tag>
          
          
            
@@ -2294,11 +2324,11 @@
         <title>hexo-theme-use-series-2</title>
         <pubTime>2016-12-11T09:27:28.000Z</pubTime>
         
-        <tag>工具</tag>
-         
         <tag>hexo</tag>
          
         <tag>Next</tag>
+         
+        <tag>工具</tag>
          
          
            

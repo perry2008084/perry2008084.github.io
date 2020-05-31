@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ecmascript-2019-new-feature]]></title>
+    <url>%2F2020%2F05%2F31%2Fecmascript-2019-new-feature%2F</url>
+    <content type="text"><![CDATA[关于ECMAScript 2019规范的新增特性 可选的捕获绑定在这之前你肯定使用过try...catch。 12345try &#123; // 抛出异常&#125; catch (error) &#123; // 异常处理&#125; 如果你不需要在捕获语句中绑定这个error参数呢？现在可以忽略这个参数绑定了。 12345try &#123; // 抛出异常&#125; catch &#123; // 异常处理&#125; Optional catch binding proposal 作者Michael Ficarra JSON超集这项特性相对于一个新的语言特性来讲，更像是一个规范的更新–它是完全向下兼容的。尽管ECMAScript文档称JSON是JSON.parse()的子集，实际上JSON标准并不是ECMAScript的子集。JSON可以包含非转义换行分隔符(U+2028)和段落分隔符(U+2029)，但是ECMAScript必须要通过转义后才能添加到字符串中。这可能会引起bug或者给规范添加不必要的复杂度。这个提案引入了一些ECMAScript字符串文本常量和JSON字符串文本常量的一致性。JSON标准现在是ECMAScript的合法子集。 JSON superset proposal [作者: Richard Gibson, Mark Miller and Mathias Bynens] Symbol.prototype.description为了改善调试体验，Symbol可以在创建时指定一个可选的描述信息。之前我们通常是通过Symbol.prototype.toString()返回一个包含在Symbol()字符串内的描述来进行访问。使用ECMAScript 2019我们可以更加直观的做这件事，Symbol.prototype.description仅返回一个描述而不包含任何装饰。 1234567const foo = Symbol("My super symbol");foo.toString();// Symbol(My super symbol)foo.description;// My super symbol Symbol.prototype.description proposal [作者: Michael Ficarra] Function.prototype.toString 修订toString()的实现被再次修订，并且标准化返回实现独立的字符串（定义函数实现的源码）。这是在一个已经是较大提案上的增量式更新，规则在Function.prototype.toString提案介绍有很好的定义。 12345678function hi(name) &#123; return `Hi $&#123;name&#125;`;&#125;hi.toString();// function hi(name) &#123;// return `Hi $&#123;name&#125;`;// &#125; 12Array.isArray.toString();// function isArray() &#123; [native code] &#125; Function.prototype.toString提案 [作者: Michael Ficarra] Object.fromEntries一个非常便利的方法用来转换一个键值对列表到一个对象中。 123const arr = [["name", "Pawel"], ["surname", "Grzybek"], ["age", 31]];const obj = Object.fromEntries(arr);// &#123;name: "Pawel", surname: "Grzybek", age: 31&#125; Object.fromEntries 提案 [作者: Darien Maillet Valentine] 符合语法规则的JSON.stringify这个向下兼容的改变阻止JSON.stringify()返回无法在UTF-8标准中表示的编码字符串。 1234567// 之前JSON.stringify("\u&#123;D800&#125;");// '"�"'// 之后JSON.stringify("\u&#123;D800&#125;");// "\ud800" Well-formed JSON.stringify 提案 [作者: Richard Gibson, Mathias Bynens] String.prototype.trimStart/String.prototype.trimEndString.prototype.trim()已经在标准中很多年了。这个提案引入了String.prototype.trimStart()和String.prototype.trimEnd()。它们实际上添加到浏览器中也有很多年了，现在是时候把它们标准化。 12345678" javascript ".trim();// "javascript"" javascript ".trimStart();// "javascript "" javascript ".trimEnd();// " javascript" String.prototype.trimStart / String.prototype.trimEnd提案 [作者: Sebastian Markbåge, Mathias Bynens] Array.prototype.flat / Array.prototype.flatMap你还记得SmooshGate? Array.prototype.flat()将数组递归展开至指定深度。默认深度是1。让我们看一些实例: 12345[1, 2, [3, 4, [5, 6]]].flat();// [ 1, 2, 3, 4, [ 5, 6 ] ][1, 2, [3, 4, [5, 6]]].flat(2);// [ 1, 2, 3, 4, 5, 6 ] Array.prototype.flatMap()返回一个Array.prototpye.map()方法的展开结果。可以想象一下arr.map(mapper.flat(1)。 12[1, 2, 3].flatMap(item =&gt; [item, item * 100]);// [1, 100, 2, 200, 3, 300] Array.prototype.flat / Array.prototype.flatMap 提案 [作者: Brian Terlson, Michael Ficarra, Mathias Bynens] Array.prototype.sort稳定性在这之前，数组中超过10个元素会使用一个不稳定的快排算法。往前发展，这个功能现在被稳定的TimSort算法。如果你很好奇，强烈推荐你看看V8团队Simon Zünd发的文章在V8中的排序。 Array.prototype.sort 稳定性提案 [Mathias Bynens]]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>2019</tag>
+        <tag>前端开发</tag>
+        <tag>JavaScript</tag>
+        <tag>ECMAScript</tag>
+        <tag>规范</tag>
+        <tag>Spec</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ECMAScript 2020新增特性]]></title>
     <url>%2F2020%2F04%2F12%2Fecmascript-2020-new-feature%2F</url>
     <content type="text"><![CDATA[ECMAScript 2020新特性 String.prototype.matchAll by Jordan Harband import() by Domenic Denicola BigInt – arbitrary precision integers by Daniel Ehrenberg Promise.allSettled by Jason Williams, Robert Pamely and Mathias Bynens globalThis by Jordan Harband for-in mechanics by Kevin Gibbons Optional chaining by Gabriel Isenberg, Claude Pache, Dustin Savery Nullish coalescing Operator by Gabriel Isenberg import.meta by Domenic Denicola export * as ns from “mod” Jordan Harband提出的String.prototype.matchAllString.prototype上的match()方法仅返回完全匹配，但是没有返回关于特定正则组的任意信息。感谢Jordan Harband关于String.prototype.matchAll的提案，可以返回比match()多很多的信息。返回的迭代器除了精确匹配外还给了我们访问所有的正则匹配捕获组。你还记得Gorkem Yakin和Daniel Ehrenberg添加到ECMAScript 2018的具名捕获组吗？matchAll()方法和此能很好的协调。通过下面例子来解释一下。 123456const text = "From 2019.01.29 to 2019.01.30";const regexp = /(?&lt;year&gt;\d&#123;4&#125;).(?&lt;month&gt;\d&#123;2&#125;).(?&lt;day&gt;\d&#123;2&#125;)/gu;const results = text.match(regexp);console.log(results);// [ '2019.01.29', '2019.01.30' ] 12345678910111213141516171819202122232425const text = "From 2019.01.29 to 2019.01.30";const regexp = /(?&lt;year&gt;\d&#123;4&#125;).(?&lt;month&gt;\d&#123;2&#125;).(?&lt;day&gt;\d&#123;2&#125;)/gu;const results = Array.from(text.matchAll(regexp));console.log(results);// [// [// '2019.01.29',// '2019',// '01',// '29',// index: 5,// input: 'From 2019.01.29 to 2019.01.30',// groups: [Object: null prototype] &#123; year: '2019', month: '01', day: '29' &#125;// ],// [// '2019.01.30',// '2019',// '01',// '30',// index: 19,// input: 'From 2019.01.29 to 2019.01.30',// groups: [Object: null prototype] &#123; year: '2019', month: '01', day: '30' &#125;// ]// ] Domenic Denicola提出的import()不同于ECMAScript 2015中介绍的静态模块，Domenic Denicola提案的动态导入可以实现按需加载。这个类似函数的格式（不是继承自Function .prototype）返回一个很强大的promise。使用场景比如: 按需导入，在一个脚本中计算模块名并加载执行变得可能。 12345const modulePage = 'page.js';import(modulePage) .then((module) =&gt; &#123; module.default(); &#125;); 12345(async () =&gt; &#123; const helpersModule = 'helpers.js'; const module = await import(helpersModule) const total = module.sum(2, 2);&#125;)(); Daniel Ehrenberg提出的BigInt-任意精度整数感谢Daniel Ehrenberg, Number.MAX_SAFE_INTEGER不再是JavaScript中的一个限制。BigInt是一个能表示任意精度整数的新基础类型。你可以通过使用BigInt方法或者在一个数字后添加n后缀来把一个数字转换为一个新的bigint类型。 12345678Number.MAX_SAFE_INTERGER// 9007199254740991Number.MAX_SAFE_INTEGER + 10 -10// 9007199254740990 👎BigInt(Number.MAX_SAFE_INTEGER) + 10n -10n// 9007199254740991n 👍 Jason Williams, Robert Pamely and Mathias Bynens提出的Promise.allSettled自从ECMAScript 2015以来，JavaScript仅支持两种promise组合: Promise.all()和Promise.race()。感谢Jason Williams, Robert Pamely and Mathias Bynens，现在我们可以使用Promise.allSettled()。用这个方法来处理所有promise都解决时的场景（不管成功或失败）。看看下面的例子，并没有使用catch捕获异常！ 12345Promise.allSettled([ fetch(&quot;https://api.github.com/users/pawelgrzybek&quot;).then(data =&gt; data.json()), fetch(&quot;https://api.github.com/users/danjordan&quot;).then(data =&gt; data.json())]) .then(result =&gt; console.log(`All profile settled`)); 还有Promise.any()有潜力很快进入ECMAScript规范中，在文章“Promise组合解释”中介绍了相关内容。 Jordan Harband提出的globalThis那么在JavaScript中什么是全局的this?是在浏览器中的window，在worker中的self，在Nodejs中的global或者其他… 这种混乱结束了！感谢Jordan Harband，我们现在可以使用globalThis关键字了。 Kevin Gibbons提出的for-in机制ECMAScript遗留了一个关于for-in循环顺序的详细描述。感谢Kevin Gibbons所付出的努力，为for-in机制定义了一系列规则。(原文: Thanks to Kevin Gibbons who finally put some TLC and defined a set in stone set of rules for for-in mechanics.) Gabriel Isenberg, Claude Pache and Dustin Savery提出的optional chaining读取层次很深的对象属性时通常是容易出错并且对应代码也不易阅读。感谢Gabriel Isenberg, Claude Pache and Dustin Savery，这件事情现在变得简单了。如果你是一个TypeScript用户，那么你不会发现什么新的特性，因为在3.7版本中TypeScript已经实现了这个特性。喜欢！ 12345// 之前const title = data &amp;&amp; data.article &amp;&amp; data.article.title// 现在const title = data?.article?.title Gabriel Isenberg 提出的空值联合空值联合添加了一个新的短路原则操作符来处理默认值。Gabriel Isenberg做了很棒的工作。这个特性结合optional chanining特性使用。不同于||操作符，空值联合操作符??仅在左边的值为严格的null或undefined时起左右。 12345"" || "default value"// default value"" ?? "default value"// "" 1const title = data?.article?.title ?? "What's new in ECMAScript 2020" Domenic Denicola提出的import.metaDomenic Denicola提出的import.meta提案添加一个host相关的元数据对象到当前执行的模块中。 12console.log(import.meta.url)// file:///Users/pawelgrzybek/main.js EXPORT * AS NS FROM “MOD”这是一个添加到规范中的有用特性，可以让开发者导出其他模块命名空间下的对象到一个新的名称下。 1export * as ns from "mod" 参考 WHAT’S NEW IN ECMASCRIPT 2020 ECMAScript 2020: the final feature set]]></content>
@@ -11,9 +27,9 @@
         <tag>前端开发</tag>
         <tag>JavaScript</tag>
         <tag>ECMAScript</tag>
-        <tag>2020</tag>
         <tag>规范</tag>
         <tag>Spec</tag>
+        <tag>2020</tag>
       </tags>
   </entry>
   <entry>
@@ -63,9 +79,9 @@
         <category>读书</category>
       </categories>
       <tags>
-        <tag>2020</tag>
         <tag>阅读</tag>
         <tag>读书</tag>
+        <tag>2020</tag>
         <tag>书单</tag>
       </tags>
   </entry>
@@ -92,9 +108,9 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>会议</tag>
         <tag>2019</tag>
+        <tag>前端</tag>
         <tag>d2</tag>
         <tag>论坛</tag>
       </tags>
@@ -107,9 +123,9 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>会议</tag>
         <tag>2019</tag>
+        <tag>前端</tag>
         <tag>jsconf</tag>
         <tag>js</tag>
       </tags>
@@ -166,8 +182,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>前端开发</tag>
         <tag>DOM</tag>
+        <tag>前端开发</tag>
         <tag>实战</tag>
         <tag>API</tag>
       </tags>
@@ -241,8 +257,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>前端开发</tag>
         <tag>DOM</tag>
+        <tag>前端开发</tag>
         <tag>虚拟DOM</tag>
         <tag>Virtual DOM</tag>
       </tags>
@@ -372,10 +388,10 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>会议</tag>
-        <tag>2019</tag>
         <tag>D2</tag>
         <tag>SEE Conf</tag>
+        <tag>会议</tag>
+        <tag>2019</tag>
         <tag>感想</tag>
       </tags>
   </entry>
@@ -664,8 +680,8 @@
       </categories>
       <tags>
         <tag>angularjs</tag>
-        <tag>ag-grid</tag>
         <tag>前端开发</tag>
+        <tag>ag-grid</tag>
         <tag>表格</tag>
         <tag>table</tag>
       </tags>
@@ -789,8 +805,8 @@
       </categories>
       <tags>
         <tag>读书</tag>
-        <tag>效率</tag>
         <tag>方法</tag>
+        <tag>效率</tag>
         <tag>少即是多</tag>
         <tag>book</tag>
       </tags>
@@ -818,8 +834,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>目标</tag>
         <tag>方法</tag>
+        <tag>目标</tag>
         <tag>SMART法则</tag>
       </tags>
   </entry>
@@ -949,9 +965,9 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
+        <tag>jquery</tag>
         <tag>i18next</tag>
         <tag>国际化</tag>
-        <tag>jquery</tag>
       </tags>
   </entry>
   <entry>
@@ -1321,9 +1337,9 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>工具</tag>
         <tag>hexo</tag>
         <tag>Next</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
