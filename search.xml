@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[思考致富书摘]]></title>
+    <url>%2F2020%2F06%2F13%2Fthink-and-grow-rich-reading-notes%2F</url>
+    <content type="text"><![CDATA[要点 心想才能事成 欲望 信心 自我暗示 专业知识 想象力 精心策划 决心 毅力 智囊团的力量 性欲转换的力量 潜意识 大脑 第六感 6种恐惧 心想才能事成 “如果一个人真想做一件事，那他一定会做成” “他们最伟大的成功在于，面临失败时能坚持再迈出一步” 欲望 他没有给自己留下任何退路，要么成功，要么失败 把欲望变黄金的6个步骤 在心中确定你想得到金钱的数目 明确自己能付出多大努力，去换取想要的财富 确定得到梦想中金钱数目的日期 制定一个实现梦想的明确计划，然后立刻开始执行 列一份清晰、具体的清单，写下你想得到的金钱数额，得到这笔钱的最后期限、需要付出的代价，以及积累这笔财富的明确计划。 每天把这份清单读两遍，睡觉前读一遍，早晨起来读一遍。读的时候，要让自己看的，感觉到并且相信自己已经拥有那笔财富。 信心自信的秘诀 我知道，我有能力实现人生中的明确目标。 我知道，心中的主宰意念终会以外在、实际的形式表现出来，并逐渐转化为事实。 我知道，通过“自我暗示”原则，我心中任何积存已久的欲望，终究会经过某种能实现目标的方式表现出来。 我已经清楚地写下一生中确定的主要目标，我一定要不断努力，直到培养出实现目标所需的足够的自信。 我完全明白，财富与地位只有建立在真理与正义的基础上才会持久。 自我暗示刺激潜意识 到一个不会被干扰或打断的地方（最好是晚上躺在床上时），闭上双眼，大声朗诵你写的那份声明，其中包括你想积累的金钱数量、时限以及得到这笔钱打算提供的服务或卖出的商品。履行这些指示时，要想象自己已经拥有了这笔钱。 每天早晚重复这一过程，直到你能看见（在想象中）自己想要获得的金钱。 把一份你写的声明放在早晚都看得到的地方，并且在睡觉前和起床后朗读，直到记住为止。 专业知识获取知识的途径 自己的经验和受教育情况 通过与他人合作，可以拥有的经验和知识 高等院校 公共图书馆 专业培训课程 精心策划 一个半途而废的人，永远不可能成功，成功的人，绝不会半途而废。 领导者的主要素质 因对自我以及所从事职业的认知而产生的毫不动摇的勇气。 自制力 强烈的正义感 果断的决策 明确的计划 不计报酬的工作习惯 愉悦随和的个性 同情与体谅 掌握细节 愿负全责 合作 领导失败的十大原因 无力驾驭细节 不愿从事卑微的工作 期待靠知识而非运用知识的行动有所收获 害怕下属超过自己 缺乏想象力 自私 放纵无度 不忠 强调领导权威 过分看重头衔 失败的31项主因 先天不足 没有明确的生活目标 没有非同寻常的雄心抱负 教育不足（人得到的回报，来自于“知道”的食物，但更重要的在于“实践”知道的一切） 缺乏自律 身体状况不佳 童年时期不良环境的影响 拖延症（不要等待。时机永远不会“适当”。） 缺乏毅力 消极的个性 对性冲动缺乏控制 无法克制“不劳而获”的欲望 缺乏果断的决策力 有6种基本恐惧中的一种或多种 择偶不当 过渡谨慎 事业伙伴选择不当 迷信与偏见 错误的职业选择 目标不专 肆意挥霍的习惯 缺乏热情 偏执 放纵 不善于合作 轻易得来的东西（一夜暴富比贫穷更可怕） 蓄意不忠 自私和虚荣 猜测而不思考 缺乏资金 其他原因 毅力影响毅力的因素 明确的目的 欲望 自信 明确的计划 认清自我 合作 意志力 习惯 如何培养毅力 在强烈欲望的驱使下，拥有明确的目的。 不断用行动体现出明确计划。 不受消极懈怠思想的影响，包括来自亲人、朋友和熟人等思想的影响。 结交一个或几个能鼓励你依照计划和目标行事的人。 六种恐惧6种基本恐惧 恐惧贫穷 恐惧批评 恐惧病痛 恐惧失去爱情 恐惧衰老 恐惧死亡]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>阅读</tag>
+        <tag>读书</tag>
+        <tag>2020</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ecmascript-2019-new-feature]]></title>
     <url>%2F2020%2F05%2F31%2Fecmascript-2019-new-feature%2F</url>
     <content type="text"><![CDATA[关于ECMAScript 2019规范的新增特性 可选的捕获绑定在这之前你肯定使用过try...catch。 12345try &#123; // 抛出异常&#125; catch (error) &#123; // 异常处理&#125; 如果你不需要在捕获语句中绑定这个error参数呢？现在可以忽略这个参数绑定了。 12345try &#123; // 抛出异常&#125; catch &#123; // 异常处理&#125; Optional catch binding proposal 作者Michael Ficarra JSON超集这项特性相对于一个新的语言特性来讲，更像是一个规范的更新–它是完全向下兼容的。尽管ECMAScript文档称JSON是JSON.parse()的子集，实际上JSON标准并不是ECMAScript的子集。JSON可以包含非转义换行分隔符(U+2028)和段落分隔符(U+2029)，但是ECMAScript必须要通过转义后才能添加到字符串中。这可能会引起bug或者给规范添加不必要的复杂度。这个提案引入了一些ECMAScript字符串文本常量和JSON字符串文本常量的一致性。JSON标准现在是ECMAScript的合法子集。 JSON superset proposal [作者: Richard Gibson, Mark Miller and Mathias Bynens] Symbol.prototype.description为了改善调试体验，Symbol可以在创建时指定一个可选的描述信息。之前我们通常是通过Symbol.prototype.toString()返回一个包含在Symbol()字符串内的描述来进行访问。使用ECMAScript 2019我们可以更加直观的做这件事，Symbol.prototype.description仅返回一个描述而不包含任何装饰。 1234567const foo = Symbol("My super symbol");foo.toString();// Symbol(My super symbol)foo.description;// My super symbol Symbol.prototype.description proposal [作者: Michael Ficarra] Function.prototype.toString 修订toString()的实现被再次修订，并且标准化返回实现独立的字符串（定义函数实现的源码）。这是在一个已经是较大提案上的增量式更新，规则在Function.prototype.toString提案介绍有很好的定义。 12345678function hi(name) &#123; return `Hi $&#123;name&#125;`;&#125;hi.toString();// function hi(name) &#123;// return `Hi $&#123;name&#125;`;// &#125; 12Array.isArray.toString();// function isArray() &#123; [native code] &#125; Function.prototype.toString提案 [作者: Michael Ficarra] Object.fromEntries一个非常便利的方法用来转换一个键值对列表到一个对象中。 123const arr = [["name", "Pawel"], ["surname", "Grzybek"], ["age", 31]];const obj = Object.fromEntries(arr);// &#123;name: "Pawel", surname: "Grzybek", age: 31&#125; Object.fromEntries 提案 [作者: Darien Maillet Valentine] 符合语法规则的JSON.stringify这个向下兼容的改变阻止JSON.stringify()返回无法在UTF-8标准中表示的编码字符串。 1234567// 之前JSON.stringify("\u&#123;D800&#125;");// '"�"'// 之后JSON.stringify("\u&#123;D800&#125;");// "\ud800" Well-formed JSON.stringify 提案 [作者: Richard Gibson, Mathias Bynens] String.prototype.trimStart/String.prototype.trimEndString.prototype.trim()已经在标准中很多年了。这个提案引入了String.prototype.trimStart()和String.prototype.trimEnd()。它们实际上添加到浏览器中也有很多年了，现在是时候把它们标准化。 12345678" javascript ".trim();// "javascript"" javascript ".trimStart();// "javascript "" javascript ".trimEnd();// " javascript" String.prototype.trimStart / String.prototype.trimEnd提案 [作者: Sebastian Markbåge, Mathias Bynens] Array.prototype.flat / Array.prototype.flatMap你还记得SmooshGate? Array.prototype.flat()将数组递归展开至指定深度。默认深度是1。让我们看一些实例: 12345[1, 2, [3, 4, [5, 6]]].flat();// [ 1, 2, 3, 4, [ 5, 6 ] ][1, 2, [3, 4, [5, 6]]].flat(2);// [ 1, 2, 3, 4, 5, 6 ] Array.prototype.flatMap()返回一个Array.prototpye.map()方法的展开结果。可以想象一下arr.map(mapper.flat(1)。 12[1, 2, 3].flatMap(item =&gt; [item, item * 100]);// [1, 100, 2, 200, 3, 300] Array.prototype.flat / Array.prototype.flatMap 提案 [作者: Brian Terlson, Michael Ficarra, Mathias Bynens] Array.prototype.sort稳定性在这之前，数组中超过10个元素会使用一个不稳定的快排算法。往前发展，这个功能现在被稳定的TimSort算法。如果你很好奇，强烈推荐你看看V8团队Simon Zünd发的文章在V8中的排序。 Array.prototype.sort 稳定性提案 [Mathias Bynens]]]></content>
@@ -27,9 +40,9 @@
         <tag>前端开发</tag>
         <tag>JavaScript</tag>
         <tag>ECMAScript</tag>
+        <tag>2020</tag>
         <tag>规范</tag>
         <tag>Spec</tag>
-        <tag>2020</tag>
       </tags>
   </entry>
   <entry>
@@ -108,8 +121,8 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>会议</tag>
         <tag>2019</tag>
+        <tag>会议</tag>
         <tag>前端</tag>
         <tag>d2</tag>
         <tag>论坛</tag>
@@ -123,8 +136,8 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>会议</tag>
         <tag>2019</tag>
+        <tag>会议</tag>
         <tag>前端</tag>
         <tag>jsconf</tag>
         <tag>js</tag>
@@ -388,10 +401,10 @@
         <category>随笔</category>
       </categories>
       <tags>
+        <tag>2019</tag>
         <tag>D2</tag>
         <tag>SEE Conf</tag>
         <tag>会议</tag>
-        <tag>2019</tag>
         <tag>感想</tag>
       </tags>
   </entry>
@@ -650,8 +663,8 @@
       </categories>
       <tags>
         <tag>工具</tag>
-        <tag>git</tag>
         <tag>笔记</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -965,9 +978,9 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
-        <tag>jquery</tag>
         <tag>i18next</tag>
         <tag>国际化</tag>
+        <tag>jquery</tag>
       </tags>
   </entry>
   <entry>
@@ -1337,9 +1350,9 @@
         <category>工具</category>
       </categories>
       <tags>
+        <tag>工具</tag>
         <tag>hexo</tag>
         <tag>Next</tag>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1384,8 +1397,8 @@
     <content type="text"><![CDATA[安装及开始使用 使用Git拉取主题代码 修改站点配置文件，修改主题 选择主题外观 设置主题语言 设置菜单 设置头像 集成多说评论 集成百度统计 遇到的问题 页面显示大片空白？ 参考Next的issue 如果没有解决，可尝试主题配置文件中的use_motion配置项改为false。 主页底部显示一串乱码？ 解决方法：修改主题配置文件中的fancybox配置项为false。 参考 参考官网的说明]]></content>
       <tags>
         <tag>hexo</tag>
-        <tag>theme</tag>
         <tag>Next</tag>
+        <tag>theme</tag>
         <tag>简介</tag>
       </tags>
   </entry>
