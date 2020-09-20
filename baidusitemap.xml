@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2020/09/20/git-merge-multi-commits/</loc>
+    <lastmod>2020-09-20T15:21:07.765Z</lastmod>
+    <data>
+        <display>
+        <title>Git多次提交记录合并</title>
+        <pubTime>2020-09-20T15:20:17.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+        <tag>工具</tag>
+         
+        <tag>教程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Git" url="http://www.bookcell.org/categories/Git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2020/06/13/think-and-grow-rich-reading-notes/</loc>
     <lastmod>2020-06-13T08:19:00.629Z</lastmod>
     <data>
@@ -72,11 +96,11 @@
          
         <tag>ECMAScript</tag>
          
-        <tag>2020</tag>
-         
         <tag>规范</tag>
          
         <tag>Spec</tag>
+         
+        <tag>2020</tag>
          
          
            
@@ -168,11 +192,11 @@
         <title>2019年第14届D2参会记录</title>
         <pubTime>2019-12-16T15:19:23.000Z</pubTime>
         
-        <tag>2019</tag>
+        <tag>前端</tag>
          
         <tag>会议</tag>
          
-        <tag>前端</tag>
+        <tag>2019</tag>
          
         <tag>d2</tag>
          
@@ -276,11 +300,11 @@
         <title>JSConf China 2019</title>
         <pubTime>2019-10-25T15:36:26.000Z</pubTime>
         
-        <tag>2019</tag>
+        <tag>前端</tag>
          
         <tag>会议</tag>
          
-        <tag>前端</tag>
+        <tag>2019</tag>
          
         <tag>jsconf</tag>
          
@@ -800,13 +824,13 @@
         <title>2019年D2和SEE Conf的参会感想</title>
         <pubTime>2019-01-06T12:08:03.000Z</pubTime>
         
+        <tag>会议</tag>
+         
         <tag>2019</tag>
          
         <tag>D2</tag>
          
         <tag>SEE Conf</tag>
-         
-        <tag>会议</tag>
          
         <tag>感想</tag>
          
@@ -1234,9 +1258,9 @@
         
         <tag>工具</tag>
          
-        <tag>笔记</tag>
-         
         <tag>git</tag>
+         
+        <tag>笔记</tag>
          
          
            
@@ -1258,6 +1282,10 @@
         
         <tag>前端开发</tag>
          
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
+         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -1265,10 +1293,6 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
-         
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
          
          
            
@@ -1548,9 +1572,9 @@
         
         <tag>读书</tag>
          
-        <tag>方法</tag>
-         
         <tag>效率</tag>
+         
+        <tag>方法</tag>
          
         <tag>少即是多</tag>
          
@@ -1598,9 +1622,9 @@
         <title>设定目标-使用SMART法则</title>
         <pubTime>2017-11-07T05:02:17.000Z</pubTime>
         
-        <tag>方法</tag>
-         
         <tag>目标</tag>
+         
+        <tag>方法</tag>
          
         <tag>SMART法则</tag>
          
@@ -1894,11 +1918,11 @@
         
         <tag>前端开发</tag>
          
+        <tag>jquery</tag>
+         
         <tag>i18next</tag>
          
         <tag>国际化</tag>
-         
-        <tag>jquery</tag>
          
          
            
@@ -2374,9 +2398,9 @@
         
         <tag>hexo</tag>
          
-        <tag>Next</tag>
-         
         <tag>theme</tag>
+         
+        <tag>Next</tag>
          
         <tag>简介</tag>
          
@@ -2660,9 +2684,9 @@
         
         <tag>angularjs</tag>
          
-        <tag>前端开发</tag>
-         
         <tag>url</tag>
+         
+        <tag>前端开发</tag>
          
          
            
