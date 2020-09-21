@@ -118,18 +118,18 @@
 
 
 
-  <meta name="description" content="开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。 讲解部分是通过从零开始搭个仓库做试验，回顾一下用法；方法部分则是总结用法。 讲解第一步，先新个目录初始化一个空的Git仓库 123mkdir mergecd mergegit init 第二步，新建4个文件做4次提交 1234567891011121314151617181920212223vim a.">
+  <meta name="description" content="开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。 讲解部分是通过从零开始搭个仓库做试验，回顾一下用法；方法部分则是总结用法。 讲解第一步，先建新一个目录并初始化为空的Git仓库 123mkdir mergecd mergegit init 第二步，新建4个文件做4次提交 1234567891011121314151617181920212223vim">
 <meta name="keywords" content="Git,工具,教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git多次提交记录合并">
 <meta property="og:url" content="http://www.bookcell.org/2020/09/20/git-merge-multi-commits/index.html">
 <meta property="og:site_name" content="书格前端">
-<meta property="og:description" content="开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。 讲解部分是通过从零开始搭个仓库做试验，回顾一下用法；方法部分则是总结用法。 讲解第一步，先新个目录初始化一个空的Git仓库 123mkdir mergecd mergegit init 第二步，新建4个文件做4次提交 1234567891011121314151617181920212223vim a.">
+<meta property="og:description" content="开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。 讲解部分是通过从零开始搭个仓库做试验，回顾一下用法；方法部分则是总结用法。 讲解第一步，先建新一个目录并初始化为空的Git仓库 123mkdir mergecd mergegit init 第二步，新建4个文件做4次提交 1234567891011121314151617181920212223vim">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-20T15:21:07.765Z">
+<meta property="og:updated_time" content="2020-09-21T14:50:40.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git多次提交记录合并">
-<meta name="twitter:description" content="开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。 讲解部分是通过从零开始搭个仓库做试验，回顾一下用法；方法部分则是总结用法。 讲解第一步，先新个目录初始化一个空的Git仓库 123mkdir mergecd mergegit init 第二步，新建4个文件做4次提交 1234567891011121314151617181920212223vim a.">
+<meta name="twitter:description" content="开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。 讲解部分是通过从零开始搭个仓库做试验，回顾一下用法；方法部分则是总结用法。 讲解第一步，先建新一个目录并初始化为空的Git仓库 123mkdir mergecd mergegit init 第二步，新建4个文件做4次提交 1234567891011121314151617181920212223vim">
 
 
 
@@ -417,12 +417,24 @@
                 
               
 
-              <time title="Created: 2020-09-20 23:20:17 / Modified: 23:21:07" itemprop="dateCreated datePublished" datetime="2020-09-20T23:20:17+08:00">2020-09-20</time>
+              <time title="Created: 2020-09-20 23:20:17" itemprop="dateCreated datePublished" datetime="2020-09-20T23:20:17+08:00">2020-09-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-09-21 22:50:40" itemprop="dateModified" datetime="2020-09-21T22:50:40+08:00">2020-09-21</time>
               
             
           </span>
@@ -493,7 +505,7 @@
       
         <p>开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。</p>
 <p>讲解部分是通过从零开始搭个仓库做试验，回顾一下用法；方法部分则是总结用法。</p>
-<h2 id="讲解"><a href="#讲解" class="headerlink" title="讲解"></a>讲解</h2><p>第一步，先新个目录初始化一个空的Git仓库</p>
+<h2 id="讲解"><a href="#讲解" class="headerlink" title="讲解"></a>讲解</h2><p>第一步，先建新一个目录并初始化为空的Git仓库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir merge</span><br><span class="line"><span class="built_in">cd</span> merge</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
 <p>第二步，新建4个文件做4次提交</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">vim a.txt</span><br><span class="line"><span class="comment">## 输入 first commit</span></span><br><span class="line"></span><br><span class="line">vim b.txt</span><br><span class="line"><span class="comment">## 输入 second commit</span></span><br><span class="line"></span><br><span class="line">vim c.txt</span><br><span class="line"><span class="comment">## 输入 third commit</span></span><br><span class="line"></span><br><span class="line">vim d.txt</span><br><span class="line"><span class="comment">## 输入 forth commit</span></span><br><span class="line"></span><br><span class="line">git add a.txt</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line"></span><br><span class="line">git add b.txt</span><br><span class="line">git commit -m <span class="string">"second commit"</span></span><br><span class="line"></span><br><span class="line">git add c.txt</span><br><span class="line">git commit -m <span class="string">"thrid commit"</span></span><br><span class="line"></span><br><span class="line">git add d.txt</span><br><span class="line">git commit -m <span class="string">"forth commit"</span></span><br></pre></td></tr></table></figure>
