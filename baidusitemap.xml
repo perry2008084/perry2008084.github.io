@@ -3,6 +3,30 @@
 
 
     
+  <url>
+    <loc>http://www.bookcell.org/2020/12/25/2020-web-tech-stack-md/</loc>
+    <lastmod>2020-12-25T14:49:33.831Z</lastmod>
+    <data>
+        <display>
+        <title>2020年Web技术生态</title>
+        <pubTime>2020-12-25T14:42:19.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+        <tag>2020</tag>
+         
+        <tag>Web</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端开发" url="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://www.bookcell.org/2020/09/20/git-merge-multi-commits/</loc>
@@ -12,9 +36,9 @@
         <title>Git多次提交记录合并</title>
         <pubTime>2020-09-20T15:20:17.000Z</pubTime>
         
-        <tag>Git</tag>
-         
         <tag>工具</tag>
+         
+        <tag>Git</tag>
          
         <tag>教程</tag>
          
@@ -36,11 +60,11 @@
         <title>思考致富书摘</title>
         <pubTime>2020-06-13T08:17:51.000Z</pubTime>
         
+        <tag>2020</tag>
+         
         <tag>阅读</tag>
          
         <tag>读书</tag>
-         
-        <tag>2020</tag>
          
          
            
@@ -93,6 +117,8 @@
         
         <tag>前端开发</tag>
          
+        <tag>2020</tag>
+         
         <tag>JavaScript</tag>
          
         <tag>ECMAScript</tag>
@@ -100,8 +126,6 @@
         <tag>规范</tag>
          
         <tag>Spec</tag>
-         
-        <tag>2020</tag>
          
          
            
@@ -249,11 +273,11 @@
         <title>2020年的计划阅读书单</title>
         <pubTime>2019-12-29T08:37:47.000Z</pubTime>
         
+        <tag>2020</tag>
+         
         <tag>阅读</tag>
          
         <tag>读书</tag>
-         
-        <tag>2020</tag>
          
         <tag>书单</tag>
          
@@ -411,9 +435,9 @@
         <title>DOM实战基础</title>
         <pubTime>2019-07-22T14:21:21.000Z</pubTime>
         
-        <tag>DOM</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>DOM</tag>
          
         <tag>实战</tag>
          
@@ -553,9 +577,9 @@
         <title>理解虚拟DOM</title>
         <pubTime>2019-07-09T08:30:48.000Z</pubTime>
         
-        <tag>DOM</tag>
-         
         <tag>前端开发</tag>
+         
+        <tag>DOM</tag>
          
         <tag>虚拟DOM</tag>
          
@@ -1283,10 +1307,6 @@
         
         <tag>前端开发</tag>
          
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
-         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -1294,6 +1314,10 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
+         
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
          
          
            
@@ -1919,11 +1943,11 @@
         
         <tag>前端开发</tag>
          
-        <tag>jquery</tag>
-         
         <tag>i18next</tag>
          
         <tag>国际化</tag>
+         
+        <tag>jquery</tag>
          
          
            
@@ -2399,9 +2423,9 @@
         
         <tag>hexo</tag>
          
-        <tag>theme</tag>
-         
         <tag>Next</tag>
+         
+        <tag>theme</tag>
          
         <tag>简介</tag>
          

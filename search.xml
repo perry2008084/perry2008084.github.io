@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2020年Web技术生态]]></title>
+    <url>%2F2020%2F12%2F25%2F2020-web-tech-stack-md%2F</url>
+    <content type="text"><![CDATA[整理2020年前端的技术生态，列了个人认为比较重要的一些项目和技术点，目前stateofjs问卷还在统计中，后续可以做些调整。 Web技术生态 参考 web-development-2020-course-list 第15届D2前端技术论坛 2020年大前端技术趋势解读 2020年Github新增Star前30前端项目 awesome集合]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>前端开发</tag>
+        <tag>2020</tag>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git多次提交记录合并]]></title>
     <url>%2F2020%2F09%2F20%2Fgit-merge-multi-commits%2F</url>
     <content type="text"><![CDATA[开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。 讲解部分是通过从零开始搭个仓库做试验，回顾一下用法；方法部分则是总结用法。 讲解第一步，先建新一个目录并初始化为空的Git仓库 123mkdir mergecd mergegit init 第二步，新建4个文件做4次提交 1234567891011121314151617181920212223vim a.txt## 输入 first commitvim b.txt## 输入 second commitvim c.txt## 输入 third commitvim d.txt## 输入 forth commitgit add a.txtgit commit -m "first commit"git add b.txtgit commit -m "second commit"git add c.txtgit commit -m "thrid commit"git add d.txtgit commit -m "forth commit" 第三步， 进行多次提交记录的合并 先查看一下近三次的提交记录12345git log --pretty=format:"%h %s" HEAD~3..HEAbf0b37 forth commit18a5c11 third commit19d685a second commit 执行交互式变基操作1git rebase -i HEAD~3 执行上述命令后会出现对应的交互操作提示1234567891011121314151617181920212223242526272829pick 19d685a second commitpick 18a5c11 third commitpick 3bf0b37 forth commit# Rebase 205fd2c..3bf0b37 onto 205fd2c (3 commands)## Commands:# p, pick &lt;commit&gt; = use commit# r, reword &lt;commit&gt; = use commit, but edit the commit message# e, edit &lt;commit&gt; = use commit, but stop for amending# s, squash &lt;commit&gt; = use commit, but meld into previous commit# f, fixup &lt;commit&gt; = like "squash", but discard this commit's log message# x, exec &lt;command&gt; = run command (the rest of the line) using shell# b, break = stop here (continue rebase later with 'git rebase --continue')# d, drop &lt;commit&gt; = remove commit# l, label &lt;label&gt; = label current HEAD with a name# t, reset &lt;label&gt; = reset HEAD to a label# m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [# &lt;oneline&gt;]# . create a merge commit using the original merge commit's# . message (or the oneline, if no original merge was# . specified). Use -c &lt;commit&gt; to reword the commit message.## These lines can be re-ordered; they are executed from top to bottom.## If you remove a line here THAT COMMIT WILL BE LOST.## However, if you remove everything, the rebase will be aborted.## Note that empty commits are commented out 为了将三次提交合并为一次，需要对后两次提交记录使用squash命令123pick 19d685a second commits 18a5c11 third commits 3bf0b37 forth commit 接着对vi编辑器进行保存后退出，Git会出现合并后的commit提示信息输入1234567891011121314151617181920212223242526272829# This is a combination of 3 commits.# This is the 1st commit message:second commit# This is the commit message #2:third commit# This is the commit message #3:forth commit# Please enter the commit message for your changes. Lines starting# with '#' will be ignored, and an empty message aborts the commit.## Date: Sun Sep 20 21:49:54 2020 +0800## interactive rebase in progress; onto 205fd2c# Last commands done (3 commands done):# squash 18a5c11 third commit# squash 3bf0b37 forth commit# No commands remaining.# You are currently rebasing branch 'master' on '205fd2c'.## Changes to be committed:# new file: b.txt# new file: c.txt# new file: d.txt 将上述的提交信息改成合并后想要的信息即可1merge commit from second, third, forth 保存退出，看到Git已经帮我们的修改提交成功了123456[detached HEAD 25d7655] merge commit from second, third, forth Date: Sun Sep 20 21:49:54 2020 +0800 3 files changed, 3 insertions(+) create mode 100644 b.txt create mode 100644 c.txt create mode 100644 d.txt 再次查看提交记录，变成了两次提交1234git log --pretty=oneline25d7655d46ea6585c1278022b04a6d711c95d50f (HEAD -&gt; master) merge commit from second, third, forth205fd2c637269b348301070ccb29d4121c2d8b02 first commit 至此，合并3次提交为一次就成功了。 方法合并多次Git提交的方法是通过交互式变基命令实现的，通过变基将提交历史进行修改。 12# n为需要处理的提交次数git rebase -i HEAD~n 然后交互式变基的操作中对需要合并的提交记录选择squash命令即可。 使用后对应修改合并后的提交信息保存。 注意 如果本地的Git提交记录已经推送到远程分支，则不要进行变基操作，否则可能会给其他开发者造成困扰。 参考 Git 工具 - 重写历史]]></content>
@@ -8,8 +21,8 @@
         <category>Git</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>工具</tag>
+        <tag>Git</tag>
         <tag>教程</tag>
       </tags>
   </entry>
@@ -21,9 +34,9 @@
         <category>读书</category>
       </categories>
       <tags>
+        <tag>2020</tag>
         <tag>阅读</tag>
         <tag>读书</tag>
-        <tag>2020</tag>
       </tags>
   </entry>
   <entry>
@@ -51,11 +64,11 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
+        <tag>2020</tag>
         <tag>JavaScript</tag>
         <tag>ECMAScript</tag>
         <tag>规范</tag>
         <tag>Spec</tag>
-        <tag>2020</tag>
       </tags>
   </entry>
   <entry>
@@ -105,9 +118,9 @@
         <category>读书</category>
       </categories>
       <tags>
+        <tag>2020</tag>
         <tag>阅读</tag>
         <tag>读书</tag>
-        <tag>2020</tag>
         <tag>书单</tag>
       </tags>
   </entry>
@@ -208,8 +221,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>DOM</tag>
         <tag>前端开发</tag>
+        <tag>DOM</tag>
         <tag>实战</tag>
         <tag>API</tag>
       </tags>
@@ -283,8 +296,8 @@
         <category>前端开发</category>
       </categories>
       <tags>
-        <tag>DOM</tag>
         <tag>前端开发</tag>
+        <tag>DOM</tag>
         <tag>虚拟DOM</tag>
         <tag>Virtual DOM</tag>
       </tags>
@@ -689,12 +702,12 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
-        <tag>html入门</tag>
-        <tag>html学习</tag>
         <tag>入门</tag>
         <tag>2018</tag>
         <tag>知乎专栏</tag>
         <tag>书格前端</tag>
+        <tag>html入门</tag>
+        <tag>html学习</tag>
       </tags>
   </entry>
   <entry>
@@ -991,9 +1004,9 @@
       </categories>
       <tags>
         <tag>前端开发</tag>
-        <tag>jquery</tag>
         <tag>i18next</tag>
         <tag>国际化</tag>
+        <tag>jquery</tag>
       </tags>
   </entry>
   <entry>
@@ -1410,8 +1423,8 @@
     <content type="text"><![CDATA[安装及开始使用 使用Git拉取主题代码 修改站点配置文件，修改主题 选择主题外观 设置主题语言 设置菜单 设置头像 集成多说评论 集成百度统计 遇到的问题 页面显示大片空白？ 参考Next的issue 如果没有解决，可尝试主题配置文件中的use_motion配置项改为false。 主页底部显示一串乱码？ 解决方法：修改主题配置文件中的fancybox配置项为false。 参考 参考官网的说明]]></content>
       <tags>
         <tag>hexo</tag>
-        <tag>theme</tag>
         <tag>Next</tag>
+        <tag>theme</tag>
         <tag>简介</tag>
       </tags>
   </entry>

@@ -120,7 +120,7 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="书格前端">
-<meta property="og:url" content="http://www.bookcell.org/tags/git/index.html">
+<meta property="og:url" content="http://www.bookcell.org/tags/Git/index.html">
 <meta property="og:site_name" content="书格前端">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://www.bookcell.org/tags/git/"/>
+  <link rel="canonical" href="http://www.bookcell.org/tags/Git/"/>
 
 
 
@@ -143,7 +143,7 @@
   };
 </script>
 
-  <title>Tag: git | 书格前端</title>
+  <title>Tag: Git | 书格前端</title>
   
 
 
@@ -392,7 +392,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h2>git<small>Tag</small>
+        <h2>Git<small>Tag</small>
         </h2>
       </div>
 
@@ -404,37 +404,9 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/2018/07/26/git-quick-bookup-notes/" itemprop="url">
+            <a class="post-title-link" href="/2020/09/20/git-merge-multi-commits/" itemprop="url">
               
-                <span itemprop="name">Git快速查找笔记</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-26T21:07:58+08:00"
-              content="2018-07-26" >
-          07-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/17/git-checkout-a-specific-tag/" itemprop="url">
-              
-                <span itemprop="name">Git checkout指定tag的代码</span>
+                <span itemprop="name">Git多次提交记录合并</span>
               
             </a>
         
@@ -442,9 +414,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-17T23:14:24+08:00"
-              content="2017-04-17" >
-          04-17
+              datetime="2020-09-20T23:20:17+08:00"
+              content="2020-09-20" >
+          09-20
         </time>
       </div>
 
@@ -501,7 +473,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">106</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -965,7 +937,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">212</span>
+                      
+                    
+                    <span class="site-state-item-count">213</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1690,6 +1664,33 @@
           return $(e).text()
         }).toArray().join('\n')
         var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
+ = document.createElement('textarea')
         document.body.appendChild(ta)
         ta.style.position = 'absolute'
         ta.style.top = '0px'
