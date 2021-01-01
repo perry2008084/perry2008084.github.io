@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.bookcell.org/2021/01/01/reading-list-2021/</loc>
+    <lastmod>2021-01-01T04:07:08.828Z</lastmod>
+    <data>
+        <display>
+        <title>2021年计划阅读清单</title>
+        <pubTime>2021-01-01T04:06:16.000Z</pubTime>
+        
+        <tag>阅读</tag>
+         
+        <tag>读书</tag>
+         
+        <tag>书单</tag>
+         
+        <tag>2021</tag>
+         
+         
+           
+             
+              <breadCrumb title="读书" url="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.bookcell.org/2021/01/01/reading-2020-summary/</loc>
     <lastmod>2021-01-01T03:13:42.168Z</lastmod>
     <data>
@@ -243,11 +269,11 @@
         <title>2019年第14届D2参会记录</title>
         <pubTime>2019-12-16T15:19:23.000Z</pubTime>
         
-        <tag>2019</tag>
+        <tag>前端</tag>
          
         <tag>会议</tag>
          
-        <tag>前端</tag>
+        <tag>2019</tag>
          
         <tag>d2</tag>
          
@@ -351,11 +377,11 @@
         <title>JSConf China 2019</title>
         <pubTime>2019-10-25T15:36:26.000Z</pubTime>
         
-        <tag>2019</tag>
+        <tag>前端</tag>
          
         <tag>会议</tag>
          
-        <tag>前端</tag>
+        <tag>2019</tag>
          
         <tag>jsconf</tag>
          
@@ -407,13 +433,13 @@
         <title>2019日本京都奈良大阪自由行游记</title>
         <pubTime>2019-08-08T08:06:54.000Z</pubTime>
         
+        <tag>2019</tag>
+         
         <tag>生活</tag>
          
         <tag>旅游</tag>
          
         <tag>日本</tag>
-         
-        <tag>2019</tag>
          
         <tag>游记</tag>
          
@@ -875,13 +901,13 @@
         <title>2019年D2和SEE Conf的参会感想</title>
         <pubTime>2019-01-06T12:08:03.000Z</pubTime>
         
+        <tag>会议</tag>
+         
         <tag>2019</tag>
          
         <tag>D2</tag>
          
         <tag>SEE Conf</tag>
-         
-        <tag>会议</tag>
          
         <tag>感想</tag>
          
@@ -1333,10 +1359,6 @@
         
         <tag>前端开发</tag>
          
-        <tag>html入门</tag>
-         
-        <tag>html学习</tag>
-         
         <tag>入门</tag>
          
         <tag>2018</tag>
@@ -1344,6 +1366,10 @@
         <tag>知乎专栏</tag>
          
         <tag>书格前端</tag>
+         
+        <tag>html入门</tag>
+         
+        <tag>html学习</tag>
          
          
            
@@ -2540,9 +2566,9 @@
         <title>数据可视化中的几个基本概念</title>
         <pubTime>2016-12-23T14:51:16.000Z</pubTime>
         
-        <tag>数据</tag>
-         
         <tag>数据可视化</tag>
+         
+        <tag>数据</tag>
          
         <tag>概念</tag>
          

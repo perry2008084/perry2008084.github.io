@@ -377,6 +377,231 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2020/05/31/ecmascript-2019-new-feature/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/31/ecmascript-2019-new-feature/" itemprop="url">
+                  ecmascript-2019-new-feature
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-05-31 22:00:24 / Modified: 22:01:18" itemprop="dateCreated datePublished" datetime="2020-05-31T22:00:24+08:00">2020-05-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端开发/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/31/ecmascript-2019-new-feature/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2020/05/31/ecmascript-2019-new-feature/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>关于ECMAScript 2019规范的新增特性</p>
+<h2 id="可选的捕获绑定"><a href="#可选的捕获绑定" class="headerlink" title="可选的捕获绑定"></a>可选的捕获绑定</h2><p>在这之前你肯定使用过<code>try...catch</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 抛出异常</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="comment">// 异常处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你不需要在捕获语句中绑定这个<code>error</code>参数呢？现在可以忽略这个参数绑定了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    // 抛出异常</span><br><span class="line">&#125; catch &#123;</span><br><span class="line">    // 异常处理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/tc39/proposal-optional-catch-binding" target="_blank" rel="noopener">Optional catch binding proposal</a></li>
+<li><a href="https://twitter.com/smooshMap" target="_blank" rel="noopener">作者Michael Ficarra</a></li>
+</ul>
+<h2 id="JSON超集"><a href="#JSON超集" class="headerlink" title="JSON超集"></a>JSON超集</h2><p>这项特性相对于一个新的语言特性来讲，更像是一个规范的更新–它是完全向下兼容的。尽管ECMAScript文档称JSON是<code>JSON.parse()</code>的子集，实际上JSON标准并不是ECMAScript的子集。JSON可以包含非转义换行分隔符(U+2028)和段落分隔符(U+2029)，但是ECMAScript必须要通过转义后才能添加到字符串中。这可能会引起bug或者给规范添加不必要的复杂度。这个提案引入了一些ECMAScript字符串文本常量和JSON字符串文本常量的一致性。JSON标准现在是ECMAScript的合法子集。</p>
+<ul>
+<li><a href="https://github.com/tc39/proposal-json-superset" target="_blank" rel="noopener">JSON superset proposal</a></li>
+<li>[作者: Richard Gibson, Mark Miller and Mathias Bynens]</li>
+</ul>
+<h2 id="Symbol-prototype-description"><a href="#Symbol-prototype-description" class="headerlink" title="Symbol.prototype.description"></a>Symbol.prototype.description</h2><p>为了改善调试体验，<code>Symbol</code>可以在创建时指定一个可选的描述信息。之前我们通常是通过<code>Symbol.prototype.toString()</code>返回一个包含在<code>Symbol()</code>字符串内的描述来进行访问。使用ECMAScript 2019我们可以更加直观的做这件事，<code>Symbol.prototype.description</code>仅返回一个描述而不包含任何装饰。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="built_in">Symbol</span>(<span class="string">"My super symbol"</span>);</span><br><span class="line"></span><br><span class="line">foo.toString();</span><br><span class="line"><span class="comment">// Symbol(My super symbol)</span></span><br><span class="line"></span><br><span class="line">foo.description;</span><br><span class="line"><span class="comment">// My super symbol</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/tc39/proposal-Symbol-description" target="_blank" rel="noopener">Symbol.prototype.description proposal</a></li>
+<li>[作者: Michael Ficarra]</li>
+</ul>
+<h2 id="Function-prototype-toString-修订"><a href="#Function-prototype-toString-修订" class="headerlink" title="Function.prototype.toString 修订"></a>Function.prototype.toString 修订</h2><p><code>toString()</code>的实现被再次修订，并且标准化返回实现独立的字符串（定义函数实现的源码）。这是在一个已经是较大提案上的增量式更新，规则在<a href="http://tc39.github.io/Function-prototype-toString-revision/" target="_blank" rel="noopener"><code>Function.prototype.toString</code>提案介绍</a>有很好的定义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hi</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`Hi <span class="subst">$&#123;name&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hi.toString();</span><br><span class="line"><span class="comment">// function hi(name) &#123;</span></span><br><span class="line"><span class="comment">//   return `Hi $&#123;name&#125;`;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array.isArray.toString();</span><br><span class="line">// function isArray() &#123; [native code] &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://tc39.github.io/Function-prototype-toString-revision/" target="_blank" rel="noopener"><code>Function.prototype.toString</code>提案</a></li>
+<li>[作者: Michael Ficarra]</li>
+</ul>
+<h2 id="Object-fromEntries"><a href="#Object-fromEntries" class="headerlink" title="Object.fromEntries"></a>Object.fromEntries</h2><p>一个非常便利的方法用来转换一个键值对列表到一个对象中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [[<span class="string">"name"</span>, <span class="string">"Pawel"</span>], [<span class="string">"surname"</span>, <span class="string">"Grzybek"</span>], [<span class="string">"age"</span>, <span class="number">31</span>]];</span><br><span class="line"><span class="keyword">const</span> obj = <span class="built_in">Object</span>.fromEntries(arr);</span><br><span class="line"><span class="comment">// &#123;name: "Pawel", surname: "Grzybek", age: 31&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/tc39/proposal-object-from-entries" target="_blank" rel="noopener">Object.fromEntries 提案</a></li>
+<li>[作者: Darien Maillet Valentine]</li>
+</ul>
+<h2 id="符合语法规则的JSON-stringify"><a href="#符合语法规则的JSON-stringify" class="headerlink" title="符合语法规则的JSON.stringify"></a>符合语法规则的JSON.stringify</h2><p>这个向下兼容的改变阻止<code>JSON.stringify()</code>返回无法在UTF-8标准中表示的编码字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="string">"\u&#123;D800&#125;"</span>);</span><br><span class="line"><span class="comment">// '"�"'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 之后</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="string">"\u&#123;D800&#125;"</span>);</span><br><span class="line"><span class="comment">// "\ud800"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/tc39/proposal-well-formed-stringify" target="_blank" rel="noopener">Well-formed JSON.stringify 提案</a></li>
+<li>[作者: Richard Gibson, Mathias Bynens]</li>
+</ul>
+<h2 id="String-prototype-trimStart-String-prototype-trimEnd"><a href="#String-prototype-trimStart-String-prototype-trimEnd" class="headerlink" title="String.prototype.trimStart/String.prototype.trimEnd"></a>String.prototype.trimStart/String.prototype.trimEnd</h2><p><code>String.prototype.trim()</code>已经在标准中很多年了。这个提案引入了<code>String.prototype.trimStart()</code>和<code>String.prototype.trimEnd()</code>。它们实际上添加到浏览器中也有很多年了，现在是时候把它们标准化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"   javascript   "</span>.trim();</span><br><span class="line"><span class="comment">// "javascript"</span></span><br><span class="line"></span><br><span class="line"><span class="string">"   javascript   "</span>.trimStart();</span><br><span class="line"><span class="comment">// "javascript   "</span></span><br><span class="line"></span><br><span class="line"><span class="string">"   javascript   "</span>.trimEnd();</span><br><span class="line"><span class="comment">// "   javascript"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/tc39/proposal-string-left-right-trim" target="_blank" rel="noopener">String.prototype.trimStart / String.prototype.trimEnd提案</a></li>
+<li>[作者: Sebastian Markbåge, Mathias Bynens]</li>
+</ul>
+<h2 id="Array-prototype-flat-Array-prototype-flatMap"><a href="#Array-prototype-flat-Array-prototype-flatMap" class="headerlink" title="Array.prototype.flat / Array.prototype.flatMap"></a>Array.prototype.flat / Array.prototype.flatMap</h2><p>你还记得<a href="https://developers.google.com/web/updates/2018/03/smooshgate" target="_blank" rel="noopener">SmooshGate</a>? <code>Array.prototype.flat()</code>将数组递归展开至指定深度。默认深度是1。让我们看一些实例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>]]].flat();</span><br><span class="line"><span class="comment">// [ 1, 2, 3, 4, [ 5, 6 ] ]</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>]]].flat(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// [ 1, 2, 3, 4, 5, 6 ]</span></span><br></pre></td></tr></table></figure>
+<p><code>Array.prototype.flatMap()</code>返回一个<code>Array.prototpye.map()</code>方法的展开结果。可以想象一下<code>arr.map(mapper.flat(1)</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].flatMap(<span class="function"><span class="params">item</span> =&gt;</span> [item, item * <span class="number">100</span>]);</span><br><span class="line"><span class="comment">// [1, 100, 2, 200, 3, 300]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/tc39/proposal-flatMap" target="_blank" rel="noopener">Array.prototype.flat / Array.prototype.flatMap 提案</a></li>
+<li>[作者: Brian Terlson, Michael Ficarra, Mathias Bynens]</li>
+</ul>
+<h2 id="Array-prototype-sort稳定性"><a href="#Array-prototype-sort稳定性" class="headerlink" title="Array.prototype.sort稳定性"></a>Array.prototype.sort稳定性</h2><p>在这之前，数组中超过10个元素会使用一个不稳定的<a href="https://en.wikipedia.org/wiki/Quicksort" target="_blank" rel="noopener">快排算法</a>。<br>往前发展，这个功能现在被稳定的<a href="https://en.wikipedia.org/wiki/Timsort" target="_blank" rel="noopener">TimSort算法</a>。如果你很好奇，强烈推荐你看看V8团队<a href="https://twitter.com/nimODota" target="_blank" rel="noopener">Simon Zünd</a>发的文章<a href="https://v8.dev/blog/array-sort" target="_blank" rel="noopener">在V8中的排序</a>。</p>
+<ul>
+<li><a href="https://github.com/tc39/ecma262/pull/1340" target="_blank" rel="noopener">Array.prototype.sort 稳定性提案</a></li>
+<li>[Mathias Bynens]</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2020/04/12/ecmascript-2020-new-feature/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1276,217 +1501,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.bookcell.org/2019/12/29/reading-list-2020/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/29/reading-list-2020/" itemprop="url">
-                  2020年的计划阅读书单
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-12-29 16:37:47 / Modified: 16:41:37" itemprop="dateCreated datePublished" datetime="2019-12-29T16:37:47+08:00">2019-12-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书/" itemprop="url" rel="index"><span itemprop="name">读书</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/29/reading-list-2020/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/12/29/reading-list-2020/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://picbed.bookcell.cn/picgo/chris-lawton-9T346Ij4kGk-unsplash.jpg" alt=""></p>
-<p>基于2019年的阅读进度，2020年计划阅读20本，不再按照季度平均分配，根据阅读书籍的难易和厚度分配时间。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
-<li>【略读】</li>
-<li>【精读】</li>
-<li>【主题阅读】</li>
-</ul>
-<h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><ul>
-<li>[ ] 【精读】《你不知道的JavaScript下卷》</li>
-<li>[ ] 【精读】《计算机程序的构造和解释》</li>
-<li>[ ] 【主题阅读】《ECMAScript Spec 2019》</li>
-<li>[ ] 【精读】《计算机网络》Andrew S.Tanenbaum 著 潘爱民 译</li>
-<li>[ ] 【精读】《代码整洁之道》[美]Robert C. Martin</li>
-<li>[ ] 【精读】《重构: 改善既有代码的设计》第2版 Martin Fowler</li>
-</ul>
-<h2 id="文学"><a href="#文学" class="headerlink" title="文学"></a>文学</h2><ul>
-<li>[ ] 【略读】《三体》刘慈欣</li>
-<li>[ ] 【略读】《伊利亚特》荷马</li>
-<li>[ ] 【略读】《王阳明全集》</li>
-<li>[ ] 【主题阅读】《华杉讲透王阳明《传习录》》华杉</li>
-</ul>
-<h2 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h2><ul>
-<li>[ ] 【略读】《思考致富》拿破仑·希尔</li>
-</ul>
-<h2 id="传记"><a href="#传记" class="headerlink" title="传记"></a>传记</h2><ul>
-<li>[ ] 【略读】《我的世界观》爱因斯坦</li>
-<li>[ ] 【略读】《爱因斯坦传》艾萨克森</li>
-</ul>
-<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><ul>
-<li>[ ] 【略读】《显微镜下的大明》马伯庸</li>
-</ul>
-<h2 id="政治"><a href="#政治" class="headerlink" title="政治"></a>政治</h2><ul>
-<li>[ ] 【略读】《自由的阶梯：美国文明札记》</li>
-<li>[ ] 【略读】《自由的基因：自由主义的历史变迁》</li>
-<li>[ ] 【略读】《自由的刻度：缔造美利坚的40篇经典文献》</li>
-</ul>
-<h2 id="心理学"><a href="#心理学" class="headerlink" title="心理学"></a>心理学</h2><ul>
-<li>[ ] 【略读】《自卑与超越》阿德勒</li>
-<li>[ ] 【略读】《自控力》<the willpower="" instinct=""> kelly McGonigal</the></li>
-</ul>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
-<li>[ ] 【略读】《你的灯亮着吗——发现问题所在》 康纳德.高斯 杰拉尔德.温伯格 著 俞月圆 译</li>
-<li>[ ] 【略读】《Thinking, Fast and Slow》 by Daniel Kahneman</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1534,7 +1548,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">109</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2000,7 +2014,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">213</span>
+                      
+                    
+                    <span class="site-state-item-count">214</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
