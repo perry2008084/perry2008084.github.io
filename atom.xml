@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.bookcell.org/"/>
-  <updated>2020-12-25T14:49:33.831Z</updated>
+  <updated>2021-01-01T03:13:42.168Z</updated>
   <id>http://www.bookcell.org/</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020年阅读总结</title>
+    <link href="http://www.bookcell.org/2021/01/01/reading-2020-summary/"/>
+    <id>http://www.bookcell.org/2021/01/01/reading-2020-summary/</id>
+    <published>2021-01-01T03:11:50.000Z</published>
+    <updated>2021-01-01T03:13:42.168Z</updated>
+    
+    <content type="html"><![CDATA[<p>2020年共读了13本，其中有两本不在一开始的计划中，后来加入的。主要的阅读时间在上半年，疫情期间的阅读时间相对会多一些，下半年比较忙碌，抽出来阅读时间减少。</p>
+<h2 id="读书计划和实际阅读"><a href="#读书计划和实际阅读" class="headerlink" title="读书计划和实际阅读"></a>读书计划和实际阅读</h2><h3 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h3><ul>
+<li>[x] 【精读】《你不知道的JavaScript下卷》</li>
+<li>[x] 【精读】《计算机程序的构造和解释》</li>
+<li>[ ] 【主题阅读】《ECMAScript Spec 2019》</li>
+<li>[ ] 【精读】《计算机网络》Andrew S.Tanenbaum 著 潘爱民 译</li>
+<li>[ ] 【精读】《代码整洁之道》[美]Robert C. Martin</li>
+<li>[ ] 【精读】《重构: 改善既有代码的设计》第2版 Martin Fowler</li>
+</ul>
+<h3 id="文学"><a href="#文学" class="headerlink" title="文学"></a>文学</h3><ul>
+<li>[x] 【略读】《三体》刘慈欣</li>
+<li>[ ] 【略读】《伊利亚特》荷马</li>
+<li>[ ] 【略读】《王阳明全集》</li>
+<li>[x] 【主题阅读】《华杉讲透王阳明《传习录》》华杉</li>
+</ul>
+<h3 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h3><ul>
+<li>[x] 【略读】《思考致富》拿破仑·希尔</li>
+</ul>
+<h3 id="传记"><a href="#传记" class="headerlink" title="传记"></a>传记</h3><ul>
+<li>[x] 【略读】《我的世界观》爱因斯坦</li>
+<li>[ ] 【略读】《爱因斯坦传》艾萨克森</li>
+</ul>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><ul>
+<li>[x] 【略读】《显微镜下的大明》马伯庸</li>
+</ul>
+<h3 id="政治"><a href="#政治" class="headerlink" title="政治"></a>政治</h3><ul>
+<li>[ ] 【略读】《自由的阶梯：美国文明札记》</li>
+<li>[ ] 【略读】《自由的基因：自由主义的历史变迁》</li>
+<li>[x] 【略读】《自由的刻度：缔造美利坚的40篇经典文献》</li>
+</ul>
+<h3 id="心理学"><a href="#心理学" class="headerlink" title="心理学"></a>心理学</h3><ul>
+<li>[x] 【略读】《自卑与超越》阿德勒</li>
+<li>[ ] 【略读】《自控力》<the willpower="" instinct=""> kelly McGonigal</the></li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>[x] 【略读】《你的灯亮着吗——发现问题所在》 康纳德.高斯 杰拉尔德.温伯格 著 俞月圆 译</li>
+<li>[ ] 【略读】《Thinking, Fast and Slow》 by Daniel Kahneman</li>
+</ul>
+<h2 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h2><h3 id="《ES-next-beyond》"><a href="#《ES-next-beyond》" class="headerlink" title="《ES next beyond》"></a>《ES next beyond》</h3><p>你不知道的JavaScript系列里关于ES6+的书，这本并不比阮一峰或者红宝书作者的ES6书好。</p>
+<h3 id="《自卑与超越》阿尔弗雷德·阿德勒"><a href="#《自卑与超越》阿尔弗雷德·阿德勒" class="headerlink" title="《自卑与超越》阿尔弗雷德·阿德勒"></a>《自卑与超越》阿尔弗雷德·阿德勒</h3><p>原书名为<what life="" should="" mean="" to="" you="">，中文的书名其实有些不合适。书中提到的生命意义涉及三个问题，<br>1、如何在有各种根本限制的星球上，确定自己赖以生存的职业？<br>2、如何在同类中找到一个位置，参与合作并分享合作的利益？<br>3、如何调整自己，适应人分两性而存在、人类的延续依续我们的爱情生活这件事？<br>相对于这个时代而言，并不适合从中得到启发。</what></p>
+<h3 id="《你的灯亮着吗》温伯格"><a href="#《你的灯亮着吗》温伯格" class="headerlink" title="《你的灯亮着吗》温伯格"></a>《你的灯亮着吗》温伯格</h3><p>一本关于问题定义和解决的经典，通过一个个小故事来传达问题解决的方法，值得反复阅读，学会从更高的层次来思考和解决问题。</p>
+<h3 id="《显微镜下的大明》马伯庸"><a href="#《显微镜下的大明》马伯庸" class="headerlink" title="《显微镜下的大明》马伯庸"></a>《显微镜下的大明》马伯庸</h3><p>放松的阅读，主要通过明朝的一些小故事来讲述当时的人和事，读来也感觉蛮有意思，不过没有再读一次的必要。</p>
+<h3 id="《我的世界观》爱因斯坦"><a href="#《我的世界观》爱因斯坦" class="headerlink" title="《我的世界观》爱因斯坦"></a>《我的世界观》爱因斯坦</h3><p>本书主要记录爱因斯坦的一些观点，包括他的书信、演讲、文章等等。<br>包括我的世界观、追求和平、从普鲁士科学院辞职、犹太人的理想、我如何创立了相对论五部分内容。</p>
+<h3 id="《思考致富》拿破仑·希尔"><a href="#《思考致富》拿破仑·希尔" class="headerlink" title="《思考致富》拿破仑·希尔"></a>《思考致富》拿破仑·希尔</h3><p>致富乃至成功的因素，包括健康、目标、毅力、智囊团等。成功学的典范，看完之后如果找不到自己的目标，其他的因素还帮不上忙。因此，首先要找到自己的目标，然后借鉴书中的提示，去追求。<br>思考致富书摘: <a href="https://blog.bookcell.org/2020/06/13/think-and-grow-rich-reading-notes/" target="_blank" rel="noopener">https://blog.bookcell.org/2020/06/13/think-and-grow-rich-reading-notes/</a></p>
+<h3 id="《计算机程序的构造与解释》"><a href="#《计算机程序的构造与解释》" class="headerlink" title="《计算机程序的构造与解释》"></a>《计算机程序的构造与解释》</h3><p>经典的计算机书籍之一，简称SICP。书中涉及较多数学知识和计算机的底层知识，阅读需要耐心。书里使用的编程语言是LISP的方言Scheme，函数式风格。准备再刷一次。</p>
+<h3 id="《钱》托尼·罗宾斯"><a href="#《钱》托尼·罗宾斯" class="headerlink" title="《钱》托尼·罗宾斯"></a>《钱》托尼·罗宾斯</h3><p>大篇幅讲述如何实现财务自由，循序渐进式的讲解步骤，包括许多金融界顶级的大佬经验分享，值得学习。</p>
+<h3 id="《三体》"><a href="#《三体》" class="headerlink" title="《三体》"></a>《三体》</h3><p>第一部相对比较枯燥，主要是给后面的剧情做铺垫。</p>
+<h3 id="《三体》黑暗深林"><a href="#《三体》黑暗深林" class="headerlink" title="《三体》黑暗深林"></a>《三体》黑暗深林</h3><p>看完确实很震撼，混合了天文、人性、哲学多方面的内容，给读者一个关于太空和地球未来的思考方向，如果真有黑暗深林法则，那么地球是时刻处在危险中。</p>
+<h3 id="《三体》死神永生"><a href="#《三体》死神永生" class="headerlink" title="《三体》死神永生"></a>《三体》死神永生</h3><p>剧情比第二部更加跌宕起伏，故事的背景更加宏大，从宇宙太空的问题转向时间直到哲学上。不过女主光环很强，做了两个影响人类的决定，最终笑到了最后。不管怎么样，整体还是很精彩，值得一看。</p>
+<h3 id="《曾国藩传》张宏杰"><a href="#《曾国藩传》张宏杰" class="headerlink" title="《曾国藩传》张宏杰"></a>《曾国藩传》张宏杰</h3><p>读曾国藩传，源于对儒家的热爱，也是一位儒家的践行者，一生都在追求圣贤路上，一生下来，功过均有，不过人生达到了三不朽，已经是儒家修行的巅峰。他的生平和处事方法值得后世学习。<br>其中一段他晚年的总结，共勉：<br>人的一生，就如同一个果子成熟的过程：不能着急，也不可懈怠。人的努力与天的栽培，会让一棵树静静长高，也会让一个人慢慢成熟：“勿忘勿助，看平地长得万丈高。”</p>
+<h3 id="《自由的刻度》"><a href="#《自由的刻度》" class="headerlink" title="《自由的刻度》"></a>《自由的刻度》</h3><p>主要收录美国历史上经典的40篇文献，并加以点评，了解美国历史进程比较有帮助。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2020年共读了13本，其中有两本不在一开始的计划中，后来加入的。主要的阅读时间在上半年，疫情期间的阅读时间相对会多一些，下半年比较忙碌，抽出来阅读时间减少。&lt;/p&gt;
+&lt;h2 id=&quot;读书计划和实际阅读&quot;&gt;&lt;a href=&quot;#读书计划和实际阅读&quot; class=&quot;header
+    
+    </summary>
+    
+      <category term="读书" scheme="http://www.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+      <category term="2020" scheme="http://www.bookcell.org/tags/2020/"/>
+    
+      <category term="阅读" scheme="http://www.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+      <category term="读书" scheme="http://www.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+      <category term="书单" scheme="http://www.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
+    
+  </entry>
   
   <entry>
     <title>2020年Web技术生态</title>
@@ -1025,11 +1105,11 @@
       <category term="随笔" scheme="http://www.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
     
       <category term="会议" scheme="http://www.bookcell.org/tags/%E4%BC%9A%E8%AE%AE/"/>
     
-      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
+      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="d2" scheme="http://www.bookcell.org/tags/d2/"/>
     
@@ -1073,11 +1153,11 @@
       <category term="随笔" scheme="http://www.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
     
       <category term="会议" scheme="http://www.bookcell.org/tags/%E4%BC%9A%E8%AE%AE/"/>
     
-      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
+      <category term="前端" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="jsconf" scheme="http://www.bookcell.org/tags/jsconf/"/>
     
@@ -1381,13 +1461,13 @@
       <category term="生活" scheme="http://www.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
-    
       <category term="生活" scheme="http://www.bookcell.org/tags/%E7%94%9F%E6%B4%BB/"/>
     
       <category term="旅游" scheme="http://www.bookcell.org/tags/%E6%97%85%E6%B8%B8/"/>
     
       <category term="日本" scheme="http://www.bookcell.org/tags/%E6%97%A5%E6%9C%AC/"/>
+    
+      <category term="2019" scheme="http://www.bookcell.org/tags/2019/"/>
     
       <category term="游记" scheme="http://www.bookcell.org/tags/%E6%B8%B8%E8%AE%B0/"/>
     
@@ -2010,81 +2090,6 @@
       <category term="原型链" scheme="http://www.bookcell.org/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     
       <category term="继承" scheme="http://www.bookcell.org/tags/%E7%BB%A7%E6%89%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>理解虚拟DOM</title>
-    <link href="http://www.bookcell.org/2019/07/09/understanding-the-virtual-dom/"/>
-    <id>http://www.bookcell.org/2019/07/09/understanding-the-virtual-dom/</id>
-    <published>2019-07-09T08:30:48.000Z</published>
-    <updated>2019-07-09T08:31:44.843Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>文章来源: <a href="https://bitsofco.de/understanding-the-virtual-dom/" target="_blank" rel="noopener">https://bitsofco.de/understanding-the-virtual-dom/</a></li>
-<li>文章概要: 讲解虚拟DOM的概念及在React中的应用</li>
-</ul>
-<p><strong>正文</strong>：</p>
-<p>我最近写了关于<a href="https://bitsofco.de/what-exactly-is-the-dom/" target="_blank" rel="noopener">DOM</a>和<a href="https://bitsofco.de/what-is-the-shadow-dom/" target="_blank" rel="noopener">shadow DOM</a>具体是什么，以及他们的差异。回顾一下，文档对象模型是一个HTML文档基于对象的表示，和操作对象的一个接口。影子DOM(shadow DOM)可以想做是”精简版”的DOM。它也是HTML元素基于对象的表示，但不是完整独立的文档。相反的，影子DOM允许我们分离我们的DOM成为更小的、具备封装性的单元并在HTML文档中使用。</p>
-<p>另一个相似的术语你可能遇见过的是“虚拟DOM”(virtual DOM)。尽管这个概念已经出现了许多年，让它变得流行起来的还是在React框架中的使用。在这篇文章中，我会涉及虚拟DOM具体是什么，和原始的DOM有什么差别，以及如何使用。</p>
-<h2 id="为什么我们需要虚拟DOM？"><a href="#为什么我们需要虚拟DOM？" class="headerlink" title="为什么我们需要虚拟DOM？"></a>为什么我们需要虚拟DOM？</h2><p>为了理解为什么会出现虚拟DOM，先回顾一下原始DOM。就如前面提到的，DOM中有两部分内容，基于对象的HTML文档标识和操作对象的API。</p>
-<p>例如，让我们看一个无序列表和列表项的简单HTML文档</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list__item"</span>&gt;</span>List item<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>文档会像下面的DOM树进行表示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">  |</span><br><span class="line">  |-- head lang=&quot;en&quot;</span><br><span class="line">  |-- body</span><br><span class="line">        |-- ul class=&quot;list&quot;</span><br><span class="line">            |--li class=&quot;list__item&quot;</span><br><span class="line">               |--&quot;List item&quot;</span><br></pre></td></tr></table></figure>
-<p>设想一下我们想要修改第一个列表项的内容为“List item one”，并且添加第二个列表项。为了做到这一点，我们需要使用DOM API查找到想要更新的元素，创建新的元素，添加属性和内容，最终更新DOM元素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const listItemOne = document.getElementsByClassName(&quot;list__item&quot;)[0];</span><br><span class="line">listItemOne.textContent = &quot;List item one&quot;;</span><br><span class="line"></span><br><span class="line">const list = document.getElementsByClassName(&quot;list&quot;)[0];</span><br><span class="line">const listItemTwo = document.createElement(&quot;li&quot;);</span><br><span class="line">listItemTwo.classList.add(&quot;list__item&quot;);</span><br><span class="line">listItemTwo.textContent = &quot;List item two&quot;;</span><br><span class="line">list.appendChild(listItemTwo);</span><br></pre></td></tr></table></figure>
-<h3 id="DOM无法解决的问题"><a href="#DOM无法解决的问题" class="headerlink" title="DOM无法解决的问题"></a>DOM无法解决的问题</h3><p>当1998年DOM的第一版规范发布时，我们构建和管理网页与现在有很大的不同。那时并没有像现在这样依赖于DOM API来创建和更新页面内容。</p>
-<p>如<code>document.getElementsByClassName()</code>这样的简单方法小范围使用是好的，但是如果我们每几秒去更新页面中的多个元素时，这会让查询和更新DOM变得耗性能。</p>
-<p>更进一步，由于API的组织方式，通常执行一些更耗性能的操作，例如更新文档的一大块内容比查找然后更新具体的元素要来得简单。回到我们的例子，某种程度上替换整个无序列表成新的比修改具体的元素要容易。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"list"</span>)[<span class="number">0</span>];</span><br><span class="line">list.innerHTML = <span class="string">`</span></span><br><span class="line"><span class="string">&lt;li class="list__item"&gt;List item one&lt;/li&gt;</span></span><br><span class="line"><span class="string">&lt;li class="list__item"&gt;List item two&lt;/li&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，两个方法之间的性能差异可能并不明显。但是，随着页面大小的增加，仅选择和修改必须的内容变得尤其重要。</p>
-<h3 id="虚拟DOM的解决方式"><a href="#虚拟DOM的解决方式" class="headerlink" title="虚拟DOM的解决方式"></a>虚拟DOM的解决方式</h3><p>虚拟DOM的提出就是为了高效解决这些频繁更新DOM的难题。不像DOM或者影子DOM，虚拟DOM并不是官方的规范，而是和DOM交互的新方法。</p>
-<p>一个虚拟DOM可以设想为原始DOM的一份拷贝。这份拷贝可以不使用DOM的API而进行频繁的操作和更新。一旦所有的更新都被应用到虚拟DOM后，我们可以找到要应用到原始DOM上的具体变化差异并通过高效和有针对性的进行更新。</p>
-<h2 id="虚拟DOM看起来像什么？"><a href="#虚拟DOM看起来像什么？" class="headerlink" title="虚拟DOM看起来像什么？"></a>虚拟DOM看起来像什么？</h2><p>虚拟DOM的名字让这个概念给人有点神秘的感觉。实际上，虚拟DOM就是一个常规的JavaScript对象。</p>
-<p>让我们回顾一下之前创建的DOM树：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">  |</span><br><span class="line">  |-- head lang=&quot;en&quot;</span><br><span class="line">  |-- body</span><br><span class="line">        |-- ul class=&quot;list&quot;</span><br><span class="line">            |--li class=&quot;list__item&quot;</span><br><span class="line">               |--&quot;List item&quot;</span><br></pre></td></tr></table></figure>
-<p>这颗树可以通过JavaScript对象来表示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vdom = &#123;</span><br><span class="line">    tagName: <span class="string">"html"</span>,</span><br><span class="line">    children: [</span><br><span class="line">        &#123; <span class="attr">tagName</span>: <span class="string">"head"</span> &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            tagName: <span class="string">"body"</span>,</span><br><span class="line">            children: [</span><br><span class="line">                &#123;</span><br><span class="line">                    tagName: <span class="string">"ul"</span>,</span><br><span class="line">                    attributes: &#123; <span class="string">"class"</span>: <span class="string">"list"</span> &#125;,</span><br><span class="line">                    children: [</span><br><span class="line">                        &#123;</span><br><span class="line">                            tagName: <span class="string">"li"</span>,</span><br><span class="line">                            attributes: &#123; <span class="string">"class"</span>: <span class="string">"list__item"</span> &#125;,</span><br><span class="line">                            textContent: <span class="string">"List item"</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们可以设想这个对象作为我们的虚拟DOM。就像原始DOM，这也是基于对象的HTML文档表示。但是因为这是一个纯粹的JavaScript对象，我们可以自由和频繁的操作而不用接触实际的DOM，直到需要的时候。</p>
-<p>通常使用多个小块的虚拟DOM，而不是使用一个虚拟DOM来表示整个对象。例如，我们在使用一个<code>list</code>组件，对应我们的无序列表元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = &#123;</span><br><span class="line">    tagName: <span class="string">"ul"</span>,</span><br><span class="line">    attributes: &#123; <span class="string">"class"</span>: <span class="string">"list"</span> &#125;,</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            tagName: <span class="string">"li"</span>,</span><br><span class="line">            attributes: &#123; <span class="string">"class"</span>: <span class="string">"list__item"</span> &#125;,</span><br><span class="line">            textContent: <span class="string">"List item"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="虚拟DOM的工作原理"><a href="#虚拟DOM的工作原理" class="headerlink" title="虚拟DOM的工作原理"></a>虚拟DOM的工作原理</h2><p>现在我们看到了虚拟DOM的结构，接下来看一下它是如何在DOM中解决性能和使用问题的。</p>
-<p>就如我提到的，我们可以使用虚拟DOM找到需要应用到DOM中的具体变更内容，然后单独更新这些变更。让我们回到无序列表的例子并做一些之前使用DOM API操作的变更。</p>
-<p>首先我们要创建一份虚拟DOM的拷贝，包含我们想要的修改。因为我们不需要使用DOM API，我们可以只创建一个新的对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> copy = &#123;</span><br><span class="line">    tagName: <span class="string">"ul"</span>,</span><br><span class="line">    attributes: &#123; <span class="string">"class"</span>: <span class="string">"list"</span> &#125;,</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            tagName: <span class="string">"li"</span>,</span><br><span class="line">            attributes: &#123; <span class="string">"class"</span>: <span class="string">"list__item"</span> &#125;,</span><br><span class="line">            textContent: <span class="string">"List item one"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            tagName: <span class="string">"li"</span>,</span><br><span class="line">            attributes: &#123; <span class="string">"class"</span>: <span class="string">"list__item"</span> &#125;,</span><br><span class="line">            textContent: <span class="string">"List item two"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这份拷贝是用于创建一个和原始虚拟DOM的变更内容(“diff”)，在这里是列表和更新的列表。变更内容如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> diffs = [</span><br><span class="line">    &#123;</span><br><span class="line">        newNode: &#123; <span class="comment">/* 新版的列表1 */</span> &#125;,</span><br><span class="line">        oldNode: &#123; <span class="comment">/* 原始版本的列表1 */</span> &#125;,</span><br><span class="line">        index: <span class="comment">/* 在父元素的子节点列表中元素索引 */</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        newNode: &#123; <span class="comment">/* 列表2 */</span> &#125;,</span><br><span class="line">        index: &#123; <span class="comment">/* */</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>变更内容提供了如何更新实际DOM的指南。一旦所有的变更内容都收集到了，我们就可以批量更新DOM，而且是仅更新必需的内容。</p>
-<p>例如，我们可以遍历每一个的变更内容，然后添加一个新元素或者基于变更内容更新旧的内容。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> domElement = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"list"</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">diffs.forEach(<span class="function">(<span class="params">diff</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> newElement = <span class="built_in">document</span>.createElement(diff.newNode.tagName);</span><br><span class="line">    <span class="comment">/* 添加属性 */</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (diff.oldNode) &#123;</span><br><span class="line">        <span class="comment">// 如果有旧的版本，用新的版本替换</span></span><br><span class="line">        domElement.replaceChild(newElement, diff.index);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 如果没有旧的版本，创建一个新的节点</span></span><br><span class="line">        domElement.appendChild(newElement);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>注意这里只是简单讲述虚拟DOM是如何工作的，有很多案例并没有涉及到。</p>
-<h2 id="虚拟DOM和框架"><a href="#虚拟DOM和框架" class="headerlink" title="虚拟DOM和框架"></a>虚拟DOM和框架</h2><p>通常虚拟DOM会和框架一同使用，而不是像上面这样直接操作。</p>
-<p>像React和Vue这样的框架使用虚拟DOM来执行高效的DOM更新。例如，我们的<code>list</code>组件通过React可以这样写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> list = React.createElement(<span class="string">"ul"</span>, &#123; <span class="attr">className</span>: <span class="string">"list"</span> &#125;,</span><br><span class="line">    React.createElement(<span class="string">"li"</span>, &#123; <span class="attr">className</span>: <span class="string">"list__item"</span> &#125;, <span class="string">"List item"</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>如果我们更新我们的列表，我们可以只是重写整个列表模板，然后再次调用<code>ReactDOM.render()</code>方法，传递一个新的列表。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newList = React.createElement(<span class="string">"ul"</span>, &#123; <span class="attr">className</span>: <span class="string">"list"</span> &#125;,</span><br><span class="line">    React.createElement(<span class="string">"li"</span>, &#123; <span class="attr">className</span>: <span class="string">"list__item"</span> &#125;, <span class="string">"List item one"</span>),</span><br><span class="line">    React.createElement(<span class="string">"li"</span>, &#123; <span class="attr">className</span>: <span class="string">"list__item"</span> &#125;, <span class="string">"List item two"</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> ReactDOM.render(newList, <span class="built_in">document</span>.body), <span class="number">5000</span>));</span><br></pre></td></tr></table></figure>
-<p>因为React使用了虚拟DOM，即使我们重新渲染了整个模板，只有实际的变化会被更新。如果通过开发者工具进行查看，可以查看具体的元素和具体元素的部分有变化。</p>
-<h2 id="DOM和虚拟DOM"><a href="#DOM和虚拟DOM" class="headerlink" title="DOM和虚拟DOM"></a>DOM和虚拟DOM</h2><p>总结一下，虚拟DOM是一个可以让我们和DOM元素进行简单高效的交互工具。它是DOM的JavaScript对象表示，我们可以根据我们的需要频繁的修改。对于这个对象的修改会被整理后，有针对性的对实际DOM进行更新。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;文章来源: &lt;a href=&quot;https://bitsofco.de/understanding-the-virtual-dom/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://bitsofco.de/understanding
-    
-    </summary>
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="前端开发" scheme="http://www.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="DOM" scheme="http://www.bookcell.org/tags/DOM/"/>
-    
-      <category term="虚拟DOM" scheme="http://www.bookcell.org/tags/%E8%99%9A%E6%8B%9FDOM/"/>
-    
-      <category term="Virtual DOM" scheme="http://www.bookcell.org/tags/Virtual-DOM/"/>
     
   </entry>
   
