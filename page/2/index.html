@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>书格前端</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="书格前端">
+<meta property="og:url" content="https://blog.bookcell.org/page/2/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Perry">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">书格前端</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">潘绳杰的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.bookcell.org"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-ecmascript-2020-new-feature" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/12/ecmascript-2020-new-feature/" class="article-date">
+  <time class="dt-published" datetime="2020-04-12T13:55:25.000Z" itemprop="datePublished">2020-04-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/12/ecmascript-2020-new-feature/">ECMAScript 2020新增特性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="ECMAScript-2020新特性"><a href="#ECMAScript-2020新特性" class="headerlink" title="ECMAScript 2020新特性"></a>ECMAScript 2020新特性</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://2ality.com/2018/02/string-prototype-matchall.html">String.prototype.matchAll by Jordan Harband</a></li>
+<li><a target="_blank" rel="noopener" href="http://2ality.com/2018/02/string-prototype-matchall.html">import() by Domenic Denicola</a></li>
+<li><a target="_blank" rel="noopener" href="http://2ality.com/2017/03/es-integer.html">BigInt – arbitrary precision integers by Daniel Ehrenberg</a></li>
+<li><a target="_blank" rel="noopener" href="https://2ality.com/2019/08/promise-combinators.html">Promise.allSettled by Jason Williams, Robert Pamely and Mathias Bynens</a></li>
+<li><a target="_blank" rel="noopener" href="https://exploringjs.com/impatient-js/ch_variables-assignment.html#globalThis">globalThis by Jordan Harband</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/bakkot/for-in-exploration">for-in mechanics by Kevin Gibbons</a></li>
+<li><a target="_blank" rel="noopener" href="https://2ality.com/2019/07/optional-chaining.html">Optional chaining by Gabriel Isenberg, Claude Pache, Dustin Savery</a></li>
+<li><a target="_blank" rel="noopener" href="https://2ality.com/2019/08/nullish-coalescing.html">Nullish coalescing Operator by Gabriel Isenberg</a></li>
+<li><a target="_blank" rel="noopener" href="https://exploringjs.com/impatient-js/ch_modules.html#preview-import.meta.url">import.meta by Domenic Denicola</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tc39/ecma262/pull/1174">export * as ns from “mod”</a></li>
+</ul>
+<h2 id="Jordan-Harband提出的String-prototype-matchAll"><a href="#Jordan-Harband提出的String-prototype-matchAll" class="headerlink" title="Jordan Harband提出的String.prototype.matchAll"></a>Jordan Harband提出的String.prototype.matchAll</h2><p><code>String.prototype</code>上的<code>match()</code>方法仅返回完全匹配，但是没有返回关于特定正则组的任意信息。感谢<a target="_blank" rel="noopener" href="https://twitter.com/ljharb">Jordan Harband</a>关于<a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-string-matchall"><code>String.prototype.matchAll</code></a>的提案，可以返回比<code>match()</code>多很多的信息。返回的迭代器除了精确匹配外还给了我们访问所有的正则匹配捕获组。你还记得Gorkem Yakin和Daniel Ehrenberg添加到ECMAScript 2018的具名捕获组吗？<code>matchAll()</code>方法和此能很好的协调。通过下面例子来解释一下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> text = <span class="string">&quot;From 2019.01.29 to 2019.01.30&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> regexp = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;).(?&lt;month&gt;\d&#123;2&#125;).(?&lt;day&gt;\d&#123;2&#125;)/gu</span>;</span><br><span class="line"><span class="keyword">const</span> results = text.<span class="title function_">match</span>(regexp);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(results);</span><br><span class="line"><span class="comment">// [ &#x27;2019.01.29&#x27;, &#x27;2019.01.30&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> text = <span class="string">&quot;From 2019.01.29 to 2019.01.30&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> regexp = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;).(?&lt;month&gt;\d&#123;2&#125;).(?&lt;day&gt;\d&#123;2&#125;)/gu</span>;</span><br><span class="line"><span class="keyword">const</span> results = <span class="title class_">Array</span>.<span class="title function_">from</span>(text.<span class="title function_">matchAll</span>(regexp));</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(results);</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   [</span></span><br><span class="line"><span class="comment">//     &#x27;2019.01.29&#x27;,</span></span><br><span class="line"><span class="comment">//     &#x27;2019&#x27;,</span></span><br><span class="line"><span class="comment">//     &#x27;01&#x27;,</span></span><br><span class="line"><span class="comment">//     &#x27;29&#x27;,</span></span><br><span class="line"><span class="comment">//     index: 5,</span></span><br><span class="line"><span class="comment">//     input: &#x27;From 2019.01.29 to 2019.01.30&#x27;,</span></span><br><span class="line"><span class="comment">//     groups: [Object: null prototype] &#123; year: &#x27;2019&#x27;, month: &#x27;01&#x27;, day: &#x27;29&#x27; &#125;</span></span><br><span class="line"><span class="comment">//   ],</span></span><br><span class="line"><span class="comment">//   [</span></span><br><span class="line"><span class="comment">//     &#x27;2019.01.30&#x27;,</span></span><br><span class="line"><span class="comment">//     &#x27;2019&#x27;,</span></span><br><span class="line"><span class="comment">//     &#x27;01&#x27;,</span></span><br><span class="line"><span class="comment">//     &#x27;30&#x27;,</span></span><br><span class="line"><span class="comment">//     index: 19,</span></span><br><span class="line"><span class="comment">//     input: &#x27;From 2019.01.29 to 2019.01.30&#x27;,</span></span><br><span class="line"><span class="comment">//     groups: [Object: null prototype] &#123; year: &#x27;2019&#x27;, month: &#x27;01&#x27;, day: &#x27;30&#x27; &#125;</span></span><br><span class="line"><span class="comment">//   ]</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Domenic-Denicola提出的import"><a href="#Domenic-Denicola提出的import" class="headerlink" title="Domenic Denicola提出的import()"></a>Domenic Denicola提出的import()</h2><p>不同于ECMAScript 2015中介绍的静态模块，Domenic Denicola提案的<a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-dynamic-import"><code>动态导入</code></a>可以实现按需加载。这个类似函数的格式（不是继承自<code>Function .prototype</code>）返回一个很强大的promise。使用场景比如: 按需导入，在一个脚本中计算模块名并加载执行变得可能。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> modulePage = <span class="string">&#x27;page.js&#x27;</span>;</span><br><span class="line"><span class="title function_">import</span>(modulePage)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function">(<span class="params"><span class="variable language_">module</span></span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">module</span>.<span class="title function_">default</span>();</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> helpersModule = <span class="string">&#x27;helpers.js&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> <span class="variable language_">module</span> = <span class="keyword">await</span> <span class="title function_">import</span>(helpersModule)</span><br><span class="line">  <span class="keyword">const</span> total = <span class="variable language_">module</span>.<span class="title function_">sum</span>(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<h2 id="Daniel-Ehrenberg提出的BigInt-任意精度整数"><a href="#Daniel-Ehrenberg提出的BigInt-任意精度整数" class="headerlink" title="Daniel Ehrenberg提出的BigInt-任意精度整数"></a>Daniel Ehrenberg提出的BigInt-任意精度整数</h2><p>感谢<a target="_blank" rel="noopener" href="https://twitter.com/littledan">Daniel Ehrenberg</a>, <code>Number.MAX_SAFE_INTEGER</code>不再是JavaScript中的一个限制。<a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-bigint"><code>BigInt</code></a>是一个能表示任意精度整数的新基础类型。你可以通过使用<code>BigInt</code>方法或者在一个数字后添加<code>n</code>后缀来把一个数字转换为一个新的<code>bigint</code>类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Number</span>.<span class="property">MAX_SAFE_INTERGER</span></span><br><span class="line"><span class="comment">// 9007199254740991</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Number</span>.<span class="property">MAX_SAFE_INTEGER</span> + <span class="number">10</span> -<span class="number">10</span></span><br><span class="line"><span class="comment">// 9007199254740990 👎</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">BigInt</span>(<span class="title class_">Number</span>.<span class="property">MAX_SAFE_INTEGER</span>) + <span class="number">10n</span> -<span class="number">10n</span></span><br><span class="line"><span class="comment">// 9007199254740991n 👍</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Jason-Williams-Robert-Pamely-and-Mathias-Bynens提出的Promise-allSettled"><a href="#Jason-Williams-Robert-Pamely-and-Mathias-Bynens提出的Promise-allSettled" class="headerlink" title="Jason Williams, Robert Pamely and Mathias Bynens提出的Promise.allSettled"></a>Jason Williams, Robert Pamely and Mathias Bynens提出的Promise.allSettled</h2><p>自从ECMAScript 2015以来，JavaScript仅支持两种promise组合: <code>Promise.all()</code>和<code>Promise.race()</code>。感谢Jason Williams, Robert Pamely and Mathias Bynens，现在我们可以使用<code>Promise.allSettled()</code>。用这个方法来处理所有promise都解决时的场景（不管成功或失败）。看看下面的例子，并没有使用catch捕获异常！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Promise.allSettled([</span><br><span class="line">  fetch(&quot;https://api.github.com/users/pawelgrzybek&quot;).then(data =&gt; data.json()),</span><br><span class="line">  fetch(&quot;https://api.github.com/users/danjordan&quot;).then(data =&gt; data.json())</span><br><span class="line">])</span><br><span class="line">  .then(result =&gt; console.log(`All profile settled`));</span><br></pre></td></tr></table></figure>
+
+<p>还有<code>Promise.any()</code>有潜力很快进入ECMAScript规范中，在文章<a target="_blank" rel="noopener" href="https://pawelgrzybek.com/promise-combinators-explained/">“Promise组合解释”</a>中介绍了相关内容。</p>
+<h2 id="Jordan-Harband提出的globalThis"><a href="#Jordan-Harband提出的globalThis" class="headerlink" title="Jordan Harband提出的globalThis"></a>Jordan Harband提出的globalThis</h2><p>那么在JavaScript中什么是全局的<code>this</code>?是在浏览器中的<code>window</code>，在worker中的<code>self</code>，在Nodejs中的<code>global</code>或者其他… 这种混乱结束了！感谢Jordan Harband，我们现在可以使用<a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-global"><code>globalThis</code></a>关键字了。</p>
+<h2 id="Kevin-Gibbons提出的for-in机制"><a href="#Kevin-Gibbons提出的for-in机制" class="headerlink" title="Kevin Gibbons提出的for-in机制"></a>Kevin Gibbons提出的for-in机制</h2><p>ECMAScript遗留了一个关于for-in循环顺序的详细描述。感谢<a target="_blank" rel="noopener" href="https://twitter.com/bakkoting">Kevin Gibbons</a>所付出的努力，为for-in机制定义了一系列规则。(原文: Thanks to Kevin Gibbons who finally put some TLC and defined a set in stone set of rules for for-in mechanics.)</p>
+<h2 id="Gabriel-Isenberg-Claude-Pache-and-Dustin-Savery提出的optional-chaining"><a href="#Gabriel-Isenberg-Claude-Pache-and-Dustin-Savery提出的optional-chaining" class="headerlink" title="Gabriel Isenberg, Claude Pache and Dustin Savery提出的optional chaining"></a>Gabriel Isenberg, Claude Pache and Dustin Savery提出的optional chaining</h2><p>读取层次很深的对象属性时通常是容易出错并且对应代码也不易阅读。感谢Gabriel Isenberg, Claude Pache and Dustin Savery，这件事情现在变得简单了。如果你是一个TypeScript用户，那么你不会发现什么新的特性，因为在3.7版本中TypeScript已经实现了这个特性。喜欢！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line"><span class="keyword">const</span> title = data &amp;&amp; data.<span class="property">article</span> &amp;&amp; data.<span class="property">article</span>.<span class="property">title</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在</span></span><br><span class="line"><span class="keyword">const</span> title = data?.<span class="property">article</span>?.<span class="property">title</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Gabriel-Isenberg-提出的空值联合"><a href="#Gabriel-Isenberg-提出的空值联合" class="headerlink" title="Gabriel Isenberg 提出的空值联合"></a>Gabriel Isenberg 提出的空值联合</h2><p><a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-nullish-coalescing">空值联合</a>添加了一个新的短路原则操作符来处理默认值。<a target="_blank" rel="noopener" href="https://twitter.com/the_gisenberg">Gabriel Isenberg</a>做了很棒的工作。这个特性结合optional chanining特性使用。不同于<code>||</code>操作符，空值联合操作符<code>??</code>仅在左边的值为严格的<code>null</code>或<code>undefined</code>时起左右。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span> || <span class="string">&quot;default value&quot;</span></span><br><span class="line"><span class="comment">// default value</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span> ?? <span class="string">&quot;default value&quot;</span></span><br><span class="line"><span class="comment">// &quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> title = data?.<span class="property">article</span>?.<span class="property">title</span> ?? <span class="string">&quot;What&#x27;s new in ECMAScript 2020&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Domenic-Denicola提出的import-meta"><a href="#Domenic-Denicola提出的import-meta" class="headerlink" title="Domenic Denicola提出的import.meta"></a>Domenic Denicola提出的import.meta</h2><p><a target="_blank" rel="noopener" href="https://twitter.com/domenic">Domenic Denicola</a>提出的<a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-import-meta">import.meta</a>提案添加一个host相关的元数据对象到当前执行的模块中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>)</span><br><span class="line"><span class="comment">// file:///Users/pawelgrzybek/main.js</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="EXPORT-AS-NS-FROM-“MOD”"><a href="#EXPORT-AS-NS-FROM-“MOD”" class="headerlink" title="EXPORT * AS NS FROM “MOD”"></a>EXPORT * AS NS FROM “MOD”</h2><p>这是一个添加到规范中的<a target="_blank" rel="noopener" href="https://spectranaut.github.io/proposal-export-ns-from/">有用特性</a>，可以让开发者导出其他模块命名空间下的对象到一个新的名称下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> * <span class="keyword">as</span> ns <span class="keyword">from</span> <span class="string">&quot;mod&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://pawelgrzybek.com/whats-new-in-ecmascript-2020/">WHAT’S NEW IN ECMASCRIPT 2020</a></li>
+<li><a target="_blank" rel="noopener" href="https://2ality.com/2019/12/ecmascript-2020.html">ECMAScript 2020: the final feature set</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2020/04/12/ecmascript-2020-new-feature/" data-id="cl2oo8k84003t2224532ka0e1" data-title="ECMAScript 2020新增特性" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript/" rel="tag">ECMAScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spec/" rel="tag">Spec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%84%E8%8C%83/" rel="tag">规范</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-the-10-react-component-best-practice" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/22/the-10-react-component-best-practice/" class="article-date">
+  <time class="dt-published" datetime="2020-03-22T12:50:27.000Z" itemprop="datePublished">2020-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/03/22/the-10-react-component-best-practice/">React组件开发的十条最佳实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>原文地址: <a target="_blank" rel="noopener" href="https://dev.to/selbekk/the-10-component-commandments-2a7f">https://dev.to/selbekk/the-10-component-commandments-2a7f</a><br>译文地址: <a href="https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/">https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/</a></p>
+<blockquote>
+<p>译者备注: 这是一篇关于React组件开发最佳实践的文章，很值得一读，推荐有能力阅读英文的同学去读原文，翻译或多或少会丢失一些原意。</p>
+</blockquote>
+<p>正文从这里开始:</p>
+<p>创建被许多人使用的组件是困难的。尤其当组件的属性作为公开API的一部分，你不得不仔细考虑哪些属性应该接受。</p>
+<p>这篇文章会快速介绍一些在API设计时的通用最佳实践，并且给出10条明确的最佳实践指导你创建让同事开发者喜欢使用的组件。</p>
+<p><img src="http://picbed.bookcell.cn/picgo/api.jpg" alt="image"></p>
+<h2 id="API是什么"><a href="#API是什么" class="headerlink" title="API是什么?"></a>API是什么?</h2><p>API或者应用程序接口(Application Programming Interface)，主要是指两部分代码相遇的地方。这是你的代码和其他世界接触的地方。我们称这个接触表面为接口。这些是可交互的动作集合或者数据点。</p>
+<p>介于前端和后端之间的接口就是一个API。你可以通过这个API访问一系列特定的数据和功能。</p>
+<p>介于一个类和调用代码之间接口也是一个API。你可以在类上调用方法，来获取数据或者触发封装在其中的功能。</p>
+<p>沿着这个思路，你的组件接受的属性也是其API。这是你的用户和组件交互的方式，因此当你决定暴露哪些属性时有很多类似的规则和考虑可以应用。</p>
+<h2 id="API设计的部分最佳实践"><a href="#API设计的部分最佳实践" class="headerlink" title="API设计的部分最佳实践"></a>API设计的部分最佳实践</h2><p>那么在设计一个API时有哪些规则和考虑可以应用？在这方面我们做了一些调查，并找到了许多极好的资源。我们挑选了两篇文章，<a target="_blank" rel="noopener" href="https://joshdata.wordpress.com/">Josh Tauberer</a>的<a target="_blank" rel="noopener" href="https://joshdata.wordpress.com/2014/02/10/what-makes-a-good-api/">“What Makes a Good API?”</a>和Ron Kurir的<a target="_blank" rel="noopener" href="https://medium.com/@rkuris/good-apis-cd861b8b70a3">同名文章</a>，从中提取了4条最佳实践来遵循。</p>
+<h3 id="稳定的版本管理"><a href="#稳定的版本管理" class="headerlink" title="稳定的版本管理"></a>稳定的版本管理</h3><p>当你在创建一个API时要考虑的最重要的一点是尽可能保持稳定。这意味着破坏性变更的次数很少。如果你有破坏性的变更，确保写一份详细的升级指南，并且如果可能，提供一个重构件(code-mod)来给用户自动化处理这些变更。</p>
+<p>如果你发布了API，确保遵守<a target="_blank" rel="noopener" href="https://semver.org/">语义化版本</a>。这让用户更容易决定使用什么版本。</p>
+<h3 id="描述性的错误信息"><a href="#描述性的错误信息" class="headerlink" title="描述性的错误信息"></a>描述性的错误信息</h3><p>任何调用API出错的时候，你都应该尽可能的解释什么地方出错，并告知如何修复。返回一个错误使用且没有任何其他提示的响应会让使用者感到羞愧，这不是一种好的用户体验。</p>
+<p>相反，提供描述性的错误来帮助用户修复他们调用API的方式。</p>
+<h3 id="少让开发者感到惊讶"><a href="#少让开发者感到惊讶" class="headerlink" title="少让开发者感到惊讶"></a>少让开发者感到惊讶</h3><p>开发者是脆弱的人类，因此当他们使用API时不应该让他们感到惊讶。换句话说，尽可能让API更直观。这可以通过遵守最佳实践和命名规范来达到。</p>
+<p>另外需要放在心上是保持你的代码一致性。如果你在一处地方给布尔型属性名称前面添加了<code>is</code>或<code>has</code>，而在另外一处忽略了，这会让其他人感到困惑。</p>
+<h3 id="最小化API接口"><a href="#最小化API接口" class="headerlink" title="最小化API接口"></a>最小化API接口</h3><p>当我们谈到最小化的时候-同样要最小化你的API。更多的特性当然是好的，但是API接口暴露得越少，使用者学习的成本也更低。从而让用户认为这是一个易用的API。</p>
+<p>有很多方式可以控制API的规模，其中一个就是从旧的中重构一个新的来。</p>
+<h2 id="组件开发的十条最佳实践"><a href="#组件开发的十条最佳实践" class="headerlink" title="组件开发的十条最佳实践"></a>组件开发的十条最佳实践</h2><p><img src="http://picbed.bookcell.cn/picgo/10_component_comandments.jpg" alt="image"></p>
+<p>这4条黄金法则在REST API和Pascal语言程序中使用得很好，那么如何将他们拿到React的现代世界中来呢？</p>
+<p>像我们前面提到的，组件也有自己的API。我们称做<code>props</code>，这是给组件传递数据、回调和其他功能的方式。我们如何组织<code>props</code>对象才能不破坏上面的规则？我们如何开发组件才能让其他开发者在使用组件时更便捷？</p>
+<p>我们创建了开发组件时的10条不错的规则清单，希望对你有帮助。</p>
+<h3 id="1-组件使用文档"><a href="#1-组件使用文档" class="headerlink" title="1. 组件使用文档"></a>1. 组件使用文档</h3><p>如果组件没有提供如何使用的文档，那么显然组件是无用的。好吧，大多时候，使用者总是可以通过查看实现来了解如何使用，但那很少是最好的用户体验。</p>
+<p>有很多方式可以给组件编写文档，从我们的角度想推荐3个选项:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://storybook.js.org/">Storybook</a></li>
+<li><a target="_blank" rel="noopener" href="https://react-styleguidist.js.org/">Styleguidist</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.docz.site/">Docz</a></li>
+</ul>
+<p>前两个在你开发组件时可以提供一个playground用来试验，第3个提供了<code>MDX</code>来更自由的书写文档。（注:最新版本三者都已支持Markdown语法）</p>
+<p>不管选择哪一个，确保提供API文档，及组件如何、何时使用相关的文档。后者在共享组件库中更为重要，那样人们才能在合适的位置使用正确的按钮或者布局。</p>
+<h3 id="2-允许上下文的语义"><a href="#2-允许上下文的语义" class="headerlink" title="2. 允许上下文的语义"></a>2. 允许上下文的语义</h3><blockquote>
+<p>译者注: 标题的原文是<code>Allow for contextual semantics</code>，中文翻译不好把握供参考</p>
+</blockquote>
+<p>HTML是一门以语义化方式组织信息的语言。但是大多数的组件是由<code>&lt;div /&gt;</code>标签组成的。这在某种程度上是讲得通的，因为通用组件不能假设是否应该是<code>&lt;article /&gt;</code>、<code>&lt;section /&gt;</code>或者一个<code>&lt;aside /&gt;</code>，但是这并不是理想。</p>
+<p>相反，我们建议允许组件接受一个<code>as</code>属性，用以覆盖被渲染的DOM元素。下面是一个如何实现的例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Grid</span>(<span class="params">&#123; <span class="keyword">as</span>: Element, ...props &#125;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Eelement</span> <span class="attr">className</span>=<span class="string">&quot;grid&quot;</span> &#123;<span class="attr">...props</span>&#125; /&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Grid</span>.<span class="property">defaultProps</span> = &#123;</span><br><span class="line">    <span class="attr">as</span>: <span class="string">&#x27;div&#x27;</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>我们将<code>as</code>属性重命名为一个本地的变量<code>Element</code>，并在JSX中使用。我们提供了一个通用的默认值，在你明确不需要传递更具语义化HTML标签的情况下使用。</p>
+<p>当我们使用<code>&lt;Grid /&gt;</code>组件时，你仅需要传递正确的标签:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Grid</span> <span class="attr">as</span>=<span class="string">&quot;main&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">MoreContent</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意这在使用React组件时同样适用。一个很好的例子是，当你有一个<code>&lt;Button /&gt;</code>组件想要渲染成React Router的<code>&lt;Link /&gt;</code>组件时:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Button</span> <span class="keyword">as</span>=&#123;<span class="title class_">Link</span>&#125; to=<span class="string">&quot;/profile&quot;</span>&gt;</span><br><span class="line">    <span class="title class_">Go</span> to <span class="title class_">Profile</span></span><br><span class="line">&lt;/<span class="title class_">Button</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-避免布尔型属性"><a href="#3-避免布尔型属性" class="headerlink" title="3. 避免布尔型属性"></a>3. 避免布尔型属性</h3><p>布尔型属性听起来是个极好的主意。你可以不需要传值的情况下使用，这看起来很优雅:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Button</span> large&gt;<span class="variable constant_">BUY</span> <span class="variable constant_">NOW</span>!&lt;/<span class="title class_">Button</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是即使他们看起来很不错，单布尔属性只能允许两种可能性。开和关，显示和隐藏，1和0。</p>
+<p>任何时候当你开始引入像尺寸、变形、颜色或其他任何像下面所列可能有两个之外的值，你就会有麻烦了。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Button</span> large small primary disabled secondary&gt;</span><br><span class="line">    <span class="variable constant_">WHAT</span> <span class="variable constant_">AM</span> I??</span><br><span class="line">&lt;/<span class="title class_">Button</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>换句话说，布尔属性通常无法适应需求变更。因此，尝试使用字符串类型的枚举来作为属性，这样就有机会使用任何值而不是仅有两个值的选择。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Button</span> variant=<span class="string">&quot;primary&quot;</span> size=<span class="string">&quot;large&quot;</span>&gt;</span><br><span class="line">    I am primarily a large button</span><br><span class="line">&lt;/<span class="title class_">Button</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这并不代表布尔值属性没有一点用武之地。当然是有的。上面列的<code>disabled</code>属性就应该是布尔型，因为在启用和禁用之间没有中间状态。保留他们作为真正的两个选项使用。</p>
+<h3 id="4-使用props-children"><a href="#4-使用props-children" class="headerlink" title="4. 使用props.children"></a>4. 使用<code>props.children</code></h3><p>React有一些与其他属性略有不同的特殊属性。一个是<code>key</code>，在列表项中被用来跟踪顺序，另一个是<code>children</code>。</p>
+<p>任何放置在组件开和闭标签间的内容都会被放在<code>props.children</code>属性中。因此，你应该尽可能经常使用。</p>
+<p>原因是这样做比通过添加一个<code>content</code>属性或者其他专门类似文本简单值属性的方式要更加容易使用。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">TableCell</span> content=<span class="string">&quot;Some text&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对比</span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">TableCell</span>&gt;</span>Some text<span class="tag">&lt;/<span class="name">TableCell</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>使用<code>props.children</code>有很多积极的意义。第一点，这有点类似平常HTML的工作方式。第二，你可以自由地传递任何你想要传的内容。不用添加<code>leftIcon</code>和<code>rightIcon</code>属性到你的组件中，仅仅只要传到<code>props.children</code>属性中即可。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">TableCell</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">ImportantIcon</span> /&gt;</span></span> <span class="title class_">Some</span> text</span><br><span class="line">&lt;/<span class="title class_">TableCell</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>你可能会争辩组件应该只允许接收并渲染普通文本，这在某些情况下可能是对的。至少现在，通过使用<code>props.children</code>，能实现一个适应未来需求变更的组件。</p>
+<h3 id="5-让父组件接入内部逻辑"><a href="#5-让父组件接入内部逻辑" class="headerlink" title="5. 让父组件接入内部逻辑"></a>5. 让父组件接入内部逻辑</h3><p>有时我们会创建有很多内部逻辑和状态的组件，例如自动补全的下拉组件或者交互式图表。</p>
+<p>这些类型的组件通常都会涉及比较繁琐的接口，其中一个原因就是要支持后续的一系列覆盖和特殊使用场景。</p>
+<p>如何能做到仅仅提供一个简单、标准化属性来让用户控制、响应或者覆盖默认组件行为呢？</p>
+<p>Kent C.Dodds写了一篇关于“state reducers”概念的好文章，关于<a target="_blank" rel="noopener" href="https://kentcdodds.com/blog/the-state-reducer-pattern">概念本身</a>，和另外一篇<a target="_blank" rel="noopener" href="https://kentcdodds.com/blog/the-state-reducer-pattern-with-react-hooks">如何用React Hooks实现</a>。</p>
+<p>快速总结一下，这个模式通过传递一个“state reducer”函数给组件，从而让父组件可以访问任何在你的组件中派发的action。你可以改变状态，或者触发边界效应等。这是一个极好的实现高级定制的方式，而不用借助其他属性。</p>
+<p>代码如下:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">MyCustomDropdown</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">stateReducer</span> = (<span class="params">state, action</span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (action.<span class="property">type</span> === <span class="title class_">Dropdown</span>.<span class="property">actions</span>.<span class="property">CLOSE</span>) &#123;</span><br><span class="line">            buttonRef.<span class="property">current</span>.<span class="title function_">focus</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Dropdown</span> <span class="attr">stateReducer</span>=<span class="string">&#123;stateReducer&#125;</span> &#123;<span class="attr">...props</span>&#125; /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Button</span> <span class="attr">ref</span>=<span class="string">&#123;buttonRef&#125;</span>&gt;</span>Open<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>顺便说一下，你当然也可以创建更简单的方式来响应事件。上面的例子中提供一个<code>onClose</code>属性可能会更好的用户体验。保留好state reducer模式以备不时之需。</p>
+<h3 id="6-展开剩余属性"><a href="#6-展开剩余属性" class="headerlink" title="6. 展开剩余属性"></a>6. 展开剩余属性</h3><p>任何时候当你创建一个新的组件时，确保展开剩余的属性到有意义的元素上。</p>
+<p>你不需要持续添加那些原本在父组件或父元素上并会传递到组件上的属性到你的组件中。这会让你的API更稳定，并且不会因其他开发者需要一个新的事件监听或者arial标签而发布许多小的版本。</p>
+<p>可以像下面这样做：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ToolTip</span>(<span class="params">&#123; isVisivle, ...rest &#125;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> isVisible ? <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">role</span>=<span class="string">&quot;tooltip&quot;</span> &#123;<span class="attr">...rest</span>&#125; /&gt;</span></span> : <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>任何时候你的组件传递一个属性到你的实现中，像一个类名或者一个<code>onClick</code>处理函数，确保外部的使用者同样可以做同样的事情。在类的情况，使用好用的<code>classnames</code>软件包来追加类名（或者使用字符串拼接）。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> classNames <span class="keyword">from</span> <span class="string">&#x27;classnames&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ToolTip</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">span</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &#123;<span class="attr">...prpos</span>&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">className</span>=<span class="string">&#123;classNames(</span>&#x27;<span class="attr">tooltip</span>&#x27;, <span class="attr">props.className</span>)&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于点击事件处理函数或者其他回调，通过一个辅助函数来组合一个单独的函数，这里有一种实现方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">combine</span>(<span class="params">...functions</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> </span><br><span class="line">        functions</span><br><span class="line">            .<span class="title function_">filter</span>(<span class="function"><span class="params">func</span> =&gt;</span> <span class="keyword">typeof</span> func === <span class="string">&#x27;function&#x27;</span>)</span><br><span class="line">            .<span class="title function_">forEach</span>(<span class="function"><span class="params">func</span> =&gt;</span> <span class="title function_">func</span>(...args));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们创建一个函数来接受一系列函数并组合，返回一个新的依次使用对应参数调用他们的回调函数。</p>
+<p>你可以像这样使用:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ToolTip</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> [isVisible, setVisible] = <span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">span</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &#123;<span class="attr">...props</span>&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">className</span>=<span class="string">&#123;classNames(</span>&#x27;<span class="attr">tooltip</span>&#x27;, <span class="attr">props.className</span>)&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">onMouseIn</span>=<span class="string">&#123;combile(()</span> =&gt;</span> setVisible(true), props.onMouseIn)&#125;</span></span><br><span class="line"><span class="language-xml">            onMouseOut=&#123;combile(() =&gt; setVisible(false), props.onMouseOut)&#125;</span></span><br><span class="line"><span class="language-xml">        /&gt;</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-设置足够的默认值"><a href="#7-设置足够的默认值" class="headerlink" title="7. 设置足够的默认值"></a>7. 设置足够的默认值</h3><p>无论何时如果可以的话，确保给你的属性提供足够的默认值。这样做的话，可以最小化必须要传递的属性数量，并且这样能非常简化你的实现。</p>
+<p>举一个<code>onClick</code>处理函数的例子。如果在你的代码中不强制要求，那么可以提供一个空函数作为默认属性。这样的话，你可以在代码中跟一直有传递对应属性一样调用。</p>
+<p>另一个例子例如定制的输入。除非用户提供，否则的话假设输入的字符串是一个空字符串。这可以确保总是在处理一个字符串对象，而不是undefined或null。</p>
+<h3 id="8-不要重命名HTML属性"><a href="#8-不要重命名HTML属性" class="headerlink" title="8. 不要重命名HTML属性"></a>8. 不要重命名HTML属性</h3><p>HTML作为一门语言同样有其自己的属性，而这就是HTML元素自身的API。为什么不继续保持使用这个API呢？</p>
+<p>就如我们之前提到的，最小化API接口暴露和保持某种程度的直观是两种改善组件API的极好方式。因此比起创建自己的<code>screenReaderLabel</code>属性，为何不直接使用HTML已经提供给你的<code>aria-label</code>呢？</p>
+<p>因此不要<strong>为了自己的方便使用而去重命名既有的HTML属性</strong>。这样并不是用一个新的API来替换既存的API，而是在顶层添加一个自己的。人们通常还可以继续和你的<code>screenReaderLabel</code>属性一起传递<code>aria-label</code>，那么最终哪个才是该使用的呢？</p>
+<p>再说一点，确保永远不要在组件中覆盖HTML属性。一个比较好的例子就是<code>&lt;button /&gt;</code>元素的<code>type</code>属性，具有<code>submit</code>（默认）、<code>button</code>或者<code>reset</code>。然而，许多开发者倾向于把这个属性用于表示按钮的可视化类型（如<code>primary</code>, <code>cta</code>等等）。</p>
+<p>属性他用之后，你必须要添加其他新的属性来覆盖表示<code>type</code>属性，这样会导致困惑、疑虑和让用户愤怒。</p>
+<p>相信我，我一次又一次的犯了这个错误，我承认这真是一个狼狈的决定。</p>
+<h3 id="9-属性类型定义"><a href="#9-属性类型定义" class="headerlink" title="9. 属性类型定义"></a>9. 属性类型定义</h3><p>没有文档能比在代码中的文档更好的。React通过<code>prop-types</code>软件包提供了极好的方式来声明组件API。现在就开始使用吧。</p>
+<p>你可以指定任意类型和形式的必选和可选属性，并可以通过<a target="_blank" rel="noopener" href="https://devhints.io/jsdoc">JSDoc注释</a>来改善。</p>
+<p>如果你忽略了一个必选的属性，或者传递一个无效、非期望的值，那么你会在控制台中得到运行时警告。这对开发来讲是极好的，并可以在生产打包时被删掉。</p>
+<p>如果你是通过TypeScript或Flow来开发React应用，那么你可以通过语言特性获得这种API文档。这可以获得更好的工具支持，和更好的用户体验。</p>
+<p>如果你自己没有使用具有类型的JavaScript，那么你应该始终考虑给你的用户提供类型定义。这样，他们在使用你的组件时会更加容易。</p>
+<h3 id="10-为开发者设计"><a href="#10-为开发者设计" class="headerlink" title="10. 为开发者设计"></a>10. 为开发者设计</h3><p>最后，最重要的一个规则。确保你的API和组件体验是为那些将会使用的人优化的–你的同事开发者。</p>
+<p>一种改善开发者体验的方式是为不合理使用提供足够的错误信息，并在有更好的方式使用组件的情况下提供仅在开发环境的警告。</p>
+<p>当在提供错误和警告时，尽量通过链接引用你的文档或者提供简单的代码示例。让用户越快找到错误并修复，这会让用户感到你的组件越好用。</p>
+<p>事实证明，这些冗长的错误和警告并不会影响最终打包的大小。感谢无用代码精简的帮助，在构建生产包的时候这些文本和错误的代码都会被移除。</p>
+<p>在这方面做得非常好的一个库就是React本身。任何时候当你忘记在列表项中指定一个key时，或者拼错一个生命周期函数，忘记继承正确的基类或者用不正确的方式调用hook时，你会在控制台中得到大量的错误信息。为什么你的组件使用人员要期望的更少呢？</p>
+<p>因此为你的未来用户设计，为5周后的你自己设计，为当你离开后必须要接手维护你代码的可怜家伙设计！为开发者设计。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>从经典的API设计中我们可以学到许多很好的建议。通过遵循文中的建议、技巧、规则和最佳实践，你应该可以创建简单易用，容易维护，直观并在需要的时候非常灵活的组件。</p>
+<p>那么你在创建一个出色的组件时有哪些最喜欢的建议？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/" data-id="cl2oo8ka2008f2224bz9wa2vq" data-title="React组件开发的十条最佳实践" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reactjs/" rel="tag">Reactjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">最佳实践</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-how-to-read-a-book-notes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/01/30/how-to-read-a-book-notes/" class="article-date">
+  <time class="dt-published" datetime="2020-01-30T08:28:34.000Z" itemprop="datePublished">2020-01-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/01/30/how-to-read-a-book-notes/">如何阅读一本书-笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>笔记浓缩《如何阅读一本书》的精华，方便大家学习到阅读的要点。</p>
+<h2 id="阅读的目标与艺术"><a href="#阅读的目标与艺术" class="headerlink" title="阅读的目标与艺术"></a>阅读的目标与艺术</h2><p>阅读的目标：为获得资讯而读，以及为求得理解而读</p>
+<p>阅读的艺术: 这是一个凭借着头脑运作，除了玩味读物中的一些字句之外，不假任何外助，以一己之力来提升自我的过程。</p>
+<h2 id="阅读的层次"><a href="#阅读的层次" class="headerlink" title="阅读的层次"></a>阅读的层次</h2><p><img src="http://picbed.bookcell.cn/picgo/draw_how_to_read_a_book_reading_level.jpg"></p>
+<blockquote>
+<p> 大多数人，即使是许多优秀的阅读者，都忽略了检视阅读的价值。他们打开一本书，从第一页开始读起，孜孜不倦，甚至连目录都不看一眼。因此，他们在只需要粗浅翻阅一本书的时候，却拿出了仔细阅读、理解一本书的时间。这就加重了阅读的困难。第三种层次的阅读，我们称之为分析阅读（analytical  reading）。</p>
+</blockquote>
+<h2 id="检视阅读"><a href="#检视阅读" class="headerlink" title="检视阅读"></a>检视阅读</h2><h3 id="检视阅读一：有系统的略读或粗读"><a href="#检视阅读一：有系统的略读或粗读" class="headerlink" title="检视阅读一：有系统的略读或粗读"></a>检视阅读一：有系统的略读或粗读</h3><blockquote>
+<p>略读或粗读是检视阅读的第一个子层次。你脑中的目标是要发现这本书值不值得多花时间仔细阅读。其次，就算你决定了不再多花时间仔细阅读这本书，略读也能告诉你许多跟这本书有关的事。</p>
+</blockquote>
+<p>略读的建议:</p>
+<ol>
+<li>先看书名页，然后如果有序就先看序。</li>
+<li>研究目录页，对这本书的基本架构做概括性的理解。</li>
+<li>如果书中附有索引，也要检阅一下——大多数论说类的书籍都会有索引。</li>
+<li>如果那是本包着书衣的新书，不妨读一下出版者的介绍。</li>
+<li>从你对一本书的目录很概略，甚至有点模糊的印象当中，开始挑几个看来跟主题息息相关的篇章来看。</li>
+<li>最后一步，把书打开来，东翻翻西翻翻，念个一两段，有时候连续读几页，但不要太多。</li>
+</ol>
+<h3 id="检视阅读二：粗浅的阅读"><a href="#检视阅读二：粗浅的阅读" class="headerlink" title="检视阅读二：粗浅的阅读"></a>检视阅读二：粗浅的阅读</h3><blockquote>
+<p>头一次面对一本难读的书的时候，从头到尾先读完一遍，碰到不懂的地方不要停下来查询或思索。</p>
+</blockquote>
+<h3 id="阅读的速度"><a href="#阅读的速度" class="headerlink" title="阅读的速度"></a>阅读的速度</h3><blockquote>
+<p>所谓阅读速度，理想上来说，不只是要能读得快，还要能用不同的速度来阅读——要知道什么时候用什么样的速度是恰当的。</p>
+</blockquote>
+<p>略读或粗读一本书总是个好主意。尤其当你并不清楚手边的一本书是否值得细心阅读时（经常发生这种情况），必须先略读一下。略读过后，你就会很清楚了。一般来说，就算你想要仔细阅读的书也要先略读一下，从基本架构上先找到一些想法。</p>
+<h3 id="如何做一个自我要求的读者"><a href="#如何做一个自我要求的读者" class="headerlink" title="如何做一个自我要求的读者"></a>如何做一个自我要求的读者</h3><p>主动的阅读基础：一个阅读者要提出的<code>四个基本问题</code></p>
+<p>你在阅读时要提出问题来—在阅读的过程中，你自己必须尝试去回答的问题。</p>
+<ol>
+<li>整体来说，这本书到底在谈些什么？你一定要想办法找出这本书的主题，作者如何依次发展这个主题，如何逐步从核心主题分解出从属的关键议题来。</li>
+<li>作者细说了什么，怎么说的？你一定要想办法找出主要的想法、声明与论点。这些组合成作者想要传达的特殊讯息。</li>
+<li>这本书说得有道理吗？是全部有道理，还是部分有道理？</li>
+<li>这本书跟你有什么关系？</li>
+</ol>
+<p>任何一种超越基础阅读的阅读层次，核心就在你要努力提出问题（然后尽你可能地找出答案）。</p>
+<h3 id="如何让一本书真正属于你自己"><a href="#如何让一本书真正属于你自己" class="headerlink" title="如何让一本书真正属于你自己"></a>如何让一本书真正属于你自己</h3><blockquote>
+<p>要真正完全拥有一本书，必须把这本书变成你自己的一部分才行，而要让你成为书的一部分最好的方法——书成为你的一部分和你成为书的一部分是同一件事——就是要去写下来。</p>
+</blockquote>
+<p>做笔记和标记的方法:</p>
+<ol>
+<li>画底线——在主要的重点，或重要又有力量的句子下画线。</li>
+<li>在画底线处的栏外再加画一道线——把你已经画线的部分再强调一遍，或是某一段很重要，但要画底线太长了，便在这一整段外加上一个记号。</li>
+<li>在空白处做星号或其他符号——要慎用，只用来强调书中十来个最重要的声明或段落即可。你可能想要将做过这样记号的地方每页折一个角，或是夹一张书签。</li>
+<li>在空白处编号——作者的某个论点发展出一连串的重要陈述时，可以做顺序编号。</li>
+<li>在空白处记下其他的页码——强调作者在书中其他部分也有过同样的论点，或相关的要点，或是与此处观点不同的地方。</li>
+<li>将关键字或句子圈出来——这跟画底线是同样的功能。</li>
+<li>在书页的空白处做笔记——在阅读某一章节时，你可能会有些问题（或答案），在空白处记下来，这样可以帮你回想起你的问题或答案。</li>
+</ol>
+<blockquote>
+<p>你读完一本书，在最后的空白页写下个人的索引后，再翻回前面的空白页，试着将全书的大纲写出来，用不着一页一页或一个重点一个重点地写（你已经在书后的空白页做过这件事了），试着将全书的整体架构写出来，列出基本的大纲与前后篇章秩序。</p>
+</blockquote>
+<p>在检视阅读中，要回答的问题是：第一，这是什么样的一本书？第二，整本书在谈的是什么？第三，作者是借着怎样的整体架构，来发展他的观点或陈述他对这个主题的理解？</p>
+<p>要做这些笔记最好的地方是目录页，或是书名页，这些是我们前面所提的笔记方式中没有用到的页数。</p>
+<h2 id="分析阅读"><a href="#分析阅读" class="headerlink" title="分析阅读"></a>分析阅读</h2><p>分析阅读的三阶段</p>
+<h3 id="一、分析阅读的第一阶段：找出一本书在谈些什么的规则"><a href="#一、分析阅读的第一阶段：找出一本书在谈些什么的规则" class="headerlink" title="一、分析阅读的第一阶段：找出一本书在谈些什么的规则"></a>一、分析阅读的第一阶段：找出一本书在谈些什么的规则</h3><ol>
+<li>依照书的种类与主题来分类。</li>
+<li>使用最简短的文字说明整本书在谈些什么。</li>
+<li>将主要部分按顺序与关联性列举出来。将全书的大纲列举出来，并将各个部分的大纲也列出来。</li>
+<li>确定作者想要解决的问题。</li>
+</ol>
+<h3 id="二、分析阅读的第二阶段：诠释一本书的内容规则"><a href="#二、分析阅读的第二阶段：诠释一本书的内容规则" class="headerlink" title="二、分析阅读的第二阶段：诠释一本书的内容规则"></a>二、分析阅读的第二阶段：诠释一本书的内容规则</h3><ol start="5">
+<li>诠释作者的关键字，与他达成共识。</li>
+<li>由最重要的句子中，抓住作者的重要主旨。</li>
+<li>知道作者的论述是什么，从内容中找出相关的句子，再重新架构出来。</li>
+<li>确定作者已经解决了哪些问题，还有哪些是没解决的。再判断哪些是作者知道他没解决的问题。</li>
+</ol>
+<h3 id="三、分析阅读的第三阶段：像是沟通知识一样地评论一本书的规则"><a href="#三、分析阅读的第三阶段：像是沟通知识一样地评论一本书的规则" class="headerlink" title="三、分析阅读的第三阶段：像是沟通知识一样地评论一本书的规则"></a>三、分析阅读的第三阶段：像是沟通知识一样地评论一本书的规则</h3><h4 id="A．智慧礼节的一般规则"><a href="#A．智慧礼节的一般规则" class="headerlink" title="A．智慧礼节的一般规则"></a>A．智慧礼节的一般规则</h4><ol start="9">
+<li>除非你已经完成大纲架构，也能诠释整本书了，否则不要轻易批评。（在你说出：“我读懂了 !” 之前，不要说你同意、不同意或暂缓评论。）</li>
+<li>不要争强好胜，非辩到底不可。</li>
+<li>在说出评论之前，你要能证明自己区别得出真正的知识与个人观点的不同。</li>
+</ol>
+<h4 id="B．批评观点的特别标准"><a href="#B．批评观点的特别标准" class="headerlink" title="B．批评观点的特别标准"></a>B．批评观点的特别标准</h4><ol start="12">
+<li>证明作者的知识不足。</li>
+<li>证明作者的知识错误。</li>
+<li>证明作者不合逻辑。</li>
+<li>证明作者的分析与理由是不完整的。</li>
+</ol>
+<h2 id="主题阅读"><a href="#主题阅读" class="headerlink" title="主题阅读"></a>主题阅读</h2><p>TBD</p>
+<hr>
+<p>笔记变更记录</p>
+<p>初版 2020.1.30</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/" data-id="cl2oo8k8r005422242cx317ws" data-title="如何阅读一本书-笔记" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-summary" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/12/31/2019-summary/" class="article-date">
+  <time class="dt-published" datetime="2019-12-31T15:47:34.000Z" itemprop="datePublished">2019-12-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/12/31/2019-summary/">2019年的总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="http://picbed.bookcell.cn/picgo/nari_japan_high_quality.jpg"></p>
+<p>即将步入而立之年，回望2019年，工作上有些许波动也在稳步前进，宝宝也在逐步成长，家庭今年和谐相处，整体上来看还不错，也还有很多要努力提高的地方，希望2020年继续前进。</p>
+<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>年初从爱云出来，到了苏宁短暂停留，中间歇了将近两个月，最终到了华为，过程稍显折腾，结果倒也令人满意，遇到一群很不错的小伙伴。</p>
+<p>在爱云待了将近三年，从零参与了物联网使能平台前端的搭建和成长，再到卖出第一单，技术支持，从中能够体会到创业的艰辛，也能体会到成功的喜悦，虽然物联网的道路还很漫长，我也还是相信物联网会给我们带来很多便利。在这里，老板的人格魅力是无穷的，同事们的氛围也很融洽，一起打羽毛球，一起讨论技术。</p>
+<p>在苏宁，原本以为会在一个新项目中，中间发生一些变动，实际上到了易购的一个部门，遇到了朱总，很有趣的一个兄弟，在这里也学到了不少东西。到这里也是临时顶上去做营销活动的项目，赶着项目上线也是比较辛苦的，最终项目安稳上线，也算是一点安慰。最终，个人感觉不太能接受这边的企业文化，选择了离开。</p>
+<p>休息期间，看了南京的不少互联网企业，较多的是创业公司，本来打算要去一家创业公司的前端架构组的，机缘巧合，华为这边也联系了面试，面下来感觉还不错，结果就到了现在这边，主要负责前端的业务开发，也会兼顾一些前端新技术的分享和工程化。</p>
+<p>总结毕业之后的工作历程，每一次的更换都是一种成长，对应的是自己对未来方向的选择。从一开始的迷茫，到逐渐发现自己想要走的技术方向，一步一步都有很多付出和有这相应的收获。现阶段的目标，沿着前端这个方向继续深入，深度掌握JS语言（阅读和理解<a target="_blank" rel="noopener" href="https://tc39.es/ecma262/">ECMAScript Spec</a>）的同时，兼顾工程化的调研，同时补充自己的CS基础知识（2020年的一个阅读目标是精读<a target="_blank" rel="noopener" href="https://book.douban.com/subject/1148282/">SICP</a>）。</p>
+<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>宝宝今年不知不觉两周岁了，从年初刚学会走路，到现在可以跑过来跑过去的一个大宝宝。接下来，让他在愉快玩耍的童年里，也要学点东西，我想让他学点古文（四书五经、阳明心学）、简单的英语和数学。</p>
+<p>年中和老婆实现了一趟日本自由行，通过之前刚毕业时候学的日语，基本能用在购物和问路上面。玩过之后，觉得日本是个不错的地方，能够发展强大，确实有其过人之处，尤其在文化传承上，值得我们的学习。另外，对于环境生态的保护做得也很好。</p>
+<p>这一年，在健身方面的投入较少，工作的的更换是其中一个原因，更多的是自己的原因。接下来一年，要更多关注锻炼健身，保持坚持。饮食上坚持多吃面食，遵循苏东坡先生的方法“已饥而食，未饱先止”，今年着实吃了很多馒头和饺子，作为一个南方人，吃北方人喜欢吃的面食也是不错的。</p>
+<h2 id="精神"><a href="#精神" class="headerlink" title="精神"></a>精神</h2><p>自从接触了阳明心学，觉得一步步在深入儒家之路，去年读了《传习录》，因为其中涉及很多四书五经的引用讨论，今年接着在读《论语》，读的是李泽厚先生的《论语今读》，属于译注，包括翻译和注解，方便理解。12月份，听了南京师范大学郦波教授的《五百年来王阳明》，加深了之前对阳明心学的认识，不过认识的程度还远远不够，因此2020年的另一个阅读目标，准备读一读《华杉读透王阳明&lt;传习录&gt;》并结合着阅读《王阳明全集》。</p>
+<p>针对阳明先生的几个理论，值得在生活工作中不断的练习和领悟。</p>
+<blockquote>
+<p>“心即理、心外无物”、“知行合一”、“致良知”。</p>
+</blockquote>
+<p>另外一个收获，读了二战期间奥地利的一个心理医生<code>弗兰克尔</code>写的《活出生命的意义》，作者是一名被德国人关押在集中营的犹太人，九死一生最终解放集中营后逃出并写出来自己的经历感悟和一种心理治疗方法。其中，提到的什么是生命的意义，我个人颇为赞同：</p>
+<ol>
+<li>生活的苦难</li>
+<li>亲情、爱情、友情</li>
+<li>艺术和创作</li>
+</ol>
+<p>我们都可以在这其中找到自己生命的意义。</p>
+<p>心理学的经典著作对个人的帮助确实很大，之前在《少有人走的路》里，作者提出了一个观点，每一个人或多或少都有一些心理上的问题，在于自己愿不愿意去承认罢了，新的一年，我还是给自己准备了一个《自卑与超越》的心理学书籍，作者是和<code>弗兰克尔</code>同时代的一个著名心理学家<code>阿德勒</code>，值得期待。</p>
+<hr>
+<p>临近新的一年，希望接下来一年工作顺利、家里人身体棒棒、和谐相处。</p>
+<p>2019.12.31</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2019/12/31/2019-summary/" data-id="cl2oo8k46000b2224b7qk4yrc" data-title="2019年的总结" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2019/" rel="tag">2019</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-reading-list-2020" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/12/29/reading-list-2020/" class="article-date">
+  <time class="dt-published" datetime="2019-12-29T08:37:47.000Z" itemprop="datePublished">2019-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/12/29/reading-list-2020/">2020年的计划阅读书单</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="http://picbed.bookcell.cn/picgo/book-stack-2020-tiny.jpg"></p>
+<p>基于2019年的阅读进度，2020年计划阅读20本，不再按照季度平均分配，根据阅读书籍的难易和厚度分配时间。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>【略读】</li>
+<li>【精读】</li>
+<li>【主题阅读】</li>
+</ul>
+<h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><ul>
+<li><input disabled="" type="checkbox"> 【精读】《你不知道的JavaScript下卷》</li>
+<li><input disabled="" type="checkbox"> 【精读】《计算机程序的构造和解释》</li>
+<li><input disabled="" type="checkbox"> 【主题阅读】《ECMAScript Spec 2019》</li>
+<li><input disabled="" type="checkbox"> 【精读】《计算机网络》Andrew S.Tanenbaum 著 潘爱民 译</li>
+<li><input disabled="" type="checkbox"> 【精读】《代码整洁之道》[美]Robert C. Martin</li>
+<li><input disabled="" type="checkbox"> 【精读】《重构: 改善既有代码的设计》第2版 Martin Fowler</li>
+</ul>
+<h2 id="文学"><a href="#文学" class="headerlink" title="文学"></a>文学</h2><ul>
+<li><input disabled="" type="checkbox"> 【略读】《三体》刘慈欣</li>
+<li><input disabled="" type="checkbox"> 【略读】《伊利亚特》荷马</li>
+<li><input disabled="" type="checkbox"> 【略读】《王阳明全集》</li>
+<li><input disabled="" type="checkbox"> 【主题阅读】《华杉讲透王阳明《传习录》》华杉</li>
+</ul>
+<h2 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h2><ul>
+<li><input disabled="" type="checkbox"> 【略读】《思考致富》拿破仑·希尔</li>
+</ul>
+<h2 id="传记"><a href="#传记" class="headerlink" title="传记"></a>传记</h2><ul>
+<li><input disabled="" type="checkbox"> 【略读】《我的世界观》爱因斯坦</li>
+<li><input disabled="" type="checkbox"> 【略读】《爱因斯坦传》艾萨克森</li>
+</ul>
+<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><ul>
+<li><input disabled="" type="checkbox"> 【略读】《显微镜下的大明》马伯庸</li>
+</ul>
+<h2 id="政治"><a href="#政治" class="headerlink" title="政治"></a>政治</h2><ul>
+<li><input disabled="" type="checkbox"> 【略读】《自由的阶梯：美国文明札记》</li>
+<li><input disabled="" type="checkbox"> 【略读】《自由的基因：自由主义的历史变迁》</li>
+<li><input disabled="" type="checkbox"> 【略读】《自由的刻度：缔造美利坚的40篇经典文献》</li>
+</ul>
+<h2 id="心理学"><a href="#心理学" class="headerlink" title="心理学"></a>心理学</h2><ul>
+<li><input disabled="" type="checkbox"> 【略读】《自卑与超越》阿德勒</li>
+<li><input disabled="" type="checkbox"> 【略读】《自控力》<The Willpower Instinct> kelly McGonigal</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><input disabled="" type="checkbox"> 【略读】《你的灯亮着吗——发现问题所在》 康纳德.高斯 杰拉尔德.温伯格 著 俞月圆 译</li>
+<li><input disabled="" type="checkbox"> 【略读】《Thinking, Fast and Slow》 by Daniel Kahneman</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2019/12/29/reading-list-2020/" data-id="cl2oo8k9s007t2224b8oe8mzy" data-title="2020年的计划阅读书单" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B9%A6%E5%8D%95/" rel="tag">书单</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-reading-2019-summary" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/12/29/reading-2019-summary/" class="article-date">
+  <time class="dt-published" datetime="2019-12-29T07:39:11.000Z" itemprop="datePublished">2019-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/12/29/reading-2019-summary/">2019年的阅读总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="http://picbed.bookcell.cn/picgo/IMG_2732.jpg"></p>
+<p><sub>这是下半年去的培荣书屋，汪涵给他父亲开的一家书店</sub></p>
+<p>2019年共阅读了23本书，年初计划的24本书中，尚有13本未读完，期间也读了一些非计划内的书。因此2020年准备计划阅读的书单会减少一些数量，并且会更注重精读的质量。</p>
+<p>个人比较推荐的有弗兰克尔的《活出生命的意义》、乔治奥威尔的《1984》和《动物农场》、还有吴军的《见识》。</p>
+<h2 id="书籍短评"><a href="#书籍短评" class="headerlink" title="书籍短评"></a>书籍短评</h2><p>下面是阅读过的书籍短评：</p>
+<p><code>《Web前端开发修炼之道》</code></p>
+<ul>
+<li>阅读时间 2018.12.15～2019.1.3</li>
+<li>心得: 前端前辈的心得，部分技术已经过时，有一些思想还可借鉴。前端已经从jQuery时代，进入React&#x2F;Vue&#x2F;Angular时代。</li>
+</ul>
+<p><code>《异类-不一样的成功启示录》</code>by 马尔科姆·格拉德威尔</p>
+<ul>
+<li>阅读时间 2018.12.20～2019.1.4</li>
+<li>心得: 书中提到成功有几方面的因素，10000小时的练习、机遇、文化背景，其中机遇是影响最重大的一个因素，所谓时势造英雄。</li>
+</ul>
+<p><code>《失控》</code>by KK</p>
+<ul>
+<li>阅读时间 2018~2019.1.16</li>
+<li>心得： 一本巨大的作品，涉及的知识面很广，富有前瞻性，谈到了许多人类的未来可能。其中有两点，我觉得比较有意思，一个是构建生态系统；另一个是生物特性和人工智能的结合。</li>
+</ul>
+<p><code>《CSS禅意花园》</code>by Shea Dove</p>
+<ul>
+<li>阅读时间 2018.12 ~.2019.1.28</li>
+<li>心得：大概的翻了一遍，书中罗列了几十种实现禅意花园的CSS方案，点出其中的设计思路和难点、注意点，面向的读者更偏向设计人员。</li>
+</ul>
+<p><code>《生命之书》</code></p>
+<ul>
+<li>阅读时间 2018.12～2019.1.30</li>
+<li>心得: 有关人生哲学的一本书，比较深奥，有点佛学的味道。</li>
+</ul>
+<p><code>《未来世界的幸存者》</code>阮一峰</p>
+<ul>
+<li>阅读时间 2019.2.11~2019.1.13</li>
+<li>心得: 讲述技术带来的冲击以及有关职业人生的未来思考，值得一看。</li>
+</ul>
+<p><code>《活出生命的意义》</code>弗兰克尔</p>
+<ul>
+<li>阅读时间: 2019.3.6～2019.3.8</li>
+<li>心得: 从二战德国集中营幸存下来的心理医生弗兰克尔讲述自身经历，并提出心理学“意义疗法”，寻找到生命的意义是活下去的根本。</li>
+</ul>
+<p><code>《穷查理宝典》</code>查理芒格</p>
+<ul>
+<li>阅读时间: 2019.2.1～2019.3.12</li>
+<li>心得: 收录查理芒格的演讲稿及他的一些思考，印象深刻的是他对终身学习重要性的强调，以及对普世智慧的见解。</li>
+</ul>
+<p><code>《JavaScript语言精粹》</code>道格拉斯·克劳福德</p>
+<ul>
+<li>阅读时间: 2019.2.15～2019.3.17</li>
+<li>心得: 大师利用浓缩式的方式讲述JS语言的知识点，并列举了语言的精华和糟粕，主要针对ES3标准。</li>
+</ul>
+<p><code>《你不知道的JavaScript 上卷和中卷》</code></p>
+<ul>
+<li>阅读时间: 2019.3.18~2019.4.18</li>
+<li>心得: 深度讲解作用域、this、继承、原型链，值得再细读一遍。讲解比较深入，但是个人感觉，没有红宝书的作者扎卡斯写的容易理解。</li>
+</ul>
+<p><code>《1984》</code>乔治奥威尔</p>
+<ul>
+<li>阅读时间: 2019.4.10~2019.4.20</li>
+<li>心得:<br>奥威尔在1948年描绘1984年未来世界中极权主义下的生活，发人深省，以及对于自由的追求。</li>
+</ul>
+<p><code>《动物农场》</code>乔治奥威尔</p>
+<ul>
+<li>心得: 讲述一个关于极权统治的童话故事</li>
+</ul>
+<p><code>《如何不为钱发愁》</code></p>
+<ul>
+<li>时间：2019.5.15-2019.6.2</li>
+<li>心得: 干货不多，主要从哲学角度分析财务问题，主要的理解在于欲望与实际需求的一种平衡。</li>
+</ul>
+<p><code>《如何用一年的时间获得10年的经验》</code>郝培强</p>
+<ul>
+<li>时间: 2019.6.10-2019.7.12</li>
+<li>心得: 主要是作者的一些思考，关键的一些观点，多读书，注意做事的方法，大神其实没有什么特殊的只是比你多做了一点努力，执行力要强。</li>
+</ul>
+<p><code>《软技能》</code></p>
+<ul>
+<li>时间：2019.6～2019.7.22</li>
+<li>心得: 作者讲述了包括自我营销、学习方法、工作方法、健身、理财、调整心态等各方面的知识，更像是一个过来人给你传授经验，有一些方法是值得学习的。</li>
+</ul>
+<p><code>《Web前端开发最佳实践》</code></p>
+<ul>
+<li>时间：2019.5.15-2019.7.22</li>
+<li>心得: 主要是前端开发中的一下经验之谈，有一些方法可以参考，也有一些技术已经过时了，参考价值不是很大。</li>
+</ul>
+<p><code>《清醒思考的艺术》</code>罗尔夫•多贝里</p>
+<ul>
+<li>时间：2019.7.5~2019.8.10</li>
+<li>心得: 作者提出了日常生活中多个方面存在的思维误区，不时的回顾一下这些思维误区，能够让我们少犯错误。</li>
+</ul>
+<p><code>《哲学简史》</code>冯友兰</p>
+<ul>
+<li>时间：2019.6.16~2019.8.20</li>
+<li>心得: 讲述先秦时期的哲学各家，涉及儒家、佛家、道家、法家、阴阳家等，以及近现代的理学、心学等，是了解中国哲学史的一本好书，概览全貌。</li>
+</ul>
+<p><code>《下一个倒下的会不会是华为》</code></p>
+<ul>
+<li>时间：2019.8.24-2019.8.31</li>
+<li>心得: 讲述了华为的核心价值观，华为成长起来过程中遭遇的变革和突破，以及任正非的思考和决策。从赞许和批判的角度均有涉及，相对比较客观。华为核心价值观，以客户为中心，以奋斗者为本，长期坚持艰苦奋斗。</li>
+</ul>
+<p><code>《价值为纲》</code></p>
+<ul>
+<li>时间：2019.8.30~2019.8.31</li>
+<li>心得: 主要讲述华为的财务政策。</li>
+</ul>
+<p><code>《见识》</code>吴军</p>
+<ul>
+<li>时间: 2019.9.6~2019.10.6</li>
+<li>心得: 讲述作者对于人生各方面的经验和看法，对于年轻人有一定的参考意义，值得多看几遍。</li>
+</ul>
+<p><code>《论语今读》</code>李泽厚</p>
+<ul>
+<li>时间:2019.1.1~2019.12.9</li>
+<li>心得: 对论语的解读，包括翻译和注解，有引经据典的说明，也有个人的见解，帮助理解论语。论语是孔子及弟子的言语记录，表达对于为人处事的方法，从现在看来，依然值得一读，根据这次的阅读体验，阅读古文经典，还是应该找一本名家注解版阅读比较好理解，最好是大家认可度比较高的注解版本。</li>
+</ul>
+<p><code>《习惯的力量》</code></p>
+<ul>
+<li>时间: 2019.12.1~2019.12.29</li>
+<li>心得: 通过许多实例讲述习惯的形成和改变，主要涉及一个循环，惯常行为-暗示-奖励，学会习惯背后的规律，有助于改善旧的习惯，养成新的好习惯。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2019/12/29/reading-2019-summary/" data-id="cl2oo8k9n007i2224784a56na" data-title="2019年的阅读总结" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2019/" rel="tag">2019</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B9%A6%E5%8D%95/" rel="tag">书单</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-d2-forum-14th" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/12/16/2019-d2-forum-14th/" class="article-date">
+  <time class="dt-published" datetime="2019-12-16T15:19:23.000Z" itemprop="datePublished">2019-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/12/16/2019-d2-forum-14th/">2019年第14届D2参会记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一年一度的D2论坛，今年第14届依然和上一届一样，在同一个酒店-<a target="_blank" rel="noopener" href="https://www.amap.com/search?id=B0FFFAK7ZI&city=330104&geoobj=118.804039%7C31.92629%7C118.816914%7C31.932992&query_type=IDQ&query=%E6%9D%AD%E5%B7%9E%E5%92%8C%E8%BE%BE%E5%B8%8C%E5%B0%94%E9%A1%BF%E9%80%B8%E6%9E%97%E9%85%92%E5%BA%97&zoom=17">杭州和达希尔顿逸林酒店</a>，这次和两个小伙伴一起同行，早上5点半起床赶高铁，正好9点左右到会场，赶上圆心的开场演讲。</p>
+<p>2019年，对于前端来讲，有很多大的变化，serverless的逐步流行，TypeScript逐渐成为前端项目开发的首选，微前端的落地等等，这些趋势在会上的主题演讲中也有体现。</p>
+<h2 id="六大主题"><a href="#六大主题" class="headerlink" title="六大主题"></a>六大主题</h2><p>本次大会安排了6个专场：</p>
+<ul>
+<li>语言框架</li>
+<li>智能化</li>
+<li>微前端</li>
+<li>Serverless</li>
+<li>工程化</li>
+<li>多样化领域</li>
+</ul>
+<p>这些主题的选取也体现阿里前端技术委员会对前端趋势的理解，几个方向的演讲都有小伙伴们在探索实践，就如圆心在开场所讲，前端在垂直领域以及深度方面有更多可以探索的内容。具体的演讲主题可参考<a target="_blank" rel="noopener" href="http://d2forum.alibaba-inc.com/">D2官网</a></p>
+<h2 id="听讲主题"><a href="#听讲主题" class="headerlink" title="听讲主题"></a>听讲主题</h2><h3 id="圆心-开场演讲"><a href="#圆心-开场演讲" class="headerlink" title="圆心 - 开场演讲"></a>圆心 - 开场演讲</h3><p>圆心，作为阿里前端委员会的老板，每届会议的Keynote主持人。本次开场，讲到了这几个方面：</p>
+<ol>
+<li>前端领域在扩大</li>
+<li>2C -&gt; 2B在慢慢增长，垂直领域出现更多机会</li>
+<li>云端机会，业务和稳定性的要求提高</li>
+<li>智能化，减少重复劳动，投入到业务及深度的探索</li>
+<li>关注语言的底层，寻找参与制定标准的机会</li>
+<li>多端一体化，wasm、IDE等</li>
+</ol>
+<h3 id="克军-微前端架构体系"><a href="#克军-微前端架构体系" class="headerlink" title="克军 - 微前端架构体系"></a>克军 - 微前端架构体系</h3><p>久闻克军大佬之名，这次终于见到真容。讲得是云时代的前端架构，微前端架构体系，这是一个体系，并不单单指某一个微前端的框架或者库，包含了从前到后的几大方面。</p>
+<p>从前端架构历史演进着手，逐步说明了微前端带来的变化，我的个人理解，微前端主要在中大型项目中为项目的灵活维护和部署提供了一个手段，并且可以将不同技术栈的前端应用集成在一起。</p>
+<p>克军提出的微前端体系，包括了这几个部分:</p>
+<ul>
+<li>微前端基础设施</li>
+<li>微前端配置中心（版本管理、发布策略、动态构建）</li>
+<li>微前端观察工具（运维职责：可见、可控性）</li>
+</ul>
+<p>微前端的主要原理，通过一个主应用来协调各应用之间的切换，实现协同工作。</p>
+<h3 id="甄子-前端智能化实践"><a href="#甄子-前端智能化实践" class="headerlink" title="甄子 - 前端智能化实践"></a>甄子 - 前端智能化实践</h3><p>这个主题演讲是关于智能化的，对应的开源项目是阿里imgcook，利用<code>Tensorflow.js</code>机器学习实现自动切图，由设计稿到逻辑代码。介绍了背后实现的思路，整体下来听着比较枯燥，表示没太明白。</p>
+<p>其中提到了一个阿里近期开源的项目<code>pipcook</code>。</p>
+<h3 id="陈垒-fibjs-模块重构-从回调到协程"><a href="#陈垒-fibjs-模块重构-从回调到协程" class="headerlink" title="陈垒 - fibjs 模块重构 - 从回调到协程"></a>陈垒 - fibjs 模块重构 - 从回调到协程</h3><p>这个主题主要讲后端nodejs相关的开发，通过对比nodejs回调和fibjs库中同步调用的性能对比，讲解重构和推广fibjs，没有听完。</p>
+<h3 id="张伟、马航-前端工程下一站：IDE"><a href="#张伟、马航-前端工程下一站：IDE" class="headerlink" title="张伟、马航 - 前端工程下一站：IDE"></a>张伟、马航 - 前端工程下一站：IDE</h3><p>IDE最近也是一个很热门的方向，有很多公司都在做，不管是云端的WebIDE还是桌面端，通过Electron技术可以将web技术栈的实现转为桌面端。由于这几年VSCode编辑器大火，很多项目基于VSCode开发了自己的IDE，服务于他们的配套产品，例如小程序等等。</p>
+<p>这里介绍的是阿里开天的项目，兼容VSCode的一个IDE。</p>
+<h3 id="Nicolo-Ribaudo-Babel-Under-the-Hood"><a href="#Nicolo-Ribaudo-Babel-Under-the-Hood" class="headerlink" title="Nicolò Ribaudo - Babel: Under the Hood"></a>Nicolò Ribaudo - Babel: Under the Hood</h3><p>一个意大利大学数学系的小哥来讲了<code>Babel</code>背后的原理，主要介绍了一下Babel的主要工作流程以及涉及到哪些核心的库。</p>
+<p>Babel主要是基于<code>AST</code>来对代码进行解析和转译。</p>
+<h3 id="玄寂-基于浏览器的实时构建探索之路"><a href="#玄寂-基于浏览器的实时构建探索之路" class="headerlink" title="玄寂 - 基于浏览器的实时构建探索之路"></a>玄寂 - 基于浏览器的实时构建探索之路</h3><p>这个主题介绍了在浏览器上的构建方式，比较熟悉的产品有<code>CodeSandbox</code>和<code>Stackblitz</code>。</p>
+<p>从这几个方面介绍了如何实现浏览器的构建:</p>
+<ul>
+<li>加载器</li>
+<li>文件系统</li>
+<li>编译系统</li>
+<li>包管理</li>
+</ul>
+<h3 id="Ahmad-Amireh-Distributed-Front-End-Architecture"><a href="#Ahmad-Amireh-Distributed-Front-End-Architecture" class="headerlink" title="Ahmad Amireh - Distributed Front-End Architecture"></a>Ahmad Amireh - Distributed Front-End Architecture</h3><p>这是HappyPack的作者，分布式前端架构，其实概念上和微前端的类似的，不过演讲中提到他们的实践中用了例如<code>consul</code>的服务发现工具，以及如何去实现应用的切换，还是蛮精彩的一个演讲。</p>
+<h2 id="前端未来"><a href="#前端未来" class="headerlink" title="前端未来"></a>前端未来</h2><p>对前端的未来做一下展望，有很多新的技术有望落地发展壮大，</p>
+<ul>
+<li>ES2020有望新增几个实用的特性</li>
+<li>智能切图的准确率提高，这一点我还是有点抱怀疑态度，实用性和准确性达到的程度</li>
+<li>微前端逐步标准化，成为大型单页应用的开发模式</li>
+<li>Serverless的推广，提高前端的地位，往后再走一步，并且关注运维而不用被运维拖累</li>
+<li>WebIDE让编码构建更美好</li>
+<li>多领域开花</li>
+</ul>
+<p>关于前端2019年的总结和未来展望，这里有一篇文章不错，有原文和译文，值得一读。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/5def782ce51d4558181d27ce">2019年前端大事件回顾：流年笑掷，未来可期</a></li>
+<li><a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/a-recap-of-frontend-development-in-2019-1e7d07966d6c">A Recap of Frontend Development in 2019</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2019/12/16/2019-d2-forum-14th/" data-id="cl2oo8k3t000522244yyteroq" data-title="2019年第14届D2参会记录" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2019/" rel="tag">2019</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/d2/" rel="tag">d2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%9A%E8%AE%AE/" rel="tag">会议</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E5%9D%9B/" rel="tag">论坛</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-jsconf-china-2019" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/10/25/jsconf-china-2019/" class="article-date">
+  <time class="dt-published" datetime="2019-10-25T15:36:26.000Z" itemprop="datePublished">2019-10-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/10/25/jsconf-china-2019/">JSConf China 2019</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>上周末刚参加JSconf China 2019, 在这里聊聊记录一下感受。</p>
+<h2 id="大会简介"><a href="#大会简介" class="headerlink" title="大会简介"></a>大会简介</h2><p>本次在上海举办的<a target="_blank" rel="noopener" href="https://2019.jsconfchina.com/">第7届JSConf China大会</a>，也是我第一次参加JSConf China，参加完这次会议，也完成了年初给自己定下来的一个目标，一年参加两次技术会议，上一次会议是D2（其实也顺带参加了SEE Conf，蚂蚁金服举办的，同一个周末）。</p>
+<h2 id="几个主题"><a href="#几个主题" class="headerlink" title="几个主题"></a>几个主题</h2><p>具体聊一下印象比较深刻的几个主题演讲：</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/351434550/answer/862423530">The Beauty of TypeScript</a>，这个主题由微软中国的工程师韩骏分享的，介绍了TS的优点，主要是解决JS开发时的痛点，引入类型，支持编译并兼容JS，适用于多人大型的项目开发。介绍了@ts-check、@ts-uncheck、@ts-ignore和any作为从JS迁移TS的一些辅助手段。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/87940654">面向传统，Serverless 进化之路</a>，这个主题由阿里的大佬陈仲寅分享淘系前端在Serverless的探索和落地经验，从他们的实践上看，上了Serverless之后相对原来的资源消耗，在双十一的情况节约30%左右，平时可节约40%，还是一个不错的表现。另外，好处有几个方面，降低运维的难度，自动扩容和监控，方便发布，集成特定的环境不用浪费时间在安装组件和兼容性方面；另一个方面，服务由函数来实现，原服务端的功能由前端来实现，也就加重了前端的工作量，这一点不能说是坏事，前端的工程领域更加扩大，其实在nodejs做bff的场景下，前端已经往后端走了一小步。</p>
+<p>中间一个小插曲，腾讯云来做了一波推广，用他们的服务做了一个现场演示，FaaS支持比较方便的编写和发布，现场险些翻车，演示了一个圣诞帽戴在头像上方。</p>
+<p><code>write code to refactor code</code>, 这是一个妹纸介绍了使用AST（抽象语法树）的方法，来进行代码重构。通过写一些脚本，分析出代码结构，从而进行一些重构的工作，比如替换等。另外，使用AST还可以做很多有趣的事情，转译、Lint等等。</p>
+<p><code>去除迷雾，漫谈WebAssembly</code>， 一个小哥讲述了WebAssembly的运行过程，以及介绍了相关的使用资源，<code>https://wapm.io/</code>是一个WebAssembly的包管理器，类似于NPM的角色。介绍了Rust与WebAssembly的关联，可比较方便的从Rust转换代码到Wasm。</p>
+<h2 id="会上的前端趋势"><a href="#会上的前端趋势" class="headerlink" title="会上的前端趋势"></a>会上的前端趋势</h2><p>从这次大会上看前端的一些趋势，其实几个热门主题这几年一直都比较火，很多大会都有安排相应的演讲:</p>
+<ul>
+<li>TypeScript和Vs Code编辑器很火，用得人也很多，从现场的提问来看，大家普遍对TS比较关心</li>
+<li>GraphQL很香，但是用的人并不多，或许上的成本比较高，而且有坑</li>
+<li>Serverless前景还不错，提高生产力和降低成本，但是路还很漫长，感觉适合小型团队或者个人</li>
+<li>WebAssembly正在逐步被接受和落地</li>
+</ul>
+<h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>大会的整体感受，内容比较偏入门，深度和可欣赏性不够，干货不多，与门票的价格不相符。其中有两场Nike的演讲，与前端貌似没有多大关联。下一届应该不会参加了。具体的吐槽可以看看<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/351434550">知乎上的回答</a>。</p>
+<p>接下来就看12月份D2的表现了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2019/10/25/jsconf-china-2019/" data-id="cl2oo8k90005q222450fkd6u6" data-title="JSConf China 2019" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2019/" rel="tag">2019</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsconf/" rel="tag">jsconf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%9A%E8%AE%AE/" rel="tag">会议</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-react-router-v4-principle-by-implemente-a-simple-one" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/" class="article-date">
+  <time class="dt-published" datetime="2019-08-17T07:33:31.000Z" itemprop="datePublished">2019-08-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/">实现一个简单版React Router v4理解其原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>对于React-Router的实现原理，参考自<a target="_blank" rel="noopener" href="https://tylermcginnis.com/build-your-own-react-router-v4/">Build your own React Router v4</a>这篇英文原文，另外，React-Router底层库<a target="_blank" rel="noopener" href="https://github.com/ReactTraining/history">history</a>的源码也值得一读。</p>
+<p>欢迎访问<a href="https://blog.bookcell.org/">博客文章</a></p>
+<p>接下来是关于React-Router v4的一个简单版实现，通过这个实现来理解路由的原理，这里可能不会完全按照英文原文翻译，会有些意译或者省略的地方。</p>
+<p>在单页应用中，应用代码和路由代码是极其重要的两部分，两者是相辅相成的，你是否对这两者有一些困惑。</p>
+<p>关于路由的一些疑问点:</p>
+<ol>
+<li>路由通常是相对比较复杂的，这让很多库的作者，在如何找到合适的路由抽象变得更加复杂。</li>
+<li>因为这些复杂的原因，路由库的使用者倾向于盲目的相信库本身的抽象，而不是去理解背后的原理。</li>
+</ol>
+<p>本文会通过实现一个简易版的React Router v4版本来点亮前一个问题的灯塔，并且让你了解背后的原理后去判断这样的抽象是否合适。</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/" data-id="cl2oo8k9k007a222406luee6e" data-title="实现一个简单版React Router v4理解其原理" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Router/" rel="tag">React Router</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1/" rel="tag">路由</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-japan-kyoto-nari-osaka-travel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/08/2019-japan-kyoto-nari-osaka-travel/" class="article-date">
+  <time class="dt-published" datetime="2019-08-08T08:06:54.000Z" itemprop="datePublished">2019-08-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/08/08/2019-japan-kyoto-nari-osaka-travel/">2019日本京都奈良大阪自由行游记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本次旅游了日本的京都、奈良、大阪三个地方，共花了8天7夜的时间，对本次的旅行记录一下回顾和感想，其中分为三个部分来描述，游记、攻略和感想。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>游记</li>
+<li>攻略</li>
+<li>感想</li>
+</ul>
+<h2 id="游记"><a href="#游记" class="headerlink" title="游记"></a>游记</h2><p>关于这次的旅行，是年初的时候就计划好的，关于地点是台北和日本京都选择其一的，最终选择了日本，理由是先感受一下日本的文化和风情；关于时间，起初计划的时间是9月份的，正好这段时间离职了，老婆也正好也有时间，就排上这次旅行。</p>
+<p>总的图片集合可以访问<a target="_blank" rel="noopener" href="https://imgur.com/gallery/VR1eZfT">日本自由行图片集合</a></p>
+        
+          <p class="article-more-link">
+            <a href="/2019/08/08/2019-japan-kyoto-nari-osaka-travel/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2019/08/08/2019-japan-kyoto-nari-osaka-travel/" data-id="cl2oo8k410009222457be59yn" data-title="2019日本京都奈良大阪自由行游记" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2019/" rel="tag">2019</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E6%9C%AC/" rel="tag">日本</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ARTS/">ARTS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/interval/" rel="tag">$interval</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timeout/" rel="tag">$timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uibModal/" rel="tag">$uibModal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/" rel="tag">2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/" rel="tag">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2019/" rel="tag">2019</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2021/" rel="tag">2021</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/APP/" rel="tag">APP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARTS/" rel="tag">ARTS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/" rel="tag">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/" rel="tag">Angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BSD/" rel="tag">BSD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BT/" rel="tag">BT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BrowserSync/" rel="tag">BrowserSync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Creative-Commons/" rel="tag">Creative Commons</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/" rel="tag">D2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Visualization/" rel="tag">Data Visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/" rel="tag">ECMAScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FE/" rel="tag">FE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPL/" rel="tag">GPL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kindle/" rel="tag">Kindle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/" rel="tag">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mozila/" rel="tag">Mozila</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next/" rel="tag">Next</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Router/" rel="tag">React Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reactjs/" rel="tag">Reactjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Review/" rel="tag">Review</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEE-Conf/" rel="tag">SEE Conf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMART%E6%B3%95%E5%88%99/" rel="tag">SMART法则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Share/" rel="tag">Share</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spec/" rel="tag">Spec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SublimeLInter/" rel="tag">SublimeLInter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Technique/" rel="tag">Technique</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URL/" rel="tag">URL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-DOM/" rel="tag">Virtual DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WWW/" rel="tag">WWW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-%E5%AE%89%E5%85%A8-%E5%89%8D%E7%AB%AF/" rel="tag">Web, 安全, 前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/absolute/" rel="tag">absolute</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ag-grid/" rel="tag">ag-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/" rel="tag">angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background/" rel="tag">background</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/baidumap/" rel="tag">baidumap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/" rel="tag">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/" rel="tag">cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/custom/" rel="tag">custom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/d2/" rel="tag">d2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/default/" rel="tag">default</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/" rel="tag">echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/editor/" rel="tag">editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/editorconfig/" rel="tag">editorconfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es5/" rel="tag">es5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/" rel="tag">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essential/" rel="tag">essential</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/export/" rel="tag">export</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flexbox/" rel="tag">flexbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/" rel="tag">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitignore/" rel="tag">gitignore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grid/" rel="tag">grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/" rel="tag">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html%E5%85%A5%E9%97%A8/" rel="tag">html入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html%E5%AD%A6%E4%B9%A0/" rel="tag">html学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18next/" rel="tag">i18next</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/" rel="tag">image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/" rel="tag">import</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsconf/" rel="tag">jsconf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsdoc/" rel="tag">jsdoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/" rel="tag">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loader/" rel="tag">loader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loading/" rel="tag">loading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/localStorage/" rel="tag">localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/" rel="tag">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/" rel="tag">module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multi-accout/" rel="tag">multi accout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/named/" rel="tag">named</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/new/" rel="tag">new</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placement/" rel="tag">placement</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prettier/" rel="tag">prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/priciple/" rel="tag">priciple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quirks/" rel="tag">quirks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recommend/" rel="tag">recommend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/remote/" rel="tag">remote</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/search/" rel="tag">search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sessionStorage/" rel="tag">sessionStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/share/" rel="tag">share</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/standard/" rel="tag">standard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/" rel="tag">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-Text-3/" rel="tag">sublime Text 3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table/" rel="tag">table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tag/" rel="tag">tag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url/" rel="tag">url</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visualization/" rel="tag">visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-component/" rel="tag">web component</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E7%BB%84%E4%BB%B6/" rel="tag">web组件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yarn/" rel="tag">yarn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E6%A0%8F/" rel="tag">三栏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8B%E8%BD%BD/" rel="tag">下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E5%8D%95/" rel="tag">书单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E6%A0%BC%E5%89%8D%E7%AB%AF/" rel="tag">书格前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%9A%E8%AE%AE/" rel="tag">会议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A5%E9%97%A8/" rel="tag">入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B1%E4%BA%AB%E6%A1%8C%E9%9D%A2/" rel="tag">共享桌面</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%BB%E7%94%9F/" rel="tag">养生</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-angular-pnpm/" rel="tag">前端开发, angular, pnpm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%8C%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/" rel="tag">前端开发，百度地图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%87%E7%BA%A7/" rel="tag">升级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">原型链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E9%A3%9E%E7%BF%BC/" rel="tag">双飞翼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A/" rel="tag">只管去做</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F/" rel="tag">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F%E5%88%86%E4%BA%AB/" rel="tag">团队分享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E9%99%85%E5%8C%96/" rel="tag">国际化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E8%A1%A8/" rel="tag">图表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%A3%E6%9D%AF/" rel="tag">圣杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E8%AF%AD%E8%A8%80/" rel="tag">多语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%B4%E5%83%8F/" rel="tag">头像</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%8D%93/" rel="tag">安卓</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%88%98/" rel="tag">实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%91%E5%8D%B3%E6%98%AF%E5%A4%9A/" rel="tag">少即是多</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B4%E5%BA%A6/" rel="tag">年度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" rel="tag">开源协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92/" rel="tag">弹性盒</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F/" rel="tag">怪异模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%83%B3/" rel="tag">感想</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%87%E5%8D%97/" rel="tag">指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" rel="tag">搜索引擎</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE/" rel="tag">数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">数据可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%AC/" rel="tag">日本</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">最佳实践</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E6%A8%A1%E5%BC%8F/" rel="tag">标准模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag">概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="tag">模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%AE%E5%8A%A8/" rel="tag">浮动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/" rel="tag">生产环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%8A%A8%E8%BD%A6/" rel="tag">电动车</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E6%A0%87/" rel="tag">目标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F/" rel="tag">知乎专栏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%80%E4%BB%8B/" rel="tag">简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D/" rel="tag">绝对定位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%A7%E6%89%BF/" rel="tag">继承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E6%A0%BC/" rel="tag">网格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/" rel="tag">脚手架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/" rel="tag">自定义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9FDOM/" rel="tag">虚拟DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%84%E8%8C%83/" rel="tag">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E5%9D%9B/" rel="tag">论坛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1/" rel="tag">路由</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag">远程控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9F%E5%BA%A6/" rel="tag">速度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%9A/" rel="tag">锚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A5%AE%E9%A3%9F/" rel="tag">饮食</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/interval/" style="font-size: 10px;">$interval</a> <a href="/tags/timeout/" style="font-size: 10px;">$timeout</a> <a href="/tags/uibModal/" style="font-size: 10px;">$uibModal</a> <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/2018/" style="font-size: 13px;">2018</a> <a href="/tags/2019/" style="font-size: 17px;">2019</a> <a href="/tags/2020/" style="font-size: 14px;">2020</a> <a href="/tags/2021/" style="font-size: 11px;">2021</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/APP/" style="font-size: 10px;">APP</a> <a href="/tags/ARTS/" style="font-size: 18px;">ARTS</a> <a href="/tags/Algorithm/" style="font-size: 18px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Angularjs/" style="font-size: 10px;">Angularjs</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/BT/" style="font-size: 10px;">BT</a> <a href="/tags/BrowserSync/" style="font-size: 10px;">BrowserSync</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Creative-Commons/" style="font-size: 10px;">Creative Commons</a> <a href="/tags/D2/" style="font-size: 10px;">D2</a> <a href="/tags/D3/" style="font-size: 10px;">D3</a> <a href="/tags/DOM/" style="font-size: 12px;">DOM</a> <a href="/tags/Data-Visualization/" style="font-size: 10px;">Data Visualization</a> <a href="/tags/ECMAScript/" style="font-size: 11px;">ECMAScript</a> <a href="/tags/ES6/" style="font-size: 11px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/FE/" style="font-size: 10px;">FE</a> <a href="/tags/GPL/" style="font-size: 10px;">GPL</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTTP/" style="font-size: 12px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 16px;">JavaScript</a> <a href="/tags/Kindle/" style="font-size: 10px;">Kindle</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/Mozila/" style="font-size: 10px;">Mozila</a> <a href="/tags/Next/" style="font-size: 11px;">Next</a> <a href="/tags/React/" style="font-size: 12px;">React</a> <a href="/tags/React-Router/" style="font-size: 10px;">React Router</a> <a href="/tags/Reactjs/" style="font-size: 10px;">Reactjs</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Review/" style="font-size: 18px;">Review</a> <a href="/tags/SEE-Conf/" style="font-size: 10px;">SEE Conf</a> <a href="/tags/SMART%E6%B3%95%E5%88%99/" style="font-size: 10px;">SMART法则</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Share/" style="font-size: 18px;">Share</a> <a href="/tags/Spec/" style="font-size: 11px;">Spec</a> <a href="/tags/SublimeLInter/" style="font-size: 10px;">SublimeLInter</a> <a href="/tags/Technique/" style="font-size: 18px;">Technique</a> <a href="/tags/URL/" style="font-size: 11px;">URL</a> <a href="/tags/Virtual-DOM/" style="font-size: 10px;">Virtual DOM</a> <a href="/tags/WWW/" style="font-size: 11px;">WWW</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Web-%E5%AE%89%E5%85%A8-%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">Web, 安全, 前端</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/ag-grid/" style="font-size: 10px;">ag-grid</a> <a href="/tags/angularjs/" style="font-size: 15px;">angularjs</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/baidumap/" style="font-size: 10px;">baidumap</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/custom/" style="font-size: 10px;">custom</a> <a href="/tags/d2/" style="font-size: 10px;">d2</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/default/" style="font-size: 10px;">default</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/eslint/" style="font-size: 11px;">eslint</a> <a href="/tags/essential/" style="font-size: 10px;">essential</a> <a href="/tags/export/" style="font-size: 10px;">export</a> <a href="/tags/flexbox/" style="font-size: 11px;">flexbox</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/git/" style="font-size: 11px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/grid/" style="font-size: 10px;">grid</a> <a href="/tags/hexo/" style="font-size: 11px;">hexo</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/html%E5%85%A5%E9%97%A8/" style="font-size: 10px;">html入门</a> <a href="/tags/html%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">html学习</a> <a href="/tags/i18next/" style="font-size: 11px;">i18next</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsconf/" style="font-size: 10px;">jsconf</a> <a href="/tags/jsdoc/" style="font-size: 10px;">jsdoc</a> <a href="/tags/license/" style="font-size: 15px;">license</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/loader/" style="font-size: 10px;">loader</a> <a href="/tags/loading/" style="font-size: 10px;">loading</a> <a href="/tags/localStorage/" style="font-size: 10px;">localStorage</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/module/" style="font-size: 10px;">module</a> <a href="/tags/multi-accout/" style="font-size: 10px;">multi accout</a> <a href="/tags/named/" style="font-size: 10px;">named</a> <a href="/tags/new/" style="font-size: 10px;">new</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/placement/" style="font-size: 10px;">placement</a> <a href="/tags/prettier/" style="font-size: 10px;">prettier</a> <a href="/tags/priciple/" style="font-size: 10px;">priciple</a> <a href="/tags/quirks/" style="font-size: 10px;">quirks</a> <a href="/tags/recommend/" style="font-size: 10px;">recommend</a> <a href="/tags/remote/" style="font-size: 10px;">remote</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/sessionStorage/" style="font-size: 10px;">sessionStorage</a> <a href="/tags/share/" style="font-size: 10px;">share</a> <a href="/tags/ssh/" style="font-size: 11px;">ssh</a> <a href="/tags/standard/" style="font-size: 10px;">standard</a> <a href="/tags/sublime/" style="font-size: 11px;">sublime</a> <a href="/tags/sublime-Text-3/" style="font-size: 10px;">sublime Text 3</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/tag/" style="font-size: 10px;">tag</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/visualization/" style="font-size: 10px;">visualization</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/web-component/" style="font-size: 10px;">web component</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web%E7%BB%84%E4%BB%B6/" style="font-size: 10px;">web组件</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/%E4%B8%89%E6%A0%8F/" style="font-size: 10px;">三栏</a> <a href="/tags/%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">下载</a> <a href="/tags/%E4%B9%A6%E5%8D%95/" style="font-size: 17px;">书单</a> <a href="/tags/%E4%B9%A6%E6%A0%BC%E5%89%8D%E7%AB%AF/" style="font-size: 11px;">书格前端</a> <a href="/tags/%E4%BC%9A%E8%AE%AE/" style="font-size: 12px;">会议</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 13px;">入门</a> <a href="/tags/%E5%85%B1%E4%BA%AB%E6%A1%8C%E9%9D%A2/" style="font-size: 10px;">共享桌面</a> <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" style="font-size: 10px;">关键字</a> <a href="/tags/%E5%85%BB%E7%94%9F/" style="font-size: 10px;">养生</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 20px;">前端开发</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-angular-pnpm/" style="font-size: 10px;">前端开发, angular, pnpm</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%8C%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/" style="font-size: 10px;">前端开发，百度地图</a> <a href="/tags/%E5%8D%87%E7%BA%A7/" style="font-size: 10px;">升级</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型链</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 12px;">原理</a> <a href="/tags/%E5%8F%8C%E9%A3%9E%E7%BF%BC/" style="font-size: 10px;">双飞翼</a> <a href="/tags/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A/" style="font-size: 10px;">只管去做</a> <a href="/tags/%E5%9B%A2%E9%98%9F/" style="font-size: 10px;">团队</a> <a href="/tags/%E5%9B%A2%E9%98%9F%E5%88%86%E4%BA%AB/" style="font-size: 10px;">团队分享</a> <a href="/tags/%E5%9B%BD%E9%99%85%E5%8C%96/" style="font-size: 11px;">国际化</a> <a href="/tags/%E5%9B%BE%E8%A1%A8/" style="font-size: 10px;">图表</a> <a href="/tags/%E5%9C%A3%E6%9D%AF/" style="font-size: 10px;">圣杯</a> <a href="/tags/%E5%A4%9A%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">多语言</a> <a href="/tags/%E5%A4%B4%E5%83%8F/" style="font-size: 10px;">头像</a> <a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 10px;">存储</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 10px;">安卓</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 10px;">实战</a> <a href="/tags/%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">对象</a> <a href="/tags/%E5%B0%91%E5%8D%B3%E6%98%AF%E5%A4%9A/" style="font-size: 10px;">少即是多</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 19px;">工具</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E5%B9%B4%E5%BA%A6/" style="font-size: 10px;">年度</a> <a href="/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" style="font-size: 15px;">开源协议</a> <a href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92/" style="font-size: 11px;">弹性盒</a> <a href="/tags/%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">怪异模式</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12px;">总结</a> <a href="/tags/%E6%84%9F%E6%83%B3/" style="font-size: 10px;">感想</a> <a href="/tags/%E6%8C%87%E5%8D%97/" style="font-size: 13px;">指南</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 10px;">搜索引擎</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 11px;">效率</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">数据</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11px;">数据可视化</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 12px;">方法</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 10px;">旅游</a> <a href="/tags/%E6%97%A5%E6%9C%AC/" style="font-size: 10px;">日本</a> <a href="/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 10px;">最佳实践</a> <a href="/tags/%E6%A0%87%E5%87%86%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">标准模式</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">概念</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 11px;">模块化</a> <a href="/tags/%E6%B5%AE%E5%8A%A8/" style="font-size: 10px;">浮动</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 10px;">游记</a> <a href="/tags/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/" style="font-size: 10px;">生产环境</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 12px;">生活</a> <a href="/tags/%E7%94%B5%E5%8A%A8%E8%BD%A6/" style="font-size: 10px;">电动车</a> <a href="/tags/%E7%9B%AE%E6%A0%87/" style="font-size: 11px;">目标</a> <a href="/tags/%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F/" style="font-size: 11px;">知乎专栏</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 12px;">笔记</a> <a href="/tags/%E7%AE%80%E4%BB%8B/" style="font-size: 10px;">简介</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 11px;">组件</a> <a href="/tags/%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">绝对定位</a> <a href="/tags/%E7%BB%A7%E6%89%BF/" style="font-size: 10px;">继承</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E7%BD%91%E6%A0%BC/" style="font-size: 10px;">网格</a> <a href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/" style="font-size: 10px;">脚手架</a> <a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/" style="font-size: 10px;">自定义</a> <a href="/tags/%E8%99%9A%E6%8B%9FDOM/" style="font-size: 10px;">虚拟DOM</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a> <a href="/tags/%E8%A7%84%E8%8C%83/" style="font-size: 12px;">规范</a> <a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 10px;">论坛</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 19px;">读书</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B7%AF%E7%94%B1/" style="font-size: 10px;">路由</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">远程控制</a> <a href="/tags/%E9%80%9F%E5%BA%A6/" style="font-size: 10px;">速度</a> <a href="/tags/%E9%94%9A/" style="font-size: 10px;">锚</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 19px;">阅读</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a> <a href="/tags/%E9%A5%AE%E9%A3%9F/" style="font-size: 10px;">饮食</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/17/angular-monorepo-project-by-pnpm/">pnpm在angular的monorepo项目中的应用</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/03/2021-annual-sumary/">2021年的年度总结</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/24/web-develop-security/">Web安全开发几个注意点</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/02/reading-note-just-do-it/">只管去做读书笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/01/reading-list-2021/">2021年计划阅读清单</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Perry<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

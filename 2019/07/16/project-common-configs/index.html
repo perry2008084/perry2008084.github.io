@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>项目开发中团队规范的那些事 | 书格前端</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范 欢迎访问个人博客-项目开发中团队规范的那些事  editorconfig的使用 jsdoc的使用 .gitignore的使用 eslint的使用 prettier的使用  editorconfig的使用你是否有遇到过多人协作的项目中，大家的缩进风格不一样，有人用两个空格，有人用4个空格，也有人用tab缩进，而感到烦恼的。ed">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目开发中团队规范的那些事">
+<meta property="og:url" content="https://blog.bookcell.org/2019/07/16/project-common-configs/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范 欢迎访问个人博客-项目开发中团队规范的那些事  editorconfig的使用 jsdoc的使用 .gitignore的使用 eslint的使用 prettier的使用  editorconfig的使用你是否有遇到过多人协作的项目中，大家的缩进风格不一样，有人用两个空格，有人用4个空格，也有人用tab缩进，而感到烦恼的。ed">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-16T09:55:09.000Z">
+<meta property="article:modified_time" content="2019-07-16T12:00:33.859Z">
+<meta property="article:author" content="Perry">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="规范">
+<meta property="article:tag" content="项目">
+<meta property="article:tag" content="团队">
+<meta property="article:tag" content="editorconfig">
+<meta property="article:tag" content="jsdoc">
+<meta property="article:tag" content="gitignore">
+<meta property="article:tag" content="eslint">
+<meta property="article:tag" content="prettier">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">书格前端</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">潘绳杰的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.bookcell.org"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-project-common-configs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/07/16/project-common-configs/" class="article-date">
+  <time class="dt-published" datetime="2019-07-16T09:55:09.000Z" itemprop="datePublished">2019-07-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      项目开发中团队规范的那些事
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>项目开发中团队规范的那些事，记录一下项目中可以通过工具来约定和处理的规范</p>
+<p>欢迎访问<a href="https://blog.bookcell.org/2019/07/16/project-common-configs/">个人博客-项目开发中团队规范的那些事</a></p>
+<ul>
+<li>editorconfig的使用</li>
+<li>jsdoc的使用</li>
+<li>.gitignore的使用</li>
+<li>eslint的使用</li>
+<li>prettier的使用</li>
+</ul>
+<h2 id="editorconfig的使用"><a href="#editorconfig的使用" class="headerlink" title="editorconfig的使用"></a>editorconfig的使用</h2><p>你是否有遇到过多人协作的项目中，大家的缩进风格不一样，有人用两个空格，有人用4个空格，也有人用tab缩进，而感到烦恼的。<a target="_blank" rel="noopener" href="https://editorconfig.org/">editorconfig</a>这个开源项目就是为此而生的。</p>
+<p>官方的介绍如下：</p>
+<blockquote>
+<p>EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily readable and they work nicely with version control systems.</p>
+</blockquote>
+<p>使用思路：</p>
+<p>通过一个配置文件，让不同的编辑器或者IDE自动识别缩进、字符编码格式等风格并保持统一。目前市面上绝大部分的编辑器和IDE都已经支持了，你使用的编辑器是否原生支持还是要安装插件，可以去官网上看一眼。</p>
+<p><code>.edittorconfig</code>文件配置如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 表明是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件，否则会往上一层目录继续查找</span><br><span class="line">root = true</span><br><span class="line"></span><br><span class="line"># 对所有文件生效</span><br><span class="line">[*]</span><br><span class="line"># 编码格式，支持latin1、utf-8、utf-8-bom、utf-16be和utf-16le，通常使用utf-8</span><br><span class="line">charset = utf-8</span><br><span class="line"># 缩进类型, 支持space 空格, tab 制表符</span><br><span class="line">indent_style = space</span><br><span class="line"># 缩进长度，支持整数 - 缩进的长度, tab - 使用tab_width指定的值</span><br><span class="line">indent_size = 2</span><br><span class="line"># 换行符，支持 lf - (常用,*nux系统), crlf - windows, cr - &lt;=MacOS9</span><br><span class="line">end_of_line = lf</span><br><span class="line"># 保存文件时是否在文件最后插入一个空行, 支持 true - 是, false - 否</span><br><span class="line">insert_final_newline = true</span><br><span class="line"># 是否去除行尾的空格, 支持 true - 是, false - 否</span><br><span class="line">trim_trailing_whitespace = true</span><br><span class="line"></span><br><span class="line"># 对后缀名为 md 的文件生效</span><br><span class="line">[*.md]</span><br><span class="line">trim_trailing_whitespace = false</span><br></pre></td></tr></table></figure>
+
+<h2 id="jsdoc的使用"><a href="#jsdoc的使用" class="headerlink" title="jsdoc的使用"></a>jsdoc的使用</h2><p>平时写js代码的时候，你是否只是随意写个<code>// xxxx</code>就完事了，对于不需要输出文档的代码也许还好，如果有输出文档的需求，那就头大了。不过团队中拥有一套一致的注释规范，并且在必要的时候还可以输出作为文档，不管是对于后续的新人以及维护都是有益的。</p>
+<p>这里要使用的<a target="_blank" rel="noopener" href="https://jsdoc.app/">jsdoc</a>文档工具就是这样的一个存在，既有一套注释的规范，又可以支持输出为静态页面的文档。</p>
+<p>使用思路:</p>
+<p>在函数、类、模块等代码前使用<code>/** */</code>这样格式的注释，注释中支持描述、标签等内容，通过jsdoc提供的工具可以方便的将注释内容作为文档导出为html格式的文件。</p>
+<h2 id="jsdoc注释规范"><a href="#jsdoc注释规范" class="headerlink" title="jsdoc注释规范"></a>jsdoc注释规范</h2><p>常用的注释格式如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Represents a book.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@constructor</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; <span class="variable">title</span> - The title of the book.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; <span class="variable">author</span> - The author of the book.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Book</span>(<span class="params">title, author</span>) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Class representing a point. */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a point.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">x</span> - The x value.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">y</span> - The y value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the x value.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125; The x value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="title function_">getX</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the y value.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125; The y value.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="title function_">getY</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Convert a string containing two comma-separated numbers into a point.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; <span class="variable">str</span> - The string containing two comma-separated numbers.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> &#123;<span class="type">Point</span>&#125; A Point object.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">fromString</span>(<span class="params">str</span>) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注释中支持块级标签和行内标签，行内标签是指包含在块级标签内的标签内容，常用的块级标签如下:</p>
+<ul>
+<li>@author 该类&#x2F;方法的作者。</li>
+<li>@class 表示这是一个类。</li>
+<li>@function&#x2F;@method 表示这是一个函数&#x2F;方法(这是同义词)。</li>
+<li>@private 表示该类&#x2F;方法是私有的，JSDOC 不会为其生成文档。</li>
+<li>@name 该类&#x2F;方法的名字。</li>
+<li>@description 该类&#x2F;方法的描述，可省略直接在开头写描述内容</li>
+<li>@param 该类&#x2F;方法的参数，可重复定义。</li>
+<li>@return 该类&#x2F;方法的返回类型。</li>
+<li>@link 行内标签，创建超链接，生成文档时可以为其链接到其他部分。</li>
+<li>@example 创建例子。</li>
+</ul>
+<h2 id="jsdoc文档输出"><a href="#jsdoc文档输出" class="headerlink" title="jsdoc文档输出"></a>jsdoc文档输出</h2><p>使用npm安装对应的jsdoc工具，可以全局安装或者局部安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i jsodc -g</span><br></pre></td></tr></table></figure>
+
+<p>在项目根目录下创建一个配置文件<code>conf.json</code>:</p>
+<p>默认的配置如下:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;plugins&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;recurseDepth&quot;</span><span class="punctuation">:</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;includePattern&quot;</span><span class="punctuation">:</span> <span class="string">&quot;.+\\.js(doc|x)?$&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;excludePattern&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(^|\\/|\\\\)_&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;sourceType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;module&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tags&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;allowUnknownTags&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;dictionaries&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;jsdoc&quot;</span><span class="punctuation">,</span><span class="string">&quot;closure&quot;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;templates&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;cleverLinks&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;monospaceLinks&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>常用的配置如下:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;include&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span> <span class="string">&quot;src/&quot;</span> <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span> <span class="string">&quot;src/libs&quot;</span> <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;opts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;template&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node_modules/docdash&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;encoding&quot;</span><span class="punctuation">:</span> <span class="string">&quot;utf8&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;destination&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./docs/&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;recurse&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;verbose&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>source 表示传递给 JSDOC 的文件</li>
+<li>source.include 表示 JSDOC 需要扫描哪些文件</li>
+<li>source.exclude 表示 JSDOC 需要排除哪些文件</li>
+<li>opts 表示传递给 JSDOC 的选项</li>
+<li>opts.template 生成文档的模板，默认是 templates&#x2F;default</li>
+<li>opts.encoding 读取文件的编码，默认是 utf8</li>
+<li>opts.destination 生成文档的路径，默认是 .&#x2F;out&#x2F;</li>
+<li>opts.recurse 运行时是否递归子目录</li>
+<li>opts.verbose 运行时是否输出详细信息，默认是 false</li>
+</ul>
+<p>然后在命令行中执行 <code>jsdoc -c /path/to/conf.json</code> 即可在根目录下生成一个包含html的文档目录。</p>
+<h2 id="gitignore的使用"><a href="#gitignore的使用" class="headerlink" title=".gitignore的使用"></a>.gitignore的使用</h2><p>在使用Git作为项目的版本管理已经很普遍了，使用的过程中是否有遇到某些配置、编译的临时文件或者依赖目录等不需要进行版本的内容，可以通过<code>.gitignore</code>进行忽略，将对应的目录或文件写入配置文件后，git就不会将对应的内容纳入版本管理。</p>
+<p>需要注意的是，已经被纳入版本管理的内容，不受这个配置的影响。</p>
+<p>使用思路:</p>
+<p>在项目根目录下创建一个<code>.gitignore</code>文件，并将要忽略纳入版本管理的内容写入即可，每一行内容支持模式匹配。</p>
+<p>create-react-app中使用的配置文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.idea/</span><br><span class="line">.vscode/</span><br><span class="line">node_modules/</span><br><span class="line">build</span><br><span class="line">.DS_Store</span><br><span class="line">*.tgz</span><br><span class="line">my-app*</span><br><span class="line">template/src/__tests__/__snapshots__/</span><br><span class="line">lerna-debug.log</span><br><span class="line">npm-debug.log*</span><br><span class="line">yarn-debug.log*</span><br><span class="line">yarn-error.log*</span><br><span class="line">/.changelog</span><br><span class="line">.npm/</span><br></pre></td></tr></table></figure>
+
+<p>vue-cli中使用的配置文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">.DS_Store</span><br><span class="line">design</span><br><span class="line">*.log</span><br><span class="line">packages/test</span><br><span class="line">dist</span><br><span class="line">temp</span><br><span class="line">.vuerc</span><br><span class="line">.version</span><br><span class="line">.versions</span><br><span class="line">.changelog</span><br></pre></td></tr></table></figure>
+
+<h2 id="eslint的使用"><a href="#eslint的使用" class="headerlink" title="eslint的使用"></a>eslint的使用</h2><p>每个团队会维护一套自己的代码规范，也有使用社区里最佳实践的代码规范，如何做到可以让工具自动帮你检测团队中的代码是否符合代码规范，lint工具就可以帮你做到，社区里有jslint,eslint等工具，这里主要介绍近期使用比较多的ESLint。</p>
+<p><a target="_blank" rel="noopener" href="https://eslint.org/">ESLint</a>是一个静态代码检测工具，是对JavaScript和JSX可插拔的检测工具，由Nicholas C. Zakas开发。</p>
+<p>使用思路:</p>
+<p>创建一个配置文件，通过编辑器插件或者eslint工具对代码进行静态检测并提示错误。</p>
+<h3 id="安装eslint"><a href="#安装eslint" class="headerlink" title="安装eslint"></a>安装eslint</h3><p>可以全局安装或者项目中安装使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i eslint -g</span><br></pre></td></tr></table></figure>
+
+<p>然后生成配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint --init</span><br></pre></td></tr></table></figure>
+<p>会在相应目录下生成一个eslint默认配置文件</p>
+<p>最后，运行lint</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint /path/to/file.js</span><br></pre></td></tr></table></figure>
+
+<p>通常可以<code>package.json</code>的脚本中进行配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;lint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;eslint src --fix&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;lint:create&quot;</span><span class="punctuation">:</span> <span class="string">&quot;eslint --init&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>日常可以通过<code>npm run lint</code>来进行使用。</p>
+<p>另外，也可以通过git的hook在代码提交前自动运行lint，这里不做说明，具体配置可以搜索相应文章。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>常用配置文件如下:</p>
+<p>配置文件支持js, json, yaml格式，这里以<code>.eslintrc.js</code>为例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// .eslintrc.js </span><br><span class="line">module.exports = &#123;</span><br><span class="line">  &quot;extends&quot;: &quot;eslint:recommended&quot;,</span><br><span class="line">  &quot;env&quot;: &#123;</span><br><span class="line">    &quot;browser&quot;: true,</span><br><span class="line">    &quot;commonjs&quot;: true,</span><br><span class="line">    &quot;node&quot;: true,</span><br><span class="line">    &quot;es6&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;parserOptions&quot;: &#123;</span><br><span class="line">    &quot;ecmaVersion&quot;: 2018</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;rules&quot;: &#123;</span><br><span class="line">    &quot;no-console&quot;: &quot;off&quot;,</span><br><span class="line">    &quot;strict&quot;: [&quot;error&quot;, &quot;global&quot;],</span><br><span class="line">    &quot;curly&quot;: &quot;warn&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>具体的配置说明，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ad1e46faaea2">这篇文章</a>讲得很清楚，有兴趣可以查看，这里主要是extends的使用，可以使用官方推荐的规则配置，也可以使用第三方的比如airbnb等，或者团队自己积累的代码规范。</p>
+<h2 id="prettier的使用"><a href="#prettier的使用" class="headerlink" title="prettier的使用"></a>prettier的使用</h2><p>Prettier是一款对代码格式进行美化的工具，让你在代码评审时减少对代码格式排版上的时间浪费。</p>
+<p>官方的示例了解一下:</p>
+<p>原始代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(reallyLongArg(), omgSoManyParameters(), IShouldRefactorThis(), isThereSeriouslyAnotherOne());</span><br></pre></td></tr></table></figure>
+
+<p>经过Prettier格式化后:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">foo(</span><br><span class="line">  reallyLongArg(),</span><br><span class="line">  omgSoManyParameters(),</span><br><span class="line">  IShouldRefactorThis(),</span><br><span class="line">  isThereSeriouslyAnotherOne()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>使用思路:</p>
+<p>通过编辑器插件或者git hook来实现对代码的自动格式化，从而让代码排版变得整齐。</p>
+<h2 id="安装及使用"><a href="#安装及使用" class="headerlink" title="安装及使用"></a>安装及使用</h2><p>将prettier添加到项目中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install prettier --save-dev --save-exact</span><br></pre></td></tr></table></figure>
+
+<p>直接使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx prettier --write src/index.js</span><br></pre></td></tr></table></figure>
+
+<p>增加git hook</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pretty-quick husky --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>在<code>package.json</code>文件中增加以下配置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;husky&quot;: &#123; &quot;hooks&quot;: &#123; &quot;pre-commit&quot;: &quot;pretty-quick --staged&quot; &#125; &#125; &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><p>在项目根目录下创建一个<code>.prettierrc</code>配置文件即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;trailingComma&quot;: &quot;es5&quot;,</span><br><span class="line">  &quot;singleQuote&quot;: true,</span><br><span class="line">  &quot;semi&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果要配合编辑器进行使用，可以查找对应编辑的插件并进行配置。</p>
+<p>需要说明的是prettier和editorconfig其实有重复的，两者可以选一个使用。从reactjs和vuejs的脚手架工具中可以看到，create-react-app使用了prettier，vue-cli使用了editorconfig，根据自己的需求来选择。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://editorconfig.org/">editorconfig官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/iuap-design/blog/issues/189">使用editorconfig配置你的编辑器</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.alloyteam.com/2014/12/editor-config/">(译)EditorConfig介绍</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/712cea0ef70e">EditorConfig介绍</a></li>
+<li><a target="_blank" rel="noopener" href="https://jsdoc.app/">jsdoc官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jsdoc/jsdoc">jsdoc github仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d7819c519a47">jsdoc的使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://scarletsky.github.io/2017/12/23/write-javascript-document-by-jsdoc/">用 JSDOC 编写 JavaScript 文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs/gitignore">gitignore文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/facebook/create-react-app/blob/master/.gitignore">create-react-app的gitignore配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/github/gitignore">A collection of useful .gitignore templates</a></li>
+<li><a target="_blank" rel="noopener" href="https://eslint.org/">ESLint官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/eslint/eslint">ESLint github仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ad1e46faaea2">Eslint 超简单入门教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000009077086">使用 VSCode + ESLint 实践前端编码规范</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011470316">eslint 常用配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://prettier.io/">prettier官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prettier/prettier">prettier github仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/5a791d566fb9a0634853400e">vscode + prettier 专治代码洁癖</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-cli">vue-cli github仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/facebook/create-react-app">create-react-app github仓库</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.bookcell.org/2019/07/16/project-common-configs/" data-id="cl2oo8k9h007322242okcdh95" data-title="项目开发中团队规范的那些事" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/editorconfig/" rel="tag">editorconfig</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitignore/" rel="tag">gitignore</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsdoc/" rel="tag">jsdoc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prettier/" rel="tag">prettier</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F/" rel="tag">团队</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%84%E8%8C%83/" rel="tag">规范</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/22/dom-in-action/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          DOM实战基础
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/14/three-columns-layout-solutions/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">CSS三栏布局方案</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ARTS/">ARTS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/interval/" rel="tag">$interval</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timeout/" rel="tag">$timeout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uibModal/" rel="tag">$uibModal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/" rel="tag">2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/" rel="tag">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2019/" rel="tag">2019</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2021/" rel="tag">2021</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/APP/" rel="tag">APP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARTS/" rel="tag">ARTS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/" rel="tag">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/" rel="tag">Angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BSD/" rel="tag">BSD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BT/" rel="tag">BT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BrowserSync/" rel="tag">BrowserSync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Creative-Commons/" rel="tag">Creative Commons</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/" rel="tag">D2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/" rel="tag">D3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Visualization/" rel="tag">Data Visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/" rel="tag">ECMAScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echarts/" rel="tag">Echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FE/" rel="tag">FE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPL/" rel="tag">GPL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kindle/" rel="tag">Kindle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/" rel="tag">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mozila/" rel="tag">Mozila</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next/" rel="tag">Next</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Router/" rel="tag">React Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reactjs/" rel="tag">Reactjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Review/" rel="tag">Review</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEE-Conf/" rel="tag">SEE Conf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMART%E6%B3%95%E5%88%99/" rel="tag">SMART法则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Share/" rel="tag">Share</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spec/" rel="tag">Spec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SublimeLInter/" rel="tag">SublimeLInter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Technique/" rel="tag">Technique</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URL/" rel="tag">URL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-DOM/" rel="tag">Virtual DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WWW/" rel="tag">WWW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-%E5%AE%89%E5%85%A8-%E5%89%8D%E7%AB%AF/" rel="tag">Web, 安全, 前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/absolute/" rel="tag">absolute</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ag-grid/" rel="tag">ag-grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/" rel="tag">angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background/" rel="tag">background</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/baidumap/" rel="tag">baidumap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/" rel="tag">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/" rel="tag">cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cli/" rel="tag">cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/custom/" rel="tag">custom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/d2/" rel="tag">d2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/default/" rel="tag">default</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/" rel="tag">echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/editor/" rel="tag">editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/editorconfig/" rel="tag">editorconfig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es5/" rel="tag">es5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/" rel="tag">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essential/" rel="tag">essential</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/export/" rel="tag">export</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flexbox/" rel="tag">flexbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/" rel="tag">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitignore/" rel="tag">gitignore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grid/" rel="tag">grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/" rel="tag">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html%E5%85%A5%E9%97%A8/" rel="tag">html入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html%E5%AD%A6%E4%B9%A0/" rel="tag">html学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18next/" rel="tag">i18next</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/" rel="tag">image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/" rel="tag">import</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsconf/" rel="tag">jsconf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsdoc/" rel="tag">jsdoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/" rel="tag">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loader/" rel="tag">loader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loading/" rel="tag">loading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/localStorage/" rel="tag">localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/" rel="tag">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/" rel="tag">module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multi-accout/" rel="tag">multi accout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/named/" rel="tag">named</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/new/" rel="tag">new</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placement/" rel="tag">placement</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prettier/" rel="tag">prettier</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/priciple/" rel="tag">priciple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quirks/" rel="tag">quirks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recommend/" rel="tag">recommend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/remote/" rel="tag">remote</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/search/" rel="tag">search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sessionStorage/" rel="tag">sessionStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/share/" rel="tag">share</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/standard/" rel="tag">standard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/" rel="tag">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-Text-3/" rel="tag">sublime Text 3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table/" rel="tag">table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tag/" rel="tag">tag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url/" rel="tag">url</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visualization/" rel="tag">visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-component/" rel="tag">web component</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E7%BB%84%E4%BB%B6/" rel="tag">web组件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yarn/" rel="tag">yarn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E6%A0%8F/" rel="tag">三栏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8B%E8%BD%BD/" rel="tag">下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E5%8D%95/" rel="tag">书单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E6%A0%BC%E5%89%8D%E7%AB%AF/" rel="tag">书格前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%9A%E8%AE%AE/" rel="tag">会议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A5%E9%97%A8/" rel="tag">入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B1%E4%BA%AB%E6%A1%8C%E9%9D%A2/" rel="tag">共享桌面</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%BB%E7%94%9F/" rel="tag">养生</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-angular-pnpm/" rel="tag">前端开发, angular, pnpm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%8C%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/" rel="tag">前端开发，百度地图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%87%E7%BA%A7/" rel="tag">升级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B/" rel="tag">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">原型链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E9%A3%9E%E7%BF%BC/" rel="tag">双飞翼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A/" rel="tag">只管去做</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F/" rel="tag">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F%E5%88%86%E4%BA%AB/" rel="tag">团队分享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E9%99%85%E5%8C%96/" rel="tag">国际化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E8%A1%A8/" rel="tag">图表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%A3%E6%9D%AF/" rel="tag">圣杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E8%AF%AD%E8%A8%80/" rel="tag">多语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%B4%E5%83%8F/" rel="tag">头像</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8/" rel="tag">存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%8D%93/" rel="tag">安卓</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%88%98/" rel="tag">实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%91%E5%8D%B3%E6%98%AF%E5%A4%9A/" rel="tag">少即是多</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B4%E5%BA%A6/" rel="tag">年度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" rel="tag">开源协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92/" rel="tag">弹性盒</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F/" rel="tag">怪异模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%83%B3/" rel="tag">感想</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%87%E5%8D%97/" rel="tag">指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" rel="tag">搜索引擎</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE/" rel="tag">数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">数据可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%AC/" rel="tag">日本</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">最佳实践</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E6%A8%A1%E5%BC%8F/" rel="tag">标准模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag">概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="tag">模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%AE%E5%8A%A8/" rel="tag">浮动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/" rel="tag">生产环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%8A%A8%E8%BD%A6/" rel="tag">电动车</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E6%A0%87/" rel="tag">目标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F/" rel="tag">知乎专栏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%80%E4%BB%8B/" rel="tag">简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D/" rel="tag">绝对定位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%A7%E6%89%BF/" rel="tag">继承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E6%A0%BC/" rel="tag">网格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/" rel="tag">脚手架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/" rel="tag">自定义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9FDOM/" rel="tag">虚拟DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%84%E8%8C%83/" rel="tag">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E5%9D%9B/" rel="tag">论坛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1/" rel="tag">路由</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag">远程控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9F%E5%BA%A6/" rel="tag">速度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%9A/" rel="tag">锚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A5%AE%E9%A3%9F/" rel="tag">饮食</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/interval/" style="font-size: 10px;">$interval</a> <a href="/tags/timeout/" style="font-size: 10px;">$timeout</a> <a href="/tags/uibModal/" style="font-size: 10px;">$uibModal</a> <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/2018/" style="font-size: 13px;">2018</a> <a href="/tags/2019/" style="font-size: 17px;">2019</a> <a href="/tags/2020/" style="font-size: 14px;">2020</a> <a href="/tags/2021/" style="font-size: 11px;">2021</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/APP/" style="font-size: 10px;">APP</a> <a href="/tags/ARTS/" style="font-size: 18px;">ARTS</a> <a href="/tags/Algorithm/" style="font-size: 18px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Angularjs/" style="font-size: 10px;">Angularjs</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/BT/" style="font-size: 10px;">BT</a> <a href="/tags/BrowserSync/" style="font-size: 10px;">BrowserSync</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Creative-Commons/" style="font-size: 10px;">Creative Commons</a> <a href="/tags/D2/" style="font-size: 10px;">D2</a> <a href="/tags/D3/" style="font-size: 10px;">D3</a> <a href="/tags/DOM/" style="font-size: 12px;">DOM</a> <a href="/tags/Data-Visualization/" style="font-size: 10px;">Data Visualization</a> <a href="/tags/ECMAScript/" style="font-size: 11px;">ECMAScript</a> <a href="/tags/ES6/" style="font-size: 11px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/FE/" style="font-size: 10px;">FE</a> <a href="/tags/GPL/" style="font-size: 10px;">GPL</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTTP/" style="font-size: 12px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 16px;">JavaScript</a> <a href="/tags/Kindle/" style="font-size: 10px;">Kindle</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/Mozila/" style="font-size: 10px;">Mozila</a> <a href="/tags/Next/" style="font-size: 11px;">Next</a> <a href="/tags/React/" style="font-size: 12px;">React</a> <a href="/tags/React-Router/" style="font-size: 10px;">React Router</a> <a href="/tags/Reactjs/" style="font-size: 10px;">Reactjs</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Review/" style="font-size: 18px;">Review</a> <a href="/tags/SEE-Conf/" style="font-size: 10px;">SEE Conf</a> <a href="/tags/SMART%E6%B3%95%E5%88%99/" style="font-size: 10px;">SMART法则</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Share/" style="font-size: 18px;">Share</a> <a href="/tags/Spec/" style="font-size: 11px;">Spec</a> <a href="/tags/SublimeLInter/" style="font-size: 10px;">SublimeLInter</a> <a href="/tags/Technique/" style="font-size: 18px;">Technique</a> <a href="/tags/URL/" style="font-size: 11px;">URL</a> <a href="/tags/Virtual-DOM/" style="font-size: 10px;">Virtual DOM</a> <a href="/tags/WWW/" style="font-size: 11px;">WWW</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Web-%E5%AE%89%E5%85%A8-%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">Web, 安全, 前端</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/ag-grid/" style="font-size: 10px;">ag-grid</a> <a href="/tags/angularjs/" style="font-size: 15px;">angularjs</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/baidumap/" style="font-size: 10px;">baidumap</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/custom/" style="font-size: 10px;">custom</a> <a href="/tags/d2/" style="font-size: 10px;">d2</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/default/" style="font-size: 10px;">default</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/editor/" style="font-size: 10px;">editor</a> <a href="/tags/editorconfig/" style="font-size: 10px;">editorconfig</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/eslint/" style="font-size: 11px;">eslint</a> <a href="/tags/essential/" style="font-size: 10px;">essential</a> <a href="/tags/export/" style="font-size: 10px;">export</a> <a href="/tags/flexbox/" style="font-size: 11px;">flexbox</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/git/" style="font-size: 11px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/grid/" style="font-size: 10px;">grid</a> <a href="/tags/hexo/" style="font-size: 11px;">hexo</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/html%E5%85%A5%E9%97%A8/" style="font-size: 10px;">html入门</a> <a href="/tags/html%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">html学习</a> <a href="/tags/i18next/" style="font-size: 11px;">i18next</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsconf/" style="font-size: 10px;">jsconf</a> <a href="/tags/jsdoc/" style="font-size: 10px;">jsdoc</a> <a href="/tags/license/" style="font-size: 15px;">license</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/loader/" style="font-size: 10px;">loader</a> <a href="/tags/loading/" style="font-size: 10px;">loading</a> <a href="/tags/localStorage/" style="font-size: 10px;">localStorage</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/module/" style="font-size: 10px;">module</a> <a href="/tags/multi-accout/" style="font-size: 10px;">multi accout</a> <a href="/tags/named/" style="font-size: 10px;">named</a> <a href="/tags/new/" style="font-size: 10px;">new</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/placement/" style="font-size: 10px;">placement</a> <a href="/tags/prettier/" style="font-size: 10px;">prettier</a> <a href="/tags/priciple/" style="font-size: 10px;">priciple</a> <a href="/tags/quirks/" style="font-size: 10px;">quirks</a> <a href="/tags/recommend/" style="font-size: 10px;">recommend</a> <a href="/tags/remote/" style="font-size: 10px;">remote</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/sessionStorage/" style="font-size: 10px;">sessionStorage</a> <a href="/tags/share/" style="font-size: 10px;">share</a> <a href="/tags/ssh/" style="font-size: 11px;">ssh</a> <a href="/tags/standard/" style="font-size: 10px;">standard</a> <a href="/tags/sublime/" style="font-size: 11px;">sublime</a> <a href="/tags/sublime-Text-3/" style="font-size: 10px;">sublime Text 3</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/tag/" style="font-size: 10px;">tag</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/url/" style="font-size: 10px;">url</a> <a href="/tags/visualization/" style="font-size: 10px;">visualization</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/web-component/" style="font-size: 10px;">web component</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web%E7%BB%84%E4%BB%B6/" style="font-size: 10px;">web组件</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/%E4%B8%89%E6%A0%8F/" style="font-size: 10px;">三栏</a> <a href="/tags/%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">下载</a> <a href="/tags/%E4%B9%A6%E5%8D%95/" style="font-size: 17px;">书单</a> <a href="/tags/%E4%B9%A6%E6%A0%BC%E5%89%8D%E7%AB%AF/" style="font-size: 11px;">书格前端</a> <a href="/tags/%E4%BC%9A%E8%AE%AE/" style="font-size: 12px;">会议</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 13px;">入门</a> <a href="/tags/%E5%85%B1%E4%BA%AB%E6%A1%8C%E9%9D%A2/" style="font-size: 10px;">共享桌面</a> <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" style="font-size: 10px;">关键字</a> <a href="/tags/%E5%85%BB%E7%94%9F/" style="font-size: 10px;">养生</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 20px;">前端开发</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-angular-pnpm/" style="font-size: 10px;">前端开发, angular, pnpm</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%8C%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/" style="font-size: 10px;">前端开发，百度地图</a> <a href="/tags/%E5%8D%87%E7%BA%A7/" style="font-size: 10px;">升级</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型链</a> <a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 12px;">原理</a> <a href="/tags/%E5%8F%8C%E9%A3%9E%E7%BF%BC/" style="font-size: 10px;">双飞翼</a> <a href="/tags/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A/" style="font-size: 10px;">只管去做</a> <a href="/tags/%E5%9B%A2%E9%98%9F/" style="font-size: 10px;">团队</a> <a href="/tags/%E5%9B%A2%E9%98%9F%E5%88%86%E4%BA%AB/" style="font-size: 10px;">团队分享</a> <a href="/tags/%E5%9B%BD%E9%99%85%E5%8C%96/" style="font-size: 11px;">国际化</a> <a href="/tags/%E5%9B%BE%E8%A1%A8/" style="font-size: 10px;">图表</a> <a href="/tags/%E5%9C%A3%E6%9D%AF/" style="font-size: 10px;">圣杯</a> <a href="/tags/%E5%A4%9A%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">多语言</a> <a href="/tags/%E5%A4%B4%E5%83%8F/" style="font-size: 10px;">头像</a> <a href="/tags/%E5%AD%98%E5%82%A8/" style="font-size: 10px;">存储</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 10px;">安卓</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 10px;">实战</a> <a href="/tags/%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">对象</a> <a href="/tags/%E5%B0%91%E5%8D%B3%E6%98%AF%E5%A4%9A/" style="font-size: 10px;">少即是多</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 19px;">工具</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E5%B9%B4%E5%BA%A6/" style="font-size: 10px;">年度</a> <a href="/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" style="font-size: 15px;">开源协议</a> <a href="/tags/%E5%BC%B9%E6%80%A7%E7%9B%92/" style="font-size: 11px;">弹性盒</a> <a href="/tags/%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">怪异模式</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 12px;">总结</a> <a href="/tags/%E6%84%9F%E6%83%B3/" style="font-size: 10px;">感想</a> <a href="/tags/%E6%8C%87%E5%8D%97/" style="font-size: 13px;">指南</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 10px;">搜索引擎</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 11px;">效率</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">数据</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11px;">数据可视化</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 12px;">方法</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 10px;">旅游</a> <a href="/tags/%E6%97%A5%E6%9C%AC/" style="font-size: 10px;">日本</a> <a href="/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 10px;">最佳实践</a> <a href="/tags/%E6%A0%87%E5%87%86%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">标准模式</a> <a href="/tags/%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">概念</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 11px;">模块化</a> <a href="/tags/%E6%B5%AE%E5%8A%A8/" style="font-size: 10px;">浮动</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 10px;">游记</a> <a href="/tags/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83/" style="font-size: 10px;">生产环境</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 12px;">生活</a> <a href="/tags/%E7%94%B5%E5%8A%A8%E8%BD%A6/" style="font-size: 10px;">电动车</a> <a href="/tags/%E7%9B%AE%E6%A0%87/" style="font-size: 11px;">目标</a> <a href="/tags/%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F/" style="font-size: 11px;">知乎专栏</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 12px;">笔记</a> <a href="/tags/%E7%AE%80%E4%BB%8B/" style="font-size: 10px;">简介</a> <a href="/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 11px;">组件</a> <a href="/tags/%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">绝对定位</a> <a href="/tags/%E7%BB%A7%E6%89%BF/" style="font-size: 10px;">继承</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E7%BD%91%E6%A0%BC/" style="font-size: 10px;">网格</a> <a href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/" style="font-size: 10px;">脚手架</a> <a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/" style="font-size: 10px;">自定义</a> <a href="/tags/%E8%99%9A%E6%8B%9FDOM/" style="font-size: 10px;">虚拟DOM</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a> <a href="/tags/%E8%A7%84%E8%8C%83/" style="font-size: 12px;">规范</a> <a href="/tags/%E8%AE%BA%E5%9D%9B/" style="font-size: 10px;">论坛</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 19px;">读书</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E8%B7%AF%E7%94%B1/" style="font-size: 10px;">路由</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">远程控制</a> <a href="/tags/%E9%80%9F%E5%BA%A6/" style="font-size: 10px;">速度</a> <a href="/tags/%E9%94%9A/" style="font-size: 10px;">锚</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 19px;">阅读</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a> <a href="/tags/%E9%A5%AE%E9%A3%9F/" style="font-size: 10px;">饮食</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/17/angular-monorepo-project-by-pnpm/">pnpm在angular的monorepo项目中的应用</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/03/2021-annual-sumary/">2021年的年度总结</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/24/web-develop-security/">Web安全开发几个注意点</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/02/reading-note-just-do-it/">只管去做读书笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/01/reading-list-2021/">2021年计划阅读清单</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Perry<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
