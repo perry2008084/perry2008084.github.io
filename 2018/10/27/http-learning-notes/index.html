@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-totoro.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-totoro.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-totoro.png">
+  <link rel="mask-icon" href="/images/totoro.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.bookcell.org","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"apiKey":"5a61e2033b89c8451762230d62d016d7","indexName":"blog_bookcell","hits":{"per_page":10},"labels":{"input_placeholder":"搜索关键词","hits_empty":"未搜索到结果: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="IntroHTTP is a protocol which allows the fetching of resources, such as HTML documents.Clients and servers communicate by exchanging individual messages(as opposed to stream of data).The messages sent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP Learning Notes">
+<meta property="og:url" content="https://blog.bookcell.org/2018/10/27/http-learning-notes/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="IntroHTTP is a protocol which allows the fetching of resources, such as HTML documents.Clients and servers communicate by exchanging individual messages(as opposed to stream of data).The messages sent">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-27T00:25:41.000Z">
+<meta property="article:modified_time" content="2018-10-27T00:30:53.823Z">
+<meta property="article:author" content="Perry">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="HTTP">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.bookcell.org/2018/10/27/http-learning-notes/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>HTTP Learning Notes | 书格前端</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="书格前端" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">书格前端</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">潘绳杰的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+        <li class="menu-item menu-item-confucian">
+
+    <a href="/confucian/" rel="section">儒学</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/perry2008084" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2018/10/27/http-learning-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTTP Learning Notes
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-10-27 08:25:41 / 修改时间：08:30:53" itemprop="dateCreated datePublished" datetime="2018-10-27T08:25:41+08:00">2018-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/10/27/http-learning-notes/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/10/27/http-learning-notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><code>HTTP</code> is a protocol which allows the fetching of resources, such as HTML documents.<br>Clients and servers communicate by exchanging individual messages(as opposed to stream of data).The messages sent by the client, usually a Web browser, are called <em>requests</em> and the messages sent by server as an answer are called <em>responses</em>.</p>
+<span id="more"></span>
+
+<h2 id="Components-of-HTTP-based-systems"><a href="#Components-of-HTTP-based-systems" class="headerlink" title="Components of HTTP-based systems"></a>Components of HTTP-based systems</h2><h3 id="Client-The-user-agent"><a href="#Client-The-user-agent" class="headerlink" title="Client: The user-agent"></a>Client: The user-agent</h3><p>The <em>user-agent</em> is any tool that acts on the behalf of the user.</p>
+<h3 id="The-Web-server"><a href="#The-Web-server" class="headerlink" title="The Web server"></a>The Web server</h3><p>The server which serves the document as requested by the client.</p>
+<h3 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h3><ul>
+<li>caching</li>
+<li>filtering</li>
+<li>load balancing</li>
+<li>authentication</li>
+<li>logging</li>
+</ul>
+<h2 id="HTTP-flow"><a href="#HTTP-flow" class="headerlink" title="HTTP flow"></a>HTTP flow</h2><ol>
+<li>open a TCP connection</li>
+<li>Send an HTTP message</li>
+<li>Read the response sent by the server</li>
+<li>Close or reuse the connection for further requests</li>
+</ol>
+<h2 id="Evolution"><a href="#Evolution" class="headerlink" title="Evolution"></a>Evolution</h2><h3 id="Invention"><a href="#Invention" class="headerlink" title="Invention"></a>Invention</h3><p>1990, Berners-Lee build World Wide Web, it consisted of 4 building blocks:</p>
+<ul>
+<li>A text format to represent hypertext documents, the HyperText Markup Language(HTML)</li>
+<li>A simple protocol to exchange these documents, the HyperText Transfer Protocol(HTTP)</li>
+<li>A client to display(and accidentally edit) these documents, the first Web browser called WorldWideWeb</li>
+<li>A server to give access to the document, an early version of httpd</li>
+</ul>
+<h3 id="HTTP-x2F-0-9-The-one-line-protocol"><a href="#HTTP-x2F-0-9-The-one-line-protocol" class="headerlink" title="HTTP&#x2F;0.9 - The one-line protocol"></a>HTTP&#x2F;0.9 - The one-line protocol</h3><p>The initial version of HTTP had no version number; it has been later called 0.9 to differentiate it from the later version.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /mypage.html</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;HTML&gt;</span><br><span class="line">A very simple HTML page</span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTP-x2F-1-0-Building-extensibility"><a href="#HTTP-x2F-1-0-Building-extensibility" class="headerlink" title="HTTP&#x2F;1.0 - Building extensibility"></a>HTTP&#x2F;1.0 - Building extensibility</h3><ul>
+<li>Versioning information is now sent within each request (HTTP&#x2F;1.0 is appended to the GET line)</li>
+<li>A status code line is also sent at the beginning of the response, allowing the browser itself to understand the success or failure of the request and to adapt its behavior in consequence (like in updating or using its local cache in a specific way)</li>
+<li>The notion of HTTP headers has been introduced, both for the requests and the responses, allowing metadata to be transmitted and making the protocol extremely flexible and extensible.</li>
+<li>With the help of the new HTTP headers, the ability to transmit other documents than plain HTML files has been added (thanks to the Content-Type header).</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET /mypage.html HTTP/1.0</span><br><span class="line">User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)</span><br><span class="line"></span><br><span class="line">200 OK</span><br><span class="line">Date: Tue, 15 Nov 1994 08:12:31 GMT</span><br><span class="line">Server: CERN/3.0 libwww/2.17</span><br><span class="line">Content-Type: text/html</span><br><span class="line">&lt;HTML&gt; </span><br><span class="line">A page with an image</span><br><span class="line">  &lt;IMG SRC=&quot;/myimage.gif&quot;&gt;</span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTP-x2F-1-1-The-standardized-protocol"><a href="#HTTP-x2F-1-1-The-standardized-protocol" class="headerlink" title="HTTP&#x2F;1.1 - The standardized protocol"></a>HTTP&#x2F;1.1 - The standardized protocol</h3><p> The first standardized version of HTTP, HTTP&#x2F;1.1 was published in early 1997, only a few months after HTTP&#x2F;1.0.</p>
+<p> feature:</p>
+<ul>
+<li>A connection can be reused, saving the time to reopen it numerous times to display the resources embedded into the single original document retrieved.</li>
+<li>Pipelining has been added, allowing to send a second request before the answer for the first one is fully transmitted, lowering the latency of the communication.</li>
+<li>Chunked responses are now also supported.</li>
+<li>Additional cache control mechanisms have been introduced.</li>
+<li>Content negotiation, including language, encoding, or type, has been introduced, and allows a client and a server to agree on the most adequate content to exchange.</li>
+<li>Thanks to the Host header, the ability to host different domains at the same IP address now allows server collocation.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">GET /en-US/docs/Glossary/Simple_header HTTP/1.1</span><br><span class="line">Host: developer.mozilla.org</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">Accept-Language: en-US,en;q=0.5</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Referer: https://developer.mozilla.org/en-US/docs/Glossary/Simple_header</span><br><span class="line"></span><br><span class="line">200 OK</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Date: Wed, 20 Jul 2016 10:55:30 GMT</span><br><span class="line">Etag: &quot;547fa7e369ef56031dd3bff2ace9fc0832eb251a&quot;</span><br><span class="line">Keep-Alive: timeout=5, max=1000</span><br><span class="line">Last-Modified: Tue, 19 Jul 2016 00:59:33 GMT</span><br><span class="line">Server: Apache</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Vary: Cookie, Accept-Encoding</span><br><span class="line"></span><br><span class="line">(content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET /static/img/header-background.png HTTP/1.1</span><br><span class="line">Host: developer.cdn.mozilla.net</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Language: en-US,en;q=0.5</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Referer: https://developer.mozilla.org/en-US/docs/Glossary/Simple_header</span><br><span class="line"></span><br><span class="line">200 OK</span><br><span class="line">Age: 9578461</span><br><span class="line">Cache-Control: public, max-age=315360000</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Content-Length: 3077</span><br><span class="line">Content-Type: image/png</span><br><span class="line">Date: Thu, 31 Mar 2016 13:34:46 GMT</span><br><span class="line">Last-Modified: Wed, 21 Oct 2015 18:27:50 GMT</span><br><span class="line">Server: Apache</span><br><span class="line"></span><br><span class="line">(image content of 3077 bytes)</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTP-x2F-2-A-protocol-for-greater-performance"><a href="#HTTP-x2F-2-A-protocol-for-greater-performance" class="headerlink" title="HTTP&#x2F;2 - A protocol for greater performance"></a>HTTP&#x2F;2 - A protocol for greater performance</h3><p>feature:</p>
+<ul>
+<li>It is a binary protocol rather than text. It can no longer be read and created manually despite this hurdle, improved optimization techniques can now be implemented.</li>
+<li>It is a multiplexed protocol. Parallel requests can be handled over the same connection, removing the order and blocking constraints of the HTTP&#x2F;1.x protocol.</li>
+<li>It compresses headers. As these are often similar among a set of requests, this removes duplication and overhead of data transmitted.</li>
+<li>It allows a server to populate data in a client cache, in advance of it being required, through a mechanism called the server push.</li>
+</ul>
+<h3 id="Post-HTTP-x2F-2-evolution"><a href="#Post-HTTP-x2F-2-evolution" class="headerlink" title="Post-HTTP&#x2F;2 evolution"></a>Post-HTTP&#x2F;2 evolution</h3><p>feature:</p>
+<ul>
+<li>Support of Alt-Svc allows the dissociation of the identification and the location of a given resource, allowing for a smarter CDN caching mechanism.</li>
+<li>The introduction of Client-Hints allows the browser, or client, to proactively communicate information about its requirements, or hardware constraints, to the server.</li>
+<li>The introduction of security-related prefixes in the Cookie header, now helps guarantee a secure cookie has not been altered.</li>
+</ul>
+<h2 id="HTTP-Messages"><a href="#HTTP-Messages" class="headerlink" title="HTTP Messages"></a>HTTP Messages</h2><p>HTTP messages are how data is exchanged between a server and a client. There are two types of messages: <em>request</em> sent by the client to trigger an action on the server, and <em>responses</em>, the answer from the server.</p>
+<p>HTTP requests, and responses, share similar structure and composed of:</p>
+<ol>
+<li>A start-line describing the requests to be implemented, or its status of whether successful or a failure. This start-line is always a single line.</li>
+<li>An optional set of <em>HTTP headers</em> specifying the request, or describing the body included in the message.</li>
+<li>A blank line indicating all meta-information for the request have been sent.</li>
+<li>An optional <em>body</em> containing data associated with the request(like content of an HTML form), or the document associated with a response. The presence of the body and its size is specified by the start-line and HTTP headers.</li>
+</ol>
+<h3 id="HTTP-Requests"><a href="#HTTP-Requests" class="headerlink" title="HTTP Requests"></a>HTTP Requests</h3><p><strong>Start line</strong></p>
+<ol>
+<li>An <em>HTTP method</em>, a verb(like <code>GET</code>, <code>PUT</code>, <code>POST</code>) or a noun(like <code>HEAD</code>, <code>OPTIONS</code>), that describes the action to be performed.</li>
+<li>The <em>request target</em>, usually a URL, or the absolute path of the protocol, port, and domain are usually characterized by the request context.</li>
+<li>The <em>HTTP version</em>, which defines the structure of the ramaining message, acting as an indicator of the expected version to use for the response.</li>
+</ol>
+<p><strong>Headers</strong></p>
+<p>HTTP headers from a request follow the same basic structure of an HTTP header: a case-insensitive string followed by a colon(‘:’) and a value whose structure depends upon the header.</p>
+<ul>
+<li><em>General headers</em>, like <code>Via</code>, apply to the message as a whole.</li>
+<li><em>Request headers</em>, like <code>User-Agent</code>, <code>Accept-Type</code>, modify the request by specifying it further(like <code>Accept-Language</code>), by giving context(like <code>Referer</code>), or by conditionally restricting it(like<code>If-None</code>).</li>
+<li><em>Entity headers</em>, like <code>Content-Length</code> which apply to the body of the request. Obviously there is no such header transmitted if there is no body in the request.</li>
+</ul>
+<p><strong>Body</strong></p>
+<p>often <code>POST</code> request has body.</p>
+<ul>
+<li>Single-resource bodies, consisting of one single file, defined by the two headers: <code>Content-Type</code> and <code>Content-Length</code>.</li>
+<li>Multiple-resource bodies, consisting of a multipart body, each containing a different bit of information. This is typically associated with HTML Forms.</li>
+</ul>
+<h3 id="HTTP-Responses"><a href="#HTTP-Responses" class="headerlink" title="HTTP Responses"></a>HTTP Responses</h3><p><strong>Status line</strong></p>
+<p>The start line of an HTTP response, called the <em>status line</em>, contains the following information:</p>
+<ol>
+<li>The <em>protocol version</em>, usually <code>HTTP/1.1</code>.</li>
+<li>A status code, indicating success or failure of the request. Common status codes are <code>200</code>, <code>404</code>, or <code>302</code>.</li>
+<li>A <em>status text</em>. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.</li>
+</ol>
+<p><strong>Headers</strong></p>
+<p>HTTP headers for responses follow the same structure as any other header: a case-insensitive string followed by a colon (‘:’) and a value whose structure depends upon the type of the header. </p>
+<ul>
+<li><em>General header</em>, like <code>Via</code>, apply to the whole message.</li>
+<li><em>Response headers</em>, like <code>Vary</code> and <code>Accept-Ranges</code>, give additional information about the server which doesn’t fit in the status line.</li>
+<li><em>Entity headers</em>, like <code>Content-Length</code>, apply to the body of the request.</li>
+</ul>
+<p><strong>Body</strong></p>
+<p>Not all responses have one: responses with a status code, like <code>201</code> or <code>204</code>, usually don’t.</p>
+<ul>
+<li>Single-resource bodies, consisting of a single file of known length, defined by the two headers: <code>Content-Type</code> and <code>Content-Length</code>.</li>
+<li>Single-resource bodies, consisting of a single file of unknown length, encoded by chunks with <code>Transfer-Encoding</code> set to chunked.</li>
+<li>Multiple-resource bodies, consisting of a multipart body, each containing a different section of information.These are relatively rare.</li>
+</ul>
+<h2 id="A-typical-HTTP-session"><a href="#A-typical-HTTP-session" class="headerlink" title="A typical HTTP session"></a>A typical HTTP session</h2><p>In client-server protocols, like HTTP, sessions consist of three phases:</p>
+<ol>
+<li>The client establishes a TCP connection (or the appropriate connection if the transport layer is not TCP).</li>
+<li>The client sends its request, and waits for the answer.</li>
+<li>The server processes the request, sending back its answer, providing a status code and appropriate data.</li>
+</ol>
+<h3 id="Establishing-a-connection"><a href="#Establishing-a-connection" class="headerlink" title="Establishing a connection"></a>Establishing a connection</h3><p>In client-server protocols, it is the client which establishes the connection.Opening a connection in HTTP means initiating a connection in the underlying transport layer, usually this is TCP.</p>
+<h3 id="Sending-a-client-request"><a href="#Sending-a-client-request" class="headerlink" title="Sending a client request"></a>Sending a client request</h3><p>Once the connection is established, the user-agent can send the request.</p>
+<h2 id="Connection-management-in-HTTP-x2F-1-x"><a href="#Connection-management-in-HTTP-x2F-1-x" class="headerlink" title="Connection management in HTTP&#x2F;1.x"></a>Connection management in HTTP&#x2F;1.x</h2><p>Connection management is a key topic in HTTP: opening and maintaining connections largely impacts the performance of Web sites and Web applications.</p>
+<ul>
+<li>short-lived connections</li>
+<li>persistent connections</li>
+<li>HTTP pipelining</li>
+</ul>
+<h2 id="MIME-Types"><a href="#MIME-Types" class="headerlink" title="MIME Types"></a>MIME Types</h2><p>Two primary MIME types are important for the role of default types:</p>
+<ul>
+<li><code>text/plain</code> is the default value for textual files. A textual file should be human-readable and must not contain binary data.</li>
+<li><code>application/octet-stream</code> is the default value for all other cases. An unknown file type should use this type.Browsers pay a particular care when manipulating these files, attempting to safeguard the user to prevent dangerous behaviors.</li>
+</ul>
+<h2 id="Choosing-between-www-and-non-www-URLs"><a href="#Choosing-between-www-and-non-www-URLs" class="headerlink" title="Choosing between www and non-www URLs"></a>Choosing between www and non-www URLs</h2><p>choose one of your domains as your canonical one.</p>
+<ul>
+<li>Using HTTP 301 redirects</li>
+<li>Using <code>&lt;link rel=&quot;canonical&quot;&gt;</code></li>
+</ul>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>An HTTP cookie(web cookie, browser cookie) is a small piece of data that a sever sends to the user’s web browser.The browser may store it and send it back with the next request to the same server.It remembers stateful information for the stateless HTTP protocol.</p>
+<p>Cookies are mainly used for three purposes:</p>
+<p><strong>Session management</strong><br>Logins, shopping carts, game scores, or anything else the server should remember</p>
+<p><strong>Personalization</strong><br>User preferences, themes, and other settings</p>
+<p><strong>Tracking</strong><br>Recording and analyzing user behavior</p>
+<h3 id="Creating-cookies"><a href="#Creating-cookies" class="headerlink" title="Creating cookies"></a>Creating cookies</h3><p><strong>Server</strong></p>
+<p>a server can send a <code>Set-Cookie</code> header with the response.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.0 200 OK</span><br><span class="line">Content-type: text/html</span><br><span class="line">Set-Cookie: yummy_cookie=choco</span><br><span class="line">Set-Cookie: tasty_cookie=strawberry</span><br><span class="line"></span><br><span class="line">[page content]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Client</strong></p>
+<p>every new request to the server, the browser will send back all previously stored cookies to the server using the <code>Cookie</code> header.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /sample_page.html HTTP/1.1</span><br><span class="line">Host: www.example.org</span><br><span class="line">Cookie: yummy_cookie=choco; tasty_cookie=strawberry</span><br></pre></td></tr></table></figure>
+
+<p><strong>Session cookies</strong></p>
+<p>it is deleted when the client shuts down, because it didn’t specify an Expires or Max-Age directive</p>
+<p><strong>Permanent cookies</strong></p>
+<p>Instead of expiring when the client closes,permanent cookies expire at a specific date (Expires) or after a specific length of time (Max-Age).</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Secure and HttpOnly cookies</strong></p>
+<p>A secure cookie is only sent to the server with an encrypted request over the HTTPS protocol. Even with Secure, sensitive information should never be stored in cookies, as they are inherently insecure and this flag can’t offer real protection. </p>
+<p>To prevent cross-site scripting (XSS) attacks, HttpOnly cookies are inaccessible to JavaScript’s Document.cookie API; they are only sent to the server. For example, cookies that persist server-side sessions don’t need to be available to JavaScript, and the HttpOnly flag should be set.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly</span><br></pre></td></tr></table></figure>
+
+<p><strong>Scope of cookies</strong></p>
+<p>The Domain and Path directives define the scope of the cookie: what URLs the cookies should be sent to.</p>
+<p><strong>JavaScript access using Document.cookie</strong></p>
+<p>New cookies can also be created via JavaScript using the Document.cookie property, and if the HttpOnly flag is not set, existing cookies can be accessed from JavaScript as well.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.cookie = &quot;yummy_cookie=choco&quot;; </span><br><span class="line">document.cookie = &quot;tasty_cookie=strawberry&quot;; </span><br><span class="line">console.log(document.cookie); </span><br><span class="line">// logs &quot;yummy_cookie=choco; tasty_cookie=strawberry&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTTP-access-control-CORS"><a href="#HTTP-access-control-CORS" class="headerlink" title="HTTP access control(CORS)"></a>HTTP access control(CORS)</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">MDN CORS</a></p>
+<p>Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional HTTP headers to tell a browser to let a web application running at one origin (domain) have permission to access selected resources from a server at a different origin. A web application makes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, and port) than its own origin.</p>
+<h3 id="What-requests-use-CORS"><a href="#What-requests-use-CORS" class="headerlink" title="What requests use CORS"></a>What requests use CORS</h3><p>This <a target="_blank" rel="noopener" href="https://fetch.spec.whatwg.org/#http-cors-protocol">cross-origin sharing standard</a> is used to enable cross-site HTTP requests for:</p>
+<ul>
+<li>Invocations of the XMLHttpRequest or Fetch APIs in a cross-site manner, as discussed above.</li>
+<li>Web Fonts (for cross-domain font usage in @font-face within CSS), so that servers can deploy TrueType fonts that can only be cross-site loaded and used by web sites that are permitted to do so.</li>
+<li>WebGL textures.</li>
+<li>Images&#x2F;video frames drawn to a canvas using drawImage().</li>
+<li>Stylesheets (for CSSOM access).</li>
+<li>Scripts (for unmuted exceptions).</li>
+</ul>
+<h3 id="Functional-overview"><a href="#Functional-overview" class="headerlink" title="Functional overview"></a>Functional overview</h3><p>The Cross-Origin Resource Sharing standard works by adding new HTTP headers that allow servers to describe the set of origins that are permitted to read that information using a web browser. Additionally, for HTTP request methods that can cause side-effects on server’s data (in particular, for HTTP methods other than GET, or for POST usage with certain MIME types), the specification mandates that browsers “preflight” the request, soliciting supported methods from the server with an HTTP OPTIONS request method, and then, upon “approval” from the server, sending the actual request with the actual HTTP request method. Servers can also notify clients whether “credentials” (including Cookies and HTTP Authentication data) should be sent with requests.</p>
+<h3 id="The-HTTP-response-headers"><a href="#The-HTTP-response-headers" class="headerlink" title="The HTTP response headers"></a>The HTTP response headers</h3><ul>
+<li>Access-Control-Allow-Origin</li>
+<li>Access-Control-Expose-Headers</li>
+<li>Access-Control-Max-Age</li>
+<li>Access-Control-Allow-Credentials</li>
+<li>Access-Control-Allow-Methods</li>
+<li>Access-Control-Allow-Headers</li>
+</ul>
+<h3 id="The-HTTP-request-headers"><a href="#The-HTTP-request-headers" class="headerlink" title="The HTTP request headers"></a>The HTTP request headers</h3><ul>
+<li>Origin</li>
+<li>Access-Control-Request-Method</li>
+<li>Access-Control-Request-Headers</li>
+</ul>
+<h2 id="HTTP-caching"><a href="#HTTP-caching" class="headerlink" title="HTTP caching"></a>HTTP caching</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">参考</a></p>
+<h2 id="Compression-in-HTTP"><a href="#Compression-in-HTTP" class="headerlink" title="Compression in HTTP"></a>Compression in HTTP</h2><p>Compression algorithms categories:</p>
+<ul>
+<li>Loss-less compression, where the compression-uncompression cycle doesn’t alter the data that is recovered. It matches (byte to byte) with the original.<br>For images, gif or png are using loss-less compression.</li>
+<li>Lossy compression, where the cycle alters the original data, in an imperceptible way for the user.<br>Video formats on the Web are lossy and for images, jpeg is.</li>
+</ul>
+<p>Some formats can be used for both loss-less or lossy compression, like webp, and usually lossy algorithm can be configured to compress more or less, which then of course leads to less or more quality.</p>
+<h3 id="End-to-end-compression"><a href="#End-to-end-compression" class="headerlink" title="End-to-end compression"></a>End-to-end compression</h3><p>For compression, end-to-end compression is where the largest performance improvements of Web sites reside. End-to-end compression refers to a compression of the body of a message that is done by the server and will last unchanged until it reaches the client. Whatever the intermediate nodes are, they leave the body untouched.</p>
+<p>compression algorithms:</p>
+<ul>
+<li><code>gzip</code></li>
+<li><code>br</code></li>
+</ul>
+<h3 id="Hop-by-hop-compression"><a href="#Hop-by-hop-compression" class="headerlink" title="Hop-by-hop compression"></a>Hop-by-hop compression</h3><p>Hop-by-hop compression, though similar to end-to-end compression, differs by one fundamental element: the compression doesn’t happen on the resource in the server, creating a specific representation that is then transmitted, but on the body of the message between any two nodes on the path between the client and the server. Connections between successive intermediate nodes may apply a different compression.</p>
+<h2 id="HTTP-conditional-requests"><a href="#HTTP-conditional-requests" class="headerlink" title="HTTP conditional requests"></a>HTTP conditional requests</h2><p>HTTP has a concept of conditional requests, where the result, and even the success of a request, can be changed by comparing the affected resources with the value of a validator. Such requests can be useful to validate the content of a cache, and sparing a useless control, to verify the integrity of a document, like when resuming a download, or when preventing to lose updates when uploading or modifying a document on the server.</p>
+<h3 id="Validators"><a href="#Validators" class="headerlink" title="Validators"></a>Validators</h3><ul>
+<li>the date of last modification of the document, the last-modified date.</li>
+<li>an opaque string, uniquely identifying each version, called the entity tag, or the etag.</li>
+</ul>
+<h3 id="Conditional-headers"><a href="#Conditional-headers" class="headerlink" title="Conditional headers"></a>Conditional headers</h3><p><strong>If-Match</strong><br>Succeeds if the ETag of the distant resource is equal to one listed in this header. By default, unless the etag is prefixed with ‘W&#x2F;‘, it performs a strong validation.</p>
+<p><strong>If-None-Match</strong><br>Succeeds if the ETag of the distant resource is different to each listed in this header. By default, unless the etag is prefixed with ‘W&#x2F;‘, it performs a strong validation.</p>
+<p><strong>If-Modified-Since</strong><br>Succeeds if the Last-Modified date of the distant resource is more recent than the one given in this header.</p>
+<p><strong>If-Unmodified-Since</strong><br>Succeeds if the Last-Modified date of the distant resource is older or the same than the one given in this header.</p>
+<p><strong>If-Range</strong><br>Similar to If-Match, or If-Unmodified-Since, but can have only one single etag, or one date. If it fails, the range request fails, and instead of a 206 Partial Content response, a 200 OK is sent with the complete resource.</p>
+<h2 id="HTTP-Content-negotiation"><a href="#HTTP-Content-negotiation" class="headerlink" title="HTTP Content negotiation"></a>HTTP Content negotiation</h2><p>In HTTP, content negotiation is the mechanism that is used for serving different representations of a resource at the same URI, so that the user agent can specify which is best suited for the user (for example, which language of a document, which image format, or which content encoding).</p>
+<h2 id="HTTP-range-requests"><a href="#HTTP-range-requests" class="headerlink" title="HTTP range requests"></a>HTTP range requests</h2><p>HTTP range requests allow to send only a portion of an HTTP message from a server to a client. Partial requests are useful for large media or downloading files with pause and resume functions, for example.</p>
+<h2 id="HTTP-redirections"><a href="#HTTP-redirections" class="headerlink" title="HTTP redirections"></a>HTTP redirections</h2><p>URL redirection, also known as URL forwarding, is a technique to give a page, a form or a whole Web application, more than one URL address. HTTP provides a special kind of responses, HTTP redirects, to perform this operation used for numerous goals: temporary redirection while site maintenance is ongoing, permanent redirection to keep external links working after a change of the site’s architecture, progress pages when uploading a file, and so on.</p>
+<p>There are several types of redirects and they fall into three categories: permanent, temporary and special redirections.</p>
+<h3 id="Permanent-redirections"><a href="#Permanent-redirections" class="headerlink" title="Permanent redirections"></a>Permanent redirections</h3><ul>
+<li>301</li>
+<li>308</li>
+</ul>
+<h3 id="Temporary-redirections"><a href="#Temporary-redirections" class="headerlink" title="Temporary redirections"></a>Temporary redirections</h3><ul>
+<li>302</li>
+<li>303</li>
+<li>307</li>
+</ul>
+<h3 id="Special-redirections"><a href="#Special-redirections" class="headerlink" title="Special redirections"></a>Special redirections</h3><ul>
+<li>300</li>
+<li>304</li>
+</ul>
+<h3 id="其他重定向方式"><a href="#其他重定向方式" class="headerlink" title="其他重定向方式"></a>其他重定向方式</h3><p><strong>HTML</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt; </span><br><span class="line">  &lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; URL=http://www.example.com/&quot; /&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>JavaScript</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.location = &quot;http://www.example.com/&quot;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用顺序"><a href="#使用顺序" class="headerlink" title="使用顺序"></a>使用顺序</h3><ol>
+<li>HTTP redirects are always executed first when there is not even a page transmitted, and of course not even read.</li>
+<li>HTML redirects (<meta>) are executed if there weren’t any HTTP redirects.</li>
+<li>JavaScript redirects are used as the last resort, and only if JavaScript is enabled on the client side.</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/perry2008084">
+            <span class="icon">
+              <i class="twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/10/09/update-hexo-and-theme-v6/" rel="prev" title="升级博客的Hexo和Next主题版本">
+      <i class="fa fa-chevron-left"></i> 升级博客的Hexo和Next主题版本
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/19/arts-2018-11-one/" rel="next" title="arts-2018-11-one">
+      arts-2018-11-one <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components-of-HTTP-based-systems"><span class="nav-number">2.</span> <span class="nav-text">Components of HTTP-based systems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Client-The-user-agent"><span class="nav-number">2.1.</span> <span class="nav-text">Client: The user-agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Web-server"><span class="nav-number">2.2.</span> <span class="nav-text">The Web server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxies"><span class="nav-number">2.3.</span> <span class="nav-text">Proxies</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-flow"><span class="nav-number">3.</span> <span class="nav-text">HTTP flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evolution"><span class="nav-number">4.</span> <span class="nav-text">Evolution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Invention"><span class="nav-number">4.1.</span> <span class="nav-text">Invention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-x2F-0-9-The-one-line-protocol"><span class="nav-number">4.2.</span> <span class="nav-text">HTTP&#x2F;0.9 - The one-line protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-x2F-1-0-Building-extensibility"><span class="nav-number">4.3.</span> <span class="nav-text">HTTP&#x2F;1.0 - Building extensibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-x2F-1-1-The-standardized-protocol"><span class="nav-number">4.4.</span> <span class="nav-text">HTTP&#x2F;1.1 - The standardized protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-x2F-2-A-protocol-for-greater-performance"><span class="nav-number">4.5.</span> <span class="nav-text">HTTP&#x2F;2 - A protocol for greater performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post-HTTP-x2F-2-evolution"><span class="nav-number">4.6.</span> <span class="nav-text">Post-HTTP&#x2F;2 evolution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-Messages"><span class="nav-number">5.</span> <span class="nav-text">HTTP Messages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Requests"><span class="nav-number">5.1.</span> <span class="nav-text">HTTP Requests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Responses"><span class="nav-number">5.2.</span> <span class="nav-text">HTTP Responses</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-typical-HTTP-session"><span class="nav-number">6.</span> <span class="nav-text">A typical HTTP session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Establishing-a-connection"><span class="nav-number">6.1.</span> <span class="nav-text">Establishing a connection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sending-a-client-request"><span class="nav-number">6.2.</span> <span class="nav-text">Sending a client request</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connection-management-in-HTTP-x2F-1-x"><span class="nav-number">7.</span> <span class="nav-text">Connection management in HTTP&#x2F;1.x</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIME-Types"><span class="nav-number">8.</span> <span class="nav-text">MIME Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Choosing-between-www-and-non-www-URLs"><span class="nav-number">9.</span> <span class="nav-text">Choosing between www and non-www URLs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">10.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-cookies"><span class="nav-number">10.1.</span> <span class="nav-text">Creating cookies</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-access-control-CORS"><span class="nav-number">11.</span> <span class="nav-text">HTTP access control(CORS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-requests-use-CORS"><span class="nav-number">11.1.</span> <span class="nav-text">What requests use CORS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Functional-overview"><span class="nav-number">11.2.</span> <span class="nav-text">Functional overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-HTTP-response-headers"><span class="nav-number">11.3.</span> <span class="nav-text">The HTTP response headers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-HTTP-request-headers"><span class="nav-number">11.4.</span> <span class="nav-text">The HTTP request headers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-caching"><span class="nav-number">12.</span> <span class="nav-text">HTTP caching</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compression-in-HTTP"><span class="nav-number">13.</span> <span class="nav-text">Compression in HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#End-to-end-compression"><span class="nav-number">13.1.</span> <span class="nav-text">End-to-end compression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hop-by-hop-compression"><span class="nav-number">13.2.</span> <span class="nav-text">Hop-by-hop compression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-conditional-requests"><span class="nav-number">14.</span> <span class="nav-text">HTTP conditional requests</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Validators"><span class="nav-number">14.1.</span> <span class="nav-text">Validators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-headers"><span class="nav-number">14.2.</span> <span class="nav-text">Conditional headers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-Content-negotiation"><span class="nav-number">15.</span> <span class="nav-text">HTTP Content negotiation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-range-requests"><span class="nav-number">16.</span> <span class="nav-text">HTTP range requests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-redirections"><span class="nav-number">17.</span> <span class="nav-text">HTTP redirections</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Permanent-redirections"><span class="nav-number">17.1.</span> <span class="nav-text">Permanent redirections</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Temporary-redirections"><span class="nav-number">17.2.</span> <span class="nav-text">Temporary redirections</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Special-redirections"><span class="nav-number">17.3.</span> <span class="nav-text">Special redirections</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%87%8D%E5%AE%9A%E5%90%91%E6%96%B9%E5%BC%8F"><span class="nav-number">17.4.</span> <span class="nav-text">其他重定向方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%A1%BA%E5%BA%8F"><span class="nav-number">17.5.</span> <span class="nav-text">使用顺序</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Perry</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perry2008084" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/perry2008084" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/4180883/perry2008084" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;4180883&#x2F;perry2008084" rel="noopener" target="_blank"><i class="stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://coolshell.cn/" title="https:&#x2F;&#x2F;coolshell.cn&#x2F;" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bookcell.cn/" title="https:&#x2F;&#x2F;bookcell.cn" rel="noopener" target="_blank">书格导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+      appKey     : 'KBj7yrnCGk3P6V9byKOaITFx',
+      placeholder: "欢迎交流",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

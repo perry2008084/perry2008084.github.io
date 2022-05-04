@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-totoro.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-totoro.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-totoro.png">
+  <link rel="mask-icon" href="/images/totoro.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.bookcell.org","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"apiKey":"5a61e2033b89c8451762230d62d016d7","indexName":"blog_bookcell","hits":{"per_page":10},"labels":{"input_placeholder":"搜索关键词","hits_empty":"未搜索到结果: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本文翻译自Directly Upgrading From AngularJS 1.X To Angular Without Preparing The Existing Code Base 正文： 当我们从AngularJS 1.x升级到Angular(2&#x2F;4&#x2F;5)时，我们通常会先准备AngularJS 1.x的代码：  这个过程会引入像组件这类新的AngularJS 1.x技">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS 1.x平滑升级Angular实战(翻译)">
+<meta property="og:url" content="https://blog.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="本文翻译自Directly Upgrading From AngularJS 1.X To Angular Without Preparing The Existing Code Base 正文： 当我们从AngularJS 1.x升级到Angular(2&#x2F;4&#x2F;5)时，我们通常会先准备AngularJS 1.x的代码：  这个过程会引入像组件这类新的AngularJS 1.x技">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.bookcell.org/image/angularjs-upgrade-1.png">
+<meta property="og:image" content="https://blog.bookcell.org/image/angularjs-upgrade-2.png">
+<meta property="og:image" content="https://blog.bookcell.org/image/angularjs-upgrade-3.png">
+<meta property="og:image" content="https://blog.bookcell.org/image/angularjs-upgrade-4.png">
+<meta property="og:image" content="https://blog.bookcell.org/image/angularjs-upgrade-5.png">
+<meta property="og:image" content="https://blog.bookcell.org/image/angularjs-upgrade-6.png">
+<meta property="og:image" content="https://blog.bookcell.org/image/angularjs-upgrade-7.png">
+<meta property="og:image" content="https://blog.bookcell.org/image/angularjs-upgrade-8.png">
+<meta property="article:published_time" content="2018-02-19T03:54:57.000Z">
+<meta property="article:modified_time" content="2018-03-04T08:18:03.000Z">
+<meta property="article:author" content="Perry">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="Angular">
+<meta property="article:tag" content="Angularjs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.bookcell.org/image/angularjs-upgrade-1.png">
+
+<link rel="canonical" href="https://blog.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AngularJS 1.x平滑升级Angular实战(翻译) | 书格前端</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="书格前端" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">书格前端</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">潘绳杰的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+        <li class="menu-item menu-item-confucian">
+
+    <a href="/confucian/" rel="section">儒学</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/perry2008084" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AngularJS 1.x平滑升级Angular实战(翻译)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-02-19 11:54:57" itemprop="dateCreated datePublished" datetime="2018-02-19T11:54:57+08:00">2018-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-03-04 16:18:03" itemprop="dateModified" datetime="2018-03-04T16:18:03+08:00">2018-03-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文翻译自<a target="_blank" rel="noopener" href="https://www.softwarearchitekt.at/post/2017/07/14/directly-upgrading-from-angularjs-1-x-to-angular-by-skipping-preparation.aspx">Directly Upgrading From AngularJS 1.X To Angular Without Preparing The Existing Code Base</a></p>
+<p>正文：</p>
+<p>当我们从AngularJS 1.x升级到Angular(2&#x2F;4&#x2F;5)时，我们通常会先准备AngularJS 1.x的代码：</p>
+<p><img src="/image/angularjs-upgrade-1.png" alt="angularjs-upgrade-1"></p>
+<p>这个过程会引入像组件这类新的AngularJS 1.x技术。并且，引入TypeScript和像SystemJS或者Webpack之类的模块加载器是准备已有代码的进一步工作。这样做的目的是为了让代码更接近Angular便于更好的集成。</p>
+<p>但是，在一些情况下，准备已有的代码成本很大。例如，试想一下这样的情形，当你不想修修改已有的AngularJS1.x的代码，并且想要写一些Angular的应用。当这样的情况在你的项目中发生，跳过准备阶段是一个好的主意。</p>
+<p><img src="/image/angularjs-upgrade-2.png" alt="angularjs-upgrade-2"></p>
+<p>这篇文章一步步展示如何完成这个过程。像<a target="_blank" rel="noopener" href="https://angular.io/guide/upgrade">官方的升级教程</a>一样，包含准备代码的工作，这里也是升级流行的<a target="_blank" rel="noopener" href="https://github.com/angular/angular-phonecat">AngularJS 1.x 手机分类实例</a>。</p>
+<p>即使这个实例覆盖了AngularJS 1.5中引入的组件，这里展示的对使用控制器(controller)和指令(directive)的代码也适用。</p>
+<p>整个实例代码可以在<a target="_blank" rel="noopener" href="https://github.com/manfredsteyer/ngUpgrade-without-preparation">Github 仓库</a>中找到。为了接下来每一步更容易，我针对每一步做了一个代码提交。</p>
+<span id="more"></span>
+
+<h2 id="第一步：创建新的Angular应用"><a href="#第一步：创建新的Angular应用" class="headerlink" title="第一步：创建新的Angular应用"></a>第一步：创建新的Angular应用</h2><p>一开始，本文假设我们使用<a target="_blank" rel="noopener" href="https://cli.angular.io/">Angular CLI</a>来搭建一个新的Angular应用:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng new migrated</span><br></pre></td></tr></table></figure>
+
+<p>为了让这个新的方案结构清晰，在src目录下创建了一个文件夹给已有的AngularJS代码，另一个文件夹给新的Angular代码。<br>在下面的实例中，我使用了ng1和ng2来命名：</p>
+<p><img src="/image/angularjs-upgrade-3.png" alt="angularjs-upgrade-3"></p>
+<p>创建完之后，移动除了<em>tsconfig.app.json</em>, <em>tsconfig.spec.json</em>, <em>favicon.ico</em>和<em>index.html</em>之外的文件到ng2文件夹中。</p>
+<p>通过.angular-cli.json文件来通知CLI的编译任务有关修改的新代码结构。在这个文件中使用<em>assets</em>字段，我们也可以告诉CLI直接拷贝<em>ng1</em>文件夹到输出的目录中。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;$schema&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./node_modules/@angular/cli/lib/config/schema.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;project&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;migrated&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;apps&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;root&quot;</span><span class="punctuation">:</span> <span class="string">&quot;src&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;outDir&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dist&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;assets&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;ng1&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;assets&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;favicon.ico&quot;</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;index&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.html&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ng2/main.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;polyfills&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ng2/polyfills.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ng2/test.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tsconfig&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsconfig.app.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;testTsconfig&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsconfig.spec.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;app&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;styles&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;ng2/styles.css&quot;</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;environmentSource&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ng2/environments/environment.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;environments&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ng2/environments/environment.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;prod&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ng2/environments/environment.prod.ts&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;e2e&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;protractor&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;config&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./protractor.conf.js&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lint&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;project&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsconfig.app.json&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;project&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsconfig.spec.json&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;project&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsconfig.e2e.json&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;karma&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;config&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./karma.conf.js&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;defaults&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;styleExt&quot;</span><span class="punctuation">:</span> <span class="string">&quot;css&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;component&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>现在拷贝了整个AngularJS 1.x应用到<em>ng1</em>文件夹中，但是忽略<em>index.html</em>。为了旧的应用可以在修改过的文件结构下工作，我们要做一些调整。这包括修改模板文件的引用还有JSON文件和图片文件。</p>
+<p>之后，我们可以合并旧的<em>index.html</em>到文件夹<em>src</em>下新的文件中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Migrated<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">&quot;/&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- ng1 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;ng1/bower_components/bootstrap/dist/css/bootstrap.css&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;ng1/app.css&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;ng1/app.animations.css&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/bower_components/jquery/dist/jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/bower_components/angular/angular.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/bower_components/angular-animate/angular-animate.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/bower_components/angular-resource/angular-resource.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/bower_components/angular-route/angular-route.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/app.module.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/app.config.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/app.animations.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/core/core.module.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/core/checkmark/checkmark.filter.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/core/phone/phone.module.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/core/phone/phone.service.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/phone-list/phone-list.module.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/phone-list/phone-list.component.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/phone-detail/phone-detail.module.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;ng1/phone-detail/phone-detail.component.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- /ng1 --&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/x-icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;favicon.ico&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">&quot;phonecatApp&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- ng1 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;view-container&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span> <span class="attr">class</span>=<span class="string">&quot;view-frame&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- /ng1 --&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">app-root</span>&gt;</span><span class="tag">&lt;/<span class="name">app-root</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意这个合并后的<em>index.html</em>包含了AngularJS 1.x应用所需要的CSS文件和脚本。还通过<em>ng-app</em>启动AngularJS 1.x应用，并通过包含有<em>ng-view</em>指令的div提供出来的壳。这个是路由激活对应配置模板的地方。</p>
+<p>在这个文件中，我们也可以找到Angular应用的根元素。针对Angular生成打包文件的引用是不需要的，因为他们由编译任务自动生成。</p>
+<p>当这个应用启动(ng serve)，它将会将两个应用独立的加载到浏览器中。可以通过访问<em><a target="_blank" rel="noopener" href="http://localhost:4200/">http://localhost:4200</a></em>来查看。</p>
+<p><img src="/image/angularjs-upgrade-4.png" alt="angularjs-upgrade-4"></p>
+<p>由于两个应用是独立启动的，因此他们无法互相通信和交换使用服务和组件。为了使这些工作，我们需要让他们作为混合应用启动。下一章节会介绍如何做到。</p>
+<h2 id="第二步：启动一个AngularJS-Angular的混合应用"><a href="#第二步：启动一个AngularJS-Angular的混合应用" class="headerlink" title="第二步：启动一个AngularJS+Angular的混合应用"></a>第二步：启动一个AngularJS+Angular的混合应用</h2><p>为了同时启动AngularJS 1.x和Angular应用，我们可以利用Angular的ngUpgrade模块:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @angular/upgrade --save</span><br></pre></td></tr></table></figure>
+
+<p>由于我们不想启动Angular(2&#x2F;4&#x2F;5等)应用，我们将<em>indexl.html</em>文件中的根组件移除:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- remove root component --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  &lt;app-root&gt;&lt;/app-root&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>现在，我们可以一起同时启动两个应用。为此，引入<em>UpgradeModule</em>模块到Angular应用的<em>AppModule</em>中。从<em>bootstrap</em>中移除<em>AppComponent</em>,从而手动启动混合应用:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserModule</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/platform-browser&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NgModule</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">UpgradeModule</span>, downgradeComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/upgrade/static&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppComponent</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./app.component&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Ng2DemoComponent</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ng2/app/ng2-demo.component&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  <span class="attr">declarations</span>: [</span><br><span class="line">    <span class="title class_">AppComponent</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">imports</span>: [</span><br><span class="line">    <span class="title class_">BrowserModule</span>,</span><br><span class="line">    <span class="title class_">UpgradeModule</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">providers</span>: [],</span><br><span class="line">  <span class="comment">// bootstrap: [AppComponent] // No Bootstrap-Component</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">AppModule</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> upgrade: UpgradeModule</span>) &#123; &#125;</span><br><span class="line">  <span class="title function_">ngDoBootstrap</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">upgrade</span>.<span class="title function_">bootstrap</span>(<span class="variable language_">document</span>.<span class="property">body</span>, [<span class="string">&#x27;phonecatApp&#x27;</span>], &#123; <span class="attr">strictDi</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就像你所看到的，这个例子通过使用注入的<em>UpgradeModule</em>模块在<em>ngDoBootstrap</em>中启动混合应用。为了阻止启动AngularJS 1.x应用两次，我们需要在<em>index.html</em>文件中移除<em>ng-app</em>指令。</p>
+<p>当我们开始应用，我们可以看到AngularJS 1.x的组件:</p>
+<p><img src="/image/angularjs-upgrade-5.png" alt="angularjs-upgrade-5"></p>
+<p>尽管如此，这个一个包含两个版本Angular的混合应用。为了证明这一点，下一章节将会显示如何在展示的AngularJS组件中使用Angular组件。</p>
+<h2 id="第三步：降级一个Angular组件"><a href="#第三步：降级一个Angular组件" class="headerlink" title="第三步：降级一个Angular组件"></a>第三步：降级一个Angular组件</h2><p>为了展示如何在混合应用的AngularJS中使用Angular组件，教程中会使用一个非常简单的组件：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/ng2-demo.component.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Component</span>, <span class="title class_">OnInit</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/core&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">&#x27;ng2-demo&#x27;</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h3&gt;Angular 2 Demo Component&lt;/h3&gt;</span></span><br><span class="line"><span class="string">    &lt;img width=&quot;150&quot; src=&quot;...&quot; /&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">Ng2DemoComponent</span>  &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>源代码中显示的图片可以在脚手架中<em>AppComponent</em>找到。</p>
+<p>为了在AngularJS模板中使用这个组件，我们需要降级它。ngUpgrade提供了一个函数<em>downgradeComponent</em>来实现：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserModule</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/platform-browser&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NgModule</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">UpgradeModule</span>, downgradeComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/upgrade/static&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppComponent</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./app.component&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Ng2DemoComponent</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ng2/app/ng2-demo.component&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">var</span> <span class="attr">angular</span>: <span class="built_in">any</span>;</span><br><span class="line"></span><br><span class="line">angular.<span class="title function_">module</span>(<span class="string">&#x27;phonecatApp&#x27;</span>)</span><br><span class="line">  .<span class="title function_">directive</span>(</span><br><span class="line">    <span class="string">&#x27;ng2Demo&#x27;</span>,</span><br><span class="line">    <span class="title function_">downgradeComponent</span>(&#123;<span class="attr">component</span>: <span class="title class_">Ng2DemoComponent</span>&#125;)</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  <span class="attr">declarations</span>: [</span><br><span class="line">    <span class="title class_">AppComponent</span>,</span><br><span class="line">    <span class="title class_">Ng2DemoComponent</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">imports</span>: [</span><br><span class="line">    <span class="title class_">BrowserModule</span>,</span><br><span class="line">    <span class="title class_">UpgradeModule</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">entryComponents</span>: [</span><br><span class="line">    <span class="title class_">Ng2DemoComponent</span> <span class="comment">// Don&#x27;t forget this!!!</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">providers</span>: [],</span><br><span class="line">  <span class="comment">// bootstrap: [AppComponent] // No Bootstrap-Component</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">AppModule</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> upgrade: UpgradeModule</span>) &#123; &#125;</span><br><span class="line">  <span class="title function_">ngDoBootstrap</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">upgrade</span>.<span class="title function_">bootstrap</span>(<span class="variable language_">document</span>.<span class="property">body</span>, [<span class="string">&#x27;phonecatApp&#x27;</span>], &#123; <span class="attr">strictDi</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就如你在例子中看到的，这个降级的组件在AngularJS 1.x模块中注册为一个指令。为了做到，我们利用全局的变量<em>angular</em>。为了告诉TypeScript这个已存在的变量，我们需要使用<em>declare</em>关键字。</p>
+<p>之后，我们可以在AngularJS 1.x模板中调用Angular组件：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- src/ng1/phone-list/phone-list.template.html --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-2&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--Sidebar content--&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">      Search:</span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">&quot;$ctrl.query&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">      Sort by:</span><br><span class="line">      <span class="tag">&lt;<span class="name">select</span> <span class="attr">ng-model</span>=<span class="string">&quot;$ctrl.orderProp&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;name&quot;</span>&gt;</span>Alphabetical<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;age&quot;</span>&gt;</span>Newest<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Angular 2 Component --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ng2-demo</span>&gt;</span><span class="tag">&lt;/<span class="name">ng2-demo</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如通常的AnguarJS中，我们在HTML文件中需要使用kebab惯例，而在JavaScript部分中注册指令时使用正常的命名。后者使用驼峰命名法。</p>
+<p>当我们重新加载应用，将会同时显示AngularJS 1.x 电话列表和我们的Angular样例组件:</p>
+<p><img src="/image/angularjs-upgrade-6.png" alt="angularjs-upgrade-6"></p>
+<p>你可能会好奇一个新的Angular组件怎么使用AngularJS 1.x服务提供的应用逻辑，阅读下一章节来获得答案。</p>
+<h2 id="第四步：升级一个服务"><a href="#第四步：升级一个服务" class="headerlink" title="第四步：升级一个服务"></a>第四步：升级一个服务</h2><p>为了能在一个新的Angular组件中使用既存的AngularJS 1.x服务，我们需要升级它。根据官方的文档，我们必须要使用factory创建一个Angular服务provider。这个factory获取一个AngularJS 1.x注入器($injector)的引用，并使用它获取服务：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/ng2/app/phone.service.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">InjectionToken</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@angular/core&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">PHONE_SERVICE</span> = <span class="keyword">new</span> <span class="title class_">InjectionToken</span>&lt;<span class="built_in">any</span>&gt;(<span class="string">&#x27;PHONE_SERVICE&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createPhoneService</span>(<span class="params">i</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> i.<span class="title function_">get</span>(<span class="string">&#x27;Phone&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> phoneServiceProvider = &#123;</span><br><span class="line">  <span class="attr">provide</span>: <span class="variable constant_">PHONE_SERVICE</span>,</span><br><span class="line">  <span class="attr">useFactory</span>: createPhoneService,</span><br><span class="line">  <span class="attr">deps</span>: [<span class="string">&#x27;$injector&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正常情况，在<em>provide</em>属性中我们可以使用服务的类型作为依赖注入符号。但是在这个例子中，我们决定不对既有的AngularJS 1.x代码升级到TypeScript，因此我们没有任何类型。因此，这个例子使用了一个基于常量的符号叫做<em>PHONE_SERVICE</em>。在Angular 4+中提供的类型为<em>InjectionToken</em>，在Angular 2中我们可以使用<em>OpaqueToken</em>代替。<em>InjectionToken</em>使用一个类型参数来判断它指向的服务类型。如提到的，我们没有这个服务的类型，因此我们仅使用<em>any</em>。</p>
+<p>这个讨论的服务provider必须要在我们的Angular模块中注册:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/ng2/app/phone.service.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">InjectionToken</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@angular/core&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">PHONE_SERVICE</span> = <span class="keyword">new</span> <span class="title class_">InjectionToken</span>&lt;<span class="built_in">any</span>&gt;(<span class="string">&#x27;PHONE_SERVICE&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createPhoneService</span>(<span class="params">i</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> i.<span class="title function_">get</span>(<span class="string">&#x27;Phone&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> phoneServiceProvider = &#123;</span><br><span class="line">  <span class="attr">provide</span>: <span class="variable constant_">PHONE_SERVICE</span>,</span><br><span class="line">  <span class="attr">useFactory</span>: createPhoneService,</span><br><span class="line">  <span class="attr">deps</span>: [<span class="string">&#x27;$injector&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后，我们可以注入<em>phoneService</em>到我们的组件<em>Ng2DemoComponent</em>中，并使用它价值所有的电话信息:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Component</span>, <span class="title class_">OnInit</span>, <span class="title class_">Inject</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="variable constant_">PHONE_SERVICE</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ng2/app/phone.service&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">&#x27;ng2-demo&#x27;</span>,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h3&gt;Angular 2 Demo Component&lt;/h3&gt;</span></span><br><span class="line"><span class="string">    &lt;img width=&quot;150&quot; src=&quot;[...]&quot; /&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123;phones.length&#125;&#125; Phones found.</span></span><br><span class="line"><span class="string">    &lt;/p&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">Ng2DemoComponent</span> <span class="keyword">implements</span> <span class="title class_">OnInit</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="attr">phones</span>: <span class="built_in">any</span>[] = [];</span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="meta">@Inject</span>(PHONE_SERVICE) <span class="keyword">private</span> phoneService: <span class="built_in">any</span></span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">ngOnInit</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">phones</span> = <span class="variable language_">this</span>.<span class="property">phoneService</span>.<span class="title function_">query</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于我们的符号是一个常量，这个实例使用<em>Inject</em>装饰器来指向它。加载电话后，就可以显示数量了。</p>
+<p>重新加载应用后，我们可以看到:</p>
+<p><img src="/image/angularjs-upgrade-7.png" alt="angularjs-upgrade-7"></p>
+<p>注意我们有一个Angular 1.x的组件和一个Angular组件并使用AngularJS 1.x服务提供的数据进行显示。</p>
+<p>不仅仅是嵌套AngularJS 1.x和Angular的东西，我们还需要从各自的版本激活路由。下一节会处理相关内容。</p>
+<h2 id="第五步：导航到Angular组件"><a href="#第五步：导航到Angular组件" class="headerlink" title="第五步：导航到Angular组件"></a>第五步：导航到Angular组件</h2><p>让AngularJS 1.x的路由来激活Angular组件是很简单的。我们仅需要配置一个路由的模板指向相应的模板即可:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$routeProvider.</span><br><span class="line">  <span class="title function_">when</span>(<span class="string">&#x27;/phones&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">template</span>: <span class="string">&#x27;&lt;phone-list&gt;&lt;/phone-list&gt;&#x27;</span> <span class="comment">// AngularJS 1.x template</span></span><br><span class="line">  &#125;).</span><br><span class="line">  <span class="title function_">when</span>(<span class="string">&#x27;/phones/:phoneId&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">template</span>: <span class="string">&#x27;&lt;phone-detail&gt;&lt;/phone-detail&gt;&#x27;</span> <span class="comment">// AngularJS 1.x template</span></span><br><span class="line">  &#125;).</span><br><span class="line">  <span class="title function_">when</span>(<span class="string">&#x27;/ng2-demo&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">template</span>: <span class="string">&#x27;&lt;ng2-demo&gt;&lt;/ng2-demo&gt;&#x27;</span> <span class="comment">// Angular component</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这样就允许使用Angular组件和AngularJS的路由一起使用，并可以和传统的指令和组件一起使用。</p>
+<p>这里要强调一下，同样使用流行的UI-Router。</p>
+<p>这个方案简单的同时，同时也有一个缺点：我们不能利用Angular路由来使用新写的组件。为了让这个成为可能，我们会实现Victor Savkin提出的Sibling Outlet approach，使两种路由共存。实现的基础是他提出的升级壳模式(Upgrade Shell pattern)。下两章会介绍如何实现这里的想法。</p>
+<h2 id="第六步：使用Victor-Savkin的升级壳模式"><a href="#第六步：使用Victor-Savkin的升级壳模式" class="headerlink" title="第六步：使用Victor Savkin的升级壳模式"></a>第六步：使用Victor Savkin的升级壳模式</h2><p>Angular的主策划之一Victor Savkin提出了升级壳模式。他在他的电子书和博客中描述了升级壳模式。它正视了Angular组件在混合应用的顶层。这是升级壳包含了AngularJS构建块(指令、组件和控制器)和Angular组件。</p>
+<p>为了实现这个模式，在开始实现文章中的努力时我们可以使用CLI生成的<em>AppComponent</em>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// src/ng2/app/app.component.html</span><br><span class="line"><span class="comment">&lt;!--The whole content below can be removed with the new code.--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align:center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">    Welcome to &#123;&#123;title&#125;&#125;!!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- ng1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;view-container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span> <span class="attr">class</span>=<span class="string">&quot;view-frame&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /ng1 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意Angular组件中包含了AngularJS 1.x路由的<em>ng-view</em>。</p>
+<p>为了让这个组件作为我们应用的最顶层，我们需要直接启动它。我们需要将它放到<em>AppModule</em>的<em>bootstrap</em>数组中:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/ng2/app/app.module.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserModule</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/platform-browser&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NgModule</span>, <span class="title class_">InjectionToken</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">UpgradeModule</span>, downgradeComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/upgrade/static&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppComponent</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./app.component&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Ng2DemoComponent</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ng2/app/ng2-demo.component&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; phoneServiceProvider &#125; <span class="keyword">from</span> <span class="string">&quot;ng2/app/phone.service&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">var</span> <span class="attr">angular</span>: <span class="built_in">any</span>;</span><br><span class="line"></span><br><span class="line">angular.<span class="title function_">module</span>(<span class="string">&#x27;phonecatApp&#x27;</span>)</span><br><span class="line">  .<span class="title function_">directive</span>(</span><br><span class="line">    <span class="string">&#x27;ng2Demo&#x27;</span>,</span><br><span class="line">    <span class="title function_">downgradeComponent</span>(&#123;<span class="attr">component</span>: <span class="title class_">Ng2DemoComponent</span>&#125;)</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  <span class="attr">declarations</span>: [</span><br><span class="line">    <span class="title class_">AppComponent</span>,</span><br><span class="line">    <span class="title class_">Ng2DemoComponent</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">imports</span>: [</span><br><span class="line">    <span class="title class_">BrowserModule</span>,</span><br><span class="line">    <span class="title class_">UpgradeModule</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">entryComponents</span>: [</span><br><span class="line">    <span class="title class_">Ng2DemoComponent</span> <span class="comment">// Don&#x27;t forget this!!!</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">providers</span>: [</span><br><span class="line">    phoneServiceProvider</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">bootstrap</span>: [<span class="title class_">AppComponent</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">AppModule</span> &#123;</span><br><span class="line"><span class="comment">// Remove code for bootstrapping hybrid app manually !!!</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  constructor(private upgrade: UpgradeModule) &#123; &#125;</span></span><br><span class="line"><span class="comment">  ngDoBootstrap() &#123;</span></span><br><span class="line"><span class="comment">    this.upgrade.bootstrap(document.body, [&#x27;phonecatApp&#x27;], &#123; strictDi: true &#125;);</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，我们也需要移除手动启动应用的代码。代码被移动到<em>AppComponent</em>中，并在升级壳启动后开始干活。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/ng2/app/app.component.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Component</span>, <span class="title class_">Inject</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="variable constant_">PHONE_SERVICE</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ng2/app/phone.service&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">UpgradeModule</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@angular/upgrade/static&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  <span class="attr">selector</span>: <span class="string">&#x27;app-root&#x27;</span>,</span><br><span class="line">  <span class="attr">templateUrl</span>: <span class="string">&#x27;./app.component.html&#x27;</span>,</span><br><span class="line">  <span class="attr">styleUrls</span>: [<span class="string">&#x27;./app.component.css&#x27;</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">AppComponent</span> &#123;</span><br><span class="line">  title = <span class="string">&#x27;app&#x27;</span>;</span><br><span class="line"></span><br><span class="line">   <span class="attr">phones</span>: <span class="built_in">any</span>[] = [];</span><br><span class="line"></span><br><span class="line">   <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> upgrade: UpgradeModule</span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">ngOnInit</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">upgrade</span>.<span class="title function_">bootstrap</span>(<span class="variable language_">document</span>.<span class="property">body</span>, [<span class="string">&#x27;phonecatApp&#x27;</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>并且，确保<em>index.html</em>引用了我们的升级壳:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- src/index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">app-root</span>&gt;</span><span class="tag">&lt;/<span class="name">app-root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>重新加载应用，并查看包含AngularJS 1.x应用的升级壳。</p>
+<p>当这个开始工作，我们就提供了下一章目标的基础：同时使用AngularJS 1.x和Angular路由。</p>
+<h2 id="第七步：使用Victor-Savkin的兄弟姐妹出口来同时使用两种路由"><a href="#第七步：使用Victor-Savkin的兄弟姐妹出口来同时使用两种路由" class="headerlink" title="第七步：使用Victor Savkin的兄弟姐妹出口来同时使用两种路由"></a>第七步：使用Victor Savkin的兄弟姐妹出口来同时使用两种路由</h2><p><a target="_blank" rel="noopener" href="https://blog.nrwl.io/upgrading-angular-applications-managing-routers-and-url-ca5588290aaa">Victor Savkin的兄弟姐妹出口</a>描述了一种同时使用两个版本Angular的路由方法。为了实现这一点，我们需要加载Angular路由：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @angular/router --save</span><br></pre></td></tr></table></figure>
+
+<p>之后，扩展<em>app.component.html</em>。它会各种路由获取一个出口。针对AngularJS 1.x路由我们使用带有<em>ng-view</em>的<em>div</em>,针对Angular路由是一个<em>router-outlet</em>元素：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- src/ng2/app/app.component.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;view-container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span> <span class="attr">class</span>=<span class="string">&quot;view-frame&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-outlet</span>&gt;</span><span class="tag">&lt;/<span class="name">router-outlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当激活了一个基于AngularJS 1的路由，第一个获得一个模板；当激活了一个Angular路由，后者被使用。</p>
+<p>现在，让我们配置Angular路由：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/ng2/app/app.module.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserModule</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/platform-browser&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NgModule</span>, <span class="title class_">InjectionToken</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">RouterModule</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/router&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">UpgradeModule</span>, downgradeComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/upgrade/static&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppComponent</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./app.component&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Ng2DemoComponent</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ng2/app/ng2-demo.component&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; phoneServiceProvider &#125; <span class="keyword">from</span> <span class="string">&quot;ng2/app/phone.service&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">var</span> <span class="attr">angular</span>: <span class="built_in">any</span>;</span><br><span class="line"></span><br><span class="line">angular.<span class="title function_">module</span>(<span class="string">&#x27;phonecatApp&#x27;</span>)</span><br><span class="line">  .<span class="title function_">directive</span>(</span><br><span class="line">    <span class="string">&#x27;ng2Demo&#x27;</span>,</span><br><span class="line">    <span class="title function_">downgradeComponent</span>(&#123;<span class="attr">component</span>: <span class="title class_">Ng2DemoComponent</span>&#125;)</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  <span class="attr">declarations</span>: [</span><br><span class="line">    <span class="title class_">AppComponent</span>,</span><br><span class="line">    <span class="title class_">Ng2DemoComponent</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">imports</span>: [</span><br><span class="line">    <span class="title class_">BrowserModule</span>,</span><br><span class="line">    <span class="title class_">UpgradeModule</span>,</span><br><span class="line">    <span class="title class_">RouterModule</span>.<span class="title function_">forRoot</span>([</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">pathMatch</span>: <span class="string">&#x27;full&#x27;</span>,</span><br><span class="line">        <span class="attr">redirectTo</span>: <span class="string">&#x27;ng2-route&#x27;</span></span><br><span class="line"></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;ng2-route&#x27;</span>,</span><br><span class="line">        <span class="attr">component</span>: <span class="title class_">Ng2DemoComponent</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">useHash</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    )</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">entryComponents</span>: [</span><br><span class="line">    <span class="title class_">Ng2DemoComponent</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">providers</span>: [</span><br><span class="line">    phoneServiceProvider</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">bootstrap</span>: [<span class="title class_">AppComponent</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">AppModule</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就如你所看的，在这个例子中刚刚定义了Angular路由的配置。作为补充，为了两个版本的一致性，这里使用了哈希策略。</p>
+<p>我们需要确保当AngularJS 1.x路由激活时，Angular路由不做任何事。为了做到这一点，Victor建议使用一个定制的<em>UrlHandlingStrategy</em>：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/ng2/app/app.module.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">RouterModule</span>, <span class="title class_">UrlHandlingStrategy</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/router&#x27;</span>;</span><br><span class="line"></span><br><span class="line">[...]</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">CustomHandlingStrategy</span> <span class="keyword">implements</span> <span class="title class_">UrlHandlingStrategy</span> &#123;</span><br><span class="line">  <span class="title function_">shouldProcessUrl</span>(<span class="params">url</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> url.<span class="title function_">toString</span>().<span class="title function_">startsWith</span>(<span class="string">&quot;/ng2-route&quot;</span>) || url.<span class="title function_">toString</span>() === <span class="string">&quot;/&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">extract</span>(<span class="params">url</span>) &#123; <span class="keyword">return</span> url; &#125;</span><br><span class="line">  <span class="title function_">merge</span>(<span class="params">url, whole</span>) &#123; <span class="keyword">return</span> url; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个策略需要注册到*AppModule：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// src/ng2/app/app.module.ts</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">  [...]</span><br><span class="line">  providers: [</span><br><span class="line">    phoneServiceProvider,</span><br><span class="line">    &#123; provide: UrlHandlingStrategy, useClass: CustomHandlingStrategy &#125;</span><br><span class="line">  ],</span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line">&#125;)</span><br><span class="line">export class AppModule &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后，我们需要对AngularJS 1.x的路由配置做一些小修改。首先，我们必须要移除配置的哈希前缀，因为这会影响Angular路由。我们必须要使用<em>otherwise</em>加载一个空白模板来添加一个默认路由到版本1的出口中，当路由被其他路由处理的时候：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app1/app.config.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// No Prefix for the sake of uniformity</span></span><br><span class="line"><span class="comment">// $locationProvider.hashPrefix(&#x27;!&#x27;);</span></span><br><span class="line"></span><br><span class="line">$routeProvider.</span><br><span class="line">  <span class="title function_">when</span>(<span class="string">&#x27;/phones&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">template</span>: <span class="string">&#x27;&lt;phone-list&gt;&lt;/phone-list&gt;&#x27;</span></span><br><span class="line">  &#125;).</span><br><span class="line">  <span class="title function_">when</span>(<span class="string">&#x27;/phones/:phoneId&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">template</span>: <span class="string">&#x27;&lt;phone-detail&gt;&lt;/phone-detail&gt;&#x27;</span></span><br><span class="line">  &#125;).</span><br><span class="line">  <span class="title function_">when</span>(<span class="string">&#x27;/ng2-demo&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">template</span>: <span class="string">&#x27;&lt;ng2-demo&gt;&lt;/ng2-demo&gt;&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">otherwise</span>(&#123;template : <span class="string">&#x27;&#x27;</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>就如前面提的，使用AngularJS 1.x路由显示的一切也对流行的UI-Router适用。</p>
+<p>之后，添加一些菜单到<em>AppComponent</em>中来允许在基于AngularJS 1.x和Angular的路由间切换。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- src/app2/app.component.html --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">&quot;ng2-route&quot;</span>&gt;</span>ng2-route<span class="tag">&lt;/<span class="name">a</span>&gt;</span> |</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#/phones&quot;</span>&gt;</span>Phones<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>加载应用后，我们就可以在我们的路由间切换:</p>
+<p><img src="/image/angularjs-upgrade-8.png" alt="angularjs-upgrade-8"></p>
+<p>[结束]</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/perry2008084">
+            <span class="icon">
+              <i class="twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
+              <a href="/tags/Angular/" rel="tag"># Angular</a>
+              <a href="/tags/Angularjs/" rel="tag"># Angularjs</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/12/25/echart-series-coodinator/" rel="prev" title="Echarts绘制多个系列数据一一对应坐标轴">
+      <i class="fa fa-chevron-left"></i> Echarts绘制多个系列数据一一对应坐标轴
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/03/26/from-npm-to-yarn/" rel="next" title="从npm到yarn">
+      从npm到yarn <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84Angular%E5%BA%94%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">第一步：创建新的Angular应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AAAngularJS-Angular%E7%9A%84%E6%B7%B7%E5%90%88%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">第二步：启动一个AngularJS+Angular的混合应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E9%99%8D%E7%BA%A7%E4%B8%80%E4%B8%AAAngular%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">第三步：降级一个Angular组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E5%8D%87%E7%BA%A7%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">第四步：升级一个服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E5%AF%BC%E8%88%AA%E5%88%B0Angular%E7%BB%84%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">第五步：导航到Angular组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8Victor-Savkin%E7%9A%84%E5%8D%87%E7%BA%A7%E5%A3%B3%E6%A8%A1%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">第六步：使用Victor Savkin的升级壳模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8Victor-Savkin%E7%9A%84%E5%85%84%E5%BC%9F%E5%A7%90%E5%A6%B9%E5%87%BA%E5%8F%A3%E6%9D%A5%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8%E4%B8%A4%E7%A7%8D%E8%B7%AF%E7%94%B1"><span class="nav-number">7.</span> <span class="nav-text">第七步：使用Victor Savkin的兄弟姐妹出口来同时使用两种路由</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Perry</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perry2008084" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/perry2008084" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/4180883/perry2008084" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;4180883&#x2F;perry2008084" rel="noopener" target="_blank"><i class="stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://coolshell.cn/" title="https:&#x2F;&#x2F;coolshell.cn&#x2F;" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bookcell.cn/" title="https:&#x2F;&#x2F;bookcell.cn" rel="noopener" target="_blank">书格导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+      appKey     : 'KBj7yrnCGk3P6V9byKOaITFx',
+      placeholder: "欢迎交流",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>书格前端</title>
+  <icon>https://blog.bookcell.org/icon.png</icon>
+  <subtitle>潘绳杰的博客</subtitle>
+  <link href="https://blog.bookcell.org/atom.xml" rel="self"/>
+  
+  <link href="https://blog.bookcell.org/"/>
+  <updated>2022-04-25T15:04:25.702Z</updated>
+  <id>https://blog.bookcell.org/</id>
+  
+  <author>
+    <name>Perry</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pnpm在angular的monorepo项目中的应用</title>
+    <link href="https://blog.bookcell.org/2022/04/17/angular-monorepo-project-by-pnpm/"/>
+    <id>https://blog.bookcell.org/2022/04/17/angular-monorepo-project-by-pnpm/</id>
+    <published>2022-04-17T11:42:46.000Z</published>
+    <updated>2022-04-25T15:04:25.702Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在angular多应用和多库的monorepo项目工程中使用pnpm的尝试。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="前端开发, angular, pnpm" scheme="https://blog.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-angular-pnpm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021年的年度总结</title>
+    <link href="https://blog.bookcell.org/2022/01/03/2021-annual-sumary/"/>
+    <id>https://blog.bookcell.org/2022/01/03/2021-annual-sumary/</id>
+    <published>2022-01-03T04:16:03.000Z</published>
+    <updated>2022-04-25T15:04:59.637Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;又到年底，回顾过去的一年，总结一下过得怎么样。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://blog.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="总结" scheme="https://blog.bookcell.org/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="2021" scheme="https://blog.bookcell.org/tags/2021/"/>
+    
+    <category term="年度" scheme="https://blog.bookcell.org/tags/%E5%B9%B4%E5%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web安全开发几个注意点</title>
+    <link href="https://blog.bookcell.org/2021/08/24/web-develop-security/"/>
+    <id>https://blog.bookcell.org/2021/08/24/web-develop-security/</id>
+    <published>2021-08-24T15:06:13.000Z</published>
+    <updated>2022-04-25T15:05:26.637Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;平时在前端开发中会遇到一些常见的攻击，正好近期主要在处理安全方面的问题，记录一下。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Web, 安全, 前端" scheme="https://blog.bookcell.org/tags/Web-%E5%AE%89%E5%85%A8-%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>只管去做读书笔记</title>
+    <link href="https://blog.bookcell.org/2021/01/02/reading-note-just-do-it/"/>
+    <id>https://blog.bookcell.org/2021/01/02/reading-note-just-do-it/</id>
+    <published>2021-01-02T06:55:42.000Z</published>
+    <updated>2022-04-25T15:05:46.078Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本书主要讲把愿景落实到每天行动中的方法，当你想要对自己的人生做规划时，想要系统学习推荐看这本书&lt;a href=&quot;https://book.douban.com/subject/27601521/&quot;&gt;只管去做&lt;/a&gt;，阅读时间在3个小时左右，如果要快速了解可以看下这篇文章。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="读书" scheme="https://blog.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+    <category term="阅读" scheme="https://blog.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="读书" scheme="https://blog.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="笔记" scheme="https://blog.bookcell.org/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="只管去做" scheme="https://blog.bookcell.org/tags/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021年计划阅读清单</title>
+    <link href="https://blog.bookcell.org/2021/01/01/reading-list-2021/"/>
+    <id>https://blog.bookcell.org/2021/01/01/reading-list-2021/</id>
+    <published>2021-01-01T04:06:16.000Z</published>
+    <updated>2022-04-25T15:14:04.807Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;基于2020年的阅读进度，2021年计划阅读15本，不追求阅读速度，更多关注阅读收获，好书可以读两遍或更多，技术书边读边实践&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="读书" scheme="https://blog.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+    <category term="2021" scheme="https://blog.bookcell.org/tags/2021/"/>
+    
+    <category term="阅读" scheme="https://blog.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="读书" scheme="https://blog.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="书单" scheme="https://blog.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020年阅读总结</title>
+    <link href="https://blog.bookcell.org/2021/01/01/reading-2020-summary/"/>
+    <id>https://blog.bookcell.org/2021/01/01/reading-2020-summary/</id>
+    <published>2021-01-01T03:11:50.000Z</published>
+    <updated>2022-05-04T02:49:59.394Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2020年共读了13本，其中有两本不在一开始的计划中，后来加入的。主要的阅读时间在上半年，疫情期间的阅读时间相对会多一些，下半年比较忙碌，抽出来阅读时间减少。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="读书" scheme="https://blog.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+    <category term="2020" scheme="https://blog.bookcell.org/tags/2020/"/>
+    
+    <category term="阅读" scheme="https://blog.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="读书" scheme="https://blog.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="书单" scheme="https://blog.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020年Web技术生态</title>
+    <link href="https://blog.bookcell.org/2020/12/25/2020-web-tech-stack-md/"/>
+    <id>https://blog.bookcell.org/2020/12/25/2020-web-tech-stack-md/</id>
+    <published>2020-12-25T14:42:19.000Z</published>
+    <updated>2022-05-04T02:50:37.190Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;整理2020年前端的技术生态，列了个人认为比较重要的一些项目和技术点，目前stateofjs问卷还在统计中，后续可以做些调整。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="2020" scheme="https://blog.bookcell.org/tags/2020/"/>
+    
+    <category term="Web" scheme="https://blog.bookcell.org/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git多次提交记录合并</title>
+    <link href="https://blog.bookcell.org/2020/09/20/git-merge-multi-commits/"/>
+    <id>https://blog.bookcell.org/2020/09/20/git-merge-multi-commits/</id>
+    <published>2020-09-20T15:20:17.000Z</published>
+    <updated>2022-05-04T02:51:01.130Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;开发过程中，使用Git有时候会遇到多次零碎的小提交，想要合并成一个提交记录，这里记录一下操作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Git" scheme="https://blog.bookcell.org/categories/Git/"/>
+    
+    
+    <category term="工具" scheme="https://blog.bookcell.org/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="Git" scheme="https://blog.bookcell.org/tags/Git/"/>
+    
+    <category term="教程" scheme="https://blog.bookcell.org/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思考致富书摘</title>
+    <link href="https://blog.bookcell.org/2020/06/13/think-and-grow-rich-reading-notes/"/>
+    <id>https://blog.bookcell.org/2020/06/13/think-and-grow-rich-reading-notes/</id>
+    <published>2020-06-13T08:17:51.000Z</published>
+    <updated>2022-05-04T02:51:56.520Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;《思考致富》书本的阅读笔记&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="读书" scheme="https://blog.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+    <category term="2020" scheme="https://blog.bookcell.org/tags/2020/"/>
+    
+    <category term="阅读" scheme="https://blog.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="读书" scheme="https://blog.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES2019的语言特性</title>
+    <link href="https://blog.bookcell.org/2020/05/31/ecmascript-2019-new-feature/"/>
+    <id>https://blog.bookcell.org/2020/05/31/ecmascript-2019-new-feature/</id>
+    <published>2020-05-31T14:00:24.000Z</published>
+    <updated>2022-05-04T02:52:54.511Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于ECMAScript 2019规范的新增特性&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="2019" scheme="https://blog.bookcell.org/tags/2019/"/>
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="JavaScript" scheme="https://blog.bookcell.org/tags/JavaScript/"/>
+    
+    <category term="ECMAScript" scheme="https://blog.bookcell.org/tags/ECMAScript/"/>
+    
+    <category term="规范" scheme="https://blog.bookcell.org/tags/%E8%A7%84%E8%8C%83/"/>
+    
+    <category term="Spec" scheme="https://blog.bookcell.org/tags/Spec/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ECMAScript 2020新增特性</title>
+    <link href="https://blog.bookcell.org/2020/04/12/ecmascript-2020-new-feature/"/>
+    <id>https://blog.bookcell.org/2020/04/12/ecmascript-2020-new-feature/</id>
+    <published>2020-04-12T13:55:25.000Z</published>
+    <updated>2020-04-12T13:56:39.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;ECMAScript-2020新特性&quot;&gt;&lt;a href=&quot;#ECMAScript-2020新特性&quot; class=&quot;headerlink&quot; title=&quot;ECMAScript 2020新特性&quot;&gt;&lt;/a&gt;ECMAScript</summary>
+        
+      
+    
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="2020" scheme="https://blog.bookcell.org/tags/2020/"/>
+    
+    <category term="JavaScript" scheme="https://blog.bookcell.org/tags/JavaScript/"/>
+    
+    <category term="ECMAScript" scheme="https://blog.bookcell.org/tags/ECMAScript/"/>
+    
+    <category term="规范" scheme="https://blog.bookcell.org/tags/%E8%A7%84%E8%8C%83/"/>
+    
+    <category term="Spec" scheme="https://blog.bookcell.org/tags/Spec/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React组件开发的十条最佳实践</title>
+    <link href="https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/"/>
+    <id>https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/</id>
+    <published>2020-03-22T12:50:27.000Z</published>
+    <updated>2020-03-22T12:55:24.247Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;原文地址: &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Reactjs" scheme="https://blog.bookcell.org/tags/Reactjs/"/>
+    
+    <category term="最佳实践" scheme="https://blog.bookcell.org/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="组件" scheme="https://blog.bookcell.org/tags/%E7%BB%84%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何阅读一本书-笔记</title>
+    <link href="https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/"/>
+    <id>https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/</id>
+    <published>2020-01-30T08:28:34.000Z</published>
+    <updated>2020-01-30T08:30:48.835Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;笔记浓缩《如何阅读一本书》的精华，方便大家学习到阅读的要点。&lt;/p&gt;
+&lt;h2 id=&quot;阅读的目标与艺术&quot;&gt;&lt;a href=&quot;#阅读的目标与艺术&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="读书" scheme="https://blog.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+    <category term="阅读" scheme="https://blog.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="读书" scheme="https://blog.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="方法" scheme="https://blog.bookcell.org/tags/%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019年的总结</title>
+    <link href="https://blog.bookcell.org/2019/12/31/2019-summary/"/>
+    <id>https://blog.bookcell.org/2019/12/31/2019-summary/</id>
+    <published>2019-12-31T15:47:34.000Z</published>
+    <updated>2019-12-31T15:55:29.057Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="https://blog.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="2019" scheme="https://blog.bookcell.org/tags/2019/"/>
+    
+    <category term="总结" scheme="https://blog.bookcell.org/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020年的计划阅读书单</title>
+    <link href="https://blog.bookcell.org/2019/12/29/reading-list-2020/"/>
+    <id>https://blog.bookcell.org/2019/12/29/reading-list-2020/</id>
+    <published>2019-12-29T08:37:47.000Z</published>
+    <updated>2021-01-09T14:26:58.626Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="读书" scheme="https://blog.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+    <category term="2020" scheme="https://blog.bookcell.org/tags/2020/"/>
+    
+    <category term="阅读" scheme="https://blog.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="读书" scheme="https://blog.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="书单" scheme="https://blog.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019年的阅读总结</title>
+    <link href="https://blog.bookcell.org/2019/12/29/reading-2019-summary/"/>
+    <id>https://blog.bookcell.org/2019/12/29/reading-2019-summary/</id>
+    <published>2019-12-29T07:39:11.000Z</published>
+    <updated>2019-12-29T08:47:32.118Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="读书" scheme="https://blog.bookcell.org/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+    <category term="2019" scheme="https://blog.bookcell.org/tags/2019/"/>
+    
+    <category term="总结" scheme="https://blog.bookcell.org/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="阅读" scheme="https://blog.bookcell.org/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="读书" scheme="https://blog.bookcell.org/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="书单" scheme="https://blog.bookcell.org/tags/%E4%B9%A6%E5%8D%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019年第14届D2参会记录</title>
+    <link href="https://blog.bookcell.org/2019/12/16/2019-d2-forum-14th/"/>
+    <id>https://blog.bookcell.org/2019/12/16/2019-d2-forum-14th/</id>
+    <published>2019-12-16T15:19:23.000Z</published>
+    <updated>2019-12-31T15:49:42.787Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一年一度的D2论坛，今年第14届依然和上一届一样，在同一个酒店-&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="https://blog.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="会议" scheme="https://blog.bookcell.org/tags/%E4%BC%9A%E8%AE%AE/"/>
+    
+    <category term="2019" scheme="https://blog.bookcell.org/tags/2019/"/>
+    
+    <category term="前端" scheme="https://blog.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="d2" scheme="https://blog.bookcell.org/tags/d2/"/>
+    
+    <category term="论坛" scheme="https://blog.bookcell.org/tags/%E8%AE%BA%E5%9D%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSConf China 2019</title>
+    <link href="https://blog.bookcell.org/2019/10/25/jsconf-china-2019/"/>
+    <id>https://blog.bookcell.org/2019/10/25/jsconf-china-2019/</id>
+    <published>2019-10-25T15:36:26.000Z</published>
+    <updated>2019-10-27T09:46:46.035Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;上周末刚参加JSconf China 2019, 在这里聊聊记录一下感受。&lt;/p&gt;
+&lt;h2 id=&quot;大会简介&quot;&gt;&lt;a href=&quot;#大会简介&quot; class=&quot;headerlink&quot; title=&quot;大会简介&quot;&gt;&lt;/a&gt;大会简介&lt;/h2&gt;&lt;p&gt;本次在上海举办的&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="https://blog.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="会议" scheme="https://blog.bookcell.org/tags/%E4%BC%9A%E8%AE%AE/"/>
+    
+    <category term="2019" scheme="https://blog.bookcell.org/tags/2019/"/>
+    
+    <category term="前端" scheme="https://blog.bookcell.org/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="jsconf" scheme="https://blog.bookcell.org/tags/jsconf/"/>
+    
+    <category term="js" scheme="https://blog.bookcell.org/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实现一个简单版React Router v4理解其原理</title>
+    <link href="https://blog.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/"/>
+    <id>https://blog.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/</id>
+    <published>2019-08-17T07:33:31.000Z</published>
+    <updated>2019-08-17T09:41:00.559Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;对于React-Router的实现原理，参考自&lt;a href=&quot;https://tylermcginnis.com/build-your-own-react-router-v4/&quot;&gt;Build your own React Router v4&lt;/a&gt;这篇英文原文，另外，React-Router底层库&lt;a href=&quot;https://github.com/ReactTraining/history&quot;&gt;history&lt;/a&gt;的源码也值得一读。&lt;/p&gt;
+&lt;p&gt;欢迎访问&lt;a href=&quot;https://blog.bookcell.org/&quot;&gt;博客文章&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;接下来是关于React-Router v4的一个简单版实现，通过这个实现来理解路由的原理，这里可能不会完全按照英文原文翻译，会有些意译或者省略的地方。&lt;/p&gt;
+&lt;p&gt;在单页应用中，应用代码和路由代码是极其重要的两部分，两者是相辅相成的，你是否对这两者有一些困惑。&lt;/p&gt;
+&lt;p&gt;关于路由的一些疑问点:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;路由通常是相对比较复杂的，这让很多库的作者，在如何找到合适的路由抽象变得更加复杂。&lt;/li&gt;
+&lt;li&gt;因为这些复杂的原因，路由库的使用者倾向于盲目的相信库本身的抽象，而不是去理解背后的原理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本文会通过实现一个简易版的React Router v4版本来点亮前一个问题的灯塔，并且让你了解背后的原理后去判断这样的抽象是否合适。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="前端开发" scheme="https://blog.bookcell.org/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="React" scheme="https://blog.bookcell.org/tags/React/"/>
+    
+    <category term="原理" scheme="https://blog.bookcell.org/tags/%E5%8E%9F%E7%90%86/"/>
+    
+    <category term="React Router" scheme="https://blog.bookcell.org/tags/React-Router/"/>
+    
+    <category term="路由" scheme="https://blog.bookcell.org/tags/%E8%B7%AF%E7%94%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019日本京都奈良大阪自由行游记</title>
+    <link href="https://blog.bookcell.org/2019/08/08/2019-japan-kyoto-nari-osaka-travel/"/>
+    <id>https://blog.bookcell.org/2019/08/08/2019-japan-kyoto-nari-osaka-travel/</id>
+    <published>2019-08-08T08:06:54.000Z</published>
+    <updated>2019-08-09T14:54:12.761Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本次旅游了日本的京都、奈良、大阪三个地方，共花了8天7夜的时间，对本次的旅行记录一下回顾和感想，其中分为三个部分来描述，游记、攻略和感想。&lt;/p&gt;
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;游记&lt;/li&gt;
+&lt;li&gt;攻略&lt;/li&gt;
+&lt;li&gt;感想&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;游记&quot;&gt;&lt;a href=&quot;#游记&quot; class=&quot;headerlink&quot; title=&quot;游记&quot;&gt;&lt;/a&gt;游记&lt;/h2&gt;&lt;p&gt;关于这次的旅行，是年初的时候就计划好的，关于地点是台北和日本京都选择其一的，最终选择了日本，理由是先感受一下日本的文化和风情；关于时间，起初计划的时间是9月份的，正好这段时间离职了，老婆也正好也有时间，就排上这次旅行。&lt;/p&gt;
+&lt;p&gt;总的图片集合可以访问&lt;a href=&quot;https://imgur.com/gallery/VR1eZfT&quot;&gt;日本自由行图片集合&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="生活" scheme="https://blog.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="2019" scheme="https://blog.bookcell.org/tags/2019/"/>
+    
+    <category term="生活" scheme="https://blog.bookcell.org/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+    <category term="旅游" scheme="https://blog.bookcell.org/tags/%E6%97%85%E6%B8%B8/"/>
+    
+    <category term="日本" scheme="https://blog.bookcell.org/tags/%E6%97%A5%E6%9C%AC/"/>
+    
+    <category term="游记" scheme="https://blog.bookcell.org/tags/%E6%B8%B8%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-totoro.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-totoro.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-totoro.png">
+  <link rel="mask-icon" href="/images/totoro.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.bookcell.org","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"apiKey":"5a61e2033b89c8451762230d62d016d7","indexName":"blog_bookcell","hits":{"per_page":10},"labels":{"input_placeholder":"搜索关键词","hits_empty":"未搜索到结果: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Creative Commons协议。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开源协议系列之Creative Commons">
+<meta property="og:url" content="https://blog.bookcell.org/2017/02/09/opensource-license-series-creativecommons/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Creative Commons协议。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-02-09T06:24:26.000Z">
+<meta property="article:modified_time" content="2017-02-09T06:25:34.000Z">
+<meta property="article:author" content="Perry">
+<meta property="article:tag" content="开源协议">
+<meta property="article:tag" content="license">
+<meta property="article:tag" content="Creative Commons">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.bookcell.org/2017/02/09/opensource-license-series-creativecommons/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>开源协议系列之Creative Commons | 书格前端</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="书格前端" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">书格前端</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">潘绳杰的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+        <li class="menu-item menu-item-confucian">
+
+    <a href="/confucian/" rel="section">儒学</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/perry2008084" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2017/02/09/opensource-license-series-creativecommons/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          开源协议系列之Creative Commons
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2017-02-09 14:24:26 / 修改时间：14:25:34" itemprop="dateCreated datePublished" datetime="2017-02-09T14:24:26+08:00">2017-02-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2017/02/09/opensource-license-series-creativecommons/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/02/09/opensource-license-series-creativecommons/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Creative Commons协议。</p>
+<span id="more"></span>
+
+<h2 id="英文版"><a href="#英文版" class="headerlink" title="英文版"></a>英文版</h2><p>Creative Commons Attribution 4.0 International Public License</p>
+<p>By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.</p>
+<p>Section 1 – Definitions.</p>
+<p>Adapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.<br>Adapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.<br>Copyright and Similar Rights means copyright and&#x2F;or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.<br>Effective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and&#x2F;or similar international agreements.<br>Exceptions and Limitations means fair use, fair dealing, and&#x2F;or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.<br>Licensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.<br>Licensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.<br>Licensor means the individual(s) or entity(ies) granting rights under this Public License.<br>Share means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.<br>Sui Generis Database Rights means rights other than copyright resulting from Directive 96&#x2F;9&#x2F;EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and&#x2F;or succeeded, as well as other essentially equivalent rights anywhere in the world.<br>You means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.<br>Section 2 – Scope.</p>
+<p>License grant.<br>Subject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:<br>reproduce and Share the Licensed Material, in whole or in part; and<br>produce, reproduce, and Share Adapted Material.<br>Exceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.<br>Term. The term of this Public License is specified in Section 6(a).<br>Media and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and&#x2F;or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.<br>Downstream recipients.<br>Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.<br>No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.<br>No endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).<br>Other rights.</p>
+<p>Moral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and&#x2F;or other similar personality rights; however, to the extent possible, the Licensor waives and&#x2F;or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.<br>Patent and trademark rights are not licensed under this Public License.<br>To the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.<br>Section 3 – License Conditions.</p>
+<p>Your exercise of the Licensed Rights is expressly made subject to the following conditions.</p>
+<p>Attribution.</p>
+<p>If You Share the Licensed Material (including in modified form), You must:</p>
+<p>retain the following if it is supplied by the Licensor with the Licensed Material:<br>identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);<br>a copyright notice;<br>a notice that refers to this Public License;<br>a notice that refers to the disclaimer of warranties;<br>a URI or hyperlink to the Licensed Material to the extent reasonably practicable;<br>indicate if You modified the Licensed Material and retain an indication of any previous modifications; and<br>indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.<br>You may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.<br>If requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.<br>If You Share Adapted Material You produce, the Adapter’s License You apply must not prevent recipients of the Adapted Material from complying with this Public License.<br>Section 4 – Sui Generis Database Rights.</p>
+<p>Where the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:</p>
+<p>for the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;<br>if You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material; and<br>You must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.<br>For the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.<br>Section 5 – Disclaimer of Warranties and Limitation of Liability.</p>
+<p>Unless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.<br>To the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.<br>The disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.<br>Section 6 – Term and Termination.</p>
+<p>This Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.<br>Where Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:</p>
+<p>automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or<br>upon express reinstatement by the Licensor.<br>For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.<br>For the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.<br>Sections 1, 5, 6, 7, and 8 survive termination of this Public License.<br>Section 7 – Other Terms and Conditions.</p>
+<p>The Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.<br>Any arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.<br>Section 8 – Interpretation.</p>
+<p>For the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.<br>To the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.<br>No term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.<br>Nothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.</p>
+<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>许可</p>
+<p>本作品（定义如下）的提供是以适用知识共享组织的公共许可（ 简称“CCPL” 或 “许可”） 条款为前提的。本作品受著作权法以及其他相关法律的保护。对本作品的使用不得超越本许可授权的范围。</p>
+<p>如您行使本许可授予的使用本作品的权利，就表明您接受并同意遵守本许可的条款。在您接受这些条款和规定的前提下，许可人授予您本许可所包括的权利。</p>
+<p>1、定义</p>
+<p>“汇编作品”是指如期刊、文选、百科全书这类作品。在这类作品中本作品以未被修改的形式出现，和其他组成部分一样，它们本身都是单独、独立的作品，集合起来成为一个整体。在本许可定义之下构成汇编作品的作品不被视为演绎作品（定义如下）。<br>“演绎作品”指基于本作品，或本作品与其他已存在作品之上而创作的作品，如翻译、编曲、编剧、小说改编、摄制电影、艺术再现、节选、缩写，或其他任何对本作品改造、转换、或改写后的形式。在本许可定义之下构成汇编作品的作品不被视为演绎作品。为避免疑义，并为本许可之目的，当作品是乐曲时，将该作品依时间序列关系与动态影像配合一致而形成的结果，视为演绎作品。<br>“许可人”指根据本许可提供本作品的自然人、法人或者其他组织。<br>“原始作者”指创作本作品的自然人或者依法被视为本作品作者的法人或其他组织。<br>“本作品”指在本许可条款下提供的可受著作权保护的作品。录音制品不属于“本作品”的范畴，但是，对它的许可适用本协议中可适用录音制品的条款。<br>“您”指以前就本作品没有违反过本许可条款，或曾违反过条款但已获得许可人明确同意，依据本许可行使权利的自然人、法人或者其他组织。<br>“著作人身权”指作者对其受著作权保护的作品所享有的发表权、署名权、修改权以及保护作品完整权。<br>2、本许可无意削减、限制、或约束您基于以下法律规定对本作品的合法使用：合理使用，权利穷竭原则，及著作权法或其他相关法律对著作权人专有权利的限制。</p>
+<p>3、授予许可。根据本许可的条款和条件，许可人在此授予您全球性、免版税、非独占并且在本作品的著作权存续期间内均有效的许可，就本作品行使以下权利：</p>
+<p>复制本作品，将本作品收入一个或多个汇编作品中，复制汇编作品中收录的本作品；<br>创作和复制演绎作品；<br>发行本作品（包括汇编作品中收录的本作品）的复制件或录音制品，公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品（包括汇编作品中收录的本作品）；<br>发行演绎作品的复制件或录音制品，公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播演绎作品；<br>为避免疑义，当本作品是乐曲的时候，许可人放弃收取以下两种情形下的使用费的权利：</p>
+<p>一揽子许可的使用费。</p>
+<p>许可人放弃由个人或者借助著作权集体管理组织收取公开表演、公开放映、公开广播或者通过信息网络向公众传播本作品的使用费的专有权。<br>录制权与法定许可使用费。</p>
+<p>您依据《中华人民共和国著作权法》第39条第3款（或者其他司法管辖区相对应的法律）规定的法定许可，将本作品制作成录音制品（“翻录版”）并发行，则许可人放弃由个人或者借助著作权集体管理组织或者其他受委托的机构，向您就制作并发行本作品的录音制品收取使用费的专有权。<br>以上权利可在任何现有的或者以后出现的媒体和形式上行使。上述权利包括为在其他媒体和形式上行使权利而必须进行技术性修改的权利。许可人在此保留所有未明示授予的权利。</p>
+<p>4、限制。第3条的授权须受以下条款的限制：</p>
+<p>只有在遵守本许可条款的情况下，您可发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品。在您发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品的每份复制件或录音制品中，您必须附上一份本协议的复制件或本协议的网址（Uniform Resource Identifier）。</p>
+<p>您不得就本作品提出或增加任何条款，从而变更或限制本许可条款或者获得本作品的第三方在本许可条款下所享有的权利。您不得对本作品进行分许可，并且必须完整保留所有与本许可条款及责任限制相关的声明。</p>
+<p>在发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品时，您不得使用任何技术性的措施以不符合本许可协议条款的方式来控制对本作品的访问和使用。以上限制同样适用于收录在汇编作品中的本作品，但并不要求本作品外的汇编作品受本许可条款的约束。</p>
+<p>在创作汇编作品时，若接到任何许可人的通知，您必须按照其要求，在可行范围内删除汇编作品中根据第4条第b款的要求所作的有关原始作者的身份及其他有关原始作品的相关信息的标注。在创作演绎作品时，若接到任何许可人的通知，您必须根据其要求，在可行范围内删除演绎作品中根据第4条b款的要求所作的有关原始作者的身份及其他有关原始作品的相关信息的标注。<br>在发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品或任何演绎、汇编作品时，您必须完整保留所有关于本作品的著作权声明，并以适合所使用的媒体或工具的形式：（i）在原始作者的姓名（或笔名）已被提供的情况下，给出该姓名（或笔名），和&#x2F;或(ii)在原始作者和&#x2F;或许可人以许可人的著作权声明、服务条款或其他合理的方式，指定可以在作品上署名的他方当事人的情况下，给出该他方当事人的名称；在本作品标题已被提供的情况下，给出本作品的标题；并在合理可行的程度上，标明许可人指定需与本作品同时出现的网址，除非该网址没有涉及到本作品的著作权声明或者关于本作品的许可信息；如果是演绎作品，须指明演绎作品中使用的本作品的作者姓名和作品名称（例如，“某作者作品的法语译本”，或“基于某作者作品的电影剧本”）。对作者姓名和作品名称的指明可采取任何合理方式，但在演绎作品或汇编作品中，对本作品名称和作者姓名的指明须同时出现在任何其他作者姓名出现的地方，并至少与对其他作者的指明一样显著。<br>在创作演绎作品，以及以任何形式复制、发行、公开展览、公开表演、公开放映、公开广播或通过信息网络向公众传播本作品、本作品的演绎作品或汇编作品时，您不得侵犯作者的著作人身权。<br>5、声明、保证和免责条款</p>
+<p>除非本许可的当事人相互以书面的方式做出相反约定，许可人按其现状提供本作品，对本作品不作任何明示或者默示、依照法律或者其他规定的陈述或担保，包括但是不限于任何有关权利归属、可否商业性使用、是否符合特定的目的、未侵害他人权利、不具有潜在的或者其他缺陷、准确性或者不论能否被发现的错误不存在的担保。有些司法管辖区不允许排除前述默示保证，因此这些排除性规定并不一定适用于您。</p>
+<p>6、责任限制条款</p>
+<p>除非属于相关法律所要求的范围，许可人在任何情况下都不对您因本许可或因使用本作品而产生的任何直接损失、间接损失或惩罚性赔偿负责，即使许可人已被告知发生此类损害的可能性。</p>
+<p>7、终止</p>
+<p>在您违反本许可任何条款时，本许可及其所授予的权利将自动终止。然而，根据本许可从您处获取演绎作品或汇编作品的自然人、法人或者其他组织，如果他们仍完全遵守相关许可，则他们的许可不会随之终止。即使本许可被终止，第1、2、5、6、7、8条仍然有效。<br>在上述条款及条件的前提下，此处授予的许可在法定著作权保护期限内有效。即便如此，许可人保留依其他许可条款发行本作品及在任何时候停止发行本作品的权利；但是，许可人的上述权利不能被用于撤销本许可（或任何其他在本许可条款下授予的或必须授予的许可）的目的， 除本条a款指明的终止外，本许可将保持其完全效力。<br>8、其他</p>
+<p>当您发行、通过信息网络向公众传播本作品或汇编作品时，许可人给获得作品的第三方提供本作品的许可，其条款和条件与您所获得的许可相同。<br>当您发行或通过信息网络向公众传播演绎作品时，许可人给获得作品的第三方提供本作品的许可，其条款和条件与您所获得的许可相同。<br>如因相关法律，本许可的某一条款无效或不能履行，本许可其余条款的有效性和可履行性不受影响。如本许可的当事人未采取进一步措施，此类无效条款应在最小的必要范围内修改以使其有效和可履行。<br>除非当事人书面同意并签字放弃某条款和允许某违约行为，本许可的任何条款或规定都不应被视为已被放弃，或被视为允许此违约行为。<br>本许可构成相关当事人与本授权作品相关的全部协议。除已在此处确认的之外，并不存在任何与本作品相关的谅解备忘录、协议或声明。许可人不受您提出的任何附加规定约束。未经许可人与您双方书面同意，本许可不得更改。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/legalcode">creative commons Attribution 4.0 International</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Creative_Commons">Creative Commons</a></li>
+<li><a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/2.5/cn/">署名 2.5 中国大陆 (CC BY 2.5 CN)</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2008/04/creative_commons_licenses.html">谈谈创作共用许可证（Creative Commons licenses）</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%88%9B%E4%BD%9C%E5%85%B1%E7%94%A8">知识共享</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/perry2008084">
+            <span class="icon">
+              <i class="twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" rel="tag"># 开源协议</a>
+              <a href="/tags/license/" rel="tag"># license</a>
+              <a href="/tags/Creative-Commons/" rel="tag"># Creative Commons</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/02/08/opensource-license-series-gpl/" rel="prev" title="开源协议系列之GPL">
+      <i class="fa fa-chevron-left"></i> 开源协议系列之GPL
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/02/20/css-custom-li-style/" rel="next" title="自定义li的css样式">
+      自定义li的css样式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8B%B1%E6%96%87%E7%89%88"><span class="nav-number">1.</span> <span class="nav-text">英文版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E7%89%88"><span class="nav-number">2.</span> <span class="nav-text">中文版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Perry</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perry2008084" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/perry2008084" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/4180883/perry2008084" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;4180883&#x2F;perry2008084" rel="noopener" target="_blank"><i class="stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://coolshell.cn/" title="https:&#x2F;&#x2F;coolshell.cn&#x2F;" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bookcell.cn/" title="https:&#x2F;&#x2F;bookcell.cn" rel="noopener" target="_blank">书格导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+      appKey     : 'KBj7yrnCGk3P6V9byKOaITFx',
+      placeholder: "欢迎交流",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

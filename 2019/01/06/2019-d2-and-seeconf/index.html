@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-totoro.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-totoro.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-totoro.png">
+  <link rel="mask-icon" href="/images/totoro.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.bookcell.org","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"apiKey":"5a61e2033b89c8451762230d62d016d7","indexName":"blog_bookcell","hits":{"per_page":10},"labels":{"input_placeholder":"搜索关键词","hits_empty":"未搜索到结果: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2019年的第一个周末在杭州参加了两个都是阿里主导的前端技术会议，一个是SEE Conf，另一个是D2，从参会人员规模和演讲嘉宾来看，D2的级别更高一点，干货也更多。但是，SEE Conf的初心是很不错的，而且也是免费分享，提出了体验的重要性和可持续的未来相关观点。 SEE ConfSEE Conf，全称是Seeking Experience and Engineer Conference，关注体">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019年D2和SEE Conf的参会感想">
+<meta property="og:url" content="https://blog.bookcell.org/2019/01/06/2019-d2-and-seeconf/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="2019年的第一个周末在杭州参加了两个都是阿里主导的前端技术会议，一个是SEE Conf，另一个是D2，从参会人员规模和演讲嘉宾来看，D2的级别更高一点，干货也更多。但是，SEE Conf的初心是很不错的，而且也是免费分享，提出了体验的重要性和可持续的未来相关观点。 SEE ConfSEE Conf，全称是Seeking Experience and Engineer Conference，关注体">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-06T12:08:03.000Z">
+<meta property="article:modified_time" content="2019-01-08T14:17:51.005Z">
+<meta property="article:author" content="Perry">
+<meta property="article:tag" content="D2">
+<meta property="article:tag" content="SEE Conf">
+<meta property="article:tag" content="会议">
+<meta property="article:tag" content="2019">
+<meta property="article:tag" content="感想">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.bookcell.org/2019/01/06/2019-d2-and-seeconf/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2019年D2和SEE Conf的参会感想 | 书格前端</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="书格前端" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">书格前端</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">潘绳杰的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+        <li class="menu-item menu-item-confucian">
+
+    <a href="/confucian/" rel="section">儒学</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/perry2008084" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2019/01/06/2019-d2-and-seeconf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2019年D2和SEE Conf的参会感想
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-06 20:08:03" itemprop="dateCreated datePublished" datetime="2019-01-06T20:08:03+08:00">2019-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-01-08 22:17:51" itemprop="dateModified" datetime="2019-01-08T22:17:51+08:00">2019-01-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/01/06/2019-d2-and-seeconf/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/06/2019-d2-and-seeconf/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>2019年的第一个周末在杭州参加了两个都是阿里主导的前端技术会议，一个是SEE Conf，另一个是D2，从参会人员规模和演讲嘉宾来看，D2的级别更高一点，干货也更多。但是，SEE Conf的初心是很不错的，而且也是免费分享，提出了体验的重要性和可持续的未来相关观点。</p>
+<h2 id="SEE-Conf"><a href="#SEE-Conf" class="headerlink" title="SEE Conf"></a>SEE Conf</h2><p>SEE Conf，全称是Seeking Experience and Engineer Conference，关注体验和工程，他们的口号是探索极致用户体验和最佳工程实践，他们也是身体力行的在探索。</p>
+<p>从一整天的会议听下来，不免有一些蚂蚁金服在推广他们的开源产品，但是其中也分享了不少新鲜的观点。这里列几个对我印象比较深刻的主题。</p>
+<h3 id="玉伯提的SaaS应用和体验"><a href="#玉伯提的SaaS应用和体验" class="headerlink" title="玉伯提的SaaS应用和体验"></a>玉伯提的SaaS应用和体验</h3><p>开场玉伯致辞，久闻大名，第一次在现场见到，很接地气。</p>
+<p>玉伯提出了当前SaaS应用渐渐成为主流，也因此应用的体验变得日趋重要，这也是他们一直在推行探索体验技术的一个推力之一。另外一点，现场中玉伯也提到了Ant Design项目的“圣诞彩蛋”项目，并且现场道歉了，对于开源项目的态度还是比较诚恳的，对于后续他们对开源项目的维护有些期待，希望阿里和蚂蚁对开源社区多用心，负责。</p>
+<h3 id="同济大学娄永琪院长的《交互设计与人类未来》"><a href="#同济大学娄永琪院长的《交互设计与人类未来》" class="headerlink" title="同济大学娄永琪院长的《交互设计与人类未来》"></a>同济大学娄永琪院长的《交互设计与人类未来》</h3><p>这个主题前半部分一直在谈人类的历史和地球面临的问题，一直没有和设计扯上关系。到了中期，慢慢过渡到交互设计，人类可持续发展与设计的关联，再扩展到设计与社区的实践。这个主题分享确实能开阔眼界，学术前沿的研究方向。</p>
+<p>其中娄院长提到了其中一本书《翻转极限》，应该值得一看，讲目前人类遇到的种种问题，以及现今的解决方案。</p>
+<h3 id="林峰的《科技与人文结合的体验度量》"><a href="#林峰的《科技与人文结合的体验度量》" class="headerlink" title="林峰的《科技与人文结合的体验度量》"></a>林峰的《科技与人文结合的体验度量》</h3><p>相信很多人知道林峰是因为ECharts，现在林峰应该是在蚂蚁带领可视化的团队。林峰的演讲整体给人的感觉，演讲很流畅，口才听好的。演讲的内容也很有趣，主要谈及的是产品在体验方面的定量度量方法，并且能提供建议，他们内部的产品名称是“九色鹿”，应该还没有开源。主要的依据是PTECH指标，后续可以了解一下，TECH指标是在上一届SEE Conf中提出的。</p>
+<h3 id="云谦的《蚂蚁金服前端框架探索之路》"><a href="#云谦的《蚂蚁金服前端框架探索之路》" class="headerlink" title="云谦的《蚂蚁金服前端框架探索之路》"></a>云谦的《蚂蚁金服前端框架探索之路》</h3><p>用过dva和roadhog项目，在github上的id是sorrycc，现场看到真人和头像不怎么像，可能是胖了。</p>
+<p>这个分享中云谦提到了蚂蚁金服在前端框架选型和造轮子路上，一路走来的历程，从roof、redux、dva、umi，踩过不少坑。现场看，他们内部主要在用umi以及基于umi的一套插件生态，dva他们只用在数据流方面，已经濒临淘汰；不过现场的观众来看，还是有不少人在使用dva，大家也表示出对dva后续开发维护的担忧，云谦给出的答复是，dva后续会有第3版的升级，roadhog将会进入维护模式。而且，期间云谦也分享了他在技术选型方面的建议，除了技术或者工具本身的情况，另外还有一点是运气。</p>
+<h2 id="D2"><a href="#D2" class="headerlink" title="D2"></a>D2</h2><p>今年的D2是第13届，据说来参加的人数有近千人。之前听说是没有收费的，今年也开始进行收费了，场地选在杭州下沙的和达希尔顿酒店，场地费应该也不便宜，这次会议不止是阿里的专家演讲，也请了外边的好几个讲师，包括facebook工程师和德国的小哥等等。整体而言，干货很多，也了解了当前前端方面的一些趋势。</p>
+<p>有关前端趋势方面，前段时间，2018年的stateofjs网站进行问卷调查，出了一个js生态相关的报告，可以了解到世界范围前端的趋势。这里，阿里的的前端委员会主席圆心也提了几点，主要涉及几点：</p>
+<ul>
+<li>前端往无线端</li>
+<li>nodejs生态的成熟</li>
+<li>toB业务对前端的要求见多</li>
+<li>前端工程化</li>
+<li>前端渐稳定，国内选择前端框架主要在react和vue</li>
+</ul>
+<blockquote>
+<p>从整个会议下来，Angular基本被国内开发者忽视，国内的开源生态也基本是基于react和vue。</p>
+</blockquote>
+<h3 id="GraphQL"><a href="#GraphQL" class="headerlink" title="GraphQL"></a>GraphQL</h3><p>台湾小哥王启安带来的GraphQL实践，布道。国内的实践还是处于萌芽阶段，真正使用的团队还比较少，不过GraphQL相对于Rest API而言，性能上是有很大优势的。通过前端自定义查询字段，从而减少http请求和无效数据带宽浪费。相信这是一个未来的趋势。</p>
+<h3 id="海量数据渲染"><a href="#海量数据渲染" class="headerlink" title="海量数据渲染"></a>海量数据渲染</h3><p>阿里西蒙有关天猫双十一的海量数据渲染，涉及到WebGL 2、WebAssembly等的使用和优化案例，很精彩。</p>
+<h3 id="大规模地理数据绘制"><a href="#大规模地理数据绘制" class="headerlink" title="大规模地理数据绘制"></a>大规模地理数据绘制</h3><p>这个topic是有关大规模地理数据的绘制的理论研究，其中提到了一些方法，蓝噪声采样处理数据，以及如何解决大数据量的前端绘制的方案。其中提到，数据量较大的情况下，其实有些时候是可以在后台进行绘制，而前端进行展示。</p>
+<h3 id="React-suspense-API"><a href="#React-suspense-API" class="headerlink" title="React suspense API"></a>React suspense API</h3><p>来自Facebook的工程师，讲解了suspense的使用，用于组件懒加载时显示loading内容的方式。以及介绍了后续react支持异步数据加载的API，值得期待。</p>
+<h3 id="WebAssembly"><a href="#WebAssembly" class="headerlink" title="WebAssembly"></a>WebAssembly</h3><p>这个topic是由法国的一个哥们讲的有关WebAssembly，由浅入深的讲解，没有过实践，也只能听听。从D2整体的报告来看，WebAssembly技术在国内外实践落地的不少，而且从兼容性来看也基本可以上生产了。</p>
+<h3 id="Class-Field"><a href="#Class-Field" class="headerlink" title="Class Field"></a>Class Field</h3><p>最后一个报告是在第3号报告厅，听的Hax讲的关于JS中Class Field相关的问题，据说是浓缩了3个小时的精华，信息量确实很大。这个话题主要涉及到ECMAScript标准中有争议的内容，槽点较多。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>今年的主题，都比较有含金量，毕竟是收费了，还是值得参加的。另外，还有一些感兴趣的话题，时间上是冲突的，没法去听，后续通过视频回放再看。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/perry2008084">
+            <span class="icon">
+              <i class="twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/D2/" rel="tag"># D2</a>
+              <a href="/tags/SEE-Conf/" rel="tag"># SEE Conf</a>
+              <a href="/tags/%E4%BC%9A%E8%AE%AE/" rel="tag"># 会议</a>
+              <a href="/tags/2019/" rel="tag"># 2019</a>
+              <a href="/tags/%E6%84%9F%E6%83%B3/" rel="tag"># 感想</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/31/reading-list-2019/" rel="prev" title="2019年阅读计划">
+      <i class="fa fa-chevron-left"></i> 2019年阅读计划
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/01/08/ARTS-2019-January-One/" rel="next" title="ARTS-2019-January-One">
+      ARTS-2019-January-One <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SEE-Conf"><span class="nav-number">1.</span> <span class="nav-text">SEE Conf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%89%E4%BC%AF%E6%8F%90%E7%9A%84SaaS%E5%BA%94%E7%94%A8%E5%92%8C%E4%BD%93%E9%AA%8C"><span class="nav-number">1.1.</span> <span class="nav-text">玉伯提的SaaS应用和体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%E5%A8%84%E6%B0%B8%E7%90%AA%E9%99%A2%E9%95%BF%E7%9A%84%E3%80%8A%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BA%BA%E7%B1%BB%E6%9C%AA%E6%9D%A5%E3%80%8B"><span class="nav-number">1.2.</span> <span class="nav-text">同济大学娄永琪院长的《交互设计与人类未来》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%97%E5%B3%B0%E7%9A%84%E3%80%8A%E7%A7%91%E6%8A%80%E4%B8%8E%E4%BA%BA%E6%96%87%E7%BB%93%E5%90%88%E7%9A%84%E4%BD%93%E9%AA%8C%E5%BA%A6%E9%87%8F%E3%80%8B"><span class="nav-number">1.3.</span> <span class="nav-text">林峰的《科技与人文结合的体验度量》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E8%B0%A6%E7%9A%84%E3%80%8A%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E6%8E%A2%E7%B4%A2%E4%B9%8B%E8%B7%AF%E3%80%8B"><span class="nav-number">1.4.</span> <span class="nav-text">云谦的《蚂蚁金服前端框架探索之路》</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D2"><span class="nav-number">2.</span> <span class="nav-text">D2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GraphQL"><span class="nav-number">2.1.</span> <span class="nav-text">GraphQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93"><span class="nav-number">2.2.</span> <span class="nav-text">海量数据渲染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%9C%B0%E7%90%86%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">大规模地理数据绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-suspense-API"><span class="nav-number">2.4.</span> <span class="nav-text">React suspense API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebAssembly"><span class="nav-number">2.5.</span> <span class="nav-text">WebAssembly</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Field"><span class="nav-number">2.6.</span> <span class="nav-text">Class Field</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">2.7.</span> <span class="nav-text">结语</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Perry</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perry2008084" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/perry2008084" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/4180883/perry2008084" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;4180883&#x2F;perry2008084" rel="noopener" target="_blank"><i class="stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://coolshell.cn/" title="https:&#x2F;&#x2F;coolshell.cn&#x2F;" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bookcell.cn/" title="https:&#x2F;&#x2F;bookcell.cn" rel="noopener" target="_blank">书格导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+      appKey     : 'KBj7yrnCGk3P6V9byKOaITFx',
+      placeholder: "欢迎交流",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-totoro.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-totoro.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-totoro.png">
+  <link rel="mask-icon" href="/images/totoro.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.bookcell.org","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"apiKey":"5a61e2033b89c8451762230d62d016d7","indexName":"blog_bookcell","hits":{"per_page":10},"labels":{"input_placeholder":"搜索关键词","hits_empty":"未搜索到结果: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Mozila协议。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开源协议系列之Mozila">
+<meta property="og:url" content="https://blog.bookcell.org/2017/02/07/opensource-license-series-mozila/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Mozila协议。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-02-07T09:01:52.000Z">
+<meta property="article:modified_time" content="2017-02-23T06:19:42.000Z">
+<meta property="article:author" content="Perry">
+<meta property="article:tag" content="开源协议">
+<meta property="article:tag" content="license">
+<meta property="article:tag" content="Mozila">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.bookcell.org/2017/02/07/opensource-license-series-mozila/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>开源协议系列之Mozila | 书格前端</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="书格前端" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">书格前端</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">潘绳杰的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+        <li class="menu-item menu-item-confucian">
+
+    <a href="/confucian/" rel="section">儒学</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/perry2008084" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2017/02/07/opensource-license-series-mozila/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          开源协议系列之Mozila
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-02-07 17:01:52" itemprop="dateCreated datePublished" datetime="2017-02-07T17:01:52+08:00">2017-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-02-23 14:19:42" itemprop="dateModified" datetime="2017-02-23T14:19:42+08:00">2017-02-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2017/02/07/opensource-license-series-mozila/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/02/07/opensource-license-series-mozila/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这个系列文章会收集和翻译一些常用的开源协议，方便对开源代码使用的考虑因素，本文为Mozila协议。</p>
+<span id="more"></span>
+
+<h2 id="英文版"><a href="#英文版" class="headerlink" title="英文版"></a>英文版</h2><h1 id="Mozilla-Public-License-Version-2-0"><a href="#Mozilla-Public-License-Version-2-0" class="headerlink" title="Mozilla Public License Version 2.0"></a>Mozilla Public License Version 2.0</h1><ol>
+<li>Definitions</li>
+</ol>
+<hr>
+<p>1.1. “Contributor”<br>    means each individual or legal entity that creates, contributes to<br>    the creation of, or owns Covered Software.</p>
+<p>1.2. “Contributor Version”<br>    means the combination of the Contributions of others (if any) used<br>    by a Contributor and that particular Contributor’s Contribution.</p>
+<p>1.3. “Contribution”<br>    means Covered Software of a particular Contributor.</p>
+<p>1.4. “Covered Software”<br>    means Source Code Form to which the initial Contributor has attached<br>    the notice in Exhibit A, the Executable Form of such Source Code<br>    Form, and Modifications of such Source Code Form, in each case<br>    including portions thereof.</p>
+<p>1.5. “Incompatible With Secondary Licenses”<br>    means</p>
+<p>(a) that the initial Contributor has attached the notice described<br>    in Exhibit B to the Covered Software; or</p>
+<p>(b) that the Covered Software was made available under the terms of<br>    version 1.1 or earlier of the License, but not also under the<br>    terms of a Secondary License.</p>
+<p>1.6. “Executable Form”<br>    means any form of the work other than Source Code Form.</p>
+<p>1.7. “Larger Work”<br>    means a work that combines Covered Software with other material, in<br>    a separate file or files, that is not Covered Software.</p>
+<p>1.8. “License”<br>    means this document.</p>
+<p>1.9. “Licensable”<br>    means having the right to grant, to the maximum extent possible,<br>    whether at the time of the initial grant or subsequently, any and<br>    all of the rights conveyed by this License.</p>
+<p>1.10. “Modifications”<br>    means any of the following:</p>
+<p>(a) any file in Source Code Form that results from an addition to,<br>    deletion from, or modification of the contents of Covered<br>    Software; or</p>
+<p>(b) any new file in Source Code Form that contains any Covered<br>    Software.</p>
+<p>1.11. “Patent Claims” of a Contributor<br>    means any patent claim(s), including without limitation, method,<br>    process, and apparatus claims, in any patent Licensable by such<br>    Contributor that would be infringed, but for the grant of the<br>    License, by the making, using, selling, offering for sale, having<br>    made, import, or transfer of either its Contributions or its<br>    Contributor Version.</p>
+<p>1.12. “Secondary License”<br>    means either the GNU General Public License, Version 2.0, the GNU<br>    Lesser General Public License, Version 2.1, the GNU Affero General<br>    Public License, Version 3.0, or any later versions of those<br>    licenses.</p>
+<p>1.13. “Source Code Form”<br>    means the form of the work preferred for making modifications.</p>
+<p>1.14. “You” (or “Your”)<br>    means an individual or a legal entity exercising rights under this<br>    License. For legal entities, “You” includes any entity that<br>    controls, is controlled by, or is under common control with You. For<br>    purposes of this definition, “control” means (a) the power, direct<br>    or indirect, to cause the direction or management of such entity,<br>    whether by contract or otherwise, or (b) ownership of more than<br>    fifty percent (50%) of the outstanding shares or beneficial<br>    ownership of such entity.</p>
+<ol start="2">
+<li>License Grants and Conditions</li>
+</ol>
+<hr>
+<p>2.1. Grants</p>
+<p>Each Contributor hereby grants You a world-wide, royalty-free,<br>non-exclusive license:</p>
+<p>(a) under intellectual property rights (other than patent or trademark)<br>    Licensable by such Contributor to use, reproduce, make available,<br>    modify, display, perform, distribute, and otherwise exploit its<br>    Contributions, either on an unmodified basis, with Modifications, or<br>    as part of a Larger Work; and</p>
+<p>(b) under Patent Claims of such Contributor to make, use, sell, offer<br>    for sale, have made, import, and otherwise transfer either its<br>    Contributions or its Contributor Version.</p>
+<p>2.2. Effective Date</p>
+<p>The licenses granted in Section 2.1 with respect to any Contribution<br>become effective for each Contribution on the date the Contributor first<br>distributes such Contribution.</p>
+<p>2.3. Limitations on Grant Scope</p>
+<p>The licenses granted in this Section 2 are the only rights granted under<br>this License. No additional rights or licenses will be implied from the<br>distribution or licensing of Covered Software under this License.<br>Notwithstanding Section 2.1(b) above, no patent license is granted by a<br>Contributor:</p>
+<p>(a) for any code that a Contributor has removed from Covered Software;<br>    or</p>
+<p>(b) for infringements caused by: (i) Your and any other third party’s<br>    modifications of Covered Software, or (ii) the combination of its<br>    Contributions with other software (except as part of its Contributor<br>    Version); or</p>
+<p>(c) under Patent Claims infringed by Covered Software in the absence of<br>    its Contributions.</p>
+<p>This License does not grant any rights in the trademarks, service marks,<br>or logos of any Contributor (except as may be necessary to comply with<br>the notice requirements in Section 3.4).</p>
+<p>2.4. Subsequent Licenses</p>
+<p>No Contributor makes additional grants as a result of Your choice to<br>distribute the Covered Software under a subsequent version of this<br>License (see Section 10.2) or under the terms of a Secondary License (if<br>permitted under the terms of Section 3.3).</p>
+<p>2.5. Representation</p>
+<p>Each Contributor represents that the Contributor believes its<br>Contributions are its original creation(s) or it has sufficient rights<br>to grant the rights to its Contributions conveyed by this License.</p>
+<p>2.6. Fair Use</p>
+<p>This License is not intended to limit any rights You have under<br>applicable copyright doctrines of fair use, fair dealing, or other<br>equivalents.</p>
+<p>2.7. Conditions</p>
+<p>Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted<br>in Section 2.1.</p>
+<ol start="3">
+<li>Responsibilities</li>
+</ol>
+<hr>
+<p>3.1. Distribution of Source Form</p>
+<p>All distribution of Covered Software in Source Code Form, including any<br>Modifications that You create or to which You contribute, must be under<br>the terms of this License. You must inform recipients that the Source<br>Code Form of the Covered Software is governed by the terms of this<br>License, and how they can obtain a copy of this License. You may not<br>attempt to alter or restrict the recipients’ rights in the Source Code<br>Form.</p>
+<p>3.2. Distribution of Executable Form</p>
+<p>If You distribute Covered Software in Executable Form then:</p>
+<p>(a) such Covered Software must also be made available in Source Code<br>    Form, as described in Section 3.1, and You must inform recipients of<br>    the Executable Form how they can obtain a copy of such Source Code<br>    Form by reasonable means in a timely manner, at a charge no more<br>    than the cost of distribution to the recipient; and</p>
+<p>(b) You may distribute such Executable Form under the terms of this<br>    License, or sublicense it under different terms, provided that the<br>    license for the Executable Form does not attempt to limit or alter<br>    the recipients’ rights in the Source Code Form under this License.</p>
+<p>3.3. Distribution of a Larger Work</p>
+<p>You may create and distribute a Larger Work under terms of Your choice,<br>provided that You also comply with the requirements of this License for<br>the Covered Software. If the Larger Work is a combination of Covered<br>Software with a work governed by one or more Secondary Licenses, and the<br>Covered Software is not Incompatible With Secondary Licenses, this<br>License permits You to additionally distribute such Covered Software<br>under the terms of such Secondary License(s), so that the recipient of<br>the Larger Work may, at their option, further distribute the Covered<br>Software under the terms of either this License or such Secondary<br>License(s).</p>
+<p>3.4. Notices</p>
+<p>You may not remove or alter the substance of any license notices<br>(including copyright notices, patent notices, disclaimers of warranty,<br>or limitations of liability) contained within the Source Code Form of<br>the Covered Software, except that You may alter any license notices to<br>the extent required to remedy known factual inaccuracies.</p>
+<p>3.5. Application of Additional Terms</p>
+<p>You may choose to offer, and to charge a fee for, warranty, support,<br>indemnity or liability obligations to one or more recipients of Covered<br>Software. However, You may do so only on Your own behalf, and not on<br>behalf of any Contributor. You must make it absolutely clear that any<br>such warranty, support, indemnity, or liability obligation is offered by<br>You alone, and You hereby agree to indemnify every Contributor for any<br>liability incurred by such Contributor as a result of warranty, support,<br>indemnity or liability terms You offer. You may include additional<br>disclaimers of warranty and limitations of liability specific to any<br>jurisdiction.</p>
+<ol start="4">
+<li>Inability to Comply Due to Statute or Regulation</li>
+</ol>
+<hr>
+<p>If it is impossible for You to comply with any of the terms of this<br>License with respect to some or all of the Covered Software due to<br>statute, judicial order, or regulation then You must: (a) comply with<br>the terms of this License to the maximum extent possible; and (b)<br>describe the limitations and the code they affect. Such description must<br>be placed in a text file included with all distributions of the Covered<br>Software under this License. Except to the extent prohibited by statute<br>or regulation, such description must be sufficiently detailed for a<br>recipient of ordinary skill to be able to understand it.</p>
+<ol start="5">
+<li>Termination</li>
+</ol>
+<hr>
+<p>5.1. The rights granted under this License will terminate automatically<br>if You fail to comply with any of its terms. However, if You become<br>compliant, then the rights granted under this License from a particular<br>Contributor are reinstated (a) provisionally, unless and until such<br>Contributor explicitly and finally terminates Your grants, and (b) on an<br>ongoing basis, if such Contributor fails to notify You of the<br>non-compliance by some reasonable means prior to 60 days after You have<br>come back into compliance. Moreover, Your grants from a particular<br>Contributor are reinstated on an ongoing basis if such Contributor<br>notifies You of the non-compliance by some reasonable means, this is the<br>first time You have received notice of non-compliance with this License<br>from such Contributor, and You become compliant prior to 30 days after<br>Your receipt of the notice.</p>
+<p>5.2. If You initiate litigation against any entity by asserting a patent<br>infringement claim (excluding declaratory judgment actions,<br>counter-claims, and cross-claims) alleging that a Contributor Version<br>directly or indirectly infringes any patent, then the rights granted to<br>You by any and all Contributors for the Covered Software under Section<br>2.1 of this License shall terminate.</p>
+<p>5.3. In the event of termination under Sections 5.1 or 5.2 above, all<br>end user license agreements (excluding distributors and resellers) which<br>have been validly granted by You or Your distributors under this License<br>prior to termination shall survive termination.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">************************************************************************</span><br><span class="line">*                                                                      *</span><br><span class="line">*  6. Disclaimer of Warranty                                           *</span><br><span class="line">*  -------------------------                                           *</span><br><span class="line">*                                                                      *</span><br><span class="line">*  Covered Software is provided under this License on an &quot;as is&quot;       *</span><br><span class="line">*  basis, without warranty of any kind, either expressed, implied, or  *</span><br><span class="line">*  statutory, including, without limitation, warranties that the       *</span><br><span class="line">*  Covered Software is free of defects, merchantable, fit for a        *</span><br><span class="line">*  particular purpose or non-infringing. The entire risk as to the     *</span><br><span class="line">*  quality and performance of the Covered Software is with You.        *</span><br><span class="line">*  Should any Covered Software prove defective in any respect, You     *</span><br><span class="line">*  (not any Contributor) assume the cost of any necessary servicing,   *</span><br><span class="line">*  repair, or correction. This disclaimer of warranty constitutes an   *</span><br><span class="line">*  essential part of this License. No use of any Covered Software is   *</span><br><span class="line">*  authorized under this License except under this disclaimer.         *</span><br><span class="line">*                                                                      *</span><br><span class="line">************************************************************************</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line">*                                                                      *</span><br><span class="line">*  7. Limitation of Liability                                          *</span><br><span class="line">*  --------------------------                                          *</span><br><span class="line">*                                                                      *</span><br><span class="line">*  Under no circumstances and under no legal theory, whether tort      *</span><br><span class="line">*  (including negligence), contract, or otherwise, shall any           *</span><br><span class="line">*  Contributor, or anyone who distributes Covered Software as          *</span><br><span class="line">*  permitted above, be liable to You for any direct, indirect,         *</span><br><span class="line">*  special, incidental, or consequential damages of any character      *</span><br><span class="line">*  including, without limitation, damages for lost profits, loss of    *</span><br><span class="line">*  goodwill, work stoppage, computer failure or malfunction, or any    *</span><br><span class="line">*  and all other commercial damages or losses, even if such party      *</span><br><span class="line">*  shall have been informed of the possibility of such damages. This   *</span><br><span class="line">*  limitation of liability shall not apply to liability for death or   *</span><br><span class="line">*  personal injury resulting from such party&#x27;s negligence to the       *</span><br><span class="line">*  extent applicable law prohibits such limitation. Some               *</span><br><span class="line">*  jurisdictions do not allow the exclusion or limitation of           *</span><br><span class="line">*  incidental or consequential damages, so this exclusion and          *</span><br><span class="line">*  limitation may not apply to You.                                    *</span><br><span class="line">*                                                                      *</span><br><span class="line">************************************************************************</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>Litigation</li>
+</ol>
+<hr>
+<p>Any litigation relating to this License may be brought only in the<br>courts of a jurisdiction where the defendant maintains its principal<br>place of business and such litigation shall be governed by laws of that<br>jurisdiction, without reference to its conflict-of-law provisions.<br>Nothing in this Section shall prevent a party’s ability to bring<br>cross-claims or counter-claims.</p>
+<ol start="9">
+<li>Miscellaneous</li>
+</ol>
+<hr>
+<p>This License represents the complete agreement concerning the subject<br>matter hereof. If any provision of this License is held to be<br>unenforceable, such provision shall be reformed only to the extent<br>necessary to make it enforceable. Any law or regulation which provides<br>that the language of a contract shall be construed against the drafter<br>shall not be used to construe this License against a Contributor.</p>
+<ol start="10">
+<li>Versions of the License</li>
+</ol>
+<hr>
+<p>10.1. New Versions</p>
+<p>Mozilla Foundation is the license steward. Except as provided in Section<br>10.3, no one other than the license steward has the right to modify or<br>publish new versions of this License. Each version will be given a<br>distinguishing version number.</p>
+<p>10.2. Effect of New Versions</p>
+<p>You may distribute the Covered Software under the terms of the version<br>of the License under which You originally received the Covered Software,<br>or under the terms of any subsequent version published by the license<br>steward.</p>
+<p>10.3. Modified Versions</p>
+<p>If you create software not governed by this License, and you want to<br>create a new license for such software, you may create and use a<br>modified version of this License if you rename the license and remove<br>any references to the name of the license steward (except to note that<br>such modified license differs from this License).</p>
+<p>10.4. Distributing Source Code Form that is Incompatible With Secondary<br>Licenses</p>
+<p>If You choose to distribute Source Code Form that is Incompatible With<br>Secondary Licenses under the terms of this version of the License, the<br>notice described in Exhibit B of this License must be attached.</p>
+<h2 id="Exhibit-A-Source-Code-Form-License-Notice"><a href="#Exhibit-A-Source-Code-Form-License-Notice" class="headerlink" title="Exhibit A - Source Code Form License Notice"></a>Exhibit A - Source Code Form License Notice</h2><p>  This Source Code Form is subject to the terms of the Mozilla Public<br>  License, v. 2.0. If a copy of the MPL was not distributed with this<br>  file, You can obtain one at <a target="_blank" rel="noopener" href="http://mozilla.org/MPL/2.0/">http://mozilla.org/MPL/2.0/</a>.</p>
+<p>If it is not possible or desirable to put the notice in a particular<br>file, then You may include the notice in a location (such as a LICENSE<br>file in a relevant directory) where a recipient would be likely to look<br>for such a notice.</p>
+<p>You may add additional accurate notices of copyright ownership.</p>
+<h2 id="Exhibit-B-“Incompatible-With-Secondary-Licenses”-Notice"><a href="#Exhibit-B-“Incompatible-With-Secondary-Licenses”-Notice" class="headerlink" title="Exhibit B - “Incompatible With Secondary Licenses” Notice"></a>Exhibit B - “Incompatible With Secondary Licenses” Notice</h2><p>  This Source Code Form is “Incompatible With Secondary Licenses”, as<br>  defined by the Mozilla Public License, v. 2.0.</p>
+<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>(简体中文版译者声明：Mozilla 公共许可协议 2.0版简体中文翻译版仅为开发者参考使用，并不具备法律效力。开发者开发和发布相关软件须以Mozilla Public License 2.0英文版 （<a target="_blank" rel="noopener" href="https://www.mozilla.org/MPL/2.0/%EF%BC%89">https://www.mozilla.org/MPL/2.0/）</a> 条款为准。译者不承担任何法律责任。 )</p>
+<p>Mozilla 公共许可协议 2.0版</p>
+<p>一、 定义</p>
+<p>1.1 “贡献者”<br>     是指创造，协助创造，或拥有适用软件所有权的个人或法人实体。</p>
+<p>1.2 “贡献者版本”</p>
+<p>   是指一个贡献者使用他人的贡献（若有他人贡献）和该贡献者的个人贡献相结合创建的版本。<br>1.3 “贡献”</p>
+<p>   是指特定贡献者的适用软件。<br>1.4 “适用软件”</p>
+<p>是指原始贡献者在附录A中随附声明的源代码形式，相应源代码可执行形式，以及相应源代码形式的修改内容，并依情况显示修改占比。</p>
+<p>1.5 “不兼容次级许可证”</p>
+<p>   是指：</p>
+<p>a. 初始贡献者在附录B中随附适用软件声明；或<br>b. 该适用软件适用于Mozilla 公共许可协议 1.1版本或更早的许可证版本的条款，但对次级许可证的条款并不适用。</p>
+<p>1.6 “可执行形式”</p>
+<p>   是指除源代码形式以外的任何软件形式。<br>1.7 “广义软件”</p>
+<p>   是指由适用软件和其他资料结合创建，并以独立文件或者文件集合形式存在的软件，该软件不属于适用软件范畴。</p>
+<p>1.8 “许可证”</p>
+<p>   是指本文档。</p>
+<p>1.9 “许可授权”</p>
+<p>   是指在最大范围内，无论是在初次许可或后继许可的情况下，有权授予任何及所有本许可证赋予的权利。</p>
+<p>1.10 “修改”</p>
+<p>   是指以下任何情形：</p>
+<p>a. 源代码形式中针对适用软件进行补充，删除，或内容修改后生成的任何文件；或<br>b. 源代码形式中包含任何适用文件的全新文件。</p>
+<p>1.11 贡献者的“专利权利声明”</p>
+<p>   是指贡献者的任何一个或多个专利声明，包括但不限于方法，过程和设备声明，在任何可授权专利范围内被侵犯，但对于已授予许可的，包括制造，使用，销售，销售邀请，半成品，进口，或该软件或其贡献版本的转移形式不属于侵权范围。</p>
+<p>1.12 “次级许可”</p>
+<p>   是指GNU通用公共许可证2.0版本 （GNU General Public License, Version 2.0），GNU宽通用公共许可证2.1 版本（GNU Lesser General Public License, Version 2.1），GNU Affero 通用公共许可3.0版本（GNU Affero General Public License, Version 3.0），或其更新的许可证版本。</p>
+<p>1.13 “源代码形式”</p>
+<p>   是指可用于修改的代码形式。</p>
+<p>1.14 “您”（或“您的”）</p>
+<p>   是指个人或执行本许可权利的法律实体。对于法人实体，“您”包括控制，被控制，或者和您在共同控制情况下的任何实体。在本定义中，“控制”是指（a） 以合同或者非合同形式引导或管理实体的直接或者间接权力，或（b）拥有超过百分之五十（50％）流通股所有权，或拥有该实体的实益拥有权。</p>
+<p>二、 许可授予及条件<br>2.1 授予</p>
+<p>每个贡献者以此方式授予您全球的，免版税及无排他性的许可：</p>
+<p>a. 在知识产权（非专利或商标权）许可权的情况下，允许贡献者使用，复制，普及，修改，展示，操作，传播，并以此用于开发个人贡献版本，无论是在未经修改的基础上，创建修改版本，或者作为广义软件的一部分；以及<br>b. 在专利声明的情况下，允许贡献者制造，使用，销售，销售邀请，半成品制造，进口，及转让其贡献软件或其贡献者版本。</p>
+<p>2.2 生效日期</p>
+<p>在第2.1条中有关贡献作品的许可授权，在贡献者发布其贡献软件的首日起生效。</p>
+<p>2.3 授予范围限制</p>
+<p>在第2节中授予的许可证是本许可下授予的唯一权利。在本许可下有关适用软件的发布及许可权，在无特别声明的情况下，不具备除本许可规定之外的权利或者许可。在以下情况中，第2.1（b）条不表示贡献者已被授予专利权：</p>
+<p>a. 对于一个贡献者已经从适用软件中删除的任何代码；或<br>b. 由以下情形产生的侵权行为：（i）您和任何第三方对于适用软件的修改，或（ii）其贡献软件与其它软件的结合（除非该软件已是贡献者版本的一部分）；或<br>c. 对于专利声明中因缺失贡献软件对适用软件产生的侵权行为 。</p>
+<p>本许可证不授予任何贡献者商标，服务标记，或徽标（除可能需要符合第3.4条有关声明要求的情况外）许可。</p>
+<p>2.4 后续许可证<br>对于您根据此许可的后续版本（见第10.2条），或者根据次级许可的条款（除依第3.3条允许的情况外）发布的适用软件，贡献者禁止对于进行额外的许可授权。</p>
+<p>2.5 表示</p>
+<p>每个贡献者表示该贡献者认可贡献软件是其原创的一个（或多个）软件，或依据本许可证对于其贡献软件拥有足够的权限授予权利。</p>
+<p>2.6 合理使用</p>
+<p>本许可证并非意在限制您在遵守版权规定下的合理使用，公平交易，或其他等值适用的权利。</p>
+<p>2.7 条件<br>在第2.1条中的许可授予需满足第3.1，3.2，3.3，和3.4条中规定的条件。</p>
+<p>三、 责任<br>3.1 源代码形式发布</p>
+<p>适用软件的所有源代码形式发布，包括您独自创建的修改，或您参与贡献的修改，必须遵守本许可证的条款。您必须告知接受者该适用软件的源代码形式是由本许可条款规定管理的，并告知其如何获得此许可证的副本。您无权修改或限制使用者对源代码形式的权利。</p>
+<p>3.2 可执行形式发布</p>
+<p>如果您以可执行形式发布适用软件，则：</p>
+<p>a. 这样的适用软件必须同时以源代码形式提供，按第3.1条所述，您必须及时告知可执行形式的接受者如何通过合理的方式获得该源代码形式的副本，并且费用收取不超过因发布给接受者而产生的费用；以及<br>b. 您可依据本许可证条款发布可执行形式，或在符合本许可条款的情形下制定不同条款规定，但前提是可执行形式的许可证不可尝试限制或改变接受者依据本许可条款规定对源代码形式获取的权利。</p>
+<p>3.3 广义软件发布</p>
+<p>您可以根据您选择的条款创建和发布一个广义软件，前提是您同时符合本许可证有关适用软件的要求。如果该广义软件是由适用软件与符合一个或者多个次级许可证规定的一个软件结合创建，并且适用软件与次级许可证条款不兼容，本许可证允许您在相应次级许可的条款下额外发布该适用软件，广义软件接收者可以，依据其选择，按照本许可证条款或者相应次级许可证条款发布此适用软件。</p>
+<p>3.4 声明</p>
+<p>您不得删除或更改适用软件的源代码形式中包含的任何许可证声明（包括版权声明，专利声明，免责声明，或赔偿责任限制），除非该修改是对已知事实错误的补偿。</p>
+<p>3.5 附加条款的使用</p>
+<p>您可以选择向一个或者多个适用软件的接受者提供无偿或有偿的保修，支持，赔偿或责任义务。但是，您只可以您自己的名义提供，而不是代表任何贡献者的名义。您必须绝对清楚地表明任何此类担保，支持，赔偿或责任义务是由您个人独立提供，并且您同意承担赔偿每一个贡献者因承担担保，支持，赔偿或责任义务而产生的任何赔偿责任。您必须提供附加免责声明，并将责任限制特定于任何一个司法管辖区。</p>
+<p>四、 因法规或条例产生的不可抗力</p>
+<p>若因政策法规，司法命令或者监管制度，使得部分或者整个适用软件不能遵守本许可的某项条款，您则必须：（a）尽最大可能符合本许可证条款；和（b）描述因该政策引起的限制以及受影响的代码。该声明描述必须以文本文件形式包含在根据本协议发布的适用软件的所有发行版本中。除法律或法规禁止的情形外，声明描述必须足够详细清晰，以保证普通接受者能够理解该声明内容。</p>
+<p>五、 终止</p>
+<p>5.1 如果您违反本许可的任何一项条款，依据本许可授予的权利将自动终止。但是，如果您重新遵守本许可的规定，那么您从某特定贡献者按本许可所授予的权利可在如下情况下被恢复（a）临时恢复，除非贡献者明确终止对您的权利授予，以及（b）保留恢复，如果贡献者因合理原因未能在您重新遵守本许可规定之日的六十日前通知您违反规定。此外，如果您是第一次因违反本许可的规定受到贡献者的违例通知，并且您在三十日内重新遵守本许可规定，则您从该特定贡献者处获得的权利将被保留 。</p>
+<p>5.2 如果您通过声明的专利侵权索赔发起针对任何实体的诉讼（不包括宣告式判决，反诉和交叉诉讼），声称一个贡献者版本直接或间接侵犯某项专利权利， 依据本许可第2.1条授予您对适用软件的任何和所有权利将被终止。</p>
+<p>5.3 因以上第5.1条或第5.2条终止的情形，您或者您的发布者在本许可证终止前有效授予的所有最终用户许可协议（不包括分销商和经销商） 将继续有效。</p>
+<p>六、 免责声明</p>
+<p>适用软件在根据本许可的“原样”的基础上，不予任何形式的担保，任何明示，暗示或法定的担保，包括但不限于担保适用软件免于缺陷，适销，适于特定目的或不侵权。您将承担有关适用软件的质量和性能的全部风险。如果任何适用软件在任何方面欠妥，将由您（不是任何贡献者）承担所有必要的服务，维修或纠正的费用成本。本免责声明构成了本许可的重要组成部分。除非遵守本免责声明，适用软件的使用将授权无效。</p>
+<p>七、 责任限制</p>
+<p>在任何情况下，在任何法律规定下，无论是侵权（包括过失），合同或其他情形，任何贡献者，或按上述规定有权发布使用软件的任何实体，都不将承担您的任何直接，间接，特殊，偶然或后果损害赔偿，包括但不限于利润损失，商誉损失，停工，电脑故障或失灵，或任何和所有其他商业损害或损失，即使该方已被告知损失的可能性也不例外。该责任限制不适用于由于一方疏忽引起的死亡或人身伤害，适用法律禁止此类限制的范围内产生的法律责任。某些司法管辖区不允许意外或间接损害的排除或限制，因此此类排除和限制对您并不适用。</p>
+<p>八、 诉讼</p>
+<p>任何与本协议有关的诉讼只能在不和地方法律规定冲突的情况下，在被告主营业务所在地的司法管辖区提出。本节不妨碍任何一方的交叉诉讼或反诉能力。</p>
+<p>九、 其他</p>
+<p>本许可代表就本合同标的物的全部协议。如果本许可协议的任何条款被认为是不可执行的，该条款应进行修改至能予以执行的程度。按任何法律或法规规定，合同的语言应按对贡献者有利的解释，而不是向合同起草方有利的解释。</p>
+<p>十、 许可证版本<br>10.1新版本</p>
+<p>Mozilla基金会是本许可证发布人。除第10.3条规定，许可证发布人之外的其他人无权修改或发布此许可证新版本的权利。每一个版本都会跟随一个全新的版本号。</p>
+<p>10.2新版本的影响</p>
+<p>您可以依据您最初收到适用软件时的许可证，或依据由许可发布人发布的任何后续版本的许可条款发布适用软件。</p>
+<p>10.3修改版本</p>
+<p>如果您未在本许可证监管下创建软件，并且您想为该软件创建新的许可证，您可以创建并使用此许可证的修改版，前提是您重新命名本许可证，并删除任何本许可证发布人的名字引用（注明这种修改许可证版本完全不同于原本许可证版本）。</p>
+<p>10.4不兼容次级许可证的源代码形式发布</p>
+<p>如果您选择发布的源代码形式，不兼容该版本许可证条款下的次级许可证，则必须随附在本许可证附录B中描述的通知。</p>
+<p>附录A - 源代码形式许可声明</p>
+<p>该源代码形式遵守Mozilla公共许可协议2.0的条款。如果该源代码文件中没有随附MPL的副本，您可以在以下地址获取：<a target="_blank" rel="noopener" href="http://mozilla.org/MPL/2.0/%E3%80%82">http://mozilla.org/MPL/2.0/。</a></p>
+<p>如果未能将声明存放于一个特定文件，您则必须将声明包括在某个文件位置（如在许可文件相关目录中），接收者很可能在这样的位置查找此类声明。</p>
+<p>您可以增加有关版权所有权情况的准确描述。</p>
+<p>附录B - “不兼容二级许可证”的声明</p>
+<p>按Mozilla公共许可协议2.0所定义，该源代码形式 “不兼容二级许可证” 。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License Version 2.0</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/MozillaChina/MPL/blob/master/Mozilla_Public_License_2.0_Simplified_Chinese_Reference.md">Mozilla_Public_License_2.0_Simplified_Chinese_Reference.md</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/perry2008084">
+            <span class="icon">
+              <i class="twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/" rel="tag"># 开源协议</a>
+              <a href="/tags/license/" rel="tag"># license</a>
+              <a href="/tags/Mozila/" rel="tag"># Mozila</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/02/06/opensource-license-series-apache/" rel="prev" title="开源协议系列之Apache">
+      <i class="fa fa-chevron-left"></i> 开源协议系列之Apache
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/02/08/opensource-license-series-gpl/" rel="next" title="开源协议系列之GPL">
+      开源协议系列之GPL <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8B%B1%E6%96%87%E7%89%88"><span class="nav-number">1.</span> <span class="nav-text">英文版</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mozilla-Public-License-Version-2-0"><span class="nav-number"></span> <span class="nav-text">Mozilla Public License Version 2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exhibit-A-Source-Code-Form-License-Notice"><span class="nav-number">1.</span> <span class="nav-text">Exhibit A - Source Code Form License Notice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exhibit-B-%E2%80%9CIncompatible-With-Secondary-Licenses%E2%80%9D-Notice"><span class="nav-number">2.</span> <span class="nav-text">Exhibit B - “Incompatible With Secondary Licenses” Notice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E7%89%88"><span class="nav-number">3.</span> <span class="nav-text">中文版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Perry</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perry2008084" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/perry2008084" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/4180883/perry2008084" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;4180883&#x2F;perry2008084" rel="noopener" target="_blank"><i class="stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://coolshell.cn/" title="https:&#x2F;&#x2F;coolshell.cn&#x2F;" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bookcell.cn/" title="https:&#x2F;&#x2F;bookcell.cn" rel="noopener" target="_blank">书格导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+      appKey     : 'KBj7yrnCGk3P6V9byKOaITFx',
+      placeholder: "欢迎交流",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

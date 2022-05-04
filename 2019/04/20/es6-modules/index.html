@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-totoro.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-totoro.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-totoro.png">
+  <link rel="mask-icon" href="/images/totoro.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.bookcell.org","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"apiKey":"5a61e2033b89c8451762230d62d016d7","indexName":"blog_bookcell","hits":{"per_page":10},"labels":{"input_placeholder":"搜索关键词","hits_empty":"未搜索到结果: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这里主要是针对ES6 Module技术出现的讨论，对比历史的一些模块化解决方案。 背景、初衷、目标背景简单的讲，随着前端应用的日益庞大和复杂，对于代码的拆分复用要求更高，也就出现了对代码模块化的需求。 在ES6 Module出现前，社区中出现的两个方案CommonJS和AMD： CommonJS在Node.js中的主要实现方式，特性如下:  紧凑的语法 同步加载 主要使用: 服务端  Asynch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6中的模块化">
+<meta property="og:url" content="https://blog.bookcell.org/2019/04/20/es6-modules/index.html">
+<meta property="og:site_name" content="书格前端">
+<meta property="og:description" content="这里主要是针对ES6 Module技术出现的讨论，对比历史的一些模块化解决方案。 背景、初衷、目标背景简单的讲，随着前端应用的日益庞大和复杂，对于代码的拆分复用要求更高，也就出现了对代码模块化的需求。 在ES6 Module出现前，社区中出现的两个方案CommonJS和AMD： CommonJS在Node.js中的主要实现方式，特性如下:  紧凑的语法 同步加载 主要使用: 服务端  Asynch">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-04-20T01:22:01.000Z">
+<meta property="article:modified_time" content="2019-04-20T01:24:18.219Z">
+<meta property="article:author" content="Perry">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="模块化">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.bookcell.org/2019/04/20/es6-modules/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>ES6中的模块化 | 书格前端</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="书格前端" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="书格前端" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">书格前端</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">潘绳杰的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+        <li class="menu-item menu-item-confucian">
+
+    <a href="/confucian/" rel="section">儒学</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/perry2008084" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2019/04/20/es6-modules/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ES6中的模块化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-04-20 09:22:01 / 修改时间：09:24:18" itemprop="dateCreated datePublished" datetime="2019-04-20T09:22:01+08:00">2019-04-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/04/20/es6-modules/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/20/es6-modules/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这里主要是针对ES6 Module技术出现的讨论，对比历史的一些模块化解决方案。</p>
+<h2 id="背景、初衷、目标"><a href="#背景、初衷、目标" class="headerlink" title="背景、初衷、目标"></a>背景、初衷、目标</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>简单的讲，随着前端应用的日益庞大和复杂，对于代码的拆分复用要求更高，也就出现了对代码模块化的需求。</p>
+<p>在ES6 Module出现前，社区中出现的两个方案CommonJS和AMD：</p>
+<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><p>在Node.js中的主要实现方式，特性如下:</p>
+<ul>
+<li>紧凑的语法</li>
+<li>同步加载</li>
+<li>主要使用: 服务端</li>
+</ul>
+<h4 id="Asynchronous-Module-Definition-AMD"><a href="#Asynchronous-Module-Definition-AMD" class="headerlink" title="Asynchronous Module Definition(AMD)"></a>Asynchronous Module Definition(AMD)</h4><p>主要的实现是<a target="_blank" rel="noopener" href="http://requirejs.org/"><code>RequireJS</code></a>，特性如下:</p>
+<ul>
+<li>稍微复杂的语法</li>
+<li>异步加载</li>
+<li>主要使用: 浏览器</li>
+</ul>
+<p>这里提一句，ES6 Module的主要设计者Dave Herman 和 Sam Tobin Hochstadt。</p>
+<h3 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h3><p>这里讲的ES6 Module的设计初衷，在ES6 Module出现前社区已经在模块化上有一些令人印象深刻的变通方案，以CommonJS和AMD为代表，这两者各有优缺点并且不兼容，因此ES6 Module的设计初衷是为了吸取这两者的优点实现ECMAScript的标准。</p>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>ES6 Module的目标是出一个让CommonJS和AMD社区都能接受的方案：</p>
+<ul>
+<li>偏爱默认导出</li>
+<li>静态模块结构</li>
+<li>支持同步和异步加载</li>
+<li>支持模块间的循环依赖</li>
+</ul>
+<h2 id="优势和劣势-trade-off"><a href="#优势和劣势-trade-off" class="headerlink" title="优势和劣势(trade-off)"></a>优势和劣势(trade-off)</h2><p>ES6 Module实际达成的方案特性如下:</p>
+<ul>
+<li>比CommonJS更紧凑的语法</li>
+<li>结构可以被静态分析(静态检测、优化等)</li>
+<li>对循环引用比CommonJS更好</li>
+<li>支持异步加载</li>
+</ul>
+<h2 id="适用的场景-业务场景、技术场景"><a href="#适用的场景-业务场景、技术场景" class="headerlink" title="适用的场景(业务场景、技术场景)"></a>适用的场景(业务场景、技术场景)</h2><p>适用于浏览器端和服务端(Nodejs)，目前(2019年)主流的浏览器大部分都不支持ES6 Module的特性，因此使用的话还得使用Babel来转译。</p>
+<h2 id="组成部分和关键点"><a href="#组成部分和关键点" class="headerlink" title="组成部分和关键点"></a>组成部分和关键点</h2><p>ES6 Module分两部分:</p>
+<ul>
+<li>声明式语法(import和export)</li>
+<li>编程式加载API: 支持配置如何加载模块以及条件加载</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><h3 id="在浏览器侧的使用"><a href="#在浏览器侧的使用" class="headerlink" title="在浏览器侧的使用"></a>在浏览器侧的使用</h3><h4 id="使用-lt-script-gt-进行加载"><a href="#使用-lt-script-gt-进行加载" class="headerlink" title="使用&lt;script&gt;进行加载"></a>使用<code>&lt;script&gt;</code>进行加载</h4><p>通过<code>type</code>属性值为<code>module</code>来标识模块进行加载，支持外部文件和内联的方式，默认使用<code>defer</code>的行为，也可以指定<code>async</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- load a module JavaScript file --&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;module.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- include a module inline --&gt;</span><br><span class="line">&lt;script type=&quot;module&quot;&gt;</span><br><span class="line"></span><br><span class="line">import &#123; sum &#125; from &quot;./example.js&quot;;</span><br><span class="line"></span><br><span class="line">let result = sum(1, 2);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过Worker进行加载"><a href="#通过Worker进行加载" class="headerlink" title="通过Worker进行加载"></a>通过<code>Worker</code>进行加载</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// load module.js as a module</span></span><br><span class="line"><span class="keyword">let</span> worker = <span class="keyword">new</span> <span class="title class_">Worker</span>(<span class="string">&quot;module.js&quot;</span>, &#123; <span class="attr">type</span>: <span class="string">&quot;module&quot;</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过打包工具进行打包"><a href="#通过打包工具进行打包" class="headerlink" title="通过打包工具进行打包"></a>通过打包工具进行打包</h4><p>使用<code>webpack</code>或者<code>browserify</code>等打包工具进行打包后使用。</p>
+<h3 id="声明式语法"><a href="#声明式语法" class="headerlink" title="声明式语法"></a>声明式语法</h3><p>声明式语法分为两种类型：具名导出(每个模块有多个)和默认导出(每个模块一个)。</p>
+<h4 id="具名导出-named-exports"><a href="#具名导出-named-exports" class="headerlink" title="具名导出(named exports)"></a>具名导出(named exports)</h4><p>通过关键字<code>export</code>前缀可以导出多个内容，并有名称来进行区分。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------ lib.js ------</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sqrt = <span class="title class_">Math</span>.<span class="property">sqrt</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">square</span>(<span class="params">x</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">diag</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">sqrt</span>(<span class="title function_">square</span>(x) + <span class="title function_">square</span>(y));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------ main.js ------</span></span><br><span class="line"><span class="keyword">import</span> &#123; square, diag &#125; <span class="keyword">from</span> <span class="string">&#x27;lib&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">square</span>(<span class="number">11</span>)); <span class="comment">// 121</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">diag</span>(<span class="number">4</span>, <span class="number">3</span>)); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="默认导出-default-exports"><a href="#默认导出-default-exports" class="headerlink" title="默认导出(default exports)"></a>默认导出(default exports)</h4><p>一个模块只有一个默认导出，并且默认导出尤其容易进行导入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------ myFunc.js ------</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params"></span>) &#123; ... &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------ main1.js ------</span></span><br><span class="line"><span class="keyword">import</span> myFunc <span class="keyword">from</span> <span class="string">&#x27;myFunc&#x27;</span>;</span><br><span class="line"><span class="title function_">myFunc</span>();</span><br></pre></td></tr></table></figure>
+
+<p>对于class的使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------ MyClass.js ------</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> &#123; ... &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------ main2.js ------</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">MyClass</span> <span class="keyword">from</span> <span class="string">&#x27;MyClass&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> inst = <span class="keyword">new</span> <span class="title class_">MyClass</span>();</span><br></pre></td></tr></table></figure>
+
+<p>默认导出其实可以理解为特殊的具名导出</p>
+<p>导入:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> foo &#125; <span class="keyword">from</span> <span class="string">&#x27;lib&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> foo <span class="keyword">from</span> <span class="string">&#x27;lib&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>导出:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------ module1.js ------</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------ module2.js ------</span></span><br><span class="line"><span class="keyword">const</span> D = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; D <span class="keyword">as</span> <span class="keyword">default</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="答疑"><a href="#答疑" class="headerlink" title="答疑"></a>答疑</h4><ul>
+<li>为什么我们需要具名导出(named exports)?</li>
+</ul>
+<blockquote>
+<p>The answer is that you can’t enforce a static structure via objects and lose all of the associated advantages (described in the next section).</p>
+</blockquote>
+<blockquote>
+<p>如果通过对象进行导出会丢失静态结构，从而失去原先的优势。</p>
+</blockquote>
+<ul>
+<li>ES6 Module输出的是值的引用，并且是在编译时输出接口。</li>
+</ul>
+<h3 id="编程式语法"><a href="#编程式语法" class="headerlink" title="编程式语法"></a>编程式语法</h3><p>针对ES6 Module的编程式实现，目前规范处于stage 3。</p>
+<p>使用编程式语法，可以做到:</p>
+<ul>
+<li>对模块和脚本进行编程操作</li>
+<li>配置模块的加载</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;nav&gt;</span><br><span class="line">  &lt;a href=&quot;books.html&quot; data-entry-module=&quot;books&quot;&gt;Books&lt;/a&gt;</span><br><span class="line">  &lt;a href=&quot;movies.html&quot; data-entry-module=&quot;movies&quot;&gt;Movies&lt;/a&gt;</span><br><span class="line">  &lt;a href=&quot;video-games.html&quot; data-entry-module=&quot;video-games&quot;&gt;Video Games&lt;/a&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line"></span><br><span class="line">&lt;main&gt;Content will load here!&lt;/main&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  const main = document.querySelector(&quot;main&quot;);</span><br><span class="line">  for (const link of document.querySelectorAll(&quot;nav &gt; a&quot;)) &#123;</span><br><span class="line">    link.addEventListener(&quot;click&quot;, e =&gt; &#123;</span><br><span class="line">      e.preventDefault();</span><br><span class="line"></span><br><span class="line">      import(`./section-modules/$&#123;link.dataset.entryModule&#125;.js`)</span><br><span class="line">        .then(module =&gt; &#123;</span><br><span class="line">          module.loadPageInto(main);</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(err =&gt; &#123;</span><br><span class="line">          main.textContent = err.message;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="已有的实现和它之间的对比"><a href="#已有的实现和它之间的对比" class="headerlink" title="已有的实现和它之间的对比"></a>已有的实现和它之间的对比</h2><p>有关模块化的进程，<a target="_blank" rel="noopener" href="https://juejin.im/post/5c17ad756fb9a049ff4e0a62">前端模块化详解</a>一句讲解得比较详细了，可以参考。</p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/5c82323ce51d453a5f22b281">从前端模块化编程切入项聊聊前端的未来</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/seajs/seajs/issues/588">前端模块化开发那点历史</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc">JavaScript Modules: A Beginner’s Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/primers/modules">Using JavaScript modules on the web</a></li>
+<li><a target="_blank" rel="noopener" href="https://eloquentjavascript.net/10_modules.html">Modules in eloquent javascript</a></li>
+<li><a target="_blank" rel="noopener" href="http://exploringjs.com/es6/ch_modules.html">Modules in exploringjs</a></li>
+<li><a target="_blank" rel="noopener" href="https://jsmodules.io/">jsmodules</a></li>
+<li><a target="_blank" rel="noopener" href="https://addyosmani.com/writing-modular-js/">writing modular js</a></li>
+<li><a target="_blank" rel="noopener" href="http://2ality.com/2014/09/es6-modules-final.html">ECMAScript 6 modules: the final syntax</a></li>
+<li><a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2015/08/es6-in-depth-modules/">ES6 in depth: modules</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-dynamic-import">proposal-dynamic-import</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/perry2008084">
+            <span class="icon">
+              <i class="twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/ES6/" rel="tag"># ES6</a>
+              <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="tag"># 模块化</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/03/23/ARTS-migarate-to-github/" rel="prev" title="ARTS相关内容更新到Github上">
+      <i class="fa fa-chevron-left"></i> ARTS相关内容更新到Github上
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/05/05/es6-module-share/" rel="next" title="ES6模块-团队分享">
+      ES6模块-团队分享 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E3%80%81%E5%88%9D%E8%A1%B7%E3%80%81%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">背景、初衷、目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJS"><span class="nav-number">1.1.1.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Asynchronous-Module-Definition-AMD"><span class="nav-number">1.1.2.</span> <span class="nav-text">Asynchronous Module Definition(AMD)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E8%A1%B7"><span class="nav-number">1.2.</span> <span class="nav-text">初衷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.3.</span> <span class="nav-text">目标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E5%92%8C%E5%8A%A3%E5%8A%BF-trade-off"><span class="nav-number">2.</span> <span class="nav-text">优势和劣势(trade-off)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84%E5%9C%BA%E6%99%AF-%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E3%80%81%E6%8A%80%E6%9C%AF%E5%9C%BA%E6%99%AF"><span class="nav-number">3.</span> <span class="nav-text">适用的场景(业务场景、技术场景)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86%E5%92%8C%E5%85%B3%E9%94%AE%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">组成部分和关键点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">5.</span> <span class="nav-text">使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BE%A7%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">在浏览器侧的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-lt-script-gt-%E8%BF%9B%E8%A1%8C%E5%8A%A0%E8%BD%BD"><span class="nav-number">5.1.1.</span> <span class="nav-text">使用&lt;script&gt;进行加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87Worker%E8%BF%9B%E8%A1%8C%E5%8A%A0%E8%BD%BD"><span class="nav-number">5.1.2.</span> <span class="nav-text">通过Worker进行加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7%E8%BF%9B%E8%A1%8C%E6%89%93%E5%8C%85"><span class="nav-number">5.1.3.</span> <span class="nav-text">通过打包工具进行打包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E5%BC%8F%E8%AF%AD%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">声明式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E5%90%8D%E5%AF%BC%E5%87%BA-named-exports"><span class="nav-number">5.2.1.</span> <span class="nav-text">具名导出(named exports)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%AF%BC%E5%87%BA-default-exports"><span class="nav-number">5.2.2.</span> <span class="nav-text">默认导出(default exports)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%94%E7%96%91"><span class="nav-number">5.2.3.</span> <span class="nav-text">答疑</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%AF%AD%E6%B3%95"><span class="nav-number">5.3.</span> <span class="nav-text">编程式语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E6%9C%89%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%92%8C%E5%AE%83%E4%B9%8B%E9%97%B4%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">6.</span> <span class="nav-text">已有的实现和它之间的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">7.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Perry</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/perry2008084" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/perry2008084" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;perry2008084" rel="noopener" target="_blank"><i class="twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/4180883/perry2008084" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;4180883&#x2F;perry2008084" rel="noopener" target="_blank"><i class="stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://coolshell.cn/" title="https:&#x2F;&#x2F;coolshell.cn&#x2F;" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bookcell.cn/" title="https:&#x2F;&#x2F;bookcell.cn" rel="noopener" target="_blank">书格导航</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Perry</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+      appKey     : 'KBj7yrnCGk3P6V9byKOaITFx',
+      placeholder: "欢迎交流",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
