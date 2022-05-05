@@ -1,10 +1,10 @@
+https://blog.bookcell.org/2021/01/02/reading-note-just-do-it/
 https://blog.bookcell.org/2020/12/25/2020-web-tech-stack-md/
 https://blog.bookcell.org/2020/05/31/ecmascript-2019-new-feature/
 https://blog.bookcell.org/2020/06/13/think-and-grow-rich-reading-notes/
 https://blog.bookcell.org/2020/09/20/git-merge-multi-commits/
 https://blog.bookcell.org/2021/01/01/reading-2020-summary/
 https://blog.bookcell.org/2021/01/01/reading-list-2021/
-https://blog.bookcell.org/2021/01/02/reading-note-just-do-it/
 https://blog.bookcell.org/2021/08/24/web-develop-security/
 https://blog.bookcell.org/2022/01/03/2021-annual-sumary/
 https://blog.bookcell.org/2022/04/17/angular-monorepo-project-by-pnpm/
