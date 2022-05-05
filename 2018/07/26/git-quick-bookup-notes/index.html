@@ -237,7 +237,7 @@
 <li>方式1，初始化现有目录：<code>git init</code></li>
 <li>方式2，克隆线上的仓库：<code>git clone https://github.com/libgit2/libgit2</code></li>
 </ul>
-<h3 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h3><p>Git文件生命周期图：<br><img src="https://i.niupic.com/images/2018/06/03/5uCh.png"></p>
+<h3 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h3><p>Git文件生命周期图：<br><img data-src="https://i.niupic.com/images/2018/06/03/5uCh.png"></p>
 <p><strong>检查当前文件状态</strong>:<br><code>git status</code></p>
 <p><strong>状态简览</strong>:<br><code>git status -s</code>或者<code>git status --short</code></p>
 <blockquote>
@@ -276,14 +276,14 @@
 <blockquote>
 <p>还有 <code>short</code>，<code>full</code> 和 <code>fuller</code> 可以用</p>
 </blockquote>
-<p><code>git log --pretty=format:&quot;%h - %an, %ar : %s&quot;</code>格式化输出，支持携带参数<br><img src="https://i.niupic.com/images/2018/06/04/5uNn.jpg"></p>
+<p><code>git log --pretty=format:&quot;%h - %an, %ar : %s&quot;</code>格式化输出，支持携带参数<br><img data-src="https://i.niupic.com/images/2018/06/04/5uNn.jpg"></p>
 <p><code>git log --pretty=format:&quot;%h %s&quot; --graph</code>添加了一些ASCII字符串来形象地展示你的分支、合并历史</p>
-<p><strong><code>git log</code>常用的选项</strong>：<br><img src="https://i.niupic.com/images/2018/06/04/5uNo.jpg"></p>
+<p><strong><code>git log</code>常用的选项</strong>：<br><img data-src="https://i.niupic.com/images/2018/06/04/5uNo.jpg"></p>
 <p><strong>限制输出长度</strong>：<br><code>git log --since=2.weeks</code>列出所有最近两周内的提交<br><code>git log -Sfunction_name</code>添加或移除了某一个特定函数的引用的提交<br><code>git log -- pathname</code>列出某些文件或者目录的历史提交</p>
 <blockquote>
 <p>如果只关心某些文件或者目录的历史提交，可以在 git log 选项的最后指定它们的路径。 因为是放在最后位置上的选项，所以用两个短划线（–）隔开之前的选项和后面限定的路径名。</p>
 </blockquote>
-<p><strong>限制<code>git log</code>输出的选项</strong>：<br><img src="https://i.niupic.com/images/2018/06/04/5uNp.jpg"></p>
+<p><strong>限制<code>git log</code>输出的选项</strong>：<br><img data-src="https://i.niupic.com/images/2018/06/04/5uNp.jpg"></p>
 <p>样例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --since=&quot;2014-02-12T16:36:00-07:00&quot;</span><br></pre></td></tr></table></figure>
 
@@ -348,7 +348,7 @@
 </blockquote>
 <h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><p><strong>查看分支列表</strong><br><code>git branch</code>查看分支列表<br><code>git branch -v</code>查看每一个分支的最后一次提交<br><code>git branch --merged</code>查看哪些分支已经合并到当前分支<br><code>git branch --no-merged</code>查看所有包含未合并工作的分支<br><code>git branch -D [branch-name]</code>强制删除分支</p>
 <h3 id="分支开发工作流"><a href="#分支开发工作流" class="headerlink" title="分支开发工作流"></a>分支开发工作流</h3><p><strong>长期分支</strong><br><code>master</code>、<code>develop</code>、<code>next</code>分支并行开发，<code>master</code>分支保留完全稳定的代码，其他分支作为后续开发或者测试稳定性。<br>项目庞大或者复杂时，可以考虑增<code>proposed</code>或者<code>pu:proposed updates</code>分支，包含一些不成熟的内容不能进入<code>next</code>或<code>master</code>分支的内容。</p>
-<p><strong>分支工作流</strong><br><img src="https://i.niupic.com/images/2018/06/08/5vMW.jpg"></p>
+<p><strong>分支工作流</strong><br><img data-src="https://i.niupic.com/images/2018/06/08/5vMW.jpg"></p>
 <p><strong>特性分支</strong></p>
 <blockquote>
 <p>特性分支对任何规模的项目都适用。 特性分支是一种短期分支，它被用来实现单一特性或其相关工作。</p>

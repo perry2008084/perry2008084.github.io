@@ -230,7 +230,7 @@
 <p>正文从这里开始:</p>
 <p>创建被许多人使用的组件是困难的。尤其当组件的属性作为公开API的一部分，你不得不仔细考虑哪些属性应该接受。</p>
 <p>这篇文章会快速介绍一些在API设计时的通用最佳实践，并且给出10条明确的最佳实践指导你创建让同事开发者喜欢使用的组件。</p>
-<p><img src="http://picbed.bookcell.cn/picgo/api.jpg" alt="image"></p>
+<p><img data-src="http://picbed.bookcell.cn/picgo/api.jpg" alt="image"></p>
 <h2 id="API是什么"><a href="#API是什么" class="headerlink" title="API是什么?"></a>API是什么?</h2><p>API或者应用程序接口(Application Programming Interface)，主要是指两部分代码相遇的地方。这是你的代码和其他世界接触的地方。我们称这个接触表面为接口。这些是可交互的动作集合或者数据点。</p>
 <p>介于前端和后端之间的接口就是一个API。你可以通过这个API访问一系列特定的数据和功能。</p>
 <p>介于一个类和调用代码之间接口也是一个API。你可以在类上调用方法，来获取数据或者触发封装在其中的功能。</p>
@@ -244,7 +244,7 @@
 <p>另外需要放在心上是保持你的代码一致性。如果你在一处地方给布尔型属性名称前面添加了<code>is</code>或<code>has</code>，而在另外一处忽略了，这会让其他人感到困惑。</p>
 <h3 id="最小化API接口"><a href="#最小化API接口" class="headerlink" title="最小化API接口"></a>最小化API接口</h3><p>当我们谈到最小化的时候-同样要最小化你的API。更多的特性当然是好的，但是API接口暴露得越少，使用者学习的成本也更低。从而让用户认为这是一个易用的API。</p>
 <p>有很多方式可以控制API的规模，其中一个就是从旧的中重构一个新的来。</p>
-<h2 id="组件开发的十条最佳实践"><a href="#组件开发的十条最佳实践" class="headerlink" title="组件开发的十条最佳实践"></a>组件开发的十条最佳实践</h2><p><img src="http://picbed.bookcell.cn/picgo/10_component_comandments.jpg" alt="image"></p>
+<h2 id="组件开发的十条最佳实践"><a href="#组件开发的十条最佳实践" class="headerlink" title="组件开发的十条最佳实践"></a>组件开发的十条最佳实践</h2><p><img data-src="http://picbed.bookcell.cn/picgo/10_component_comandments.jpg" alt="image"></p>
 <p>这4条黄金法则在REST API和Pascal语言程序中使用得很好，那么如何将他们拿到React的现代世界中来呢？</p>
 <p>像我们前面提到的，组件也有自己的API。我们称做<code>props</code>，这是给组件传递数据、回调和其他功能的方式。我们如何组织<code>props</code>对象才能不破坏上面的规则？我们如何开发组件才能让其他开发者在使用组件时更便捷？</p>
 <p>我们创建了开发组件时的10条不错的规则清单，希望对你有帮助。</p>

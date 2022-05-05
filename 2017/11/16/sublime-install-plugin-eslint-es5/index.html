@@ -249,17 +249,17 @@
 <p>配置IIFE的括号在外侧，正确代码为：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var x = (function () &#123; return &#123; y: 1 &#125;;&#125;()); // wrapped call expression</span><br></pre></td></tr></table></figure>
 
-<h2 id="Sublime-Linter"><a href="#Sublime-Linter" class="headerlink" title="Sublime-Linter"></a>Sublime-Linter</h2><p>首先安装Sublime Text插件 SublimeLinter，这是一个代码检测的框架，基于这个框架插件，可以再安装其他的插件，包括ESLint。通过Command + Shift + P，安装包SublimeLinter和SublimeLinter-contrib-eslint：<br><img src="/../image/sublime-install-sublimelinter.jpg" alt="安装sublimelinter"><br><img src="/../image/sublime-install-eslint.jpg" alt="安装eslint"></p>
+<h2 id="Sublime-Linter"><a href="#Sublime-Linter" class="headerlink" title="Sublime-Linter"></a>Sublime-Linter</h2><p>首先安装Sublime Text插件 SublimeLinter，这是一个代码检测的框架，基于这个框架插件，可以再安装其他的插件，包括ESLint。通过Command + Shift + P，安装包SublimeLinter和SublimeLinter-contrib-eslint：<br><img data-src="/../image/sublime-install-sublimelinter.jpg" alt="安装sublimelinter"><br><img data-src="/../image/sublime-install-eslint.jpg" alt="安装eslint"></p>
 <p>接着配置SublimeLinter，通过菜单Sublime Text -&gt; Prefences -&gt; Package Settings -&gt; SublimeLinter -&gt; Settings-User进行设置，<br>在这里需要配置一下node的安装位置，通过paths配置项告诉SublimeLinter。可以通过which node命令来确定node的安装路径。如果你是使用nvm，那么配置项如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;paths&quot;: &#123;</span><br><span class="line">  &quot;linux&quot;: [],</span><br><span class="line">  &quot;osx&quot;: [</span><br><span class="line">    &quot;/Users/jonathanc/.nvm/versions/io.js/v2.0.0/bin&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;windows&quot;: []</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p><img src="/../image/sublime-config-sublimelint.jpg" alt="配置sublimelint"></p>
+<p><img data-src="/../image/sublime-config-sublimelint.jpg" alt="配置sublimelint"></p>
 <h2 id="配置Airbnb代码规范插件"><a href="#配置Airbnb代码规范插件" class="headerlink" title="配置Airbnb代码规范插件"></a>配置Airbnb代码规范插件</h2><p>这里介绍ES5的版本，github上最新的airbnb JavaScript代码规范是支持ES6的。<br>Linux和Mac用户安装方法：<br>(<br>  export PKG&#x3D;eslint-config-airbnb-base;<br>  npm info “$PKG” peerDependencies –json | command sed ‘s&#x2F;[{},]&#x2F;&#x2F;g ; s&#x2F;: &#x2F;@&#x2F;g’ | xargs npm install –save-dev “$PKG”<br>)</p>
 <p>这类似于运行了以下的安装命令：<br>npm install –save-dev eslint-config-airbnb-base eslint@^3.0.1 eslint-plugin-import@^1.10.3</p>
 <p>注：这里的安装命令，可以选择全局安装或者项目中安装，不过需要和eslint进行匹配，否则eslint跑起来可能会报错。</p>
 <p>接着，在项目根目录.eslintrc的文件中增加配置项：<br>“extends”: “airbnb-base&#x2F;legacy”</p>
 <p>这样你的项目在Sublime编辑器中就可以看到代码检测的提示了。</p>
-<p><img src="/../image/sublime-lint-result.jpg" alt="代码检测结果"></p>
-<h2 id="Sublime-Linter工具使用"><a href="#Sublime-Linter工具使用" class="headerlink" title="Sublime Linter工具使用"></a>Sublime Linter工具使用</h2><p>通过Tools - SublimeLinter菜单，可以设置代码检测的运行方式、提示风格、错误的跳转等等。<br><img src="/../image/sublime-sublimelinter-options.jpg" alt="代码检测工具配置项"></p>
+<p><img data-src="/../image/sublime-lint-result.jpg" alt="代码检测结果"></p>
+<h2 id="Sublime-Linter工具使用"><a href="#Sublime-Linter工具使用" class="headerlink" title="Sublime Linter工具使用"></a>Sublime Linter工具使用</h2><p>通过Tools - SublimeLinter菜单，可以设置代码检测的运行方式、提示风格、错误的跳转等等。<br><img data-src="/../image/sublime-sublimelinter-options.jpg" alt="代码检测工具配置项"></p>
 <h2 id="错误的解决方法"><a href="#错误的解决方法" class="headerlink" title="错误的解决方法"></a>错误的解决方法</h2><p>如果通过上述的配置，eslint并没有生效，可以通过工具菜单打开debug模式，并且展开sublime的控制台(View-Show Console)，查看报错信息来解决。</p>
 <p>需要注意eslint和eslint-config-airbnb-base的安装是全局的，还是局部的。</p>
 
