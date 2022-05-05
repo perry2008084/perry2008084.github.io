@@ -1,3 +1,4 @@
+https://blog.bookcell.org/about/index.html
 https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/
 https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/
 https://blog.bookcell.org/2019/12/31/2019-summary/
@@ -13,7 +14,6 @@ https://blog.bookcell.org/2021/01/01/reading-list-2021/
 https://blog.bookcell.org/2021/08/24/web-develop-security/
 https://blog.bookcell.org/2022/01/03/2021-annual-sumary/
 https://blog.bookcell.org/2022/04/17/angular-monorepo-project-by-pnpm/
-https://blog.bookcell.org/about/index.html
 https://blog.bookcell.org/confucian/index.html
 https://blog.bookcell.org/2020/04/12/ecmascript-2020-new-feature/
 https://blog.bookcell.org/2019/12/16/2019-d2-forum-14th/
