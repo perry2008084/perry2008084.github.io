@@ -9,7 +9,6 @@ https://blog.bookcell.org/2021/08/24/web-develop-security/
 https://blog.bookcell.org/2022/01/03/2021-annual-sumary/
 https://blog.bookcell.org/2022/04/17/angular-monorepo-project-by-pnpm/
 https://blog.bookcell.org/about/index.html
-https://blog.bookcell.org/R6300v2-V1.0.4.52_10.0.93/R6300v2-V1.0.4.52_10.0.93_Release_Notes.html
 https://blog.bookcell.org/2019/12/29/reading-list-2020/
 https://blog.bookcell.org/confucian/index.html
 https://blog.bookcell.org/2020/04/12/ecmascript-2020-new-feature/
