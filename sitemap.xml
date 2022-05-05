@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/</loc>
+    
+    <lastmod>2022-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/</loc>
+    
+    <lastmod>2022-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.bookcell.org/2019/12/31/2019-summary/</loc>
+    
+    <lastmod>2022-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.bookcell.org/2019/12/29/reading-list-2020/</loc>
+    
+    <lastmod>2022-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.bookcell.org/2019/12/29/reading-2019-summary/</loc>
+    
+    <lastmod>2022-05-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.bookcell.org/2021/01/02/reading-note-just-do-it/</loc>
     
     <lastmod>2022-05-05</lastmod>
@@ -101,15 +146,6 @@
   </url>
   
   <url>
-    <loc>https://blog.bookcell.org/2019/12/29/reading-list-2020/</loc>
-    
-    <lastmod>2021-01-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.bookcell.org/confucian/index.html</loc>
     
     <lastmod>2020-11-25</lastmod>
@@ -128,45 +164,9 @@
   </url>
   
   <url>
-    <loc>https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/</loc>
-    
-    <lastmod>2020-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/</loc>
-    
-    <lastmod>2020-01-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.bookcell.org/2019/12/31/2019-summary/</loc>
-    
-    <lastmod>2019-12-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.bookcell.org/2019/12/16/2019-d2-forum-14th/</loc>
     
     <lastmod>2019-12-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.bookcell.org/2019/12/29/reading-2019-summary/</loc>
-    
-    <lastmod>2019-12-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

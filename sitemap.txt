@@ -1,3 +1,8 @@
+https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/
+https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/
+https://blog.bookcell.org/2019/12/31/2019-summary/
+https://blog.bookcell.org/2019/12/29/reading-list-2020/
+https://blog.bookcell.org/2019/12/29/reading-2019-summary/
 https://blog.bookcell.org/2021/01/02/reading-note-just-do-it/
 https://blog.bookcell.org/2020/12/25/2020-web-tech-stack-md/
 https://blog.bookcell.org/2020/05/31/ecmascript-2019-new-feature/
@@ -9,14 +14,9 @@ https://blog.bookcell.org/2021/08/24/web-develop-security/
 https://blog.bookcell.org/2022/01/03/2021-annual-sumary/
 https://blog.bookcell.org/2022/04/17/angular-monorepo-project-by-pnpm/
 https://blog.bookcell.org/about/index.html
-https://blog.bookcell.org/2019/12/29/reading-list-2020/
 https://blog.bookcell.org/confucian/index.html
 https://blog.bookcell.org/2020/04/12/ecmascript-2020-new-feature/
-https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/
-https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/
-https://blog.bookcell.org/2019/12/31/2019-summary/
 https://blog.bookcell.org/2019/12/16/2019-d2-forum-14th/
-https://blog.bookcell.org/2019/12/29/reading-2019-summary/
 https://blog.bookcell.org/2018/12/31/reading-list-2019/
 https://blog.bookcell.org/2019/10/25/jsconf-china-2019/
 https://blog.bookcell.org/2019/08/17/react-router-v4-principle-by-implemente-a-simple-one/

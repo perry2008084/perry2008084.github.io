@@ -27,17 +27,17 @@
 <meta property="og:site_name" content="书格前端">
 <meta property="og:description" content="原文地址: https:&#x2F;&#x2F;dev.to&#x2F;selbekk&#x2F;the-10-component-commandments-2a7f译文地址: https:&#x2F;&#x2F;blog.bookcell.org&#x2F;2020&#x2F;03&#x2F;22&#x2F;the-10-react-component-best-practice&#x2F;  译者备注: 这是一篇关于React组件开发最佳实践的文章，很值得一读，推荐有能力阅读英文的同学去读原文，翻译或">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://picbed.bookcell.cn/picgo/api.jpg">
-<meta property="og:image" content="http://picbed.bookcell.cn/picgo/10_component_comandments.jpg">
+<meta property="og:image" content="https://bookcell-image-bed.oss-cn-nanjing.aliyuncs.com/img/api.jpg">
+<meta property="og:image" content="https://bookcell-image-bed.oss-cn-nanjing.aliyuncs.com/img/10_component_comandments.jpg">
 <meta property="article:published_time" content="2020-03-22T12:50:27.000Z">
-<meta property="article:modified_time" content="2020-03-22T12:55:24.247Z">
+<meta property="article:modified_time" content="2022-05-05T14:59:16.216Z">
 <meta property="article:author" content="Perry">
 <meta property="article:tag" content="前端开发">
 <meta property="article:tag" content="Reactjs">
 <meta property="article:tag" content="最佳实践">
 <meta property="article:tag" content="组件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://picbed.bookcell.cn/picgo/api.jpg">
+<meta name="twitter:image" content="https://bookcell-image-bed.oss-cn-nanjing.aliyuncs.com/img/api.jpg">
 
 <link rel="canonical" href="https://blog.bookcell.org/2020/03/22/the-10-react-component-best-practice/">
 
@@ -198,10 +198,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-22 20:50:27 / 修改时间：20:55:24" itemprop="dateCreated datePublished" datetime="2020-03-22T20:50:27+08:00">2020-03-22</time>
+              <time title="创建时间：2020-03-22 20:50:27" itemprop="dateCreated datePublished" datetime="2020-03-22T20:50:27+08:00">2020-03-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-05 22:59:16" itemprop="dateModified" datetime="2022-05-05T22:59:16+08:00">2022-05-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -230,7 +236,7 @@
 <p>正文从这里开始:</p>
 <p>创建被许多人使用的组件是困难的。尤其当组件的属性作为公开API的一部分，你不得不仔细考虑哪些属性应该接受。</p>
 <p>这篇文章会快速介绍一些在API设计时的通用最佳实践，并且给出10条明确的最佳实践指导你创建让同事开发者喜欢使用的组件。</p>
-<p><img data-src="http://picbed.bookcell.cn/picgo/api.jpg" alt="image"></p>
+<p><img data-src="https://bookcell-image-bed.oss-cn-nanjing.aliyuncs.com/img/api.jpg" alt="image"></p>
 <h2 id="API是什么"><a href="#API是什么" class="headerlink" title="API是什么?"></a>API是什么?</h2><p>API或者应用程序接口(Application Programming Interface)，主要是指两部分代码相遇的地方。这是你的代码和其他世界接触的地方。我们称这个接触表面为接口。这些是可交互的动作集合或者数据点。</p>
 <p>介于前端和后端之间的接口就是一个API。你可以通过这个API访问一系列特定的数据和功能。</p>
 <p>介于一个类和调用代码之间接口也是一个API。你可以在类上调用方法，来获取数据或者触发封装在其中的功能。</p>
@@ -244,7 +250,7 @@
 <p>另外需要放在心上是保持你的代码一致性。如果你在一处地方给布尔型属性名称前面添加了<code>is</code>或<code>has</code>，而在另外一处忽略了，这会让其他人感到困惑。</p>
 <h3 id="最小化API接口"><a href="#最小化API接口" class="headerlink" title="最小化API接口"></a>最小化API接口</h3><p>当我们谈到最小化的时候-同样要最小化你的API。更多的特性当然是好的，但是API接口暴露得越少，使用者学习的成本也更低。从而让用户认为这是一个易用的API。</p>
 <p>有很多方式可以控制API的规模，其中一个就是从旧的中重构一个新的来。</p>
-<h2 id="组件开发的十条最佳实践"><a href="#组件开发的十条最佳实践" class="headerlink" title="组件开发的十条最佳实践"></a>组件开发的十条最佳实践</h2><p><img data-src="http://picbed.bookcell.cn/picgo/10_component_comandments.jpg" alt="image"></p>
+<h2 id="组件开发的十条最佳实践"><a href="#组件开发的十条最佳实践" class="headerlink" title="组件开发的十条最佳实践"></a>组件开发的十条最佳实践</h2><p><img data-src="https://bookcell-image-bed.oss-cn-nanjing.aliyuncs.com/img/10_component_comandments.jpg" alt="image"></p>
 <p>这4条黄金法则在REST API和Pascal语言程序中使用得很好，那么如何将他们拿到React的现代世界中来呢？</p>
 <p>像我们前面提到的，组件也有自己的API。我们称做<code>props</code>，这是给组件传递数据、回调和其他功能的方式。我们如何组织<code>props</code>对象才能不破坏上面的规则？我们如何开发组件才能让其他开发者在使用组件时更便捷？</p>
 <p>我们创建了开发组件时的10条不错的规则清单，希望对你有帮助。</p>
