@@ -22,13 +22,13 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="书格前端">
-<meta property="og:url" content="https://blog.bookcell.org/tags/git/index.html">
+<meta property="og:url" content="https://blog.bookcell.org/tags/Git/index.html">
 <meta property="og:site_name" content="书格前端">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Perry">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.bookcell.org/tags/git/">
+<link rel="canonical" href="https://blog.bookcell.org/tags/Git/">
 
 
 <script id="page-configurations">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title>标签: git | 书格前端</title>
+  <title>标签: Git | 书格前端</title>
   
 
 
@@ -167,14 +167,14 @@
   <div class="post-block">
     <div class="posts-collapse">
       <div class="collection-title">
-        <h2 class="collection-header">git
+        <h2 class="collection-header">Git
           <small>标签</small>
         </h2>
       </div>
 
       
     <div class="collection-year">
-      <span class="collection-header">2018</span>
+      <span class="collection-header">2020</span>
     </div>
 
   <article itemscope itemtype="http://schema.org/Article">
@@ -182,38 +182,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2018-07-26T21:07:58+08:00"
-              content="2018-07-26">
-          07-26
+              datetime="2020-09-20T23:20:17+08:00"
+              content="2020-09-20">
+          09-20
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2018/07/26/git-quick-bookup-notes/" itemprop="url">
-            <span itemprop="name">Git快速查找笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2017</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2017-04-17T23:14:24+08:00"
-              content="2017-04-17">
-          04-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2017/04/17/git-checkout-a-specific-tag/" itemprop="url">
-            <span itemprop="name">Git checkout指定tag的代码</span>
+          <a class="post-title-link" href="/2020/09/20/git-merge-multi-commits/" itemprop="url">
+            <span itemprop="name">Git多次提交记录合并</span>
           </a>
       </div>
 
@@ -291,7 +268,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -303,7 +280,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-count">221</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -421,6 +398,32 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'kMlJe89VDBdOAEgExsCkUkhz-gzGzoHsz',
+      appKey     : 'KBj7yrnCGk3P6V9byKOaITFx',
+      placeholder: "欢迎交流",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
+k,mail,link';
     guest = guest.split(',').filter(item => {
       return GUEST.includes(item);
     });

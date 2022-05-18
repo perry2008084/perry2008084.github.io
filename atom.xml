@@ -6,7 +6,7 @@
   <link href="https://blog.bookcell.org/atom.xml" rel="self"/>
   
   <link href="https://blog.bookcell.org/"/>
-  <updated>2022-04-25T15:04:25.702Z</updated>
+  <updated>2022-05-18T14:56:02.889Z</updated>
   <id>https://blog.bookcell.org/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何提高工作效率和成长</title>
+    <link href="https://blog.bookcell.org/2022/05/18/effective-and-grow/"/>
+    <id>https://blog.bookcell.org/2022/05/18/effective-and-grow/</id>
+    <published>2022-05-18T14:51:33.000Z</published>
+    <updated>2022-05-18T14:56:02.889Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近由于工作任务的调整，手上有部分偏向管理的工作，开发和管理导致工作变得忙碌，因此收集和整理了关于如何提高效率和成长的一些建议和习惯。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://blog.bookcell.org/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="效率" scheme="https://blog.bookcell.org/tags/%E6%95%88%E7%8E%87/"/>
+    
+    <category term="成长" scheme="https://blog.bookcell.org/tags/%E6%88%90%E9%95%BF/"/>
+    
+    <category term="开发" scheme="https://blog.bookcell.org/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="感悟" scheme="https://blog.bookcell.org/tags/%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>pnpm在angular的monorepo项目中的应用</title>
@@ -540,40 +565,6 @@
     <category term="React Router" scheme="https://blog.bookcell.org/tags/React-Router/"/>
     
     <category term="路由" scheme="https://blog.bookcell.org/tags/%E8%B7%AF%E7%94%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019日本京都奈良大阪自由行游记</title>
-    <link href="https://blog.bookcell.org/2019/08/08/2019-japan-kyoto-nari-osaka-travel/"/>
-    <id>https://blog.bookcell.org/2019/08/08/2019-japan-kyoto-nari-osaka-travel/</id>
-    <published>2019-08-08T08:06:54.000Z</published>
-    <updated>2019-08-09T14:54:12.761Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本次旅游了日本的京都、奈良、大阪三个地方，共花了8天7夜的时间，对本次的旅行记录一下回顾和感想，其中分为三个部分来描述，游记、攻略和感想。&lt;/p&gt;
-&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;游记&lt;/li&gt;
-&lt;li&gt;攻略&lt;/li&gt;
-&lt;li&gt;感想&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;游记&quot;&gt;&lt;a href=&quot;#游记&quot; class=&quot;headerlink&quot; title=&quot;游记&quot;&gt;&lt;/a&gt;游记&lt;/h2&gt;&lt;p&gt;关于这次的旅行，是年初的时候就计划好的，关于地点是台北和日本京都选择其一的，最终选择了日本，理由是先感受一下日本的文化和风情；关于时间，起初计划的时间是9月份的，正好这段时间离职了，老婆也正好也有时间，就排上这次旅行。&lt;/p&gt;
-&lt;p&gt;总的图片集合可以访问&lt;a href=&quot;https://imgur.com/gallery/VR1eZfT&quot;&gt;日本自由行图片集合&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="生活" scheme="https://blog.bookcell.org/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-    <category term="2019" scheme="https://blog.bookcell.org/tags/2019/"/>
-    
-    <category term="生活" scheme="https://blog.bookcell.org/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-    <category term="旅游" scheme="https://blog.bookcell.org/tags/%E6%97%85%E6%B8%B8/"/>
-    
-    <category term="日本" scheme="https://blog.bookcell.org/tags/%E6%97%A5%E6%9C%AC/"/>
-    
-    <category term="游记" scheme="https://blog.bookcell.org/tags/%E6%B8%B8%E8%AE%B0/"/>
     
   </entry>
   

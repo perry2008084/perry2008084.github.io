@@ -164,6 +164,129 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2018/03/26/from-npm-to-yarn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/03/26/from-npm-to-yarn/" class="post-title-link" itemprop="url">从npm到yarn</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-03-26 22:48:11 / 修改时间：22:49:00" itemprop="dateCreated datePublished" datetime="2018-03-26T22:48:11+08:00">2018-03-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/03/26/from-npm-to-yarn/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/03/26/from-npm-to-yarn/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>由于使用NPM在国内的安装速度很慢，找了一些解决方案，因此引出了Yarn + 淘宝源的使用方案，记录一下Yarn使用的方法</p>
+<ol>
+<li>Yarn简介</li>
+<li>Yarn安装</li>
+<li>NPM源配置</li>
+<li>Yarn使用</li>
+</ol>
+<h2 id="Yarn简介"><a href="#Yarn简介" class="headerlink" title="Yarn简介"></a>Yarn简介</h2><p>Yarn是FaceBook推出的一款基于nodejs的依赖管理工具，在npm基础上做了一些改进。Github上的star已经超过30k。</p>
+<p>超快</p>
+<blockquote>
+<p>Yarn caches every package it downloads so it never needs to download it again. It also parallelizes operations to maximize resource utilization so install times are faster than ever.</p>
+</blockquote>
+<p>非常安全</p>
+<blockquote>
+<p>Yarn uses checksums to verify the integrity of every installed package before its code is executed.</p>
+</blockquote>
+<p>超可靠</p>
+<blockquote>
+<p>Using a detailed, but concise, lockfile format, and a deterministic algorithm for installs, Yarn is able to guarantee that an install that worked on one system will work exactly the same way on any other system.</p>
+</blockquote>
+<p>详细的优点可参看知乎的评价文章<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/51502849">如何评价Facebook推出的JavaScript模块管理器yarn？</a></p>
+<h2 id="Yarn安装"><a href="#Yarn安装" class="headerlink" title="Yarn安装"></a>Yarn安装</h2><p>这里列一下MacOS下的安装方法：</p>
+<p>使用Homebrew进行安装，如果没有安装Node.js会自动进行安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn</span><br></pre></td></tr></table></figure>
+
+<p>如果已经使用nvm或者类似的工具安装过Node.js，可以选择忽略安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yarn --without-node</span><br></pre></td></tr></table></figure>
+
+<p>验证是否安装成功:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="NPM源配置"><a href="#NPM源配置" class="headerlink" title="NPM源配置"></a>NPM源配置</h2><p>有两种方法：</p>
+<p>一、直接配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 配置registry</span><br><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br><span class="line"></span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<p>二、使用nrm切换npm源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 安装nrm</span><br><span class="line">npm i nrm -g</span><br><span class="line"></span><br><span class="line">// 列出所有可用的registry</span><br><span class="line">nrm ls</span><br><span class="line"></span><br><span class="line">// 使用淘宝源</span><br><span class="line">nrm use taobao</span><br><span class="line"></span><br><span class="line">// 测试速度</span><br><span class="line">nrm test</span><br></pre></td></tr></table></figure>
+
+<p>建议使用第二种方案</p>
+<h2 id="Yarn使用"><a href="#Yarn使用" class="headerlink" title="Yarn使用"></a>Yarn使用</h2><p>列举一些常用的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 新建一个项目</span><br><span class="line">yarn init</span><br><span class="line"></span><br><span class="line">// 添加依赖</span><br><span class="line">yarn add [package]</span><br><span class="line">yarn add [package]@[version]</span><br><span class="line">yarn add [package]@[tag]</span><br><span class="line"></span><br><span class="line">// 添加其他类型的依赖到项目中</span><br><span class="line">// 其中dev是开发依赖；peer一般用于开发库；</span><br><span class="line">// optional为可选依赖，安装过程中报错也可忽略</span><br><span class="line">yarn add [package] --dev</span><br><span class="line">yarn add [package] --peer</span><br><span class="line">yarn add [package] --optional</span><br><span class="line"></span><br><span class="line">// 升级依赖</span><br><span class="line">yarn upgrade [package]</span><br><span class="line">yarn upgrade [package]@[version]</span><br><span class="line">yarn upgrade [package]@[tag]</span><br><span class="line"></span><br><span class="line">// 移除依赖</span><br><span class="line">yarn remove [package]</span><br><span class="line"></span><br><span class="line">// 安装一个项目的所有依赖</span><br><span class="line">yarn</span><br><span class="line"></span><br><span class="line">// 或者</span><br><span class="line">yarn install</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1000,114 +1123,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2017/07/29/ssh-key-configuration/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/07/29/ssh-key-configuration/" class="post-title-link" itemprop="url">ssh密钥登录配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-29 14:19:42" itemprop="dateCreated datePublished" datetime="2017-07-29T14:19:42+08:00">2017-07-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-07-28 14:37:26" itemprop="dateModified" datetime="2017-07-28T14:37:26+08:00">2017-07-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2017/07/29/ssh-key-configuration/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2017/07/29/ssh-key-configuration/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>配置密钥可使用户免密ssh方式登录服务器。</p>
-<p>配置方法：</p>
-<h2 id="生成密钥对"><a href="#生成密钥对" class="headerlink" title="生成密钥对"></a>生成密钥对</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure>
-
-<p>此处可选择生成密钥的文件路径，默认为~&#x2F;.ssh&#x2F;id_rsa<br>密码为可选。</p>
-<h2 id="拷贝公钥到服务器"><a href="#拷贝公钥到服务器" class="headerlink" title="拷贝公钥到服务器"></a>拷贝公钥到服务器</h2><h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id -i ~/.ssh/id_rsa.pub xxx@host</span><br></pre></td></tr></table></figure>
-
-<h3 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h3><p>手动拷贝id_rsa.pub到服务器上，并收到添加认证文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-
-<h2 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h2><p>配置服务器上&#x2F;etc&#x2F;ssh&#x2F;sshd_config文件，修改以下配置项</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile  .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>修改后，重启sshd服务，根据不同的系统使用相应命令</p>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>直接登录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br></pre></td></tr></table></figure>
-
-<p>如果配置成功，则不需要密码直接登录。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="配置成功后，仍提示密码输入"><a href="#配置成功后，仍提示密码输入" class="headerlink" title="配置成功后，仍提示密码输入"></a>配置成功后，仍提示密码输入</h3><p>主要原因在于服务器上认证文件及所在目录的权限问题</p>
-<p>详情排查步骤可查看文章<a target="_blank" rel="noopener" href="http://zouqingyun.blog.51cto.com/782246/1874410">配置ssh公钥登录提示还是输入密码</a></p>
-<p>解决方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 755 ~/home/xxxuser</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1177,7 +1192,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1189,7 +1204,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-count">221</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

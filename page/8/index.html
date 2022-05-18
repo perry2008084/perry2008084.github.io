@@ -164,6 +164,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2017/07/29/ssh-key-configuration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Perry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书格前端">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/29/ssh-key-configuration/" class="post-title-link" itemprop="url">ssh密钥登录配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-29 14:19:42" itemprop="dateCreated datePublished" datetime="2017-07-29T14:19:42+08:00">2017-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-07-28 14:37:26" itemprop="dateModified" datetime="2017-07-28T14:37:26+08:00">2017-07-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2017/07/29/ssh-key-configuration/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/07/29/ssh-key-configuration/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>配置密钥可使用户免密ssh方式登录服务器。</p>
+<p>配置方法：</p>
+<h2 id="生成密钥对"><a href="#生成密钥对" class="headerlink" title="生成密钥对"></a>生成密钥对</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure>
+
+<p>此处可选择生成密钥的文件路径，默认为~&#x2F;.ssh&#x2F;id_rsa<br>密码为可选。</p>
+<h2 id="拷贝公钥到服务器"><a href="#拷贝公钥到服务器" class="headerlink" title="拷贝公钥到服务器"></a>拷贝公钥到服务器</h2><h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-copy-id -i ~/.ssh/id_rsa.pub xxx@host</span><br></pre></td></tr></table></figure>
+
+<h3 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h3><p>手动拷贝id_rsa.pub到服务器上，并收到添加认证文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h2><p>配置服务器上&#x2F;etc&#x2F;ssh&#x2F;sshd_config文件，修改以下配置项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile  .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>修改后，重启sshd服务，根据不同的系统使用相应命令</p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>直接登录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br></pre></td></tr></table></figure>
+
+<p>如果配置成功，则不需要密码直接登录。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="配置成功后，仍提示密码输入"><a href="#配置成功后，仍提示密码输入" class="headerlink" title="配置成功后，仍提示密码输入"></a>配置成功后，仍提示密码输入</h3><p>主要原因在于服务器上认证文件及所在目录的权限问题</p>
+<p>详情排查步骤可查看文章<a target="_blank" rel="noopener" href="http://zouqingyun.blog.51cto.com/782246/1874410">配置ssh公钥登录提示还是输入密码</a></p>
+<p>解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 755 ~/home/xxxuser</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2017/04/28/linux-cli-search-commands/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1057,99 +1165,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.bookcell.org/2017/03/08/disabled-hyperlink-style/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Perry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书格前端">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/03/08/disabled-hyperlink-style/" class="post-title-link" itemprop="url">disable超链接的css样式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-03-08 10:41:38" itemprop="dateCreated datePublished" datetime="2017-03-08T10:41:38+08:00">2017-03-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-03-11 15:04:49" itemprop="dateModified" datetime="2017-03-11T15:04:49+08:00">2017-03-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2017/03/08/disabled-hyperlink-style/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2017/03/08/disabled-hyperlink-style/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>想要设置disabled的超链接，让用户不可点击，可添加一个class来设置。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.disabled-link &#123;</span><br><span class="line">  pointer-events: none;</span><br><span class="line">  cursor: default;</span><br><span class="line">  opacity: 0.6;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;a href=&quot;#&quot; class=&quot;disabled-link&quot;&gt;link&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意：<br>pointer-events这个属性对浏览器兼容性有一定的要求。</p>
-<p>IE11<br>Edge 14<br>Firefox 51<br>Chrome 49<br>Safari 10<br>Opera 43</p>
-<p>【以上】</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1219,7 +1234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1231,7 +1246,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-count">221</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
