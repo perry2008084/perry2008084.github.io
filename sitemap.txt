@@ -1,3 +1,4 @@
+https://blog.bookcell.org/2018/04/13/how-to-use-google-search/
 https://blog.bookcell.org/2022/05/18/effective-and-grow/
 https://blog.bookcell.org/about/index.html
 https://blog.bookcell.org/2020/01/30/how-to-read-a-book-notes/
@@ -60,7 +61,6 @@ https://blog.bookcell.org/2018/05/31/ag-grid-for-angularjs/
 https://blog.bookcell.org/2018/05/29/localstorage-sessionstorage-cookie-and-session/
 https://blog.bookcell.org/2018/05/06/frontend-develop-tutorial-01/
 https://blog.bookcell.org/2018/04/22/css-background-guide/
-https://blog.bookcell.org/2018/04/13/how-to-use-google-search/
 https://blog.bookcell.org/2018/03/26/from-npm-to-yarn/
 https://blog.bookcell.org/2018/02/19/directly-upgrading-from-angularjs-to-angular-without-preparing-the-exiting-code-base/
 https://blog.bookcell.org/2017/12/24/read-list-2018/
